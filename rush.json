@@ -42,7 +42,7 @@
    * LTS schedule: https://nodejs.org/en/about/releases/
    * LTS versions: https://nodejs.org/en/download/releases/
    */
-  "nodeSupportedVersionRange": ">=14.15.0 <15.0.0 || >=16.13.0 <17.0.0 || >=18.15.0 <19.0.0",
+  "nodeSupportedVersionRange": ">=18.15.0 <=20.9.0",
 
   /**
    * If the version check above fails, Rush will display a message showing the current
@@ -342,6 +342,12 @@
    * 3. It's useful to have a centralized inventory of all projects and their important metadata.
    */
   "projects": [
+    {
+      "packageName": "@runespoorstack/eslint-config-base",
+      "projectFolder": "eslint/eslint-config-base",
+      "tags": ["eslint"],
+      "shouldPublish": true
+    }
     // {
     //   /**
     //    * The NPM package name of the project (must match package.json)

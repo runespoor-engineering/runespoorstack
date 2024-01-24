@@ -1,0 +1,53 @@
+{
+  "name": "@runespoorstack/eslint-config-base",
+  "version": "0.0.0",
+  "description": "ESLint configuration for Node.js/Vanilla JS apps.",
+  "main": "index.js",
+  "scripts": {
+    
+  },
+  "devDependencies": {
+    
+  },
+  "peerDependencies": {
+    "eslint": "8.56.0",
+    "prettier": "3.2.4",
+    "eslint-config-airbnb-base": "15.0.0",
+    "eslint-config-prettier": "9.1.0",
+    "eslint-plugin-jest": "27.6.3",
+    "eslint-plugin-jest-formatting": "3.1.0",
+    "eslint-plugin-prettier": "5.1.3",
+    "eslint-plugin-import": "2.29.1",
+    "eslint-plugin-simple-import-sort": "10.0.0"
+  },
+  "homepage": "https://github.com/runespoor-engineering/runespoorstack/eslint/eslint-config-base#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/runespoor-engineering/runespoorstack/eslint/eslint-config-base.git"
+  },
+  "bugs": {
+    "url": "https://github.com/runespoor-engineering/runespoorstack/issues"
+  },
+  "author": {
+    "name": "BorysShulyak",
+    "email": "borysshulyak@gmail.com",
+    "url": "https://github.com/BorysShulyak"
+  },
+  "maintainers": [
+    {
+      "name": "BorysShulyak",
+      "email": "borysshulyak@gmail.com",
+      "url": "https://github.com/BorysShulyak"
+    }
+  ],
+  "keywords": [
+    "eslint",
+    "eslint-config",
+    "custom",
+    "config",
+    "base",
+    "sharable",
+    "reusable"
+  ],
+  "license": "MIT"
+}
