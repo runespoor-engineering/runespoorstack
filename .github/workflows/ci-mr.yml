@@ -16,10 +16,10 @@ jobs:
         with:
           name: BorysShulyak
           email: borysshulyak@gmail.com
-      - name: Use Node.js/20
+      - name: Use Node.js/19
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 19
       - name: Verify Change Logs
         run: node common/scripts/install-run-rush.js change --verify
       - name: Rush Install
