@@ -1,0 +1,10 @@
+{
+  "changes": [
+    {
+      "packageName": "@runespoorstack/eslint-config",
+      "comment": "Implement `ci-mr`, `ci`, `greetings` workflows.",
+      "type": "minor"
+    }
+  ],
+  "packageName": "@runespoorstack/eslint-config"
+}
