@@ -62,13 +62,41 @@ Install [Rush.js](https://rushjs.io/) globally:
 npm install -g @microsoft/rush
 ```
 
+Install package dependencies for all projects, based on the shrinkwrap file that is created/updated using `rush update`. [Reference](https://rushjs.io/pages/commands/rush_install/)
+
+```shell
+rush install
+```
+
 If you want to open a PRs you could fork the repository. For more information read the following docs:
 [Fork a repo](https://docs.github.com/en/get-started/quickstart/fork-a-repo),
 [Contributing to projects](https://docs.github.com/en/get-started/quickstart/contributing-to-projects).
 
-### The list of commands
+### Common commands
 
+Install the dependencies described in your package.json files, and update the shrinkwrap file as needed. [Reference](https://rushjs.io/pages/commands/rush_update/)
 
+```shell
+rush update
+```
+
+Do a full, clean build of every project in the repository. [Reference](https://rushjs.io/pages/commands/rush_rebuild/)
+
+```shell
+rush rebuild
+```
+
+Delete temporary files created by Rush, including the installed dependencies for all the projects. [Reference](https://rushjs.io/pages/commands/rush_purge/)
+This is useful if you are having problems and suspect that cache files may be corrupt.
+
+```shell
+rush purge
+```
+
+Asks a series of questions and then generates a <branchname>-<timestamp>.json file in the common folder used for CHANGELOG generation.
+```shell
+rush change
+```
 
 ## Conventional commits
 

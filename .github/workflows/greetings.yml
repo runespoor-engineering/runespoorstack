@@ -1,0 +1,21 @@
+name: Greetings
+
+on:
+  issues:
+    types: [opened]
+  pull_request:
+    branches: [main]
+    types: [opened]
+
+jobs:
+  greeting:
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+      pull-requests: write
+    steps:
+      - uses: actions/first-interaction@v1
+        with:
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          issue-message: "Welcome to our issue tracker! 😄 We're excited to have you here and assist you with any issues or bugs you encounter. Whether you've encountered a technical problem, need help with a feature, or have a suggestion to improve our product, we're here to support you. Feel free to report any issues you come across, and we'll do our best to address them promptly. Together, we can work towards making our platform even better! 🚀"
+          pr-message: "Welcome to our repository! 😄 We're thrilled to have you here and appreciate your interest in contributing to our project. If you have an enhancement, bug fix, or new feature you'd like to add, we welcome your Pull Request. Our team is excited to review your changes and collaborate with you to improve our codebase. Feel free to submit your PR, and we'll provide feedback and guidance throughout the process. Thank you for your contribution, and let's make our project even more amazing together! 🚀"

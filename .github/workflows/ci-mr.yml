@@ -1,27 +1,30 @@
-name: CI
+name: Merge Request CI
 on:
   push:
-    branches: [ "main" ]
   pull_request:
-    branches: [ "main" ]
+    types:
+      - opened
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
           fetch-depth: 2
       - name: Git config user
         uses: snow-actions/git-config-user@v1.0.0
         with:
-          name: # Service Account's Name
-          email: # Service Account's Email Address
-      - uses: actions/setup-node@v3
+          name: BorysShulyak
+          email: borysshulyak@gmail.com
+      - name: Use Node.js/20
+        uses: actions/setup-node@v4
         with:
-          node-version: 16
+          node-version: 20
       - name: Verify Change Logs
         run: node common/scripts/install-run-rush.js change --verify
       - name: Rush Install
         run: node common/scripts/install-run-rush.js install
       - name: Rush rebuild
         run: node common/scripts/install-run-rush.js rebuild --verbose --production
+      - name: Rush Publish Dry Run
+        run: node common/scripts/install-run-rush.js publish --apply --target-branch ${{ env.GITHUB_HEAD_REF }}
