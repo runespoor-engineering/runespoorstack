@@ -11,9 +11,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          persist-credentials: false # otherwise, the token used is the GITHUB_TOKEN, instead of your personal access token.
           fetch-depth: 2
-          token: ${{ secrets.READ_WRITE_PAT }}
       - name: Git config user
         uses: snow-actions/git-config-user@v1.0.0
         with:
