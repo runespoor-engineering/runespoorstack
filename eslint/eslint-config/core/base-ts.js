@@ -11,32 +11,12 @@ module.exports = {
     ecmaVersion: 'latest',
     sourceType: 'module',
   },
-  settings: {
-    jest: {
-      version: 29
-    }
-  },
-  plugins: ['simple-import-sort', 'jest', 'jest-formatting'],
+  plugins: ['simple-import-sort'],
   extends: [
     'airbnb-base',
     'plugin:@typescript-eslint/recommended',
-    'plugin:prettier/recommended',
-    'plugin:jest/recommended',
-    'plugin:jest-formatting/recommended'
   ],
   rules: {
-    'prettier/prettier': [
-      'error',
-      {
-        semi: true,
-        tabWidth: 2,
-        printWidth: 100,
-        singleQuote: true,
-        trailingComma: 'none',
-        bracketSameLine: false
-      },
-      { usePrettierrc: false }
-    ],
     'import/no-extraneous-dependencies': ['error', { peerDependencies: true }],
     'import/extensions': [
       'error',
@@ -49,6 +29,13 @@ module.exports = {
     ],
     'simple-import-sort/imports': 'error',
     'simple-import-sort/exports': 'error',
+    'func-names': 'error',
+    'no-underscore-dangle': 'off',
+    camelcase: 'off',
+    'no-shadow': 'off',
+    '@typescript-eslint/no-shadow': 'error',
+    'no-unused-vars': 'off',
+    '@typescript-eslint/no-unused-vars': ['error'],
     'no-restricted-imports': [
       'error',
       {
@@ -56,12 +43,5 @@ module.exports = {
         message: 'Use default imports from lodash/*.'
       }
     ],
-    'func-names': 'error',
-    'no-underscore-dangle': 'off',
-    camelcase: 'off',
-    'no-shadow': 'off',
-    '@typescript-eslint/no-shadow': 'error',
-    'no-unused-vars': 'off',
-    '@typescript-eslint/no-unused-vars': ['error']
   }
 };

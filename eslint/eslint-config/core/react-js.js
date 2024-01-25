@@ -5,7 +5,6 @@ module.exports = {
     "es2022": true,
     "node": true
   },
-  parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaVersion: 'latest',
     sourceType: 'module',
@@ -13,25 +12,11 @@ module.exports = {
   extends: [
     'airbnb',
     'airbnb/hooks',
-    'plugin:prettier/recommended',
     'plugin:testing-library/react',
     'plugin:storybook/recommended',
-    'plugin:@typescript-eslint/recommended'
   ],
   plugins: ['simple-import-sort', '@typescript-eslint', 'testing-library'],
   rules: {
-    'prettier/prettier': [
-      'error',
-      {
-        semi: true,
-        tabWidth: 2,
-        printWidth: 100,
-        singleQuote: true,
-        trailingComma: 'none',
-        bracketSameLine: false
-      },
-      { usePrettierrc: false }
-    ],
     'react/react-in-jsx-scope': 'off',
     'react/jsx-props-no-spreading': 'off',
     'react/require-default-props': 'off',
@@ -71,22 +56,39 @@ module.exports = {
     'simple-import-sort/exports': 'error',
     'no-underscore-dangle': 'off',
     camelcase: 'off',
-    'no-shadow': 'off',
-    '@typescript-eslint/no-shadow': 'error',
-    'no-unused-vars': 'off',
-    '@typescript-eslint/no-unused-vars': ['error'],
     'no-restricted-imports': [
       'error',
       {
-        name: 'lodash',
-        message: 'Use default imports from lodash/*.'
-      },
-      {
-        name: '@testing-library/react',
-        importNames: ['render', 'renderHook'],
-        message: 'Use custom `render`, `renderHook` methods.'
+        paths: [
+          {
+            name: 'lodash',
+            message: 'Use default imports from lodash/*.'
+          },
+          {
+            name: '@testing-library/react',
+            importNames: ['render', 'renderHook'],
+            message: 'Use custom `render`, `renderHook` methods.'
+          },
+          {
+            name: '@mui/icons-material',
+            message: 'Please use default @mui/icons-material/* import instead.'
+          },
+          {
+            name: '@mui/material',
+            message: 'Use default imports from @mui/material/<Component> '
+          }
+        ],
+        patterns: [
+          {
+            group: [
+              '@mui/*/*/*',
+              '!@mui/material/test-utils/*',
+            ],
+            message: 'Do not use the third level imports'
+          }
+        ]
       }
-    ]
+    ],
   },
   settings: {
     'import/resolver': {
