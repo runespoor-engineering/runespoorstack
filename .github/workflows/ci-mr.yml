@@ -1,10 +1,10 @@
-name: Main CI
+name: Merge Request CI
 on:
-  push:
+  pull_request:
     branches:
-      - main
+      - '*'
 jobs:
-  ci:
+  ci-mr:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -23,7 +23,5 @@ jobs:
         run: node common/scripts/install-run-rush.js change --verify
       - name: Rush Install
         run: node common/scripts/install-run-rush.js install
-      - name: Rush Rebuild
+      - name: Rush rebuild
         run: node common/scripts/install-run-rush.js rebuild --verbose
-      - name: Rush Publish
-        run: node common/scripts/install-run-rush.js publish --apply --target-branch ${{ env.GITHUB_BASE_REF }} --publish --registry ${{ secrets.NPM_REGISTRY_URL }} --npm-auth-token ${{ secrets.NPM_TOKEN }} --add-commit-details
