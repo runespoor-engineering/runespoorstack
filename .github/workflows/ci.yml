@@ -26,4 +26,4 @@ jobs:
       - name: Rush Rebuild
         run: node common/scripts/install-run-rush.js rebuild --verbose
       - name: Rush Publish
-        run: node common/scripts/install-run-rush.js publish --apply --target-branch ${{ env.GITHUB_BASE_REF }} --publish --registry ${{ secrets.NPM_REGISTRY_URL }} --npm-auth-token ${{ secrets.NPM_TOKEN }} --add-commit-details
+        run: node common/scripts/install-run-rush.js publish --apply --target-branch ${{ github.event.repository.default_branch }} --publish --registry ${{ secrets.NPM_REGISTRY_URL }} --npm-auth-token ${{ secrets.NPM_TOKEN }} --add-commit-details
