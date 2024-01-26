@@ -10,11 +10,11 @@ jobs:
       contents: write
     steps:
       - name: Log
-        run: echo "${{ secrets.ACTIONS_PAT }} ${{ secrets.NPM_REGISTRY_URL }}"
+        run: echo "${{ secrets.ACTIONS_PTA }} ${{ secrets.NPM_REGISTRY_URL }}"
       - uses: actions/checkout@v4
         with:
           fetch-depth: 2
-          token: ${{ secrets.ACTIONS_PAT }}
+          token: ${{ secrets.ACTIONS_PTA }}
 
       - name: Git set author name
         run: git config --global user.name "runespoorengineering"
