@@ -2,6 +2,20 @@
   "name": "@runespoorstack/eslint-config",
   "entries": [
     {
+      "version": "0.1.1",
+      "tag": "@runespoorstack/eslint-config_v0.1.1",
+      "date": "Fri, 26 Jan 2024 07:36:04 GMT",
+      "comments": {
+        "patch": [
+          {
+            "comment": "Trigger publish.",
+            "author": "BorysShulyak <borysshulyak@gmail.com>",
+            "commit": "495dd5f089c85de83846717d65a592f3e799ef11"
+          }
+        ]
+      }
+    },
+    {
       "version": "0.1.0",
       "tag": "@runespoorstack/eslint-config_v0.1.0",
       "date": "Fri, 26 Jan 2024 06:26:37 GMT",
