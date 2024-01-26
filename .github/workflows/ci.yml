@@ -10,7 +10,7 @@ jobs:
       contents: write
     steps:
       - name: Log
-        run: echo "${{ secrets.ACTIONS_PAT }}"
+        run: echo "${{ secrets.ACTIONS_PAT }} ${{ secrets.NPM_REGISTRY_URL }}"
       - uses: actions/checkout@v4
         with:
           fetch-depth: 2
