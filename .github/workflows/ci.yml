@@ -12,7 +12,11 @@ jobs:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 2
+          registry-url: ${{ secrets.NPM_REGISTRY_URL }}
+          always-auth: true
           token: ${{ secrets.ACTIONS_PTA }}
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: Git set author name
         run: git config --global user.name "runespoorengineering"
