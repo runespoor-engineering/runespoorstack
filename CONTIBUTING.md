@@ -50,6 +50,12 @@ Clone repository:
 git clone git@github.com:BorysShulyak/runespoorstack.git
 ```
 
+Specify how to reconcile divergent branches.
+
+```shell
+git config pull.rebase false
+```
+
 Install [pnpm](https://pnpm.io/) globally:
 
 ```shell
