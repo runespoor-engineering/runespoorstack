@@ -9,24 +9,32 @@ jobs:
     permissions:
       contents: write
     steps:
-      - uses: actions/checkout@v2
+      - name: Log
+        run: echo ${{ secrets.ACTIONS_PAT }}
+      - uses: actions/checkout@v4
         with:
           fetch-depth: 2
           token: ${{ secrets.ACTIONS_PAT }}
-      - name: Git config user
-        uses: snow-actions/git-config-user@v1.0.0
-        with:
-          name: runespoorengineering
-          email: runespoorengineering@gmail.com
+
+      - name: Git set author name
+        run: git config --global user.name "runespoorengineering"
+
+      - name: Git set author email
+        run: git config --global user.email "runespoorengineering@gmail.com"
+
       - name: Use Node.js/20.9.0
         uses: actions/setup-node@v4
         with:
           node-version: 20.9.0
+
       - name: Verify Change Logs
         run: node common/scripts/install-run-rush.js change --verify
+
       - name: Rush Install
         run: node common/scripts/install-run-rush.js install
+
       - name: Rush Rebuild
         run: node common/scripts/install-run-rush.js rebuild --verbose
+
       - name: Rush Publish
         run: node common/scripts/install-run-rush.js publish --apply --target-branch ${{ github.event.repository.default_branch }} --add-commit-details
