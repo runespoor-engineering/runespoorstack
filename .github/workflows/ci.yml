@@ -9,8 +9,6 @@ jobs:
     permissions:
       contents: write
     steps:
-      - name: Log
-        run: echo "${{ secrets.ACTIONS_PTA }} ${{ secrets.NPM_REGISTRY_URL }}"
       - uses: actions/checkout@v4
         with:
           fetch-depth: 2
@@ -27,8 +25,11 @@ jobs:
         with:
           node-version: 20.9.0
 
-      - name: Verify Change Logs
+      - name: Rush Verify Change Logs
         run: node common/scripts/install-run-rush.js change --verify
+
+      - name: Rush List
+        run: node common/scripts/install-run-rush.js list --version
 
       - name: Rush Install
         run: node common/scripts/install-run-rush.js install
@@ -37,4 +38,4 @@ jobs:
         run: node common/scripts/install-run-rush.js rebuild --verbose
 
       - name: Rush Publish
-        run: node common/scripts/install-run-rush.js publish --apply --target-branch ${{ github.event.repository.default_branch }} --add-commit-details
+        run: node common/scripts/install-run-rush.js publish --apply --target-branch ${{ github.event.repository.default_branch }} --publish --registry ${{ secrets.NPM_REGISTRY_URL }} --npm-auth-token ${{ secrets.NPM_TOKEN }} --add-commit-details
