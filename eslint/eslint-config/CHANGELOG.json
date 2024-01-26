@@ -1,0 +1,19 @@
+{
+  "name": "@runespoorstack/eslint-config",
+  "entries": [
+    {
+      "version": "0.1.0",
+      "tag": "@runespoorstack/eslint-config_v0.1.0",
+      "date": "Fri, 26 Jan 2024 06:26:37 GMT",
+      "comments": {
+        "minor": [
+          {
+            "comment": "Implement `ci-mr`, `ci`, `greetings` workflows.",
+            "author": "BorysShulyak <borysshulyak@gmail.com>",
+            "commit": "b026a54b90d89f4758514574475850f00e4b4bbb"
+          }
+        ]
+      }
+    }
+  ]
+}
