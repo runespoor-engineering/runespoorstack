@@ -2,6 +2,20 @@
   "name": "@runespoorstack/eslint-config",
   "entries": [
     {
+      "version": "0.1.2",
+      "tag": "@runespoorstack/eslint-config_v0.1.2",
+      "date": "Mon, 29 Jan 2024 04:39:52 GMT",
+      "comments": {
+        "patch": [
+          {
+            "comment": "Provide the community standards.",
+            "author": "Boris Shulyak <55171497+BorysShulyak@users.noreply.github.com>",
+            "commit": "d06b9a3f04c2631ecccc2200a3760ca0c79d1573"
+          }
+        ]
+      }
+    },
+    {
       "version": "0.1.1",
       "tag": "@runespoorstack/eslint-config_v0.1.1",
       "date": "Fri, 26 Jan 2024 07:36:04 GMT",
