@@ -77,11 +77,11 @@ module.exports = {
           },
           {
             name: '@mui/icons-material',
-            message: 'Please use default @mui/icons-material/* import instead.'
+            message: 'MUI: Please use default @mui/icons-material/* import instead.'
           },
           {
             name: '@mui/material',
-            message: 'Use default imports from @mui/material/<Component> '
+            message: 'MUI: Use default imports from @mui/material/<Component> '
           }
         ],
         patterns: [
@@ -90,7 +90,7 @@ module.exports = {
               '@mui/*/*/*',
               '!@mui/material/test-utils/*',
             ],
-            message: 'Do not use the third level imports'
+            message: 'MUI: Do not use the third level imports'
           }
         ]
       }

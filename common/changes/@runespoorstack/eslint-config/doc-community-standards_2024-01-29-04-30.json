@@ -1,0 +1,10 @@
+{
+  "changes": [
+    {
+      "packageName": "@runespoorstack/eslint-config",
+      "comment": "Provide the community standards.",
+      "type": "patch"
+    }
+  ],
+  "packageName": "@runespoorstack/eslint-config"
+}

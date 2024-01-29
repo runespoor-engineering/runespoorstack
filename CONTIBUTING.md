@@ -104,11 +104,11 @@ Asks a series of questions and then generates a <branchname>-<timestamp>.json fi
 rush change
 ```
 
-## Conventional commits
+<!-- ## Conventional commits
 
 We are using the [conventional commits](https://www.conventionalcommits.org/en/v1.0.0/) in this repo. To automate this
 process we have integrated the [commitlint](https://github.com/conventional-changelog/commitlint) to check if your
-commit messages meet the conventional commit format.
+commit messages meet the conventional commit format. -->
 
 <!-- Running the `commit` command would ask you a few questions to generate the commit message following the next rules of
 `@commitlint/config-conventional`. [Read more.](https://github.com/conventional-changelog/commitlint/tree/master/@commitlint/config-conventional). -->
