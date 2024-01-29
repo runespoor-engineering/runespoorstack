@@ -3,7 +3,9 @@
   "version": "0.1.2",
   "description": "Battle tested, ready for production set of Runespoor ESlint configs.",
   "scripts": {
-    "build": ""
+    "build": "",
+    "lint": "eslint . --ext .ts,.tsx,.js,.jsx,.cjs,.mjs --quiet",
+    "lint:fix": "eslint . --ext .ts,.tsx,.js,.jsx,.cjs,.mjs --fix"
   },
   "dependencies": {
     "@typescript-eslint/parser": "6.19.1",

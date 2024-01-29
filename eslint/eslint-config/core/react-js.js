@@ -1,19 +1,19 @@
 module.exports = {
   root: true,
   env: {
-    "commonjs": true,
-    "es2022": true,
-    "node": true
+    commonjs: true,
+    es2022: true,
+    node: true
   },
   parserOptions: {
     ecmaVersion: 'latest',
-    sourceType: 'module',
+    sourceType: 'module'
   },
   extends: [
     'airbnb',
     'airbnb/hooks',
     'plugin:testing-library/react',
-    'plugin:storybook/recommended',
+    'plugin:storybook/recommended'
   ],
   plugins: ['simple-import-sort', '@typescript-eslint', 'testing-library'],
   rules: {
@@ -80,15 +80,12 @@ module.exports = {
         ],
         patterns: [
           {
-            group: [
-              '@mui/*/*/*',
-              '!@mui/material/test-utils/*',
-            ],
+            group: ['@mui/*/*/*', '!@mui/material/test-utils/*'],
             message: 'MUI: Do not use the third level imports'
           }
         ]
       }
-    ],
+    ]
   },
   settings: {
     'import/resolver': {

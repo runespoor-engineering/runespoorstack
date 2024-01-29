@@ -5,5 +5,5 @@ module.exports = {
     jest: {
       version: 29
     }
-  },
-}
+  }
+};

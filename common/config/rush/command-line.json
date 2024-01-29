@@ -11,6 +11,24 @@
    * "rush my-global-command --help".
    */
   "commands": [
+    {
+      "commandKind": "bulk",
+      "name": "lint",
+      "summary": "Run linters.",
+      "description": "Run ESLint with --quite for each project.",
+      "enableParallelism": true,
+      "allowWarningsInSuccessfulBuild": false,
+      "incremental": true
+    },
+    {
+      "commandKind": "bulk",
+      "name": "lint:fix",
+      "summary": "Run linter and fix",
+      "description": "Run ESLint with --fix for each project.",
+      "enableParallelism": true,
+      "allowWarningsInSuccessfulBuild": false,
+      "incremental": true
+    }
     // {
     //   /**
     //    * (Required) Determines the type of custom command.

@@ -1,14 +1,14 @@
 module.exports = {
   root: true,
   env: {
-    "commonjs": true,
-    "es2022": true,
-    "node": true
+    commonjs: true,
+    es2022: true,
+    node: true
   },
   parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaVersion: 'latest',
-    sourceType: 'module',
+    sourceType: 'module'
   },
   extends: [
     'airbnb',
@@ -86,15 +86,12 @@ module.exports = {
         ],
         patterns: [
           {
-            group: [
-              '@mui/*/*/*',
-              '!@mui/material/test-utils/*',
-            ],
+            group: ['@mui/*/*/*', '!@mui/material/test-utils/*'],
             message: 'MUI: Do not use the third level imports'
           }
         ]
       }
-    ],
+    ]
   },
   settings: {
     'import/resolver': {

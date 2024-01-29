@@ -1,7 +1,5 @@
 module.exports = {
-  extends: [
-    'plugin:prettier/recommended',
-  ],
+  extends: ['plugin:prettier/recommended'],
   rules: {
     'prettier/prettier': [
       'error',
@@ -16,4 +14,4 @@ module.exports = {
       { usePrettierrc: false }
     ]
   }
-}
+};

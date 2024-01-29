@@ -1,7 +1,5 @@
 module.exports = {
-  extends: [
-    'plugin:tailwindcss/recommended',
-  ],
+  extends: ['plugin:tailwindcss/recommended'],
   settings: {
     tailwindcss: {
       callees: ['cn', 'classnames', 'clsx', 'ctl', 'cva', 'tv'],
@@ -15,4 +13,4 @@ module.exports = {
       classRegex: '^class(Name)?$'
     }
   }
-}
+};
