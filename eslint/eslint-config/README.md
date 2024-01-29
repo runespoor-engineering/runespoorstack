@@ -1,6 +1,16 @@
-# @runespoorstack/eslint-config
-
-Stop maintaining hundreds of eslint configs in you projects. Start using the battle tested, ready for production et of Runespoor ESlint configs just with 4 lines of code.
+<div align="center">
+  <h1>@runespoorstack/eslint-config</h1>
+  <p>Stop maintaining hundreds of eslint configs in you projects. Start using the battle tested, ready for production et of Runespoor ESlint configs just with 4 lines of code.</p>
+  <a href="https://github.com/runespoor-engineering/runespoorstack/blob/main/LICENSE">
+    <img alt="GitHub License" src="https://img.shields.io/github/license/runespoor-engineering/runespoorstack">
+  </a>
+  <a href="https://github.com/runespoor-engineering/runespoorstack/issues">
+    <img alt="GitHub issues" src="https://img.shields.io/github/issues/runespoor-engineering/runespoorstack?color=5d2de0">
+  </a>
+  <a href="https://www.npmjs.com/package/strapi-plugin-field-formula">
+    <img alt="npm downloads" src="https://img.shields.io/npm/dw/@runespoorstack/eslint-config">
+  </a>
+</div>
 
 ## Table of Contents
 
