@@ -52,7 +52,7 @@ Stop maintaining hundreds of eslint configs in you projects. Start using the bat
 ## 🦾 Installation
 
 ```shell
-npm i --save-dev @runespoorstack/eslint-config eslint@latest prettier@latest typescript@latest 
+npm i --save-dev @runespoorstack/eslint-config @rushstack/eslint-config@latest eslint@latest prettier@latest typescript@latest 
 ```
 
 ## ♾️ Usage
@@ -64,6 +64,8 @@ Create `.eslintrc.cjs` in the root of the project.
 Use a native JavaScript base config:
 
 ```javascript
+// This is a workaround for https://github.com/eslint/eslint/issues/3458
+require('@rushstack/eslint-config/patch/modern-module-resolution');
 module.exports = {
   "extends": ["@runespoorstack/eslint-config/core/base-js"]
 }
@@ -72,6 +74,8 @@ module.exports = {
 Use a TypeScript base config:
 
 ```javascript
+// This is a workaround for https://github.com/eslint/eslint/issues/3458
+require('@rushstack/eslint-config/patch/modern-module-resolution');
 module.exports = {
   "extends": ["@runespoorstack/eslint-config/core/base-ts"]
 }
@@ -80,6 +84,8 @@ module.exports = {
 Use a native React base config:
 
 ```javascript
+// This is a workaround for https://github.com/eslint/eslint/issues/3458
+require('@rushstack/eslint-config/patch/modern-module-resolution');
 module.exports = {
   "extends": ["@runespoorstack/eslint-config/core/react-js"]
 }
@@ -88,6 +94,8 @@ module.exports = {
 Use a TypesScript React base config:
 
 ```javascript
+// This is a workaround for https://github.com/eslint/eslint/issues/3458
+require('@rushstack/eslint-config/patch/modern-module-resolution');
 module.exports = {
   "extends": ["@runespoorstack/eslint-config/core/react-ts"]
 }
@@ -98,6 +106,8 @@ module.exports = {
 Use a Prettier mixin:
 
 ```javascript
+// This is a workaround for https://github.com/eslint/eslint/issues/3458
+require('@rushstack/eslint-config/patch/modern-module-resolution');
 module.exports = {
   "extends": [
     "@runespoorstack/eslint-config/core/react-js", 
@@ -109,6 +119,8 @@ module.exports = {
 Use a Tailwind mixin:
 
 ```javascript
+// This is a workaround for https://github.com/eslint/eslint/issues/3458
+require('@rushstack/eslint-config/patch/modern-module-resolution');
 module.exports = {
   "extends": [
     "@runespoorstack/eslint-config/core/react-ts", 
@@ -121,6 +133,8 @@ module.exports = {
 Use a Jest mixin:
 
 ```javascript
+// This is a workaround for https://github.com/eslint/eslint/issues/3458
+require('@rushstack/eslint-config/patch/modern-module-resolution');
 module.exports = {
   "extends": [
     "@runespoorstack/eslint-config/core/react-js", 
@@ -134,6 +148,8 @@ module.exports = {
 ### Add your own rules
 
 ```javascript
+// This is a workaround for https://github.com/eslint/eslint/issues/3458
+require('@rushstack/eslint-config/patch/modern-module-resolution');
 module.exports = {
   "extends": [
     "@runespoorstack/eslint-config/core/react-js", 
