@@ -2,9 +2,9 @@
 
 ## Supported Versions
 
-| Version | Supported          |
-| ------- | ------------------ |
-| 1.x     | :white_check_mark: |
+| Package                                                                      | Version | Supported          |
+| ---------------------------------------------------------------------------- | ------- | ------------------ |
+| [eslint-config](https://www.npmjs.com/package/@runespoorstack/eslint-config) | 1.x.x   | :white_check_mark: |
 
 ## Reporting a Vulnerability
 

@@ -5,15 +5,25 @@ module.exports = {
     es2022: true,
     node: true
   },
-  parser: '@typescript-eslint/parser',
   parserOptions: {
-    project: './tsconfig.json',
     ecmaVersion: 'latest',
     sourceType: 'module'
   },
   plugins: ['simple-import-sort'],
-  extends: ['airbnb-base', 'plugin:@typescript-eslint/recommended'],
+  extends: ['airbnb-base', 'plugin:prettier/recommended'],
   rules: {
+    'prettier/prettier': [
+      'error',
+      {
+        semi: true,
+        tabWidth: 2,
+        printWidth: 100,
+        singleQuote: true,
+        trailingComma: 'none',
+        bracketSameLine: false
+      },
+      { usePrettierrc: false }
+    ],
     'import/no-extraneous-dependencies': ['error', { peerDependencies: true }],
     'import/extensions': [
       'error',
@@ -29,10 +39,6 @@ module.exports = {
     'func-names': 'error',
     'no-underscore-dangle': 'off',
     camelcase: 'off',
-    'no-shadow': 'off',
-    '@typescript-eslint/no-shadow': 'error',
-    'no-unused-vars': 'off',
-    '@typescript-eslint/no-unused-vars': ['error'],
     'no-restricted-imports': [
       'error',
       {

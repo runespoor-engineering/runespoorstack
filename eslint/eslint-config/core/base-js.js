@@ -1,27 +1,25 @@
 module.exports = {
   root: true,
   env: {
-    "commonjs": true,
-    "es2022": true,
-    "node": true
+    commonjs: true,
+    es2022: true,
+    node: true
   },
   parserOptions: {
     ecmaVersion: 'latest',
-    sourceType: 'module',
+    sourceType: 'module'
   },
   plugins: ['simple-import-sort'],
-  extends: [
-    'airbnb-base'
-  ],
+  extends: ['airbnb-base'],
   rules: {
     'import/no-extraneous-dependencies': ['error', { peerDependencies: true }],
     'import/extensions': [
       'error',
       'ignorePackages',
       {
-        'js': 'always',
-        'cjs': 'always',
-        'mjs': 'always'
+        js: 'always',
+        cjs: 'always',
+        mjs: 'always'
       }
     ],
     'simple-import-sort/imports': 'error',
@@ -35,6 +33,6 @@ module.exports = {
         name: 'lodash',
         message: 'Use default imports from lodash/*.'
       }
-    ],
+    ]
   }
 };
