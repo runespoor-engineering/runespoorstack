@@ -1,0 +1,181 @@
+---
+title: ESlint over Conventions
+---
+
+# ESlint over Conventions
+
+## Key Points
+
+- Everything that can be verified using static code analyzers should be verified using static code analyzers.
+- The less time and concentration engineers spend on checking simple things, the more time and focus can be devoted to more important global issues.
+
+## Our сode requires Conventions, and we must ensure compliance. Is it really so?
+
+Every project should be covered by static code analyzers and properly formatted. In every JavaScript project, ESlint and Prettier should be present. [I have mentioned this in my previous article.](https://dev.to/borysshulyak/high-confidence-testing-levels-1n1m#static-tests)
+
+This is not a novelty - it's a standard 👆. And I'm sure you're already using it.
+**But are you sure you're utilizing ESlint's capabilities to 100%?**
+
+This question can be reframed as follows:
+
+- Does your project have conventions that sound like: "We don't write code like this because ...; We don't use this module, but use a wrapper around it; We don't write imports in this way because it affects the bundle size; ..."?
+- How often are these conventions violated by contributors in merge requests?
+- How much time and effort do you spend checking compliance with these conventions during code reviews?
+- How often do violations of these conventions slip through code reviews?
+
+🥴 If these questions evoke nervous laughter and twitching eyes, you must read this article to the end - you'll like it!
+
+## We are going to create the Conventions right now
+
+Let's consider several cases upon which we can build some conventions.
+
+### Case 1: MaterialUI Imports
+
+We have all encountered import-related issues. Many libraries address these issues directly in their documentation:
+
+> Development bundles can contain the full library which can lead to **slower startup times**. This is especially noticeable if you use named imports from `@mui/icons-material`, which can be up to six times slower than the default import. For example, between the following two imports, the first (named) can be significantly slower than the second (default):
+> 
+
+```jsx
+// 🐌 Named
+import { Delete } from '@mui/icons-material';
+```
+
+```jsx
+// 🚀 Default
+import Delete from '@mui/icons-material/Delete';
+```
+
+> instead of top-level imports (without a Babel plugin):
+> 
+
+```jsx
+import { Button, TextField } from '@mui/material';
+```
+
+> This is the option we document in all the demos since it requires no configuration. It is encouraged for library authors who are extending the components.
+> 
+
+> While importing directly in this manner doesn't use the exports in [the main file of `@mui/material`](https://unpkg.com/@mui/material), this file can serve as a handy reference for which modules are public.
+> 
+
+> Be aware that we only support first and second-level imports. Anything deeper is considered private and can cause issues, such as module duplication in your bundle.
+> 
+
+```jsx
+// ✅ OK
+import { Add as AddIcon } from '@mui/icons-material';
+import { Tabs } from '@mui/material';
+//                         ^^^^^^^^ 1st or top-level
+
+// ✅ OK
+import AddIcon from '@mui/icons-material/Add';
+import Tabs from '@mui/material/Tabs';
+//                              ^^^^ 2nd level
+
+// ❌ NOT OK
+import TabIndicator from '@mui/material/Tabs/TabIndicator';
+//                                           ^^^^^^^^^^^^ 3rd level
+```
+
+### Case 2: Custom render method for integration testing
+
+Everyone who has used React Testing Library has likely read **[this section](https://testing-library.com/docs/react-testing-library/setup#custom-render)** and created a custom render method, thereby wrapping the component with all the necessary providers.
+
+What happens after that? After that, people forget about the existence of a custom method and start using the default one, wrapping the component with providers directly in the tests. This leads to code duplication and inconsistency.
+
+### Case 3: Correct methods usage
+
+Let's imagine that in your codebase, there is a method called `querySomeData(queryIdentifier, callback)`. At some point, you conclude that calling this method should always involve two arguments. In other words, the second argument should always be passed to this method.
+
+### 🙃 Good (Bad) news everybody - we have conventions!
+
+Accordingly, **we can draw the following conclusions**:
+
+- **Case 1 / Convention 1:** Avoid direct imports from the `'@mui/material'` package. Instead, use default imports for components.
+- **Case 1 / Convention 2:** Avoid 3rd-level imports from the `'@mui/material'` package.
+- **Bonus:** Avoid direct imports from the `'lodash'` package. Instead, use default imports for methods.
+- **Case 2 / Convention 1:** Avoid using the default `'render'` method from the `'@testing-library/react'` package. Instead, use a custom method located in the `test/utils` folder.
+- **Case 3 / Convention 1:** The `querySomeData` method should always be called with the second argument provided.
+
+We have 5 conventions. And that was just a warm-up. This number can grow to dozens of similar conventions. Keeping all of this in mind, constantly checking a checklist, and monitoring it during code reviews is an unnecessary waste of time, concentration, and effort.
+
+## ESlint over Conventions - Talk is cheap. Show me the code.
+
+ESLint provides a convenient and straightforward API for creating custom rules. For this, you only need to be familiar with ESLint's **`no-restricted-*`** rules (such as `no-restricted-imports`, `no-restricted-properties`, etc.).
+
+Secret pool: all the **`no-restricted-*`** rules could be rewritten using only the **`no-restricted-syntax`** one.
+
+All the information about the API, [AST node names](https://github.com/eslint/eslint-visitor-keys/blob/main/lib/visitor-keys.js), [AST Explorer](https://astexplorer.net/), etc. you can read in the [official documentation](https://eslint.org/docs/latest/rules/no-restricted-syntax). I’m just going to show examples of how to automate the check-up of our created conventions.
+
+```jsx
+// eslintrc.js
+{
+  ...,
+  rules: {
+    'no-restricted-imports': [
+      'error',
+        {
+        paths: [
+          {
+            // Case 1 / Convention 1
+            name: '@mui/material',
+            message: 'Do not use the direct import from `@mui/material`. Instead, use default imports from `@mui/material/*`'
+          },
+          {
+            // Bonus
+            name: 'lodash',
+            message: 'Do not use the direct import from `lodash`. Instead, use default imports from `lodash/*`'
+          },
+          {
+            // Case 2 / Convention 1
+            name: '@testing-library/react',
+            importNames: ['render'],
+            message: "Do not use the default `render` method from the `@testing-library/react` package. Instead, use the custom method, which is located in the `test/utils` folder"
+          }
+          {
+            // Case 2 / Convention 1
+            name: '@testing-library/react',
+            importNames: ['render'],
+            message: "Do not use the default `render` method from the `@testing-library/react` package. Instead, use the custom method, which is located in the `test/utils` folder"
+          }
+        ],
+        patterns: [
+          {
+            // Case 1 / Convention 2
+            group: [
+              '@mui/*/*/*'
+            ],
+            message: 'Do not use the 3rd level imports.'
+          }
+        ]
+      }
+    ],
+    'no-restricted-syntax': [
+      'error',
+        {
+          // Case 3 / Convention 1
+          selector: "CallExpression[callee.name='querySomeData'][arguments.length!=2]",
+          message: '`querySomeData` must always be invoked with two arguments.'
+        }
+    ]
+  },
+  ...
+}
+```
+
+That’s all, my dear reader! We have automated each of the 5 conventions! Now we could be sure all of them would be checked by the ESlint!
+
+One more thing - you should not try to implement a custom rule that would work in 100% of the cases. It is not really needed. If your rule covers about 80% of cases - that’s enough.
+
+## Conclusion
+
+In this article, we have explored the power of ESlint in enforcing conventions and ensuring code consistency. By leveraging ESlint's custom rule API, we have demonstrated how to automate the enforcement of various coding conventions.
+
+Using ESlint to enforce conventions brings several benefits to a development team. It reduces the time and effort spent on manual code reviews, minimizes the chance of convention violations slipping through, and allows developers to focus on more pressing issues.
+
+By adopting ESlint and leveraging its capabilities to the fullest extent, we can ensure that our codebase adheres to agreed-upon conventions. This leads to cleaner, more maintainable code and a more efficient development process.
+
+So, let's unlock the power of ESlint and embrace the consistency and efficiency it brings to our codebase. By doing so, we can elevate the quality of our code and enhance the overall development experience.
+
+Happy linting!

@@ -37,7 +37,7 @@
     "eslint": ">=8.56.0",
     "prettier": ">=3.2.4"
   },
-  "homepage": "https://github.com/runespoor-engineering/runespoorstack/eslint/eslint-config#readme",
+  "homepage": "https://github.com/runespoor-engineering/runespoorstack/tree/main/eslint/eslint-config#readme",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/runespoor-engineering/runespoorstack"

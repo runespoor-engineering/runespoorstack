@@ -1,0 +1,51 @@
+---
+title: Code Review
+---
+
+# Code Review
+
+You don't have a team if your team does not have a code review.
+
+If your code review process is not strictly formalized and documented, you don't have a code review process.
+
+The formalization of this process should include the following points:
+
+## Conditions for passing a merge request to code review
+
+Checklist for the readiness of the merge request for code review
+
+## Reviewers, Review Deadlines, the second priority after the highest
+
+What is being discussed?
+
+**Reviewers.** Each merge request should have assigned reviewers. In your team, there should be not just one person who understands every piece of code, but at least 2-3 people. Why is this necessary? It's simple: if only Vasya understands every part of the project, and Vasya leaves after a week, Petya and Tolya won't know what to do with half of the codebase.
+
+**Review Deadlines.** It is crucial to avoid having 20+ open merge requests that always burden the review process.
+
+**Second priority after the highest.** Each team member always has a primary priority they are working on and devotes most of their time to that task. Here, a delicate line can be described by the proverb: "A good programmer is one who can prove that they don't have time to complete a certain task if they are too lazy to do it." It is often the case that someone has 15 code reviews pending and responds with, "Oh, I have a very important task that I need to finish urgently; I don't have time." Or they say, "Oh, I see you have merge conflicts there - fix them, and I'll review them later." And in some situations, this cycle can repeat up to five times. In the realities of our world, any programmer will pretend to be slightly more busy than they are.
+
+In this process, it is essential to understand that **the cost of written code that is not merged into the main branch increases with each passing day until that code is merged.**
+Therefore, after the first priority, the programmer should go and close their second priority, namely code review.
+
+## Structure of what you submit for code review
+
+Our team is very familiar with situations where there are merge requests with over 10k lines of changed code. Reviewing such requests is unrealistic. Therefore, you should establish rules for structuring merge requests based on the modified code. 
+
+Make sure you are following best practices:
+
+- https://martinfowler.com/articles/branching-patterns.html
+- https://trunkbaseddevelopment.com/
+
+## Sending the code review back to development
+
+You should have a clearly defined format for handling discussions in code review.
+
+- What format should suggestions be in? How to explain your comments?
+- In what format should discussions take place in the thread?
+- What is the format for closing a thread?
+
+## Exception handling policy
+
+What should be done if a merge request gets stuck? For example, it was reviewed by two people, and the author disagrees with their opinion, or management is pressuring the author to get that code into the main branch right here and right now. In general, people cannot reach an agreement on the code review.
+
+How to act in such situations should be defined in advance. Otherwise, there will be grievances like "Why is it different for me and Petya, but Vasya gets it this way" - remember the point about **Fairness.**

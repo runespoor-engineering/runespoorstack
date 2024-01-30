@@ -73,3 +73,10 @@ common/autoinstallers/*/.npmrc
 # Heft temporary files
 .cache
 .heft
+
+# Docusaurus temporary files
+.docusaurus
+.cache-loader
+
+# Production buids
+build/

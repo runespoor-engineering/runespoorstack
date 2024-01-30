@@ -1,0 +1,84 @@
+---
+title: CMD+C/CMD+V? Never More!
+---
+
+# CMD+C/CMD+V? Never More!
+
+👨‍💻 If you are a FullStackOverflow engineer, this article is for you!
+🚀 If you are the “I will implement this feature for 10 minutes”, this article is for you!
+🧹 If you are a Software Engineer that loves refactoring and clean code, this article is **especially** for you!
+This article is about one stage of code refactoring!
+
+## Let’s imagine you have started code refactoring …
+
+You have covered your code with `eslint`, isolated the bad code, logged it, written the wrapper with your clean code, and covered it with tests. Nicely done!
+
+You have merged it - everything works fine! After that, You removed the bad code, and looks like your refactoring has successfully finished.
+
+But … after a few weeks, you open another part of your project, or even another project (in case of monorepo), and **Surprise - you have met your old friend, Mr. The Same Bad Code.** A terrible story, isn't it?
+
+In such a situation, there is no need to despair and slam the lid of the laptop! Just…
+
+## Integrate the copy-paste analyzer in your CI/CD process
+
+Have you ever heard about such tools? No? Okay, I’m going to introduce the one.
+
+🔎 Introducing **[jscpd](https://github.com/kucherenko/jscpd/tree/master)**! Let's dive in and start using it!
+
+You could just write the following commands and get the profit:
+
+```markup
+npm install -g jscpd
+npx jscpd /path/to/source
+```
+
+### What about the abilities?
+
+Available reporters:
+
+- **console** - report about clones to console;
+- **consoleFull** - report about clones to console with blocks of code;
+- **json** - output `jscpd-report.json` file with clones report in json format;
+- **xml** - output `jscpd-report.xml` file with clones report in xml format;
+- **csv** - output `jscpd-report.csv` file with clones report in csv format;
+- **markdown** - output `jscpd-report.md` file with clones report in markdown format;
+- **html** - generate html report to `html/` folder;
+- **verbose** - output a lot of debug information to console;
+
+You could easily integrate it in your CI/CD tool and be happy to remove the copy-paste in your project!
+
+You could event generate **badge** for your project to let your colleagues not forget about the terrible copy-paste numbers in your code base. Just use the **[badge reporter](https://github.com/kucherenko/jscpd/tree/master/packages/badge-reporter)!**
+
+Wanna to integrate it as a code? No problems, the **jscpd** also provide an JS API to use it.
+See an example: 
+
+```jsx
+import {IClone} from '@jscpd/core';
+import {jscpd} from 'jscpd';
+(async () => {
+  const clones: IClone[] = await jscpd(['', '', __dirname + '/../fixtures', '-m', 'weak', '--silent']);
+  console.log(clones);
+})();
+```
+
+## What will you get as a result?
+
+### HTML Reports
+
+<img src="/img/jscpd-1.png" alt="jscpd HTML Reports" />
+
+### Console Reports
+
+<img src="/img/jscpd-2.png" alt="jscpd Console Reports" />
+
+### Markdown Reports
+
+<img src="/img/jscpd-3.png" alt="jscpd Markdown Reports" />
+
+### Badge Reports
+
+<img src="/img/jscpd-4.png" alt="jscpd Badge Reports" />
+
+## Conclusion
+
+🎉 In conclusion, code refactoring is a crucial part of software development, and it's essential to ensure that the bad code that was removed in the process doesn't creep back into the codebase. Integrating the copy-paste analyzer tool, **jscpd**, in your CI/CD process is an effective way to prevent this from happening. With **jscpd**, you can easily generate reports in various formats, including HTML, console, markdown, and even a badge report to keep track of your project's copy-paste numbers. So, don't let copy-paste errors ruin your project's code quality, and start using **jscpd** today! 🚀

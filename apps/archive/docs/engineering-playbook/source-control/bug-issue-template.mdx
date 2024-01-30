@@ -1,0 +1,82 @@
+---
+title: Bug Issue Template
+---
+
+# Bug Issue Template
+
+Here is an example of a Bug Issue template I commonly use on my projects. It is just an example and you could (should) adopt this template based on your project specific.
+
+I suggest you use it in collaboration with GitHub, and GitLab abilities:
+
+- [GitLab Description template](https://docs.gitlab.com/ee/user/project/description_templates.html)
+- [GitHub issue template](https://docs.github.com/en/communities/using-templates-to-encourage-useful-issues-and-pull-requests/manually-creating-a-single-issue-template-for-your-repository)
+
+## GitHub Template
+
+```yaml
+name: 🐞 Bug Report
+description: Something does not work or is flaky! let us know!
+labels: ['type::bug', 'workflow::problem validation']
+title: '[🐞]'
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to fill out this bug report!
+
+  - type: dropdown
+    id: component
+    attributes:
+      label: Which component is affected?
+      options:
+        - Admin
+        - Server
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      description: 'A clear and concise description of what you expected to happen instead. If you intend to submit a PR for this issue, tell us in the description. Thanks!'
+      label: Describe the bug
+      placeholder: Actual Resul ... Expected Result...
+
+    validations:
+      required: true
+
+  - type: input
+    id: reproduction
+    attributes:
+      label: Reproduction
+      description: Please provide a link to a repo that can reproduce the problem you ran into. A [minimal reproduction](https://stackoverflow.com/help/minimal-reproducible-example) is required ([Why?](https://antfu.me/posts/why-reproductions-are-required)). If a report is vague (e.g. just a generic error message) and has no reproduction, it will receive a "need reproduction" label.
+      placeholder: Reproduction URL
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduction-steps
+    attributes:
+      label: Steps to reproduce
+      description: Please provide any reproduction steps that may need to be described. E.g. if it happens only when running the dev or build script make sure it's clear which one to use.
+
+  - type: textarea
+    id: system-info
+    attributes:
+      label: System Info
+      description: Output of `npx envinfo --system --binaries --browsers`. [More details.](https://www.npmjs.com/package/envinfo)
+      render: shell
+      placeholder: System, Binaries, Browsers
+    validations:
+      required: true
+
+  - type: textarea
+    id: additional_information
+    attributes:
+      label: Additional Information
+    validations:
+      required: false
+```
+
+## Result in GitHub UI for Bug Reporting
+
+<img src="/img/bugIssueTemplate.png" alt="Bug Issue Template" />
