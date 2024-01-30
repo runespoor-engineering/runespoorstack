@@ -15,7 +15,7 @@ module.exports = {
       },
       'eslint-import-resolver-custom-alias': {
         alias: {
-          '@site/': './'
+          '@site': '.'
         },
         extensions: ['.js', '.jsx', '.ts', '.tsx']
       }
