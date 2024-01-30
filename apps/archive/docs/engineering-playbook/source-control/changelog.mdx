@@ -1,0 +1,23 @@
+---
+title: Changelog
+---
+
+# Changelog
+
+## Why?
+
+- **Documentation of Changes:** It provides a detailed record of all modifications, enhancements, and fixes made to the software over time. This documentation helps developers, users, and other stakeholders understand what changes have been implemented in each version or release.
+- **Communication and Transparency:** Changelogs act as a communication tool between developers and users, offering transparency about the evolution of the software. Users can see what has been improved, fixed, or added in a new version, enhancing their understanding of the product.
+- **Bug Tracking and Issue Resolution:** Changelogs often include information about resolved issues, bug fixes, and improvements. Developers and QA teams can refer to the changelog to track the history of specific issues, aiding in future debugging or troubleshooting.
+- **Versioning and Release Management:** Changelogs are essential in version control. They assist in managing different software versions, making it easier to identify changes between versions, and ensuring consistency in the release process.
+- **Historical Reference:** Changelogs serve as a historical reference for developers, providing insights into past decisions, implementations, and feature introductions. This historical context can be invaluable for understanding the software's evolution and making future development decisions.
+- **Customer Support and User Engagement:** For customer support teams, a changelog can be a useful resource to understand recent changes and help users troubleshoot issues or adapt to new features. Additionally, informing users about new functionalities or improvements via a changelog can increase user engagement.
+
+## How?
+
+- Basic convention - [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
+- I recommend creating a changelog notes for each of your project **packages** on **each PR** to have a clear and informative history of code changes.
+- Split your changelogs! I suggest creating **not only a development** changelog, but an **end-user one too**, e.g. separate changelog file inside the Stroybook. Your customer, end-user, etc. doesn’t need to know anything about the code changes, but it would be useful if they could have something like a product changelog with all information about product changes, new feature development, and minor or major changes.
+- Save your time - use the existing tools:
+    - https://github.com/conventional-changelog/conventional-changelog
+    - You are lucky if you use **Rush.js** monorepo as it provides a built-in required changelog generation. [Read More](https://rushjs.io/pages/best_practices/change_logs/).

@@ -1,0 +1,108 @@
+---
+title: Integration Testing Coverage
+---
+
+# Integration Testing Coverage
+
+Do you need to cover ALL the components with integration tests?
+Let's visualize the test coverage for both variants:
+
+<img src="/img/integrationTestingCoverage.png" alt="Integration Testing Coverage" />
+
+As we know, shallow rendering is a bad idea. So we are going to write the full tests suit for our component. Let’s start our testing step by step.
+
+## Covering all the components
+
+1. Writing the tests for components **`B and C`.**
+2. Writing the tests for component **`A`.** But wait … I want to cover all the scenarios. Okay, component **`A`** is built using **`B and C`** ones, so I could just copy the test suits from them and paste them inside the **`A`** component tests.
+
+The same situation with component **`D`.** The **`F`** component includes the **`G`** one. The **`E`** component includes the **`F`** and **`H`** ones. And, finally, the **`D`** component includes the **`E`** one.
+
+Nice, all the components tree is covered with tests. So what do we have for now?
+
+- We have spent much time covering the components tree with tests as the tests grow exponentially up to the top of the tree.
+- If we add or remove some functionality to component **`G`,** we should add the test cases to the **`F, E, and D`** components, as all of them got the additional functionality or some functionality was removed.
+- All the components have strong documentation in the code - our test cases are our documentation, so the code review and onboarding are easier.
+- If there is a bug inside component **`G`,** the tests for components **`F, E, and D`** will fail - so we know that all of them have incorrect behavior. What is important, we could easily detect the root cause - component **`G`**, as its tests failed too.
+
+## Covering only the Top-Level components
+
+1. Writing the tests for components **`A and D` ,** cover all the scenarios, including the child component's behavior.
+
+Thats all. What do we have in this variant? Actually, we have direct opposition.
+
+- We have spent time covering only the top-level components and obviously, it was faster.
+- If add or remove some functionality to the lower-level components, we just need to adjust test cases inside the **`A and D`** tests.
+- Only the top-level components are documented.
+- If there is a bug inside component **`G`,** the tests for components **`A and D`** will fail - but we could not easily find the root cause, so the time for debugging will be increased.
+
+## Pros and Cons
+
+<table>
+  <thead>
+    <tr>
+      <th>Cons</th>
+      <th>Pros</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>The tests grow exponentially.</td>
+      <td>It is easier to find a component where the bug is present - high confidence.</td>
+    </tr>
+    <tr>
+      <td>It is more difficult to keep all the tests up to date. More time for refactoring the components is needed.</td>
+      <td>Strong documentation in the code, so the code review and onboarding are easier.</td>
+    </tr>
+  </tbody>
+</table>
+
+### What do the “Top-Level components”  mean?
+
+The answer depends. I could just recommend the following variants:
+
+**The components that are exported from some module.**
+
+Each project has its module structure. Let’s analyze one of them, based on the **[Atomic Design](https://atomicdesign.bradfrost.com/chapter-2/)** methodology:
+
+```markdown
+src/components
+  atoms
+    Button
+    Field
+    Image
+    MultiSelect
+      components
+        SelectItem
+        SelectSubItem
+  molecules
+    ButtonsGroup
+    Snackbar
+      components
+        CloseButton
+        SeverityIcon
+  organisms
+    Form
+      components
+        FormSection
+        SubmitButton
+```
+
+In this case, the TopLevel components would be the next ones:
+
+- Atoms: Button, Field, Image, MultiSelect
+- Molecules: ButtonsGroup, Snackbar
+- Organisms: Form
+
+So for integration tests, the coverage of these components would be enough. I don’t need to cover the `SelectItem`, `SelectSubItem` components as they would be tests together with the whole `MultiSelect` one. The same situation with `Snackbar` and `Form` components.
+
+## Conclusion
+
+So what way to choose? In my opinion, ALL the components should be covered with integration tests (100% test coverage) in the:
+
+- open source libraries and projects - most open source projects are small libraries and tools that are reusable in many different situations. So a breakage could lead to a serious problem in a lot of consuming projects. And they're relatively easy to get 100% code coverage on anyway.
+- pet projects - it is a good way to fall in love with tests and to understand all the pros and cons of 100% test coverage.
+
+For commercial products, it is enough to cover all the TopLevel cmps with integration tests.
+
+By the way, everyone should always keep in mind **WHY** you cover your components with **integration** tests - [Write tests. Not too many. Mostly integration](https://kentcdodds.com/blog/write-tests).

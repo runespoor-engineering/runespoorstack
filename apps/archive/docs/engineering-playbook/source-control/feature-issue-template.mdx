@@ -1,0 +1,57 @@
+---
+title: Feature Issue Template
+---
+
+# Feature Issue Template
+
+Here is an example of a Feature Issue template I commonly use on my projects. It is just an example and you could (should) adopt this template based on your project specific.
+
+I suggest you use it in collaboration with GitHub, and GitLab abilities:
+
+- [GitLab Description template](https://docs.gitlab.com/ee/user/project/description_templates.html)
+- [GitHub issue template](https://docs.github.com/en/communities/using-templates-to-encourage-useful-issues-and-pull-requests/manually-creating-a-single-issue-template-for-your-repository)
+
+## GitHub Template
+
+```yaml
+name: ✨ Feature Request
+description: Suggest an idea for this project.
+labels: ['type::feature', 'workflow::backlog validation']
+title: '[✨]'
+body:
+  - type: textarea
+    id: use_case
+    attributes:
+      label: 'Is your feature request related to a problem?'
+      description: "A clear and concise description of what the problem is. Ex. I'm always frustrated when [...]"
+    validations:
+      required: true
+
+  - type: textarea
+    id: solution
+    attributes:
+      label: "Describe the solution you'd like"
+      description: 'A clear and concise description of what you want to happen.'
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: "Describe alternatives you've considered"
+      description: "A clear and concise description of any alternative solutions or features you've considered."
+    validations:
+      required: true
+
+  - type: textarea
+    id: additional_context
+    attributes:
+      label: 'Additional context'
+      description: 'Add any other context or screenshots about the feature request here.'
+    validations:
+      required: false
+```
+
+## Result in GitHub UI for Feature Request
+
+<img src="/img/featureIssueTemplate.png" alt="Feature Issue Template" />

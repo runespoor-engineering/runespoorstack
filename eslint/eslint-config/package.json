@@ -4,8 +4,8 @@
   "description": "Battle tested, ready for production set of Runespoor ESlint configs.",
   "scripts": {
     "build": "",
-    "lint": "eslint . --ext .ts,.tsx,.js,.jsx,.cjs,.mjs --quiet",
-    "lint:fix": "eslint . --ext .ts,.tsx,.js,.jsx,.cjs,.mjs --fix"
+    "lint": "eslint . --ext .ts,.tsx,.js,.jsx,.cjs,.mjs --ignore-path ../../.gitignore --quiet",
+    "lint:fix": "eslint . --ext .ts,.tsx,.js,.jsx,.cjs,.mjs --ignore-path ../../.gitignore --fix"
   },
   "dependencies": {
     "@typescript-eslint/parser": "6.19.1",
@@ -37,7 +37,7 @@
     "eslint": ">=8.56.0",
     "prettier": ">=3.2.4"
   },
-  "homepage": "https://github.com/runespoor-engineering/runespoorstack/eslint/eslint-config#readme",
+  "homepage": "https://github.com/runespoor-engineering/runespoorstack/tree/main/eslint/eslint-config#readme",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/runespoor-engineering/runespoorstack"

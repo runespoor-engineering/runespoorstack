@@ -1,0 +1,49 @@
+---
+title: Impact Analysis
+---
+
+# Impact Analysis
+
+Let's imagine the typical workflow of testing a merge request for an average coder 🛠️:
+
+- We write code, add a new feature, gather our thoughts and spirit, and for some reason, refactor one of the existing modules/components to meet our needs. 📝
+- We run the project locally, test our new feature, and... (oh, what a surprise) forget about the changes in the existing component. 😅
+- The feature works and the tests pass ⇒ we deploy our changes and hand over the task to QA titled "Test the New Feature." 🚀
+- QA tests the new feature, and of course, it works. Everyone is happy. 😃
+- Release time comes. 🚢
+- A few days later, we receive a defect issue. It turns out the problem was caused by that minor change in the module. 😱
+
+In this flow, there are no culprits. The developer forgot that the modified module is used in different parts of the code, and the tester couldn't possibly know about it.
+
+But how can we deal with such incidents? As it is known, 90% of problems that exist in software development can be addressed. 🤔
+
+## Impact Analysis 💥
+
+The name speaks for itself. It is a method in which you describe which modules are affected and to what extent by your changes. We will talk about the integration of DEV-QA. In other words, when a developer makes changes to the code, they should describe the impact on the rest of the system. 🔄
+
+Why should we do this?
+
+- By describing the Impact Analysis, the developer can understand, find, and verify the correctness of the affected parts of the program. 🔍
+- The developer starts to better understand the relationships between components in the system. 🧩
+- The developer provides more context for code reviewers, thus sharing their knowledge about the program. 💡
+- The developer informs the QA specialist about which components of the system need to be tested. 📢
+
+In simple terms, an impact analysis should include the following points:
+
+- A brief description of the essence of your changes.
+- How the system components behaved before your changes. ⬅️
+- How the system components behave after your changes. ➡️
+- Which modules did you affect with your changes?
+- Which modules depend on the changes you made?
+- An assessment of the impact of your changes on the other parts of the system. 🔄
+- A description of the impact of your changes on the other parts of the system.
+
+Overall, it's quite straightforward.
+
+*"How much impact do your changes have on the other parts of the system?"* - You can provide a numerical rating, for example, from 1 to 3.
+
+- 1 impact point - low impact
+- 2 impact points - medium impact
+- 3 impact points - strong impact
+
+But what I can also recommend is visualizing the last 3 points. It will help you quickly orient yourself in your impact analysis. 📊

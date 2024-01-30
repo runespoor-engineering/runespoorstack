@@ -1,0 +1,131 @@
+---
+title: Stop adding ESlint to an existing project Incorrectly
+---
+
+# Stop adding ESlint to an existing project Incorrectly
+
+Hi, everyone! In this article, we will take a look at the best way of adding ESlint to an existing project.
+
+- Have you ever tried to do it? How much time have you spent on doing it?
+- Have you ever seen your teammate try to do it? Have you wondered why one person should spend a lot of time and effort to make your code a little better?
+
+I like ESlint and Prettier so much. I have faced projects without any linters and it was an awful experience.  I always want to make my code base more clear. I don’t want to describe the simple JS things on the code review. I want to disallow as many bad things as possible using an automated CI/CD workflow. The first step to make it is adding ESlint to the project. 
+
+In my experience, I have added/adjusted the ESlint to each project I have worked on. Let’s see the worst and the best ways of adding ESlint to Mike`s project.
+
+## How to add ESlint to an existing project INCORRECTLY?
+
+1. ✅ I have configured the ESlint rules using the best configs and plugins. I have even written my own rules using `no-restricted-syntax` rule. It was really great job.
+2. ✅ I have configured the Linting job in the CI pipeline to be sure all the new changes would be linted. 
+3. ⚠️ I have run the ESlint check… The thousands of errors were auto-fixed.  But the thousands of other errors should be fixed manually… 
+4. 📛 I have spent days or even weeks fixing such errors. While I was doing this, the whole team was writing code that brought more and more errors. I pulled all the new changes into my branch, fixed new errors, and resolved merge conflicts. I had a feeling that this would never end. But I coped with it - all the errors were fixed, the MR was merged, and the team received a project covered with ESlint rules and Prettier config.
+
+**What is wrong with this method?**
+
+- I have spent so much time doing it.
+- I have assigned to each file of the project. So GitHub has suggested me as a reviewer on each PR.
+- The usage of `git blame` has become terrible.
+    
+    > The `git blame` command is a versatile troubleshooting utility that has extensive usage options. The high-level function of `git blame` is the display of author metadata attached to specific committed lines in a file. This is used to examine specific points of a file's history and get context as to who the last author was that modified the line. This is used to explore the history of specific code and answer questions about what, how, and why the code was added to a repository.
+    > 
+
+**After this experience, I have decided to never add ESlint to an existing project in such a way.**
+
+## How to add ESlint to an existing project CORRECTLY?
+
+The first two steps don’t have any problems, so you can follow them without any problems. But for the next steps I have decided to find another solution.
+
+1. ✅ *See the previous section.*
+2. ✅ *See the previous section.*
+3. ✅ I have added `/* eslint-disable */` to all the files that should be listed in the project.
+4. ✅ I have created the following convention: *“If you make changes in some file, you should delete the* `/* eslint-disable */` *line and fix all the ESlint errors in the file.”* (always leave behind code cleaner than it was before), and added this line as **************************MR checklist************************** point in the MR template.
+5. ✅ I have merged the MR and all the team started following this convention. 
+
+**What have I got?** 
+
+- I have finished this task so quickly.
+- I have not assigned to each file of the project. So GitHub has suggested the correct user as a reviewer on each PR.
+- The `git blame` was not broken.
+
+**It was really a pleasure experience of adding ESlint and Prettier to an existing project.**
+
+How have solved **point 3?** It was really easy and **you could do it just now** as I have created an npm package with this script!
+
+## Introduce the eslint-disable-file package
+
+Here is the package that would help you to add the `/* eslint-disable */` for each file: [eslint-disable-files](https://github.com/BorysShulyak/eslint-disable-files) package.
+
+### ✨ Features
+
+- Add `/* eslint-disable */` for all the files.
+
+### 🦾 Installation
+
+```bash
+yarn add @borisshulyak/eslint-disable-files@latest
+```
+
+**OR**
+
+```bash
+npm install @borisshulyak/eslint-disable-files@latest
+```
+
+### ♾️ Usage
+
+- Create a temporary file `tempEslintDisableFiles.js` in some folder.
+- Paste the following code to the file:
+
+```jsx
+import { eslintDisableFiles } from '@borisshulyak/eslint-disable-files';
+
+eslintDisableFiles()
+```
+
+- Run the file with Node.js from any folder.
+- All the files by the following pattern `/\.[cm]?[jt]sx?$/` in the current folder would have the `/* eslint-disable */` as the first line.
+
+### ⚙️ API
+
+`eslintDisableFiles` - method with the following arguments:
+
+<table>
+  <thead>
+    <tr>
+      <th>Argument</th>
+      <th>Type</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>rootDir</td>
+      <td>String</td>
+      <td>‘./’</td>
+    </tr>
+    <tr>
+      <td>pattern</td>
+      <td>RegExp</td>
+      <td>/\.[cm]?[jt]sx?$/</td>
+    </tr>
+  </tbody>
+</table>
+
+
+### 🛠️ Contributing
+
+See the [CONTRIBUTING.md](https://github.com/BorysShulyak/eslint-disable-files/blob/main/CONTRIBUTING.md) document.
+
+### 🗺️ Roadmap
+
+- Create the backward method `eslintEnableFile`
+
+### 💕 Special Thanks
+
+- I want to say thank you to **my wife Diana** for her love, daily support, motivation and inspiration.
+
+## Conclusion
+
+In summary, adding ESlint to an existing project can be a daunting task if not done correctly. The incorrect method can lead to wasted time and effort, as well as broken workflows and reviews. However, the correct method, involving the use of the `eslint-disable-files` package, can make the process much smoother and more efficient. By using this method, developers can quickly and easily add ESlint to their projects, without wasting valuable time on manual fixes. So, if you're looking to improve the quality of your code and streamline your workflow, be sure to give this method a try!
+
+Thank you, my dear reader! If you find this article useful or interesting, you could tap some emoji on it or write a comment and help to grow our community!

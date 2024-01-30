@@ -1,0 +1,38 @@
+---
+title: The delay in managerial decision-making
+---
+
+# The delay in managerial decision-making
+
+How do the daily meetings of an average team go?
+
+**Developer1…N**: *Yesterday, I worked on task **`X`**, and encountered some difficulties, but they have been successfully resolved now. It took **`k`** hours to solve them. Today, I will be working on task **`Y`**, which seems clear, with an estimated time of **`n`**. However, let's allocate **`2n`** just to be on the safe side.*
+
+The next day, the situation repeats itself because it turns out that task **`Y`** has encountered certain difficulties, and so on.
+
+Here, there is a key metric that, if improved, can significantly increase both the team's and the client's satisfaction. This metric relates to the time it takes for a problem to be recognized by the developer and communicated to the manager. We're talking about a problem that directly impacts the expectations set. It could be the expectation communicated by the programmer to the manager that the task will be completed in **`n`** hours, or the expectation set by the team that the release will be done on the **`k`**th day, and so on.
+
+In regular teams, the occurrence of a problem is usually discovered 1-2 days before the deadline if the task spans a week because programmers tend to believe everything is going well until then. Alternatively, if it's not a deadline-driven task, the programmer starts acknowledging the problem after 1-2 days of its existence, and then says, "You know, I could use some help."
+
+Reducing this range (the delay in managerial decision-making), let's call it **`^t`**, significantly enhances the system's manageability.
+
+Why?
+
+- As soon as the manager becomes aware of something, they can proactively communicate with the client to manage higher-level expectations.
+- They can communicate with another programmer to seek assistance.
+- They can state that this task is not a priority, and there are other urgent and important tasks, or urgent and important tasks combined (which ideally should not happen in an ideal world).
+
+## How can **`^t`** be reduced?
+
+From the management perspective: never resort to repressive measures to reduce this delay.
+
+If you're on the development side: train yourself to think that reporting a delay doesn't make you a bad programmer. If you heroically manage to solve the problem and meet all the deadlines, then kudos to you. But if a miracle doesn't happen, you were warned, as they say.
+
+Train the team to notify when a task is 80% complete using flags like "I'm okay," "I'm facing temporary difficulties," or "Everything is going very wrong." Initially, there might only be the option of "I'm facing temporary difficulties," but it's already a step forward because the programmer learns to communicate at a specific time.
+
+To further reduce **`^t`**, it is also necessary to train team members that downtime is also time for a task. In other words, there should always be someone responsible for the task. Roughly speaking, if the task was initially assigned to a frontend developer, they should take ownership of it even if the downtime occurs due to the backend developer not fulfilling their obligations. In this situation, the front-end developer becomes the main and responsible person.
+This, in turn, fosters situational leadership, which can be beneficial in many areas.
+
+## Conclusion
+
+The simplest and most effective way to improve your team's processes is to reduce the delay in receiving signals about difficulties.

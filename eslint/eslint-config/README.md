@@ -172,10 +172,11 @@ module.exports = {
 
 Be careful with adding your own `no-restricted-imports` rules!
 We use a set of predefined restriction rules to protect you from serious mistakes out of the box:
+
 - `Use default imports from lodash/*.` - to save your bundle size.
 - `Use custom 'render', 'renderHook' methods.` - to cover the 80% usage of these methods (you commonly use only the custom once).
 - `Please use default @mui/icons-material/* import instead.` - to save your bundle size.
-- `Use default imports from @mui/material/<Component> ` - to save your bundle size.
+- `Use default imports from @mui/material/<Component>` - to save your bundle size.
 = `MUI: Do not use the third level imports` - to save your bundle size.
 
 If you define your own `no-restricted-imports`, all the predefined once would be cleared.
@@ -204,5 +205,6 @@ See the [CONTRIBUTING.md](https://github.com/BorysShulyak/runespoorstack/blob/ma
 - I want to say thank you to the best woman in the world, **my wife Diana** for her love, daily support, motivation and inspiration.
 
 ## ❤️ Support or Donate
+
 If you are enjoying this plugin and feel extra appreciative, you could [buy me a book](https://bmc.link/borisshulyak)
 📖 or 3 📖📖📖.

@@ -100,8 +100,21 @@ rush purge
 ```
 
 Asks a series of questions and then generates a <branchname>-<timestamp>.json file in the common folder used for CHANGELOG generation.
+
 ```shell
 rush change
+```
+
+Run linters throw all the projects
+
+```shell
+rush lint
+```
+
+Run linters throw all the projects with autofix
+
+```shell
+rush lint:fix
 ```
 
 <!-- ## Conventional commits

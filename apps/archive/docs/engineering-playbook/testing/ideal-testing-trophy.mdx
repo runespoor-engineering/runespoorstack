@@ -1,0 +1,271 @@
+---
+title: The Ideal Testing Trophy
+---
+
+# The Ideal Testing Trophy
+
+We are going to talk about the testing levels and the testing trophy. Your testing trophy could be specific to your project, but you should always define the ideal to which you will aspire. In this article, I have described my own ideal testing trophy, the reasons why I have added some test types to this trophy, and the recommended tools.
+
+I should mention, that all my work experience is 80% Front End one. Therefore, this article is written through the prism of this experience.
+
+For the Unit, Integration, and E2E tests I have provided a “Tested/Mocked” schema to have more clear picture. The technologies were provided just an example and you could easily swap it with your own. 
+
+## Testing Trophy
+
+<img src="/img/testingTrophy.png" alt="The Testing Trohy" />
+
+## How to define the cost of tests?
+
+To define the correct level of tests you could also think about the “cost of tests”, this is well explained [in this article](https://medium.com/table-xi/high-cost-tests-and-high-value-tests-a86e27a54df#.2ulyh3a4e) and the basic idea is that the cost of a test includes:
+
+- The time it takes to write the test
+- The time it takes to run the test every time the suite runs
+- The time it takes to understand the test
+- The time it takes to fix the test if it breaks and the underlying code is OK
+- Maybe, the time it takes to change the code to make the code testable.
+
+## Static Tests
+
+### What are static tests?
+
+**Static Testing** is a software testing technique that is used to check defects in software applications without executing the code. Static testing is done to avoid errors at an early stage of development as it is easier to identify the errors and solve the mistakes. It also helps to find errors that may not be found by Dynamic Testing.
+
+### Why should you use static tests?
+
+Static code analyzing tools is a standard for now. The strong Eslint configuration could help you with writing the new cleaner code and refactoring the old one. But you should be careful with choosing the static test tools. As we know, the team that uses tests and other best practices is 1.4 times more efficient than the team that uses only TypeScript.
+
+With Eslint you could also create your own linting rules using the `no-restricted-syntax` rule. It is more safe than conventions in your Confluence.
+
+### When to use static tests?
+
+Always!
+
+### Recommended  static tests tools
+
+- [Eslint](https://eslint.org/)
+- [Prettier](https://prettier.io/)
+- [REscript](https://rescript-lang.org/)
+- [Prop-Types](https://github.com/facebook/prop-types)
+
+## Unit Tests
+
+<img src="/img/unitTests.png" alt="Unit Tests" />
+
+### What are unit tests?
+
+**Unit testing** is a software testing technique that is used to verify that individual, isolated parts work as expected.
+
+### Why should you use unit tests?
+
+Writing unit tests will provide you with strongly documented methods in your code! It is more confident and useful than TypeScript. It is really helpful in onboarding new devs. 
+It is a pleasure to use it in collaboration with integration tests - when your integration tests fail, the unit tests would help you find the root cause.
+Unit tests would help you to write clean and healthy code! 
+
+> If it is difficult to cover some code with tests, it is a bad code…
+> 
+
+In conclusion, you will get:
+
+- Documentation in the code.
+- Saving time on finding the bugs.
+- Good code base.
+
+### When not to use unit tests?
+
+- **Non-exported functions, classes, and hooks**: Anything not exported from a module can be considered private or an implementation detail, and doesn’t need to be tested.
+- **Constants**: Testing the value of a constant means copying it, resulting in extra effort without additional confidence that the value is correct.
+- **React components**: State, methods, and lifecycle hooks can be considered an implementation detail of components, are implicitly covered by integration tests, and don’t need to be tested.
+
+### When to use unit tests?
+
+- **Exported functions, classes, and hooks**: Anything exported can be reused at various places in ways you have no control over. You should document the expected behavior of the public interface with tests.
+- **Apollo Client Queries**: Any Apollo Client query must work consistently, independent of the component it is triggered from.
+- **Apollo Client Mutations**: For complex Apollo Client mutations, you should write the tests including the check-up of all the post-mutation actions (e.g. onError, onComplete, …)
+
+### What not to mock in unit tests?
+
+- **Non-exported functions, classes, or hooks**: Everything that is not exported can be considered private to the module, and is implicitly tested through the exported classes, functions, and hooks.
+- **Methods of the class under test**: By mocking methods of the class under test, the mocks are tested and not the real methods.
+- **Utility functions (pure functions, or those that only modify parameters)**: If a function has no side effects because it has no state, it is safe to not mock it in tests.
+
+### What to mock in unit tests?
+
+- **State of the class under test**: Modifying the state of the class under test directly rather than using methods of the class avoids side effects in the test setup.
+- **Other exported classes, functions, and hooks**: Every class, function, and hook must be tested in isolation to prevent test scenarios from growing exponentially.
+- **All server requests**: When running frontend unit tests, the backend may not be reachable, so all outgoing requests need to be mocked.
+- **Asynchronous background operations**: Background operations cannot be stopped or waited on, so they continue running in the following tests and cause side effects.
+
+### Recommended unit tests tools
+
+- [Vitest](https://vitest.dev/)
+- [Jest](https://jestjs.io/ru/)
+- [React Testing Library: renderHook](https://testing-library.com/docs/react-testing-library/api/#renderhook)
+
+## Visual Snapshots
+
+### What are visual snapshots tests?
+
+Visual regression testing tools take screenshots of web pages and compare the resulting images pixel by pixel.
+
+### Why should you use visual snapshots?
+
+You could cover all the project with static, unit, integration, and other tests. You would be sure all the logic is correct and everything works fine. But what about the visual part? Are you sure all the components have the same visual look after your refactoring? Or maybe you are going to check all the views after your MR to verify the styles of your components?
+
+Let's put it on the shoulders of the machines! The automated visual regression would help you to verify all the required components. Yes, sometimes your tests would be the false-negative and you will have to update the screenshots. But the benefits and time savings we get are more significant than the time it takes to update screenshots.
+
+### When not to use visual snapshots tests?
+
+- **Visual elements that could be changed at different time moments (e.g. animations):** The test result might be false-negative.
+- **Logic verification:** It should be tested on other test levels.
+
+### When to use visual snapshots tests?
+
+- **Verifying what the user sees:** layout, color, size, and contrast.
+
+### Recommended visual regression tools
+
+- [Chromatic](https://www.chromatic.com/features/test)
+- [puppeteer](https://github.com/puppeteer/puppeteer) + [jest-image-snapshot](https://github.com/americanexpress/jest-image-snapshot)
+- … There are [many tools](https://github.com/mojoaxel/awesome-regression-testing) for visual testing.
+
+## Accessibility Tests
+
+### What are accessibility tests?
+
+Accessibility is the practice of making websites inclusive to all. That means supporting requirements such as keyboard navigation, screen reader support, touch-friendly, usable color contrast, reduced motion, and zoom support.
+
+Accessibility tests audit the rendered DOM against a set of heuristics based on [WCAG](https://www.w3.org/WAI/standards-guidelines/wcag/) rules and other industry-accepted best practices. They act as the first line of QA to catch blatant accessibility violations.
+
+### Why should you use accessibility tests?
+
+Firstly, it is pretty simple to implement the accessibility tests with Storybook, just one dev dependency!
+
+Secondly, all the products and all the software should be accessible for users with challenges or disabilities! All of us should care!
+
+### Recommended accessibility tests tools
+
+- [Storybook a11y addon](https://storybook.js.org/docs/react/writing-tests/accessibility-testing)
+
+## Integration Tests
+
+<img src="/img/integrationTests.png" alt="Integration Tests" />
+
+### What are integration tests?
+
+**Integration testing** is a software testing technique that is used to verify that several units work together in harmony.
+
+### Why should you use integration tests?
+
+Integration tests are the first step in testing how your system is used by the end users.
+
+> The biggest and most important reason that I write tests is **CONFIDENCE**. I want to be confident that the code I'm writing for the future won't break the app that I have running in production today. So whatever I do, I want to make sure that the kinds of tests I write bring me the most confidence possible and I need to be cognizant of the trade-offs I'm making when testing. **[Kent C. Dodds](https://kentcdodds.com/)**
+> 
+
+Integration tests are the silver bullet - it is pretty quick, easy to maintain, and provide strong confidence. With a well-designed integration test, you will get a fully described user flow in the code, as your tests should simulate the user behavior as much as possible.
+
+In conclusion, you will get:
+
+- High confidence in the logic of your components.
+- Fully described user flow in the code.
+
+### When not to use integration tests?
+
+**Full user flow across pages**: Trying to render the whole app/page using the non-e2e testing tools could be too expensive. Such tests could also be duplicated on the e2e stage testing.
+
+**Framework-specific integration:** If you have a framework-specific integration, like Next.js with its `getServerSideProps/getStaticProps` , you should not (or even can’t) test it on the integration level. It would be covered with e2e tests.
+
+### When to use integration tests?
+
+**React Components:** Verify that several units (functions, hooks, other components) work together in harmony.
+
+### What not to mock in integration tests?
+
+- **Child components**: Every component (unit) and its logic should be covered in the integration tests. We don’t use shallow rendering.
+- **Hooks, functions, Apollo Client:** All the logic and functionality of the component should be covered with tests.
+- **DOM**: Testing on the real DOM ensures your components work in the intended environment.
+
+### What to mock in integration tests?
+
+- **Side effects**: Anything that can change an external state (for example, a network request) should be mocked.
+- **3rd party library (not all of them): F**or example, ****we should mock the `next/router` module to successfully write our tests, but it is not necessary to mock `material-ui`.
+
+### Recommended integration tests tools
+
+- [Vitest](https://vitest.dev/)
+- [Jest](https://jestjs.io/ru/)
+- [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/)
+- [Storybook](https://storybook.js.org/docs/react/writing-tests/interaction-testing)
+
+## E2E Tests
+
+<img src="/img/e2eTests.png" alt="E2E Tests" />
+
+### What are e2e tests?
+
+A helper robot that behaves like a user to click around the app and verify that it functions correctly.
+
+### Why should you use e2e tests?
+
+Sometimes (very often) you either join a new project or a project comes to you and the code quality of this project can often be questionable. If that's the case, then writing unit tests will take up a lot of time, as you'll have to thoroughly understand the codebase and refactor the code. Covering with integration tests will be easier, but still, you'll have to do the same things on a smaller scale. As for e2e tests, writing them is very straightforward and takes relatively little time. Therefore, undoubtedly, if you want to gain confidence in a new project or a project with a poor codebase while having enough time to deliver business features rather than just refactoring code, e2e tests are the best solution.
+
+### Recommended e2e tests tools
+
+- [Playwright](https://playwright.dev/)
+- [Cypress](https://www.cypress.io/)
+- [Puppeteer](https://pptr.dev/)
+- [Webdriver.io](https://webdriver.io/)
+
+## Performance Tests
+
+### What are performance tests?
+
+Performance testing involves assessing how a system behaves about its responsiveness and stability when subjected to a specific workload. Such tests are commonly carried out to analyze attributes like speed, resilience, dependability, and the system's overall size.
+
+### Why should you use performance tests?
+
+> - [Vodafone (Italy) improved LCP](https://web.dev/vodafone) by **31%** to achieve **8% more sales**.
+- iCook improved CLS by 15% to achieve 10% more ad revenue.
+- Tokopedia improved LCP by 55% and saw 23% better average session duration.
+- Nykaa found that a 40% improvement in LCP led to **28% more organic traffic** from T2/T3 cities.
+- NIKKEI STYLE's 18% LCP improvement resulted in **9% more pageviews per session**.
+- Ameba Manga improved the **number of comics read by 2-3 times** by improving the CLS score 10 times.
+> 
+
+Do you still think you don’t need to care about the performance of your application? 
+If you need show-cases and proofs for your business, you could use the following articles on [web.dev](https://web.dev/tags/case-study/)
+
+### Recommended performance tests tools
+
+- [Lighthouse](https://developer.chrome.com/docs/lighthouse/overview/)
+- [PageSpeedInsights](https://pagespeed.web.dev/)
+- [CrUx](https://developer.chrome.com/docs/crux/)
+
+## Manual Tests
+
+### Why should you use manual tests?
+
+Ohh, that’s a good question.
+
+Covering the system with all the previous tests takes time. So while you don’t have strong confidence, you could use manual QA even on each merge request. 
+
+If you care about the safe CI/CD, you care about the test coverage. So let’s imagine you already have a good testing strategy. Do you still need the manual QA? I think yes, you need it. But not too often - just for a quick regression before release, for writing the steps to reproduce the issues, etc.
+
+The main things you should keep in mind are:
+
+- Automation tools are not real humans - manual testing could feedback with some suggestions even without the bugs.
+- Some bugs are totally unexpected.
+- Manual testing is cheaper for small projects.
+- The automated tests could be created not so well.
+- The automated tests could not test the UX as well as real users.
+
+### Recommended manual tests tools
+
+- [Chrome Recorder](https://developer.chrome.com/docs/devtools/recorder/)
+
+## Conclusion
+
+In conclusion, testing is an essential part of software development. Each type of test serves a specific purpose, from catching errors early on with static tests to verifying that the system behaves as expected with end-to-end tests. By understanding the cost of tests and the appropriate use cases for each type, developers can create a comprehensive testing strategy that ensures their software meets the required standards for quality and functionality.
+
+Thank you, my dear reader! In addition, I’m going to publish a lot of other articles for the **Mastering Testing Dzen** series. I believe you would get a lot of useful information! So welcome to my followers!
+
+If you find this article useful or interesting, you could tap some emoji on it or write a comment and help to grow our community!

@@ -1,0 +1,40 @@
+---
+title: Docs Issue Template
+---
+
+# Docs Issue Template
+
+Here is an example of the Docs Suggestion template I commonly use on my projects. It is just an example and you could (should) adopt this template based on your project specific.
+
+I suggest you use it in collaboration with GitHub, and GitLab abilities:
+
+- [GitLab Description template](https://docs.gitlab.com/ee/user/project/description_templates.html)
+- [GitHub issue template](https://docs.github.com/en/communities/using-templates-to-encourage-useful-issues-and-pull-requests/manually-creating-a-single-issue-template-for-your-repository)
+
+## GitHub Template
+
+```yaml
+name: 📖 Documentation Suggestion
+description: Suggestions on how we can improve the documentation.
+title: '[📖]'
+labels: ['type::maintenance', 'workflow::problem validation']
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to fill out docs suggestion! However, if you think it's something you can fix yourself, please submit a PR instead.
+        In every doc page, you will be able to find the "Edit this page" in the right menu!
+
+  - type: textarea
+    id: description
+    attributes:
+      description: 'A clear and concise description of your suggestion to improve the docs.'
+      label: Suggestion
+    validations:
+      required: true
+```
+
+## Result in GitHub UI for Documentation Suggestion
+
+<img src="/img/docsIssueTemplate.png" alt="Docs Issue Template" />
+
