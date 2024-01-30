@@ -44,13 +44,13 @@ const config = {
           sidebarPath: './sidebars.js',
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
-          editUrl: 'https://github.com/runespoor-engineering/runespoorstack/blob/main/archive'
+          editUrl: 'https://github.com/runespoor-engineering/runespoorstack/blob/main/apps/archive'
         },
         blog: {
           showReadingTime: true,
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
-          editUrl: 'https://github.com/runespoor-engineering/runespoorstack/blob/main/archive'
+          editUrl: 'https://github.com/runespoor-engineering/runespoorstack/blob/main/apps/archive'
         },
         theme: {
           customCss: './src/css/custom.css'
@@ -78,7 +78,7 @@ const config = {
             label: 'Engineering Playbook'
           },
           {
-            href: 'https://github.com/runespoor-engineering/runespoorstack/blob/main/archive',
+            href: 'https://github.com/runespoor-engineering/runespoorstack/blob/main/apps/archive',
             label: 'GitHub',
             position: 'right'
           }
