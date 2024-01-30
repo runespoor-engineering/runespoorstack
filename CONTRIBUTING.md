@@ -36,9 +36,9 @@ your effort.
 ### Sending a Pull Request
 
 Before submitting a pull request, consider `MR checklist` is fully resolved. You could find it in the PR template. For
-more information you could read the [CODE_REVIEW document](https://github.com/BorysShulyak/runespoorstack/blob/main/documentation/CODE_REVIEW.md).
+more information you could read the [CODE_REVIEW document](https://github.com/runespoor-engineering/runespoorstack/blob/main/documentation/CODE_REVIEW.md).
 
-Make sure the appropriate labels are added Read more information about [issue and pull request labels](https://github.com/BorysShulyak/runespoorstack/blob/main/documentation/LABELS.md)
+Make sure the appropriate labels are added Read more information about [issue and pull request labels](https://github.com/runespoor-engineering/runespoorstack/blob/main/documentation/LABELS.md)
 
 ## Local development
 

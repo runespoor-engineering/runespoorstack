@@ -22,7 +22,7 @@ This web site will contain a lot of useful information about the Runespoor contr
 
 ## 🛠️ Contributing
 
-See the [CONTRIBUTING.md](https://github.com/BorysShulyak/runespoorstack/blob/main/CONTRIBUTING.md)
+See the [CONTRIBUTING.md](https://github.com/runespoor-engineering/runespoorstack/blob/main/CONTRIBUTING.md)
 document.
 
 ## 🗺️ Roadmap

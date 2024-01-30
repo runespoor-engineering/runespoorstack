@@ -14,19 +14,18 @@
 
 ## Table of Contents
 
-- [@runespoorstack/eslint-config](#runespoorstackeslint-config)
-  - [Table of Contents](#table-of-contents)
-  - [✨ Features](#-features)
-  - [🦾 Installation](#-installation)
-  - [♾️ Usage](#️-usage)
-    - [Choose the core config](#choose-the-core-config)
-    - [Choose a mixins](#choose-a-mixins)
-    - [Add your own rules](#add-your-own-rules)
-    - [⚠️ `no-restricted-imports` overrides](#️-no-restricted-imports-overrides)
-    - [Run `eslint`](#run-eslint)
-  - [🛠️ Contributing](#️-contributing)
-  - [💕 Special Thanks](#-special-thanks)
-  - [❤️ Support or Donate](#️-support-or-donate)
+- [Table of Contents](#table-of-contents)
+- [✨ Features](#-features)
+- [🦾 Installation](#-installation)
+- [♾️ Usage](#️-usage)
+  - [Choose the core config](#choose-the-core-config)
+  - [Choose a mixins](#choose-a-mixins)
+  - [Add your own rules](#add-your-own-rules)
+  - [⚠️ `no-restricted-imports` overrides](#️-no-restricted-imports-overrides)
+  - [Run `eslint`](#run-eslint)
+- [🛠️ Contributing](#️-contributing)
+- [💕 Special Thanks](#-special-thanks)
+- [❤️ Support or Donate](#️-support-or-donate)
 
 ## ✨ Features
 
@@ -198,7 +197,7 @@ eslint . --ext .ts,.tsx,.js,.jsx,.cjs,.mjs --fix
 
 ## 🛠️ Contributing
 
-See the [CONTRIBUTING.md](https://github.com/BorysShulyak/runespoorstack/blob/main/CONTRIBUTING.md) document.
+See the [CONTRIBUTING.md](https://github.com/runespoor-engineering/runespoorstack/blob/main/CONTRIBUTING.md) document.
 
 ## 💕 Special Thanks
 
