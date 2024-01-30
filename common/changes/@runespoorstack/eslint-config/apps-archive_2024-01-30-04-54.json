@@ -1,0 +1,10 @@
+{
+  "changes": [
+    {
+      "packageName": "@runespoorstack/eslint-config",
+      "comment": "Adjust README.md and links inside the `package.json`.",
+      "type": "none"
+    }
+  ],
+  "packageName": "@runespoorstack/eslint-config"
+}
