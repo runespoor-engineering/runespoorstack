@@ -17,7 +17,10 @@ const HomepageHeader = () => {
         </Heading>
         <p className="hero__subtitle">{siteConfig.tagline}</p>
         <div className={styles.buttons}>
-          <Link className="button button--secondary button--lg" to="/docs/engineering-playbook">
+          <Link
+            className="button button--secondary button--lg"
+            to="/docs/category/engineering-playbook"
+          >
             Engineering Playbook
           </Link>
         </div>
