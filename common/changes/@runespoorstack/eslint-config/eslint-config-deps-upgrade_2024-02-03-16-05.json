@@ -1,0 +1,10 @@
+{
+  "changes": [
+    {
+      "packageName": "@runespoorstack/eslint-config",
+      "comment": "Upgrade `@typescript-eslint/parser` to `v6.20.0`, `@typescript-eslint/eslint-plugin` to `v6.20.0`, `eslint-plugin-tailwindcss` to `v3.14.1`",
+      "type": "minor"
+    }
+  ],
+  "packageName": "@runespoorstack/eslint-config"
+}
