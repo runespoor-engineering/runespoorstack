@@ -1,0 +1,10 @@
+{
+  "changes": [
+    {
+      "packageName": "@runespoorstack/eslint-config",
+      "comment": "Fix links.",
+      "type": "none"
+    }
+  ],
+  "packageName": "@runespoorstack/eslint-config"
+}
