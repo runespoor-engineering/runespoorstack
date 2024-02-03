@@ -124,3 +124,13 @@ This checklist helps to ensure that our projects meet our Engineering Fundamenta
 ### Developer Experience (DevEx)
 
 - ✅ The list of recommended software is provided.
+
+### Rush.js and PNPM monorepository
+
+- ✅ The package manager is `pnpm`.
+- ✅ All the duplicated configs are moved to separate packages.
+- ✅ `repository.url` is set in the `rush.json`.
+- ✅ `ensureConsistentVersions` is set to `true` in the `rush.json`.
+- ✅ `strictPeerDependencies` is set to `true` in the `pnpm-config.json`
+- ✅ The **build cache** is enabled and configured.
+- ✅ Command and scripts are configured through the `command-line.json` and `autoinstallers` (if relevant).
