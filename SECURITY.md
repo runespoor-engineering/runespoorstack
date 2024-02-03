@@ -4,7 +4,7 @@
 
 | Package                                                                      | Version | Supported          |
 | ---------------------------------------------------------------------------- | ------- | ------------------ |
-| [eslint-config](https://www.npmjs.com/package/@runespoorstack/eslint-config) | 1.x.x   | :white_check_mark: |
+| [eslint-config](https://www.npmjs.com/package/@runespoorstack/eslint-config) | 0.x.x   | :white_check_mark: |
 
 ## Reporting a Vulnerability
 
