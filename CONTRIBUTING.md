@@ -47,7 +47,7 @@ Make sure the appropriate labels are added Read more information about [issue an
 Clone repository:
 
 ```shell
-git clone git@github.com:BorysShulyak/runespoorstack.git
+git clone git@github.com:runespoor-engineering/runespoorstack.git
 ```
 
 Specify how to reconcile divergent branches.
