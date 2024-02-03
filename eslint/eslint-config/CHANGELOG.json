@@ -2,6 +2,37 @@
   "name": "@runespoorstack/eslint-config",
   "entries": [
     {
+      "version": "0.2.0",
+      "tag": "@runespoorstack/eslint-config_v0.2.0",
+      "date": "Sat, 03 Feb 2024 16:09:46 GMT",
+      "comments": {
+        "none": [
+          {
+            "comment": "Adjust README.md and links inside the `package.json`.",
+            "author": "Boris Shulyak <55171497+BorysShulyak@users.noreply.github.com>",
+            "commit": "cb56fe742c3b09903987510acda9f2b12dc86481"
+          },
+          {
+            "comment": "Fix links.",
+            "author": "Boris Shulyak <55171497+BorysShulyak@users.noreply.github.com>",
+            "commit": "cb56fe742c3b09903987510acda9f2b12dc86481"
+          },
+          {
+            "comment": "Add `lint`, `lint:fix` commands.",
+            "author": "Boris Shulyak <55171497+BorysShulyak@users.noreply.github.com>",
+            "commit": "cb56fe742c3b09903987510acda9f2b12dc86481"
+          }
+        ],
+        "minor": [
+          {
+            "comment": "Upgrade `@typescript-eslint/parser` to `v6.20.0`, `@typescript-eslint/eslint-plugin` to `v6.20.0`, `eslint-plugin-tailwindcss` to `v3.14.1`",
+            "author": "Boris Shulyak <55171497+BorysShulyak@users.noreply.github.com>",
+            "commit": "709e8c938fcd63467bddf22d0d48671512f6f7ea"
+          }
+        ]
+      }
+    },
+    {
       "version": "0.1.2",
       "tag": "@runespoorstack/eslint-config_v0.1.2",
       "date": "Mon, 29 Jan 2024 04:39:52 GMT",
