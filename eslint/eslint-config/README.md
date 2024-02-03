@@ -7,7 +7,7 @@
   <a href="https://github.com/runespoor-engineering/runespoorstack/issues">
     <img alt="GitHub issues" src="https://img.shields.io/github/issues/runespoor-engineering/runespoorstack?color=5d2de0">
   </a>
-  <a href="https://www.npmjs.com/package/strapi-plugin-field-formula">
+  <a href="https://www.npmjs.com/package/@runespoorstack/eslint-config">
     <img alt="npm downloads" src="https://img.shields.io/npm/dw/@runespoorstack/eslint-config">
   </a>
 </div>
@@ -205,5 +205,5 @@ See the [CONTRIBUTING.md](https://github.com/runespoor-engineering/runespoorstac
 
 ## ❤️ Support or Donate
 
-If you are enjoying this plugin and feel extra appreciative, you could [buy me a book](https://bmc.link/borisshulyak)
+If you are enjoying this work and feel extra appreciative, you could [buy me a book](https://bmc.link/borisshulyak)
 📖 or 3 📖📖📖.
