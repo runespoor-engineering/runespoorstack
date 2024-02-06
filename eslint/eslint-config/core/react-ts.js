@@ -14,6 +14,7 @@ module.exports = {
     'airbnb',
     'airbnb/hooks',
     'plugin:testing-library/react',
+    'plugin:storybook/recommended',
     'plugin:@typescript-eslint/recommended'
   ],
   plugins: ['simple-import-sort', '@typescript-eslint', 'testing-library'],
@@ -104,5 +105,14 @@ module.exports = {
         extensions: ['.js', '.jsx', '.ts', '.tsx']
       }
     }
-  }
+  },
+  overrides: [
+    {
+      files: ['*.stories.@(ts|tsx|js|jsx|mjs|cjs)'],
+      rules: {
+        'storybook/hierarchy-separator': 'error',
+        'storybook/prefer-pascal-case': 'error'
+      }
+    }
+  ]
 };

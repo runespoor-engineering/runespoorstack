@@ -36,7 +36,6 @@
   - `core/react-js`
   - `core/react-ts`
   - `mixins/prettier`
-  - `mixins/storybook`
   - `mixins/tailwind`
   - `mixins/jest`
   - `mixins/vitest`
@@ -128,20 +127,6 @@ module.exports = {
 }
 ```
 
-Use a Storybook mixin:
-
-```javascript
-// This is a workaround for https://github.com/eslint/eslint/issues/3458
-require('@rushstack/eslint-config/patch/modern-module-resolution');
-module.exports = {
-  "extends": [
-    "@runespoorstack/eslint-config/core/react-js", 
-    "@runespoorstack/eslint-config/mixins/storybook",
-    "@runespoorstack/eslint-config/mixins/prettier",
-  ]
-}
-```
-
 Use a Tailwind mixin:
 
 ```javascript
@@ -150,7 +135,6 @@ require('@rushstack/eslint-config/patch/modern-module-resolution');
 module.exports = {
   "extends": [
     "@runespoorstack/eslint-config/core/react-ts", 
-    "@runespoorstack/eslint-config/mixins/storybook",
     "@runespoorstack/eslint-config/mixins/prettier", 
     "@runespoorstack/eslint-config/mixins/tailwind"
   ]
@@ -165,7 +149,6 @@ require('@rushstack/eslint-config/patch/modern-module-resolution');
 module.exports = {
   "extends": [
     "@runespoorstack/eslint-config/core/react-js", 
-    "@runespoorstack/eslint-config/mixins/storybook",
     "@runespoorstack/eslint-config/mixins/prettier", 
     "@runespoorstack/eslint-config/mixins/tailwind", 
   ],
@@ -189,7 +172,6 @@ require('@rushstack/eslint-config/patch/modern-module-resolution');
 module.exports = {
   "extends": [
     "@runespoorstack/eslint-config/core/react-js", 
-    "@runespoorstack/eslint-config/mixins/storybook",
     "@runespoorstack/eslint-config/mixins/prettier", 
     "@runespoorstack/eslint-config/mixins/tailwind", 
   ],
