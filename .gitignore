@@ -80,5 +80,3 @@ common/autoinstallers/*/.npmrc
 
 # Production buids
 build/
-
-clientapp/
