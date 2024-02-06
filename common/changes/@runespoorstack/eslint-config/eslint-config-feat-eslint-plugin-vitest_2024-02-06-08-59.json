@@ -1,0 +1,10 @@
+{
+  "changes": [
+    {
+      "packageName": "@runespoorstack/eslint-config",
+      "comment": "Provide `Vitest` mixin. Use as `@runespoorstack/eslint-config/mixins/vitest`.",
+      "type": "minor"
+    }
+  ],
+  "packageName": "@runespoorstack/eslint-config"
+}
