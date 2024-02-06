@@ -1,0 +1,10 @@
+{
+  "changes": [
+    {
+      "packageName": "@runespoorstack/eslint-config",
+      "comment": "`core/react-js`, `core/react-ts`: make the following rules `error`: `storybook/hierarchy-separator`, `storybook/prefer-pascal-case`.",
+      "type": "minor"
+    }
+  ],
+  "packageName": "@runespoorstack/eslint-config"
+}
