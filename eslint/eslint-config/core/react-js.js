@@ -9,12 +9,7 @@ module.exports = {
     ecmaVersion: 'latest',
     sourceType: 'module'
   },
-  extends: [
-    'airbnb',
-    'airbnb/hooks',
-    'plugin:testing-library/react',
-    'plugin:storybook/recommended'
-  ],
+  extends: ['airbnb', 'airbnb/hooks', 'plugin:testing-library/react'],
   plugins: ['simple-import-sort', '@typescript-eslint', 'testing-library'],
   rules: {
     'react/react-in-jsx-scope': 'off',

@@ -14,7 +14,6 @@ module.exports = {
     'airbnb',
     'airbnb/hooks',
     'plugin:testing-library/react',
-    'plugin:storybook/recommended',
     'plugin:@typescript-eslint/recommended'
   ],
   plugins: ['simple-import-sort', '@typescript-eslint', 'testing-library'],
