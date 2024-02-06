@@ -38,6 +38,7 @@
   - `mixins/prettier`
   - `mixins/tailwind`
   - `mixins/jest`
+  - `mixins/vitest`
 - Out of the box `no-restricted-imports` rules that will save your time on dealing with bundle size.
 - The configs are created over the best `eslint` plugin and configs:
   - `eslint-config-airbnb-base`
@@ -57,6 +58,7 @@
   - `eslint-plugin-storybook`
   - `eslint-plugin-tailwindcss`
   - `eslint-plugin-testing-library`
+  - `eslint-plugin-vitest`
 
 ## 🦾 Installation
 
@@ -149,7 +151,38 @@ module.exports = {
     "@runespoorstack/eslint-config/core/react-js", 
     "@runespoorstack/eslint-config/mixins/prettier", 
     "@runespoorstack/eslint-config/mixins/tailwind", 
-    "@runespoorstack/eslint-config/mixins/jest"
+  ],
+   overrides: [
+    {
+      files: ['*.(spec|test).[tj]sx?$'], // or any other pattern
+      extends: [
+        '@runespoorstack/eslint-config/mixins/jest',
+        '@runespoorstack/eslint-config/mixins/prettier'
+      ]
+    }
+  ]
+}
+```
+
+Use a Vitest mixin:
+
+```javascript
+// This is a workaround for https://github.com/eslint/eslint/issues/3458
+require('@rushstack/eslint-config/patch/modern-module-resolution');
+module.exports = {
+  "extends": [
+    "@runespoorstack/eslint-config/core/react-js", 
+    "@runespoorstack/eslint-config/mixins/prettier", 
+    "@runespoorstack/eslint-config/mixins/tailwind", 
+  ],
+   overrides: [
+    {
+      files: ['*.(spec|test).[tj]sx?$'], // or any other pattern
+      extends: [
+        '@runespoorstack/eslint-config/mixins/vitest',
+        '@runespoorstack/eslint-config/mixins/prettier'
+      ]
+    }
   ]
 }
 ```
