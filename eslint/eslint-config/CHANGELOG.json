@@ -2,6 +2,20 @@
   "name": "@runespoorstack/eslint-config",
   "entries": [
     {
+      "version": "0.3.0",
+      "tag": "@runespoorstack/eslint-config_v0.3.0",
+      "date": "Tue, 06 Feb 2024 09:12:22 GMT",
+      "comments": {
+        "minor": [
+          {
+            "comment": "Provide `Vitest` mixin. Use as `@runespoorstack/eslint-config/mixins/vitest`.",
+            "author": "Boris Shulyak <55171497+BorysShulyak@users.noreply.github.com>",
+            "commit": "ff8fb57a0bc93eeb742a1576a8c613ddaa8f1ff2"
+          }
+        ]
+      }
+    },
+    {
       "version": "0.2.0",
       "tag": "@runespoorstack/eslint-config_v0.2.0",
       "date": "Sat, 03 Feb 2024 16:09:46 GMT",

@@ -1,6 +1,13 @@
 # Change Log - @runespoorstack/eslint-config
 
-This log was last generated on Sat, 03 Feb 2024 16:09:46 GMT and should not be manually modified.
+This log was last generated on Tue, 06 Feb 2024 09:12:22 GMT and should not be manually modified.
+
+## 0.3.0
+Tue, 06 Feb 2024 09:12:22 GMT
+
+### Minor changes
+
+- Provide `Vitest` mixin. Use as `@runespoorstack/eslint-config/mixins/vitest`.
 
 ## 0.2.0
 Sat, 03 Feb 2024 16:09:46 GMT
