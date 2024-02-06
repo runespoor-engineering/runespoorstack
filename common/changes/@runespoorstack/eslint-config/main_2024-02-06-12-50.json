@@ -1,0 +1,10 @@
+{
+  "changes": [
+    {
+      "packageName": "@runespoorstack/eslint-config",
+      "comment": "Adjust `README.md`.",
+      "type": "none"
+    }
+  ],
+  "packageName": "@runespoorstack/eslint-config"
+}
