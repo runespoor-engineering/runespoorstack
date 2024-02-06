@@ -22,6 +22,7 @@
   - [Choose a mixins](#choose-a-mixins)
   - [Add your own rules](#add-your-own-rules)
   - [⚠️ `no-restricted-imports` overrides](#️-no-restricted-imports-overrides)
+  - [⚠️ Linting `.storybook` folder](#️-linting-storybook-folder)
   - [Run `eslint`](#run-eslint)
 - [🛠️ Contributing](#️-contributing)
 - [💕 Special Thanks](#-special-thanks)
@@ -98,6 +99,7 @@ Use a native React base config:
 // This is a workaround for https://github.com/eslint/eslint/issues/3458
 require('@rushstack/eslint-config/patch/modern-module-resolution');
 module.exports = {
+  ignorePatterns: ['!.storybook'],
   "extends": ["@runespoorstack/eslint-config/core/react-js"]
 }
 ```
@@ -108,6 +110,7 @@ Use a TypesScript React base config:
 // This is a workaround for https://github.com/eslint/eslint/issues/3458
 require('@rushstack/eslint-config/patch/modern-module-resolution');
 module.exports = {
+  ignorePatterns: ['!.storybook'],
   "extends": ["@runespoorstack/eslint-config/core/react-ts"]
 }
 ```
@@ -120,6 +123,7 @@ Use a Prettier mixin:
 // This is a workaround for https://github.com/eslint/eslint/issues/3458
 require('@rushstack/eslint-config/patch/modern-module-resolution');
 module.exports = {
+  ignorePatterns: ['!.storybook'],
   "extends": [
     "@runespoorstack/eslint-config/core/react-js", 
     "@runespoorstack/eslint-config/mixins/prettier"
@@ -133,6 +137,7 @@ Use a Tailwind mixin:
 // This is a workaround for https://github.com/eslint/eslint/issues/3458
 require('@rushstack/eslint-config/patch/modern-module-resolution');
 module.exports = {
+  ignorePatterns: ['!.storybook'],
   "extends": [
     "@runespoorstack/eslint-config/core/react-ts", 
     "@runespoorstack/eslint-config/mixins/prettier", 
@@ -147,6 +152,7 @@ Use a Jest mixin:
 // This is a workaround for https://github.com/eslint/eslint/issues/3458
 require('@rushstack/eslint-config/patch/modern-module-resolution');
 module.exports = {
+  ignorePatterns: ['!.storybook'],
   "extends": [
     "@runespoorstack/eslint-config/core/react-js", 
     "@runespoorstack/eslint-config/mixins/prettier", 
@@ -154,10 +160,9 @@ module.exports = {
   ],
    overrides: [
     {
-      files: ['*.(spec|test).[tj]sx?$'], // or any other pattern
+       files: ['**/*.@(spec|test).[tj]s?(x)'], // or any other pattern
       extends: [
-        '@runespoorstack/eslint-config/mixins/jest',
-        '@runespoorstack/eslint-config/mixins/prettier'
+        '@runespoorstack/eslint-config/mixins/jest'
       ]
     }
   ]
@@ -170,6 +175,7 @@ Use a Vitest mixin:
 // This is a workaround for https://github.com/eslint/eslint/issues/3458
 require('@rushstack/eslint-config/patch/modern-module-resolution');
 module.exports = {
+  ignorePatterns: ['!.storybook'],
   "extends": [
     "@runespoorstack/eslint-config/core/react-js", 
     "@runespoorstack/eslint-config/mixins/prettier", 
@@ -177,10 +183,9 @@ module.exports = {
   ],
    overrides: [
     {
-      files: ['*.(spec|test).[tj]sx?$'], // or any other pattern
+      files: ['**/*.@(spec|test).[tj]s?(x)'], // or any other pattern
       extends: [
-        '@runespoorstack/eslint-config/mixins/vitest',
-        '@runespoorstack/eslint-config/mixins/prettier'
+        '@runespoorstack/eslint-config/mixins/vitest'
       ]
     }
   ]
@@ -193,6 +198,7 @@ module.exports = {
 // This is a workaround for https://github.com/eslint/eslint/issues/3458
 require('@rushstack/eslint-config/patch/modern-module-resolution');
 module.exports = {
+  ignorePatterns: ['!.storybook'],
   "extends": [
     "@runespoorstack/eslint-config/core/react-js", 
     "plugin:@tanstack/eslint-plugin-query/recommended"
@@ -213,6 +219,12 @@ We use a set of predefined restriction rules to protect you from serious mistake
 
 If you define your own `no-restricted-imports`, all the predefined once would be cleared.
 So in case of adding new rules or overriding only the separate rule, you should copy and paste the full `no-restricted-imports` rule definition from our source code.
+
+### ⚠️ Linting `.storybook` folder
+
+Make sure you have remove `.storybook` from ignore patterns to be able to lint this folder. By default eslint ignore all the `.*` files.
+
+Use `ignorePatterns: ['!.storybook'],`
 
 ### Run `eslint`
 
