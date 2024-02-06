@@ -1,6 +1,13 @@
 # Change Log - @runespoorstack/eslint-config
 
-This log was last generated on Tue, 06 Feb 2024 09:12:22 GMT and should not be manually modified.
+This log was last generated on Tue, 06 Feb 2024 12:25:58 GMT and should not be manually modified.
+
+## 0.4.0
+Tue, 06 Feb 2024 12:25:58 GMT
+
+### Minor changes
+
+- `core/react-js`, `core/react-ts`: make the following rules `error`: `storybook/hierarchy-separator`, `storybook/prefer-pascal-case`.
 
 ## 0.3.0
 Tue, 06 Feb 2024 09:12:22 GMT

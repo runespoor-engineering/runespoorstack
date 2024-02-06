@@ -2,6 +2,20 @@
   "name": "@runespoorstack/eslint-config",
   "entries": [
     {
+      "version": "0.4.0",
+      "tag": "@runespoorstack/eslint-config_v0.4.0",
+      "date": "Tue, 06 Feb 2024 12:25:58 GMT",
+      "comments": {
+        "minor": [
+          {
+            "comment": "`core/react-js`, `core/react-ts`: make the following rules `error`: `storybook/hierarchy-separator`, `storybook/prefer-pascal-case`.",
+            "author": "BorysShulyak <borysshulyak@gmail.com>",
+            "commit": "921d8ec81d855e91a8f0ab1a0f25683cbd4ca434"
+          }
+        ]
+      }
+    },
+    {
       "version": "0.3.0",
       "tag": "@runespoorstack/eslint-config_v0.3.0",
       "date": "Tue, 06 Feb 2024 09:12:22 GMT",
