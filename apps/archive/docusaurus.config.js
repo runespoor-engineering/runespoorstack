@@ -95,7 +95,7 @@ const config = {
             items: [
               {
                 label: 'Engineering Playbook',
-                to: '/docs/category/engineering-playbook'
+                to: '/docs/engineering-playbook/engineering-playbook-checklist'
               }
             ]
           },
