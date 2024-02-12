@@ -36,3 +36,20 @@ jobs:
 
       - name: Rush rebuild
         run: node common/scripts/install-run-rush.js rebuild --verbose
+
+      - name: Upload Artifacts
+        - uses: actions/upload-artifact@v4
+          with:
+            name: archive
+            path: apps/archive/build
+  
+  deploy-archive
+    needs: ci-mr
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: archive
+      - name: Display structure of downloaded files
+        run: ls -R
+    
