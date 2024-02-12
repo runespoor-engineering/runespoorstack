@@ -43,7 +43,7 @@ jobs:
           name: archive
           path: apps/archive/build
   
-  deploy-archive
+  deploy-archive:
     needs: ci-mr
     runs-on: ubuntu-latest
     steps:
