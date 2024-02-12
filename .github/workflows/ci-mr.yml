@@ -50,6 +50,7 @@ jobs:
       - uses: actions/download-artifact@v4
         with:
           name: archive
+          path: apps/archive/build
       - name: Display structure of downloaded files
         run: ls -R
     
