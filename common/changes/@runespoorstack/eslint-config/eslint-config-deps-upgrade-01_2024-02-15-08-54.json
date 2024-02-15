@@ -1,0 +1,10 @@
+{
+  "changes": [
+    {
+      "packageName": "@runespoorstack/eslint-config",
+      "comment": "Upgarde the following deps: `@typescript-eslint/parser@7.0.1`, `@typescript-eslint/eslint-plugin@7.0.1`, `eslint-plugin-jest@27.8.0`, `eslint-plugin-simple-import-sort@12.0.0`, `eslint-plugin-tailwindcss@3.14.2`, `eslint-plugin-vitest@0.3.22`.",
+      "type": "major"
+    }
+  ],
+  "packageName": "@runespoorstack/eslint-config"
+}
