@@ -19,7 +19,7 @@ const HomepageHeader = () => {
         <div className={styles.buttons}>
           <Link
             className="button button--secondary button--lg"
-            to="/docs/category/engineering-playbook"
+            to="/docs/engineering-playbook/engineering-playbook-checklist"
           >
             Engineering Playbook
           </Link>
