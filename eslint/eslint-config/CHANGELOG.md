@@ -1,6 +1,13 @@
 # Change Log - @runespoorstack/eslint-config
 
-This log was last generated on Tue, 06 Feb 2024 12:25:58 GMT and should not be manually modified.
+This log was last generated on Thu, 15 Feb 2024 09:02:41 GMT and should not be manually modified.
+
+## 1.0.0
+Thu, 15 Feb 2024 09:02:41 GMT
+
+### Breaking changes
+
+- Upgarde the following deps: `@typescript-eslint/parser@7.0.1`, `@typescript-eslint/eslint-plugin@7.0.1`, `eslint-plugin-jest@27.8.0`, `eslint-plugin-simple-import-sort@12.0.0`, `eslint-plugin-tailwindcss@3.14.2`, `eslint-plugin-vitest@0.3.22`.
 
 ## 0.4.0
 Tue, 06 Feb 2024 12:25:58 GMT

@@ -2,6 +2,27 @@
   "name": "@runespoorstack/eslint-config",
   "entries": [
     {
+      "version": "1.0.0",
+      "tag": "@runespoorstack/eslint-config_v1.0.0",
+      "date": "Thu, 15 Feb 2024 09:02:41 GMT",
+      "comments": {
+        "major": [
+          {
+            "comment": "Upgarde the following deps: `@typescript-eslint/parser@7.0.1`, `@typescript-eslint/eslint-plugin@7.0.1`, `eslint-plugin-jest@27.8.0`, `eslint-plugin-simple-import-sort@12.0.0`, `eslint-plugin-tailwindcss@3.14.2`, `eslint-plugin-vitest@0.3.22`.",
+            "author": "Boris Shulyak <55171497+BorysShulyak@users.noreply.github.com>",
+            "commit": "1b4a2c0abc4dad47d9c760a32b21a9122865eddf"
+          }
+        ],
+        "none": [
+          {
+            "comment": "Adjust `README.md`.",
+            "author": "BorysShulyak <borysshulyak@gmail.com>",
+            "commit": "68071fe517c3585aa70206f812a8c52ee1fe85ef"
+          }
+        ]
+      }
+    },
+    {
       "version": "0.4.0",
       "tag": "@runespoorstack/eslint-config_v0.4.0",
       "date": "Tue, 06 Feb 2024 12:25:58 GMT",
