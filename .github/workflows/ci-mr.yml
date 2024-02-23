@@ -3,6 +3,10 @@ on:
   pull_request:
     branches:
       - '*'
+
+env:
+  ARCHIVE_BUILD_PATH: apps/archive/build
+
 jobs:
   ci-mr:
     runs-on: ubuntu-latest
@@ -42,7 +46,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: archive
-          path: apps/archive/build
+          path: ${{ env.ARCHIVE_BUILD_PATH }}
   
   deploy-archive:
     needs: ci-mr
@@ -56,14 +60,23 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
+      - name: Configure Github Pages
+        uses: actions/configure-pages@v4
+
+      - name: Download archive Artifact
       - uses: actions/download-artifact@v4
         with:
           name: archive
-          path: apps/archive/build
-      
+          path: ${{ env.ARCHIVE_BUILD_PATH }}
+
       - name: Display structure of downloaded files
         run: ls -R
+
+      - name: Upload archive artifact as a GitHub Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ${{ env.ARCHIVE_BUILD_PATH }}
       
-      - name: Deploy to GitHub Pages
+      - name: Deploy archive to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
