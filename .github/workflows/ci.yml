@@ -58,7 +58,7 @@ jobs:
       - name: Rush Publish
         run: node common/scripts/install-run-rush.js publish --apply --target-branch ${{ github.event.repository.default_branch }} --publish --registry ${{ secrets.NPM_REGISTRY_URL }} --npm-auth-token ${{ secrets.NPM_TOKEN }} --add-commit-details
 
-deploy-archive:
+  deploy-archive:
     needs: ci
     permissions:
       contents: read
