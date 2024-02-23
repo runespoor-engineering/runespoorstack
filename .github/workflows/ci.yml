@@ -3,6 +3,10 @@ on:
   push:
     branches:
       - main
+
+env:
+  ARCHIVE_BUILD_PATH: apps/archive/build
+
 jobs:
   ci:
     runs-on: ubuntu-latest
@@ -30,7 +34,6 @@ jobs:
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
-
       - name: Rush Verify Change Logs
         run: node common/scripts/install-run-rush.js change --verify
 
@@ -46,5 +49,41 @@ jobs:
       - name: Rush Rebuild
         run: node common/scripts/install-run-rush.js rebuild --verbose
 
+      - name: Upload Artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: archive
+          path: ${{ env.ARCHIVE_BUILD_PATH }}
+
       - name: Rush Publish
         run: node common/scripts/install-run-rush.js publish --apply --target-branch ${{ github.event.repository.default_branch }} --publish --registry ${{ secrets.NPM_REGISTRY_URL }} --npm-auth-token ${{ secrets.NPM_TOKEN }} --add-commit-details
+
+deploy-archive:
+    needs: ci
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Configure Github Pages
+        uses: actions/configure-pages@v4
+
+      - name: Download archive Artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: archive
+          path: ${{ env.ARCHIVE_BUILD_PATH }}
+
+      - name: Upload archive artifact as GitHub Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ${{ env.ARCHIVE_BUILD_PATH }}
+      
+      - name: Deploy archive to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
