@@ -6,6 +6,7 @@ on:
 jobs:
   ci-mr:
     runs-on: ubuntu-latest
+    
     steps:
       - uses: actions/checkout@v4
         with:
@@ -45,11 +46,24 @@ jobs:
   
   deploy-archive:
     needs: ci-mr
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
+    
     steps:
       - uses: actions/download-artifact@v4
         with:
           name: archive
           path: apps/archive/build
+      
       - name: Display structure of downloaded files
         run: ls -R
+      
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
