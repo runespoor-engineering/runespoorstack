@@ -2,6 +2,20 @@
   "name": "@runespoorstack/eslint-config",
   "entries": [
     {
+      "version": "1.0.1",
+      "tag": "@runespoorstack/eslint-config_v1.0.1",
+      "date": "Fri, 01 Mar 2024 12:59:32 GMT",
+      "comments": {
+        "patch": [
+          {
+            "comment": "`vitest` mixin: provide `ignoreTopLevelDescribe` as `true` for `vitest/prefer-lowercase-title`",
+            "author": "Boris Shulyak <55171497+BorysShulyak@users.noreply.github.com>",
+            "commit": "b4a5a48cd185a2c2777c0d9d35219ea2300e96a2"
+          }
+        ]
+      }
+    },
+    {
       "version": "1.0.0",
       "tag": "@runespoorstack/eslint-config_v1.0.0",
       "date": "Thu, 15 Feb 2024 09:02:41 GMT",

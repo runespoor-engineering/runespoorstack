@@ -1,6 +1,13 @@
 # Change Log - @runespoorstack/eslint-config
 
-This log was last generated on Thu, 15 Feb 2024 09:02:41 GMT and should not be manually modified.
+This log was last generated on Fri, 01 Mar 2024 12:59:32 GMT and should not be manually modified.
+
+## 1.0.1
+Fri, 01 Mar 2024 12:59:32 GMT
+
+### Patches
+
+- `vitest` mixin: provide `ignoreTopLevelDescribe` as `true` for `vitest/prefer-lowercase-title`
 
 ## 1.0.0
 Thu, 15 Feb 2024 09:02:41 GMT
