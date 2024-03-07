@@ -33,7 +33,7 @@
 ## 🦾 Installation
 
 ```shell
-npm i --save-dev @runespoorstack/timezones
+npm i @runespoorstack/timezones
 ```
 
 ## ♾️ Usage

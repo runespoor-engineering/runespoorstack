@@ -21,7 +21,7 @@ flowchart TB
     end
 
      subgraph date
-        timezones["timezones\n(The updated list of timezones)\nZone/Name/Code/GMT"]
+        timezones["timezones\n(The updated list of timezones)"]
     end
 
     subgraph apps
