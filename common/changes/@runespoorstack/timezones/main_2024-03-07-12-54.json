@@ -1,0 +1,10 @@
+{
+  "changes": [
+    {
+      "packageName": "@runespoorstack/timezones",
+      "comment": "Fully change timezones json.",
+      "type": "minor"
+    }
+  ],
+  "packageName": "@runespoorstack/timezones"
+}
