@@ -1,0 +1,10 @@
+{
+  "changes": [
+    {
+      "packageName": "@runespoorstack/timezones",
+      "comment": "Initial release.",
+      "type": "patch"
+    }
+  ],
+  "packageName": "@runespoorstack/timezones"
+}
