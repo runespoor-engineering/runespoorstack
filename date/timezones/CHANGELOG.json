@@ -1,0 +1,24 @@
+{
+  "name": "@runespoorstack/timezones",
+  "entries": [
+    {
+      "version": "0.0.1",
+      "tag": "@runespoorstack/timezones_v0.0.1",
+      "date": "Thu, 07 Mar 2024 07:41:56 GMT",
+      "comments": {
+        "patch": [
+          {
+            "comment": "Initial release.",
+            "author": "BorysShulyak <borysshulyak@gmail.com>",
+            "commit": "8e0be85b61fe380d26db2cdf95e28a549601dc52"
+          },
+          {
+            "comment": "Fix Readme.",
+            "author": "BorysShulyak <borysshulyak@gmail.com>",
+            "commit": "8dff4912e7439d4a91eccfa21a9b90803b8d0351"
+          }
+        ]
+      }
+    }
+  ]
+}
