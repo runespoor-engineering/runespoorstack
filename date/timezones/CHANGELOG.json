@@ -1,0 +1,19 @@
+{
+  "name": "@runespoorstack/timezones",
+  "entries": [
+    {
+      "version": "0.0.1",
+      "tag": "@runespoorstack/timezones_v0.0.1",
+      "date": "Thu, 07 Mar 2024 07:21:46 GMT",
+      "comments": {
+        "patch": [
+          {
+            "comment": "Initial release.",
+            "author": "Boris Shulyak <55171497+BorysShulyak@users.noreply.github.com>",
+            "commit": "8871a7772fa6d73b780e8367beb0b0f0e8ce01af"
+          }
+        ]
+      }
+    }
+  ]
+}
