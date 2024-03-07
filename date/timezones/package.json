@@ -1,0 +1,46 @@
+{
+  "name": "@runespoorstack/timezones",
+  "version": "0.0.0",
+  "description": "List of available timezones and their offsets, country codes, and names.",
+  "main": "index.json",
+  "scripts": {
+    "build": "",
+    "lint": "",
+    "lint:fix": ""
+  },
+  "dependencies": {},
+  "devDependencies": {},
+  "homepage": "https://github.com/runespoor-engineering/runespoorstack/tree/main/date/timezones#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/runespoor-engineering/runespoorstack"
+  },
+  "bugs": {
+    "url": "https://github.com/runespoor-engineering/runespoorstack/issues"
+  },
+  "author": {
+    "name": "BorysShulyak",
+    "email": "borysshulyak@gmail.com",
+    "url": "https://github.com/BorysShulyak"
+  },
+  "maintainers": [
+    {
+      "name": "BorysShulyak",
+      "email": "borysshulyak@gmail.com",
+      "url": "https://github.com/BorysShulyak"
+    }
+  ],
+  "keywords": [
+    "timezones",
+    "countryCode",
+    "country",
+    "code",
+    "gmt",
+    "offset",
+    "json",
+    "runespoorstack",
+    "runespoor",
+    "stack"
+  ],
+  "license": "MIT"
+}
