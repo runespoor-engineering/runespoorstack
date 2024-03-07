@@ -25,10 +25,21 @@
 ## ✨ Features
 
 - Timezones JSON with the following fields:
-  - countryCode
-  - countryName
-  - zoneName
-  - gmtOffset
+```json
+{
+  "value": "UTC-11",
+  "abbr": "U",
+  "offset": -11,
+  "isdst": false,
+  "text": "(UTC-11:00) Coordinated Universal Time-11",
+  "utc": [
+    "Etc/GMT+11",
+    "Pacific/Midway",
+    "Pacific/Niue",
+    "Pacific/Pago_Pago"
+  ]
+}
+```
 
 ## 🦾 Installation
 
