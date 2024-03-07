@@ -1,6 +1,6 @@
 {
   "name": "@runespoorstack/timezones",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "List of available timezones and their offsets, country codes, and names.",
   "main": "index.json",
   "scripts": {
