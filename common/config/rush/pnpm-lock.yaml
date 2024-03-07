@@ -50,6 +50,9 @@ importers:
       prettier: 3.2.5
       typescript: 5.3.3
 
+  ../../date/timezones:
+    specifiers: {}
+
   ../../eslint/eslint-config:
     specifiers:
       '@typescript-eslint/eslint-plugin': 7.0.1

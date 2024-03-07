@@ -20,6 +20,10 @@ flowchart TB
         eslint-config["eslint-config\n(Universal linting configuration)\nESLint/Prettier"]
     end
 
+     subgraph date
+        timezones["timezones\n(The updated list of timezones)\nZone/Name/Code/GMT"]
+    end
+
     subgraph apps
         archive["archive\nDocusaurus App\n(Engineering Playbook)"]
     end
@@ -28,6 +32,7 @@ flowchart TB
 
     style apps fill:lightgreen
     style eslint fill:skyblue
+    style date fill:yellow
 ```
 
 ## Merge Request CI
