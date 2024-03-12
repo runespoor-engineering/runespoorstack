@@ -118,6 +118,11 @@ const sidebars = {
           type: 'category',
           label: 'Developer Experience',
           items: ['engineering-playbook/developer-experience/recommended-soft']
+        },
+        {
+          type: 'category',
+          label: 'Growth',
+          items: ['engineering-playbook/growth/growth-in-depth-or-breadth']
         }
       ]
     }
