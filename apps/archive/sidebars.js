@@ -116,6 +116,11 @@ const sidebars = {
         },
         {
           type: 'category',
+          label: 'GraphQL',
+          items: ['engineering-playbook/graphql/graphql-disadvantages']
+        },
+        {
+          type: 'category',
           label: 'Developer Experience',
           items: ['engineering-playbook/developer-experience/recommended-soft']
         },

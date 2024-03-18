@@ -1,0 +1,56 @@
+---
+title: Graphql Disadvantages
+---
+
+# GraphQL Disadvantages
+
+GraphQL has quickly become a popular alternative to REST API for developers. It boasts a number of advantages, such as providing a more efficient way to retrieve data and enabling developers to declaratively specify what data they need. However, like any technology, GraphQL has its disadvantages that developers should be aware of. In this article, we will examine the top 5 GraphQL disadvantages and discuss how they can impact your development process.
+
+## Authentication
+
+In GQL we have a schema in which we describe requests (queries, mutations, types). GQL is based on the assumption that this schema is static - not changing from the point of view of the application. 
+
+Is it different from REST? After all, in fact, there is no application in which API endpoints change. But not everything is like that. In the simplest example, you have app endpoints, some of which are available to an unauthorized user, and the rest, which are available to an authorized one, and these two parts do not intersect. Okay, obviously, all the API endpoints are available for an authenticated client. It will not work to simulate this on GQL. For example, you have a scheme in which most of the requests are not available to an unauthorized user - until he calls them, there is no way to know about it. That’s why it is not clear to us from the scheme how to use the API.
+
+![Graphql Authentication Disadvantage](/img/gqlAuthDisadvantage.png)
+
+## Mutations heap
+
+GQL resembles an RPC (remote procedure call) - when we call some function and expect to get the result of execution
+
+If Queries are built in such a way that it is clear to understand from what entity we could start writing a query and what actually we could get at the end, then there is a problem with Mutations. We open a GQL schema documentation and see a great heap of operations available to communicate with the service… 
+
+And I need to say more, mostly, the developers choose really bad naming for the Mutations and it’s really difficult to find all the operations connected to the same entity in the documentation, e.g. GitHub GQL API. 
+
+![Graphql Mutations Heap Disadvantage](/img/gqlMutationHeapDisadvantage.png)
+
+## Files
+
+As long as we exchange data via GQL, all is well. But sooner or later, you will need to download files. Yes, we have a **multipart/form-data** where we can attach a stream file to a request and let the server support it. My congratulations, this is a violation of one of the fundamental approaches of GQL -  transport agnostic - GQL does not care what they work with: WebSockets, HTTP, carrier pigeonsб, etc. 
+
+GQL does not provide an answer to this question.
+
+![Graphql Files Disadvantage](/img/gqlFilesDisadvantage.png)
+
+## Error handling
+
+The error could be one of two types: 
+
+- **Error** - business logic error, and
+- **Exception** - which means you do some wrong operation with some wrong data, entity, etc.
+
+In the case of exceptions, we have the concept of Top Level exception, when we are directly told: “The request failed for such and such a reason, because ...”. 
+
+But with business logic Errors, the situation is different: you yourself must describe errors for each mutation for different cases. But in what format they will be, what information they will carry - it is not standardized.
+
+![Graphql Errors Disadvantage](/img/gqlErrorsDisadvantage.png)
+
+## Caching
+
+When we used the CRUD, we had a list of available HTTP methods for our requests (GET, POST, etc.). 
+
+GQL denies all these patterns, it has not heard of idempotency, and it sends all requests using the POST HTTP method. The denial of data idempotency deprives us of very high accuracy - when we executed a request in a rough form, we could return a `Cache` header and indicate that we should cache some data for a while, so the browser put it in the cache and pick up ready-made data for us. Obviously, this speeded up responses from the server in client-server communication. But for GQL we don't have an official solution.
+
+## Conclusion
+
+In conclusion, while GraphQL offers many benefits over traditional REST APIs, it also has its share of disadvantages that developers should be aware of. These include challenges with authentication, difficulty with mutation heap management, limitations with file handling, varied error handling approaches, and a lack of standardized caching methods. However, with careful consideration and planning, developers can overcome these challenges and leverage the many advantages that GraphQL has to offer.
