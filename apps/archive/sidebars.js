@@ -71,7 +71,8 @@ const sidebars = {
             'engineering-playbook/processes/goals',
             'engineering-playbook/processes/lead',
             'engineering-playbook/processes/critical-chain',
-            'engineering-playbook/processes/delayIn-managerial-decision-making'
+            'engineering-playbook/processes/delayIn-managerial-decision-making',
+            'engineering-playbook/processes/onboarding'
           ]
         },
         {
