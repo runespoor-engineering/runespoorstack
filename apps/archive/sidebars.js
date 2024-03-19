@@ -71,7 +71,8 @@ const sidebars = {
             'engineering-playbook/processes/goals',
             'engineering-playbook/processes/lead',
             'engineering-playbook/processes/critical-chain',
-            'engineering-playbook/processes/delayIn-managerial-decision-making'
+            'engineering-playbook/processes/delayIn-managerial-decision-making',
+            'engineering-playbook/processes/onboarding'
           ]
         },
         {
@@ -118,6 +119,11 @@ const sidebars = {
           type: 'category',
           label: 'GraphQL',
           items: ['engineering-playbook/graphql/graphql-disadvantages']
+        },
+        {
+          type: 'category',
+          label: 'State Management',
+          items: ['engineering-playbook/state-management/redux-hidden-dependencies']
         },
         {
           type: 'category',

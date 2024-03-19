@@ -1,0 +1,23 @@
+---
+title: Redux Hidden Dependencies
+---
+
+Let's talk about using Redux. The downsides of Redux can be listed for a long time. As long as you use Redux as a state manager, it's tolerable. But as soon as you start using Redux as a **“cache”** for data you received from the backend, the situation worsens significantly.
+
+Let's see what this is all about.
+
+![Redux Hidden Dependecies - 1](/img/reduxHiddenDependecies-1.png)
+
+This diagram shows that component D requests user data and puts it in the Redux store. Component B consumes user data - it retrieves it from the Redux store using selectors.
+
+This is all good. The code is written and it's better not to mess with it. Because as soon as you want to remove component D, your application will break.
+
+![Redux Hidden Dependecies - 2](/img/reduxHiddenDependecies-2.png)
+
+ It turns out that an unknown number of components depend on component D. But most importantly, **this dependency is not expressed in the code.** That is, as soon as you plan to refactor some component, you need to make sure it doesn't request any data, and if it does, find all the places that consume this data. After that, you will have to think about where to request this data now and put it in the Redux store.
+
+What to do? How to get rid of heavy brainstorming associated with refactoring? The solution has long existed, but many people do not use it - using tools that truly cache your backend requests: **Apollo Client** ,**RTK Query, React Query, SWR.**
+
+![Redux Hidden Dependecies - 3](/img/reduxHiddenDependecies-3.png)
+
+If you use a cache instead of Redux, then we can not worry about where and how to request data. And **"not worrying"** is very important, because you can concentrate on more important things - thus, we can mindlessly refactor components, without thinking about such hidden dependencies.
