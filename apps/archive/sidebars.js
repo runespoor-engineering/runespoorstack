@@ -122,6 +122,11 @@ const sidebars = {
         },
         {
           type: 'category',
+          label: 'State Management',
+          items: ['engineering-playbook/state-management/redux-hidden-dependencies']
+        },
+        {
+          type: 'category',
           label: 'Developer Experience',
           items: ['engineering-playbook/developer-experience/recommended-soft']
         },
