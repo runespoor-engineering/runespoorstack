@@ -34,7 +34,8 @@ const sidebars = {
             'engineering-playbook/source-control/pull-request-template',
             'engineering-playbook/source-control/feature-issue-template',
             'engineering-playbook/source-control/docs-issue-template',
-            'engineering-playbook/source-control/bug-issue-template'
+            'engineering-playbook/source-control/bug-issue-template',
+            'engineering-playbook/source-control/managing-dependencies'
           ]
         },
         {
