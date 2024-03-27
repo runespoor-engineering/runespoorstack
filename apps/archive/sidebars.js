@@ -100,6 +100,7 @@ const sidebars = {
           items: [
             'engineering-playbook/testing/ideal-testing-trophy',
             'engineering-playbook/testing/test-desiderata',
+            'engineering-playbook/testing/tdd',
             'engineering-playbook/testing/testing-conventions',
             'engineering-playbook/testing/integration-testsing-coverage',
             'engineering-playbook/testing/impact-analyses',
