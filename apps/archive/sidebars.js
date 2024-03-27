@@ -99,6 +99,7 @@ const sidebars = {
           label: 'Testing',
           items: [
             'engineering-playbook/testing/ideal-testing-trophy',
+            'engineering-playbook/testing/testing-conventions',
             'engineering-playbook/testing/integration-testsing-coverage',
             'engineering-playbook/testing/impact-analyses',
             'engineering-playbook/testing/recommened-linters',

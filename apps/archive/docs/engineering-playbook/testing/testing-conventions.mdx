@@ -1,0 +1,55 @@
+---
+title: Testing Conventions
+---
+
+# Testing Conventions
+
+## General conventions for tests
+
+- Follow the [Testing Trophy](/docs/engineering-playbook/testing/ideal-testing-trophy).
+- [Write tests. Not too many. Mostly integration.](https://kentcdodds.com/blog/write-tests).
+- [Follow the AHA testing](https://kentcdodds.com/blog/aha-testing).
+- Separate the test cases. - One case - one test.
+- [Avoid mutable variables.](https://x.com/kentcdodds/status/1154468901121482753?s=20).
+- [Avoid nesting when you are testing](https://kentcdodds.com/blog/avoid-nesting-when-youre-testing).
+- Keep tests up to date. - If you add the code for some method component/method/class, you should update all the current test cases and cover the new part of functionality with tests.
+- Bad tests is worth than no tests. - If you don't know how to cover some functionality with tests, if you understand that your tests are bad - don't push 1-2 useless test cases to master!
+
+## Integration Tests
+
+- Use [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/).
+- [Avoid common mistakes with React Testing Library](https://kentcdodds.com/blog/common-mistakes-with-react-testing-library).
+- Use custom `render`, `renderHook` that contains all the general Providers. 
+  - If you need some specific Provider, you can add it in the test case.
+  - If you are going to use some Provider in the test case and understand that it is a global/general Provider - add it to the custom methods.
+- Follow the [Integration Testing Coverage](/docs/engineering-playbook/testing/integration-testing-coverage).
+- [Do not test the implementation details in Integration tests](https://kentcdodds.com/blog/testing-implementation-details).
+- [Do not use shallow rendering](https://kentcdodds.com/blog/why-i-never-use-shallow-rendering).
+- Test components in isolation. Each test case should render the component from zero.
+
+## Mocking
+
+The more your tests resemble the way your software is used, the more confidence they can give you.
+
+- [Understand that mocking is a tradeoff between speed and confindence](https://kentcdodds.com/blog/the-merits-of-mocking).
+- [Do the mocks of server api calls correclty](https://kentcdodds.com/blog/stop-mocking-fetch). Use `msw` for mocking REST api.
+- Your mocks should be organized in one style. - It is just as important as organizing your other code and files.
+
+## Style Guide
+
+- Use `mixins/jest` or `mixins/vitest` from [@runespoor/eslint-config](https://github.com/runespoor-engineering/runespoorstack/tree/main/eslint/eslint-config).
+- The test file should be located in the `__tests__/unit` or `__tests__/integration` folder, depending on the tests type. - It will help to run unit and integration test separatly.
+- The tests should be located in the same folder as the component/method/class you are testing.
+- The name of the test file should be the same as the component/method/class you are testing, but with the `.test` suffix.
+- `describe`:
+  - Do not use nested `describe`.
+  - The message should be the name of the component/method/class your are testing.
+  - Example: ``describe('useEntitiesMap', () => {})``
+- `it`:
+  - The message should be started with `should` word.
+  - The message should be in the **present tense**.
+  - Use `` ` ` `` quotes for all the technical names (props, args, handlers, hooks, etc.).
+  - Example: ``it('should skip the entity if it does not have an object by the provided `entityDataPath`', () => {})``
+- Mocks:
+  - The name of the mock function or constant should be started with `mock` word. (not `mocking` , not `mocked` )
+
