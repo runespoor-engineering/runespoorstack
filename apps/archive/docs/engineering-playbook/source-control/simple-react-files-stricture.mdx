@@ -1,0 +1,214 @@
+---
+title: Simple React Files Structure
+---
+
+# Simple React Files Structure
+
+There is a few silver bullet rules for (modules) **hooks**, **utils**, **types**, **constants**, **components**, etc. placing:
+- If it is a general module - it should be placed on the highest level (e.g. src).
+- If it is used in 2 or more modules - it should be placed on the higher level of it's usage or in the goup folder.
+
+## Src
+
+```
+src/
+  api - is used for everything related to server API (api, hooks, types, parsers).
+  assets - is used for static asserts.
+  app - is used App.tsx component.
+  components - is used for as a root components folder
+  hooks - general (shared) hooks.
+  hocs - general (shared) HOCs.
+  utils - general (shared) utils.
+  types - general (shared) types.
+  constants - general (shared) constants.
+  context - general (shared) context.
+  stories - general stories, documentation.
+  test - tests setup files.
+  config - app configuration files.
+```
+
+## Api
+
+- **api.ts** - file for api ednpoints.
+- **hooks.ts** - file for api hooks (e.g. wrapers over `useQuery`, `useMutation` in case of Tanstack Query).
+- **types.ts** - file for the server api response types.
+- **parsers.ts** - file for the server api response parsers.
+
+```
+api /
+  <group1>
+    api.ts
+    hooks.ts
+    types.ts
+    parsers.ts
+  <groupN>
+    api.ts
+    hooks.ts
+    types.ts
+    parsers.ts
+```
+
+## Root Components Folder
+
+- Follow the [Atomic Design](https://atomicdesign.bradfrost.com/chapter-2/) in organization of your high level exported components.
+- Create the separate **group** folders to split you components by entities or anything else (e.g. shared, games, domains).
+- Inside the **group** folder create the **atoms**, **molecules**, **organisms** folders.
+- Inside the **atoms**, **molecules**, **organisms** folders create the separate folders for each component.
+- **templates** and **pages** are so high level components so they are not spit by the groups.
+
+```
+src/
+components /
+  templates 
+  pages
+  <group1> / 
+    organisms
+      <Component1>
+    molecules
+      <Component2>
+    atoms
+      <Component3>
+  <group2> /
+    organisms
+    molecules
+    atoms
+```
+
+## Component
+
+- **hooks** - folder for hooks related to this component directly or 2 or more components in the `<Comonent1>/components` folder.
+- **utils** - folder for utility functions related to this component directly or 2 or more components in the `<Comonent1>/components` folder.
+- **types** - folder for types related to this component directly or 2 or more components in the `<Comonent1>/components` folder.
+- **constants** - folder for constants related to this component directly or 2 or more components in the `<Comonent1>/components` folder.
+- **context** - folder for context related to this component directly.
+- **components** - folder for nested components. 
+  - If some components are used only in this component, they should be placed under this component.
+  - If some components are used in 2 or more components, they should be placed on the higher level.
+- **stories** - folder for stories related to this component directly.
+- **__tests__/integration** - folder for tests related to this component directly.
+
+```
+<Component1>
+  Component1.tsx
+  hooks
+  utils
+  types
+  constants
+  context
+  components
+  stories
+  __tests__/integration
+```
+
+## Hooks
+
+```
+hooks /
+  <group1>
+    <useFunctionality1>
+    <useFunctionality2>
+  <groupN>
+    <useFunctionalityN>
+```
+
+## Hook
+
+- **utils** - folder for utility functions related for this hook directly.
+- **types** - folder for types related for this hook directly.
+- **constants** - folder for constants related for this hook directly.
+- **__tests__** - folder for tests related for this hook directly.
+
+```
+<useFunctionality1>
+  useFunctionality1.tsx
+  utils
+  types
+  constants
+  __tests__/unit
+```
+
+## Utils
+
+```
+utils /
+  <group1>
+    <util1>
+    <util2>
+  <groupN>
+    <utilN>
+```
+
+## Util
+
+- **types** - folder for types related for this util directly.
+- **constants** - folder for constants related for this util directly.
+- **__tests__** - folder for tests related for this util directly.
+
+```
+<util1>
+  util1.tsx
+  types
+  constants
+  __tests__/unit
+```
+
+## Types
+
+```
+types /
+  <group1>
+    <type1>.tsx
+    <type2>.tsx
+  <groupN>
+    <typeN>.tsx
+```
+
+## Constants
+
+```
+constants /
+  <group1>
+    <constant1>.ts
+    <constant2>.ts
+  <groupN>
+    <constantN>.ts
+```
+
+## Context
+
+- **Context1.tsx** - Use the singe file for Context and Provider.
+- Athor folders follow the same rules.
+
+```
+context /
+  <group1>
+    <Context1> / 
+      Context1.tsx
+      hooks
+      utils
+      types
+      constants
+      components
+      stories
+      __tests__/integration
+  <groupN>
+    <ContextN>
+```
+
+## hocs
+
+```
+hocs /
+  <group1>
+    <hoc1>
+    <hoc2>
+  <groupN>
+    <hocN>
+```
+
+## Stories
+
+```
+stories /
+  <Component1>.stories.tsx
+```
