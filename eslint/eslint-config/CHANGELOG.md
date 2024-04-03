@@ -1,6 +1,13 @@
 # Change Log - @runespoorstack/eslint-config
 
-This log was last generated on Fri, 01 Mar 2024 12:59:32 GMT and should not be manually modified.
+This log was last generated on Wed, 03 Apr 2024 10:52:07 GMT and should not be manually modified.
+
+## 1.0.2
+Wed, 03 Apr 2024 10:52:07 GMT
+
+### Patches
+
+- Turn off vitest `no-hooks` rule.
 
 ## 1.0.1
 Fri, 01 Mar 2024 12:59:32 GMT

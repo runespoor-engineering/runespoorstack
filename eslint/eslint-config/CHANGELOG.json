@@ -2,6 +2,20 @@
   "name": "@runespoorstack/eslint-config",
   "entries": [
     {
+      "version": "1.0.2",
+      "tag": "@runespoorstack/eslint-config_v1.0.2",
+      "date": "Wed, 03 Apr 2024 10:52:07 GMT",
+      "comments": {
+        "patch": [
+          {
+            "comment": "Turn off vitest `no-hooks` rule.",
+            "author": "Boris Shulyak <55171497+BorysShulyak@users.noreply.github.com>",
+            "commit": "7fa762fcdd9e43233240a96bd5a4b7fd76c00b58"
+          }
+        ]
+      }
+    },
+    {
       "version": "1.0.1",
       "tag": "@runespoorstack/eslint-config_v1.0.1",
       "date": "Fri, 01 Mar 2024 12:59:32 GMT",

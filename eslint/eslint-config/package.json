@@ -1,6 +1,6 @@
 {
   "name": "@runespoorstack/eslint-config",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Battle tested, ready for production set of Runespoor ESlint configs.",
   "scripts": {
     "build": "",
