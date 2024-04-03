@@ -19,7 +19,7 @@ module.exports = {
     'vitest/no-done-callback': 'error',
     'vitest/no-duplicate-hooks': 'error',
     'vitest/no-focused-tests': 'error',
-    'vitest/no-hooks': 'error',
+    'vitest/no-hooks': 'off',
     'vitest/no-interpolation-in-snapshots': 'error',
     'vitest/no-large-snapshots': 'error',
     'vitest/no-mocks-import': 'error',
