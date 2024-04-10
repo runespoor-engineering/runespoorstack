@@ -2,7 +2,7 @@
   "changes": [
     {
       "packageName": "@runespoorstack/eslint-config",
-      "comment": "- Update the following dependencies: `@typescript-eslint/parser@7.6.0`, `@typescript-eslint/eslint-plugin@7.6.0`, `eslint-plugin-jest@28.2.0`, `eslint-plugin-react@7.34.1`, `eslint-plugin-storybook@0.8.0`, `eslint-plugin-tailwindcss@3.15.1`, `eslint-plugin-vitest@0.5.1`. <br/> - Update the following devDependencies: `typescript@5.4.5`, `eslint@8.57.0`, `tailwindcss@3.4.3`. <br/> - Update the following peerDependencies: `typescript@5.4.5`, `eslint@8.57.0`.",
+      "comment": "dependencies: <br/>- Update the following dependencies: `@typescript-eslint/parser@7.6.0`, `@typescript-eslint/eslint-plugin@7.6.0`, `eslint-plugin-jest@28.2.0`, `eslint-plugin-react@7.34.1`, `eslint-plugin-storybook@0.8.0`, `eslint-plugin-tailwindcss@3.15.1`, `eslint-plugin-vitest@0.5.1`. <br/>- Update the following devDependencies: `typescript@5.4.5`, `eslint@8.57.0`, `tailwindcss@3.4.3`. <br/>- Update the following peerDependencies: `typescript@5.4.5`, `eslint@8.57.0`.",
       "type": "minor"
     }
   ],
