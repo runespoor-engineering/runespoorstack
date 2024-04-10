@@ -1,6 +1,13 @@
 # Change Log - @runespoorstack/eslint-config
 
-This log was last generated on Wed, 03 Apr 2024 10:52:07 GMT and should not be manually modified.
+This log was last generated on Wed, 10 Apr 2024 16:10:58 GMT and should not be manually modified.
+
+## 1.1.0
+Wed, 10 Apr 2024 16:10:58 GMT
+
+### Minor changes
+
+- dependencies: <br/>- Update the following dependencies: `@typescript-eslint/parser@7.6.0`, `@typescript-eslint/eslint-plugin@7.6.0`, `eslint-plugin-jest@28.2.0`, `eslint-plugin-react@7.34.1`, `eslint-plugin-storybook@0.8.0`, `eslint-plugin-tailwindcss@3.15.1`, `eslint-plugin-vitest@0.5.1`. <br/>- Update the following devDependencies: `typescript@5.4.5`, `eslint@8.57.0`, `tailwindcss@3.4.3`. <br/>- Update the following peerDependencies: `typescript@5.4.5`, `eslint@8.57.0`.
 
 ## 1.0.2
 Wed, 03 Apr 2024 10:52:07 GMT
