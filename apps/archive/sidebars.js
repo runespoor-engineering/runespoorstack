@@ -132,6 +132,11 @@ const sidebars = {
         },
         {
           type: 'category',
+          label: 'Documentation',
+          items: ['engineering-playbook/documentation/high-level-requirements-and-purposes']
+        },
+        {
+          type: 'category',
           label: 'Developer Experience',
           items: ['engineering-playbook/developer-experience/recommended-soft']
         },
