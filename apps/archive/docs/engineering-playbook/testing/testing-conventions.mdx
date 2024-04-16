@@ -20,6 +20,8 @@ title: Testing Conventions
 ## Integration Tests
 
 - Use [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/).
+- Follow the [priotiry of React Testing Library queries](https://testing-library.com/docs/queries/about#priority).
+- Use `@testing-library/user-event` for [simulating user interactions](https://testing-library.com/docs/user-event/intro/).
 - [Avoid common mistakes with React Testing Library](https://kentcdodds.com/blog/common-mistakes-with-react-testing-library).
 - Use custom `render`, `renderHook` that contains all the general Providers. 
   - If you need some specific Provider, you can add it in the test case.
@@ -35,6 +37,8 @@ The more your tests resemble the way your software is used, the more confidence 
 
 - [Understand that mocking is a tradeoff between speed and confindence](https://kentcdodds.com/blog/the-merits-of-mocking).
 - [Do the mocks of server api calls correclty](https://kentcdodds.com/blog/stop-mocking-fetch). Use `msw` for mocking REST api.
+- Follow basic example of [React Testing Library + msw API mocking](https://testing-library.com/docs/react-testing-library/example-intro/#full-example).
+- Turn off [query retries for Tanstack Query](https://tanstack.com/query/latest/docs/framework/react/guides/testing#turn-off-retries).
 - Your mocks should be organized in one style. - It is just as important as organizing your other code and files.
 
 ## Style Guide
