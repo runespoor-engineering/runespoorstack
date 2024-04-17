@@ -143,7 +143,10 @@ const sidebars = {
         {
           type: 'category',
           label: 'Growth',
-          items: ['engineering-playbook/growth/growth-in-depth-or-breadth']
+          items: [
+            'engineering-playbook/growth/growth-in-depth-or-breadth',
+            'engineering-playbook/growth/company-engineering-culture'
+          ]
         }
       ]
     }
