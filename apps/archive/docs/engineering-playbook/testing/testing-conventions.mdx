@@ -39,6 +39,7 @@ The more your tests resemble the way your software is used, the more confidence 
 - [Do the mocks of server api calls correclty](https://kentcdodds.com/blog/stop-mocking-fetch). Use `msw` for mocking REST api.
 - Follow basic example of [React Testing Library + msw API mocking](https://testing-library.com/docs/react-testing-library/example-intro/#full-example).
 - Turn off [query retries for Tanstack Query](https://tanstack.com/query/latest/docs/framework/react/guides/testing#turn-off-retries).
+- Mock system Timezone to remove the uncpected behavior with date. See the [Vitest example](https://github.com/vitest-dev/vitest/issues/1575#issuecomment-1439286286).
 - Your mocks should be organized in one style. - It is just as important as organizing your other code and files.
 
 ## Style Guide
