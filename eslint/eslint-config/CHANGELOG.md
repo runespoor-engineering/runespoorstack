@@ -1,6 +1,13 @@
 # Change Log - @runespoorstack/eslint-config
 
-This log was last generated on Wed, 10 Apr 2024 16:10:58 GMT and should not be manually modified.
+This log was last generated on Fri, 26 Apr 2024 08:59:27 GMT and should not be manually modified.
+
+## 1.1.1
+Fri, 26 Apr 2024 08:59:27 GMT
+
+### Patches
+
+- `base-js`, `base-ts`, `react-js`, `react-ts`: <br/>- Disable `import/prefer-default-export` rule due to the frequent eslint disables in the codebases. The decision was made based on the following discussion - [What is the benefit of prefer-default-export?](https://github.com/airbnb/javascript/issues/1365). We have also decided not to disable default exports with `import/no-default-exports` as a lot of default exports might be a part of specification, like storybook configs or any other file-based frameworks.
 
 ## 1.1.0
 Wed, 10 Apr 2024 16:10:58 GMT
