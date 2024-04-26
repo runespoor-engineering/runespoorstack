@@ -1,0 +1,10 @@
+{
+  "changes": [
+    {
+      "packageName": "@runespoorstack/eslint-config",
+      "comment": "`dependencies`: <br/>- Upgrade `@typescript-eslint/parser@7.7.1`, `@typescript-eslint/eslint-plugin@7.7.1`. <br/>- Downgrade `eslint-plugin-vitest@0.4.1` to fix the broken `mixins/vitest` config.",
+      "type": "patch"
+    }
+  ],
+  "packageName": "@runespoorstack/eslint-config"
+}
