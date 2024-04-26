@@ -1,6 +1,13 @@
 # Change Log - @runespoorstack/eslint-config
 
-This log was last generated on Fri, 26 Apr 2024 08:59:27 GMT and should not be manually modified.
+This log was last generated on Fri, 26 Apr 2024 12:03:44 GMT and should not be manually modified.
+
+## 1.1.2
+Fri, 26 Apr 2024 12:03:44 GMT
+
+### Patches
+
+- `dependencies`: <br/>- Upgrade `@typescript-eslint/parser@7.7.1`, `@typescript-eslint/eslint-plugin@7.7.1`. <br/>- Downgrade `eslint-plugin-vitest@0.4.1` to fix the broken `mixins/vitest` config.
 
 ## 1.1.1
 Fri, 26 Apr 2024 08:59:27 GMT
