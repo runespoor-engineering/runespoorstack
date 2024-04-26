@@ -24,6 +24,7 @@ module.exports = {
         mjs: 'always'
       }
     ],
+    'import/prefer-default-export': 'off',
     'simple-import-sort/imports': 'error',
     'simple-import-sort/exports': 'error',
     'func-names': 'error',
