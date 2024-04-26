@@ -53,6 +53,7 @@ module.exports = {
         tsx: 'never'
       }
     ],
+    'import/prefer-default-export': 'off',
     'import/no-extraneous-dependencies': ['error', { peerDependencies: true }],
     'simple-import-sort/imports': 'error',
     'simple-import-sort/exports': 'error',
