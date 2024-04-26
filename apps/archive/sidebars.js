@@ -28,6 +28,7 @@ const sidebars = {
           label: 'Source Control',
           items: [
             'engineering-playbook/source-control/tech-stack',
+            'engineering-playbook/source-control/issues-to-keep-track-on',
             'engineering-playbook/source-control/git-control',
             'engineering-playbook/source-control/labels',
             'engineering-playbook/source-control/changelog',

@@ -1,0 +1,53 @@
+---
+title: Issues To Keep Track On
+---
+
+The "Issues To Keep Track On" page is a valuable resource for a project team or organization to maintain transparency, collaboration, 
+and efficiency. It serves several purposes:
+
+1. **Transparency**: It allows everyone involved in the project to have a clear understanding of the issues that are being worked on or 
+need attention. This helps to avoid duplication of efforts and ensures that everyone is aware of the current status of the project.
+2. **Collaboration**: By documenting issues and their solutions, the team can collaborate more effectively. Team members can refer to the 
+page to understand the context of a particular issue, its status, and the proposed solution. This can help in making informed decisions 
+and ensuring that everyone is on the same page.
+3. **Efficiency**: By keeping track of issues, the team can prioritize their work more effectively. They can focus on resolving the most 
+critical issues first, ensuring that the project progresses smoothly. This can help in avoiding delays and ensuring that the project 
+stays on track.
+4. **Learning**: The "Issues To Keep Track On" page can also serve as a learning resource. By documenting the issues and their solutions, 
+the team can learn from past experiences and avoid making the same mistakes in the future. This can help in improving the overall 
+quality of the project.
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Short Description</th>
+      <th>Solution</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>The need to memoize data provided in React Table, <a href='https://github.com/TanStack/table/issues/4614'>Issue</a></td>
+      <td>The component keeps rerendering if data is not memoized</td>
+      <td>Just wrap data that you pass into <code>useMemo</code></td>
+    </tr>
+    <tr>
+      <td>Inability to test <code>Radix Select</code> in tests, <a href="https://github.com/radix-ui/primitives/issues/1822">Issue</a></td>
+      <td>The library cannot open the select when writing unit tests with @testing-library/react against the Select component.</td>
+      <td>We don't have solution yet</td>
+    </tr>
+    <tr>
+      <td>msw: Unable to use Networking Overrides for post requests correctly. <a href="https://github.com/mswjs/msw/discussions/1970">Dicsussion</a></td>
+      <td>It seems that if success case is run first, handlers, that are supposed to override it, will be ignored. If I move this
+        kind of test to be run in the beginning, the whole suite passes. If test is run in isolation it will also pass. If I move it to 
+        the end, after tests which used default handler run, it will fail because handler override is ignored.</td>
+      <td>Add the "workaround test" before such test cases.</td>
+    </tr>
+    <tr>
+      <td>React Hook Form: the debounced form values causes form rerendering  <a href="https://github.com/orgs/react-hook-form/discussions/3078">Issue</a></td>
+      <td>If we add something like this: <code>const formWatch = form.watch(); const debouncedForm = useDebounceValue(formWatch, 1000);</code> the 
+      form component starts rerendering every 1 second.</td>
+      <td><a href="https://github.com/orgs/react-hook-form/discussions/3078#discussioncomment-5937584">Create the separate <code>useDebounceFormWatch</code> hook</a></td>
+    </tr>
+  </tbody>
+</table>
