@@ -1,0 +1,82 @@
+---
+title: Repository Settings
+---
+
+# Repository Settings
+
+On this page you could investigate the common GitHub repository set up and settings.
+
+## General
+
+- (if relevant) Template repository 
+- ❎ Require contributors to sign off on web-based commits 
+- `main` - Default branch 
+- **Features**:
+  - (if relevant) Wikis 
+  - ✅ Issues
+  - (if relevant) Sponsorships
+  - ✅ Preserve this repository 
+  - (if relevant) Discussions 
+  - (if relevant) Projects
+- Pull Requests
+  - ❎ Allow merge commits 
+  - ✅ Allow squash merging 
+    - `Pull request title` - Default commit message
+  - ❎ Allow rebase merging 
+  - ✅ Always suggest updating pull request branches 
+  - ❎ Allow auto-merge 
+  - ✅ Automatically delete head branches 
+- **Archives**:
+  - ❎ Include Git LFS objects in archives
+- **Pushes**:
+  - ❎ Limit how many branches and tags can be updated in a single push
+
+## Branches (main)
+
+- **Protect matching branches**:
+  - ✅ Require a pull request before merging
+    - ✅ Require approvals
+    - ✅ Dismiss stale pull request approvals when new commits are pushed
+    - ✅ Require review from Code Owners
+    - ✅ Restrict who can dismiss pull request reviews (owner and repository bots)
+    - ✅ Allow specified actors to bypass required pull requests (owner and repository bots)
+    - ❎ Require approval of the most recent reviewable push
+  - ✅ Require status checks to pass before merging
+    - ✅ Require branches to be up to date before merging
+    - ✅ (Specify the required actions)
+  - ✅ Require conversation resolution before merging
+  - ❎ Require signed commits
+  - ❎ Require linear history
+  - ❎ Require merge queue
+  - ✅ Require deployments to succeed before merging
+    - ✅ (Specify the required deployments)
+  - ❎ Lock branch
+  - ❎ Do not allow bypassing the above settings
+  - ❎ Restrict who can push to matching branches
+- **Rules applied to everyone including administrators**:
+  - ❎ Allow force pushes
+  - ❎ Allow deletions
+
+## Actions General
+
+- **Actions permissions**:
+  - ✅ Allow all actions and reusable workflows
+- **Artifact and log retention**:
+  - `90 days` - Artifact and log retention
+- **Fork pull request workflows from outside collaborators**:
+  - ✅ Require approval for first-time contributors
+- **Workflow permissions**:
+  - ✅ Read repository contents and packages permissions
+
+## Code security and analysis
+
+- ✅ **Private vulnerability reporting**
+- ✅ **Dependency graph**
+- **Dependabot**
+  - ✅ Dependabot alerts
+  - ✅ Dependabot security updates
+  - ✅ Dependabot version updates
+- **Code scanning**
+  - (if relevant) Tools
+  - (if relevant) Protection rules
+  - ✅ Secret scanning
