@@ -17,6 +17,8 @@ stays on track.
 the team can learn from past experiences and avoid making the same mistakes in the future. This can help in improving the overall 
 quality of the project.
 
+## Testing
+
 <table>
   <thead>
     <tr>
@@ -27,9 +29,9 @@ quality of the project.
   </thead>
   <tbody>
     <tr>
-      <td>The need to memoize data provided in React Table, <a href='https://github.com/TanStack/table/issues/4614'>Issue</a></td>
-      <td>The component keeps rerendering if data is not memoized</td>
-      <td>Just wrap data that you pass into <code>useMemo</code></td>
+      <td>jsdom: ResizeObserver is not defined on window  <a href="https://github.com/jsdom/jsdom/issues/3368">Issue</a></td>
+      <td>Unable to test the components that uses the <code>ResizeObserver</code>, for emaple the Radix ScrollArea component</td>
+      <td><a href="https://github.com/jsdom/jsdom/issues/3368#issuecomment-1147970817">Mock <code>global.ResizeObserver</code></a></td>
     </tr>
     <tr>
       <td>Inability to test <code>Radix Select</code> in tests, <a href="https://github.com/radix-ui/primitives/issues/1822">Issue</a></td>
@@ -42,6 +44,25 @@ quality of the project.
         kind of test to be run in the beginning, the whole suite passes. If test is run in isolation it will also pass. If I move it to 
         the end, after tests which used default handler run, it will fail because handler override is ignored.</td>
       <td>Add the "workaround test" before such test cases.</td>
+    </tr>
+  </tbody>
+</table>
+
+## React Libraries 
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Short Description</th>
+      <th>Solution</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>React Table: The need to memoize data provided table, <a href='https://github.com/TanStack/table/issues/4614'>Issue</a></td>
+      <td>The component keeps rerendering if data is not memoized</td>
+      <td>Just wrap data that you pass into <code>useMemo</code></td>
     </tr>
     <tr>
       <td>React Hook Form: the debounced form values causes form rerendering  <a href="https://github.com/orgs/react-hook-form/discussions/3078">Issue</a></td>
