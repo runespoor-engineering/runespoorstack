@@ -2,6 +2,20 @@
   "name": "@runespoorstack/eslint-config",
   "entries": [
     {
+      "version": "1.1.2",
+      "tag": "@runespoorstack/eslint-config_v1.1.2",
+      "date": "Fri, 26 Apr 2024 12:03:44 GMT",
+      "comments": {
+        "patch": [
+          {
+            "comment": "`dependencies`: <br/>- Upgrade `@typescript-eslint/parser@7.7.1`, `@typescript-eslint/eslint-plugin@7.7.1`. <br/>- Downgrade `eslint-plugin-vitest@0.4.1` to fix the broken `mixins/vitest` config.",
+            "author": "BorysShulyak <borysshulyak@gmail.com>",
+            "commit": "b1c3ec2edb4fbc7f5453df6150e9f92840fb3955"
+          }
+        ]
+      }
+    },
+    {
       "version": "1.1.1",
       "tag": "@runespoorstack/eslint-config_v1.1.1",
       "date": "Fri, 26 Apr 2024 08:59:27 GMT",
