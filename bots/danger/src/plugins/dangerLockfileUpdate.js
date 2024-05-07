@@ -1,7 +1,7 @@
 import { danger, fail } from 'danger';
 
 const TYPE_TO_LOCKFILE_NAME = {
-  npm: 'pnpm-lock.json',
+  npm: 'package-lock.json',
   yarn: 'yarn.lock',
   pnpm: 'pnpm-lock.yaml',
   rush: 'pnpm-lock.yaml'
