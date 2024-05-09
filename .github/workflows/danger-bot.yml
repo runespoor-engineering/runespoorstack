@@ -20,7 +20,7 @@ jobs:
         run: node common/scripts/install-run-rush.js init-danger-bot
 
       - name: Open danger-bot autoinstaller folder
-        run: cd common/scripts/danger-bot
+        run: cd common/autoinstallers/danger-bot
 
       - name: Run Danger.js checks
         uses: danger/danger-js@12.2.0
