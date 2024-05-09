@@ -14,4 +14,4 @@ const dangerPrTitle = (titleRegex) => {
   }
 };
 
-module.exports = dangerPrTitle;
+module.exports = { dangerPrTitle };

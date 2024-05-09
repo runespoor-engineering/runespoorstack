@@ -25,4 +25,4 @@ const dangerPrMergingTime = (maxMergingTime = 24) => {
   }
 };
 
-module.exports = dangerPrMergingTime;
+module.exports = { dangerPrMergingTime };

@@ -15,4 +15,4 @@ const dangerPrSize = (maxPrThreshold = 600) => {
   }
 };
 
-module.exports = dangerPrSize;
+module.exports = { dangerPrSize };

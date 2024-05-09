@@ -12,4 +12,4 @@ const dangerReviewers = (requiredReviewersCount) => {
   }
 };
 
-module.exports = dangerReviewers;
+module.exports = { dangerReviewers };
