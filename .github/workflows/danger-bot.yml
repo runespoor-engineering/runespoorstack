@@ -19,10 +19,13 @@ jobs:
       - name: Init Rush danger-bot autoinstaller
         run: node common/scripts/install-run-rush.js init-danger-bot
 
+      - name: Open danger-bot autoinstaller folder
+        run: cd common/scripts/danger-bot
+
       - name: Run Danger.js checks
         uses: danger/danger-js@12.2.0
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          args: "--dangerfile common/autoinstallers/danger-bot/src/index.js"
+          args: "--dangerfile src/index.js"
 
