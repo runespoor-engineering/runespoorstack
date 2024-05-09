@@ -5,7 +5,7 @@ const {
   dangerPrSize,
   dangerPrTitle,
   dangerReviewers
-} = require('@runespoorstack/danger-plugins');
+} = require('./danger/index.js');
 
 dangerAssignee();
 dangerLockfileUpdate('rush');
