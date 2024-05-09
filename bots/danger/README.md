@@ -54,12 +54,12 @@ import {
 } from '@runespoorstack/danger-plugins'
 
 dangerAssignee();
-dangerChangelog([/stories\.js$/]);
+dangerChangelog([/stories\.js$/, /stories\/changelog\.mdx/]);
 dangerLockfileUpdate('npm');
-dangerPrMergingTime(48),
-dangerPrSize(777),
-dangerPrTitle(/^(build|chore|ci|docs|feat|fix|perf|refactor|revert|style|test){1}(\([\w\-\.]+\))?(!)?: ([\w ])+([\s\S]*)/),
-dangerReviewers(3)
+dangerPrMergingTime(48);
+dangerPrSize(777);
+dangerPrTitle(/^(build|chore|ci|docs|feat|fix|perf|refactor|revert|style|test){1}(\([\w\-\.]+\))?(!)?: ([\w ])+([\s\S]*)/);
+dangerReviewers(3);
 ```
 
 ## 🛠️ Contributing
