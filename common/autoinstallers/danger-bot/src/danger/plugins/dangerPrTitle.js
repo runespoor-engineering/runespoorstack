@@ -1,5 +1,3 @@
-const { warn } = require('danger');
-
 /**
  * Checks if the title of the current Pull Request matches the provided pattern.
  *

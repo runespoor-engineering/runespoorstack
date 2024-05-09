@@ -1,5 +1,3 @@
-const { warn } = require('danger');
-
 /**
  * Checks if the Pull Request size is within the specified threshold.
  *

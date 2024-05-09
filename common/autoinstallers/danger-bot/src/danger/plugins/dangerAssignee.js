@@ -1,5 +1,3 @@
-const { fail, warn } = require('danger');
-
 /**
  * Checks if the pull request has an assignee.
  * If not, it warns or fails the pull request depending on whether the title includes 'WIP'.

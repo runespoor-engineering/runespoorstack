@@ -1,5 +1,3 @@
-const { warn } = require('danger');
-
 const dangerChangelog = (filesRegexToChangelogMap, changelogsList) => {
   const shouldAdjustChangelog = filesRegexToChangelogMap.some(
     ([filesRegex, changelogRegex]) =>
@@ -11,7 +9,7 @@ const dangerChangelog = (filesRegexToChangelogMap, changelogsList) => {
     const findChangelogMessage = changelogsMarkdown
       ? `Try to find the necessary changelog files: ${changelogsMarkdown}`
       : '';
-    warn(`:exclamation: Changes require the changelog to be updated. ${findChangelogMessage}`);
+    fail(`:exclamation: Changes require the changelog to be updated. ${findChangelogMessage}`);
   }
 };
 

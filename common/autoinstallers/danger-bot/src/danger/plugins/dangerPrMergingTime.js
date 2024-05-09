@@ -1,5 +1,3 @@
-const { warn, info } = require('danger');
-
 /**
  * Checks the time taken for a pull request to be merged.
  *
