@@ -23,7 +23,10 @@ jobs:
         run: cd common/autoinstallers/danger-bot
 
       - name: Run Danger.js checks
-        run: node common/scripts/install-run-rush-pnpm.js --rush-skip-checks danger ci --dangerfile common/autoinstallers/danger-bot/src/index.js
+        uses: danger/danger-js@12.2.0
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          DANGER_DISABLE_TRANSPILATION: true
+        with:
+          args: "--dangerfile common/autoinstallers/danger-bot/src/index.js"
 
