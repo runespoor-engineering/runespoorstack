@@ -2,7 +2,6 @@
   "name": "danger-bot",
   "version": "1.0.0",
   "private": true,
-  "type": "module",
   "scripts": {
     "lint": "eslint . --ext .ts,.tsx,.js,.jsx,.cjs,.mjs --ignore-path ../../../.gitignore --quiet",
     "lint:fix": "eslint . --ext .ts,.tsx,.js,.jsx,.cjs,.mjs --ignore-path ../../../.gitignore --fix"
