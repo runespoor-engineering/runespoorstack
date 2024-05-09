@@ -16,4 +16,4 @@ dangerPrTitle(
 );
 dangerReviewers(1);
 
-console.log('Danger'.repeat(100));
+console.log('Danger bot plugins executed successfully.');

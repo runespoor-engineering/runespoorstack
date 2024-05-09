@@ -1,7 +1,7 @@
 lockfileVersion: 5.4
 
 specifiers:
-  '@runespoorstack/danger-plugins': 0.0.1
+  '@runespoorstack/danger-plugins': 0.0.2
   '@runespoorstack/eslint-config': 1.1.2
   '@rushstack/eslint-config': 3.6.9
   eslint: 8.57.0
@@ -9,7 +9,7 @@ specifiers:
   typescript: 5.4.5
 
 dependencies:
-  '@runespoorstack/danger-plugins': 0.0.1
+  '@runespoorstack/danger-plugins': 0.0.2
   '@runespoorstack/eslint-config': 1.1.2_prjk5dsfahl45hl2rzohkyvxqy
   '@rushstack/eslint-config': 3.6.9_te743w6atip6hhlha3uq43n2xe
   eslint: 8.57.0
@@ -121,8 +121,8 @@ packages:
     engines: {node: ^12.20.0 || ^14.18.0 || >=16.0.0}
     dev: false
 
-  /@runespoorstack/danger-plugins/0.0.1:
-    resolution: {integrity: sha512-dY96Ib+qMcTQ0AOc4yeeYwrnZIlTRKDzfGuTFgGvaBwltd8N1gNdiQhybSpptAnv7jgodoQiUv9K/o62ZKUE5g==}
+  /@runespoorstack/danger-plugins/0.0.2:
+    resolution: {integrity: sha512-V/BS2j3o6ZWJM9KVgh59AgbnDNQTr2jeVhuktKGT+pGn6IhjdJzrpO7fqff/yM2F0DTywb8uoe6iV3SjGzCXAw==}
     dev: false
 
   /@runespoorstack/eslint-config/1.1.2_prjk5dsfahl45hl2rzohkyvxqy:
