@@ -27,5 +27,5 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          args: "--dangerfile src/index.js"
+          args: "--dangerfile common/autoinstallers/danger-bot/src/index.js"
 
