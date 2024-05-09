@@ -1,0 +1,19 @@
+{
+  "name": "@runespoorstack/danger-plugins",
+  "entries": [
+    {
+      "version": "0.0.1",
+      "tag": "@runespoorstack/danger-plugins_v0.0.1",
+      "date": "Thu, 09 May 2024 07:36:37 GMT",
+      "comments": {
+        "patch": [
+          {
+            "comment": "Fix plugins",
+            "author": "Boris Shulyak <55171497+BorysShulyak@users.noreply.github.com>",
+            "commit": "c9f30e264dce1169ef4ae770a7d6afbfaa4d6f1a"
+          }
+        ]
+      }
+    }
+  ]
+}
