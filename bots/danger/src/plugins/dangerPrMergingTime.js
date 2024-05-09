@@ -1,4 +1,4 @@
-import { danger, info, warn } from 'danger';
+const { danger, info, warn } = require('danger');
 
 /**
  * Checks the time taken for a pull request to be merged.
@@ -7,7 +7,7 @@ import { danger, info, warn } from 'danger';
  *
  * @returns {void} - If the pull request has been open for more than `maxMergingTime` hours, it warns on the pull request.
  */
-export const dangerPrMergingTime = (maxMergingTime = 24) => {
+const dangerPrMergingTime = (maxMergingTime = 24) => {
   const startDate = new Date(danger.github.pr.created_at).getTime();
   const endDate = danger.github.pr.merged
     ? new Date(danger.github.pr.merged_at).getTime()
@@ -26,3 +26,5 @@ export const dangerPrMergingTime = (maxMergingTime = 24) => {
     warn(warnMessage);
   }
 };
+
+module.exports = dangerPrMergingTime;

@@ -1,4 +1,4 @@
-import { danger, fail } from 'danger';
+const { danger, fail } = require('danger');
 
 const TYPE_TO_LOCKFILE_NAME = {
   npm: 'package-lock.json',
@@ -15,7 +15,7 @@ const TYPE_TO_LOCKFILE_NAME = {
  * @returns {void} - No return value. If the conditions are met, it will fail the build
  * with a message.
  */
-export const dangerLockfileUpdate = ({ type }) => {
+const dangerLockfileUpdate = ({ type }) => {
   const packageLockFileName = TYPE_TO_LOCKFILE_NAME[type];
   const isPackageChanged = danger.git.modified_files.includes('package.json');
   const isLockfileChanged = danger.git.modified_files.includes(packageLockFileName);
@@ -24,4 +24,8 @@ export const dangerLockfileUpdate = ({ type }) => {
       `Changes were made to package.json, but not to ${packageLockFileName}. - <i>Perhaps you need to install/update dependencies?</i>`
     );
   }
+};
+
+module.exports = {
+  dangerLockfileUpdate
 };

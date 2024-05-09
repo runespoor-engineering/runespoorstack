@@ -1,6 +1,6 @@
-import { danger, fail } from 'danger';
+const { danger, fail } = require('danger');
 
-export const dangerChangelog = (filesRegexToChangelogMap, changelogsList) => {
+const dangerChangelog = (filesRegexToChangelogMap, changelogsList) => {
   const shouldAdjustChangelog = filesRegexToChangelogMap.some(
     ([filesRegex, changelogRegex]) =>
       danger.git.modified_files.some((fileName) => fileName.match(filesRegex)) &&
@@ -13,4 +13,8 @@ export const dangerChangelog = (filesRegexToChangelogMap, changelogsList) => {
       : '';
     fail(`:exclamation: Changes require the changelog to be updated. ${findChangelogMessage}`);
   }
+};
+
+module.exports = {
+  dangerChangelog
 };
