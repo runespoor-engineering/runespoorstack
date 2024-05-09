@@ -1,3 +1,5 @@
+const { fail } = require('danger');
+
 /**
  * Checks if the number of requested reviewers is greater than or equal to the required number of reviewers.
  *
