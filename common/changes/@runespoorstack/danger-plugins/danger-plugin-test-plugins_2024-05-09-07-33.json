@@ -1,0 +1,10 @@
+{
+  "changes": [
+    {
+      "packageName": "@runespoorstack/danger-plugins",
+      "comment": "Fix plugins",
+      "type": "patch"
+    }
+  ],
+  "packageName": "@runespoorstack/danger-plugins"
+}

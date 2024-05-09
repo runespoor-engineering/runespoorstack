@@ -24,6 +24,7 @@
 
 ## ✨ Features
 
+- Review the PR assignee
 - Review the changelog updating on a PRs
 - Review the lockfile updating on a PRs
 - Review the PR merging time
