@@ -1,13 +1,10 @@
 import { danger, fail } from 'danger';
 
-export const dangerChangelog = (filePatternsToChangelogMap, changelogsList) => {
-  const shouldAdjustChangelog = filePatternsToChangelogMap.some(
-    ([filePatterns, changelogPattern]) =>
-      filePatterns.some(
-        (filePattern) =>
-          danger.git.modified_files.some((fileName) => fileName.match(filePattern)) &&
-          !danger.git.modified_files.some((fileName) => fileName.match(changelogPattern))
-      )
+export const dangerChangelog = (filesRegexToChangelogMap, changelogsList) => {
+  const shouldAdjustChangelog = filesRegexToChangelogMap.some(
+    ([filesRegex, changelogRegex]) =>
+      danger.git.modified_files.some((fileName) => fileName.match(filesRegex)) &&
+      !danger.git.modified_files.some((fileName) => fileName.match(changelogRegex))
   );
   if (shouldAdjustChangelog) {
     const changelogsMarkdown = changelogsList?.map((changelog) => `<br/>- ${changelog}`).join('');
