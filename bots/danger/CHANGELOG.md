@@ -1,6 +1,13 @@
 # Change Log - @runespoorstack/danger-plugins
 
-This log was last generated on Thu, 09 May 2024 07:41:19 GMT and should not be manually modified.
+This log was last generated on Thu, 09 May 2024 15:53:51 GMT and should not be manually modified.
+
+## 0.0.2
+Thu, 09 May 2024 15:53:51 GMT
+
+### Patches
+
+- Use to CommonJS instead of ESM.
 
 ## 0.0.1
 Thu, 09 May 2024 07:41:19 GMT

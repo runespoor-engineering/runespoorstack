@@ -2,6 +2,27 @@
   "name": "@runespoorstack/danger-plugins",
   "entries": [
     {
+      "version": "0.0.2",
+      "tag": "@runespoorstack/danger-plugins_v0.0.2",
+      "date": "Thu, 09 May 2024 15:53:51 GMT",
+      "comments": {
+        "none": [
+          {
+            "comment": "Update README.md",
+            "author": "BorysShulyak <borysshulyak@gmail.com>",
+            "commit": "4704e39ea853f8a4c30faf57173542340676f7ed"
+          }
+        ],
+        "patch": [
+          {
+            "comment": "Use to CommonJS instead of ESM.",
+            "author": "BorysShulyak <borysshulyak@gmail.com>",
+            "commit": "59c93e73a52ddecbab9a6436ebd50431884f23e2"
+          }
+        ]
+      }
+    },
+    {
       "version": "0.0.1",
       "tag": "@runespoorstack/danger-plugins_v0.0.1",
       "date": "Thu, 09 May 2024 07:41:19 GMT",
