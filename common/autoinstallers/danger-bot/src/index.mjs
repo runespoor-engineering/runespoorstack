@@ -1,11 +1,11 @@
-import {
+const {
   dangerAssignee,
   dangerLockfileUpdate,
   dangerPrMergingTime,
   dangerPrSize,
   dangerPrTitle,
   dangerReviewers
-} from '@runespoorstack/danger-plugins';
+} = require('@runespoorstack/danger-plugins');
 
 dangerAssignee();
 dangerLockfileUpdate('rush');
