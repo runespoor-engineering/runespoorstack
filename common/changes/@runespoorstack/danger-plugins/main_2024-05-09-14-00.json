@@ -1,0 +1,10 @@
+{
+  "changes": [
+    {
+      "packageName": "@runespoorstack/danger-plugins",
+      "comment": "Update README.md",
+      "type": "none"
+    }
+  ],
+  "packageName": "@runespoorstack/danger-plugins"
+}
