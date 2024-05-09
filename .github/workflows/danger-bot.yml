@@ -16,6 +16,9 @@ jobs:
       - name: Rush Install
         run: node common/scripts/install-run-rush.js install
 
+      - name: Init Rush danger-bot autoinstaller
+        run: node common/scripts/install-run-rush.js init-danger-bot
+
       - name: Danger
         uses: danger/danger-js@12.2.0
         env:
