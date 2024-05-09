@@ -23,7 +23,7 @@ jobs:
         run: cd common/autoinstallers/danger-bot
 
       - name: Run Danger.js checks
-        run: node common/scripts/install-run-rush-pnpm.js danger ci --dangerfile common/autoinstallers/danger-bot/src/index.js
+        run: node common/scripts/install-run-rush-pnpm.js --rush-skip-checks danger ci --dangerfile common/autoinstallers/danger-bot/src/index.js
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
