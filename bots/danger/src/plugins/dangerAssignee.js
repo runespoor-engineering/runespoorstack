@@ -1,4 +1,4 @@
-import { danger, fail, warn } from 'danger';
+const { danger, fail, warn } = require('danger');
 
 /**
  * Checks if the pull request has an assignee.
@@ -6,9 +6,13 @@ import { danger, fail, warn } from 'danger';
  *
  * @returns {void}
  */
-export const dangerAssignee = () => {
+const dangerAssignee = () => {
   if (!danger.github.pr.assignee) {
     const method = danger.github.pr.title.includes('WIP') ? warn : fail;
     method('This pull request needs an assignee, and optionally include any reviewers.');
   }
+};
+
+module.exports = {
+  dangerAssignee
 };

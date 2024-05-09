@@ -1,4 +1,4 @@
-import { danger, warn } from 'danger';
+const { danger, warn } = require('danger');
 
 /**
  * Checks if the Pull Request size is within the specified threshold.
@@ -9,10 +9,12 @@ import { danger, warn } from 'danger';
  * @returns {void} - No return value. If the PR size exceeds the threshold, a warning message is
  * logged.
  */
-export const dangerPrSize = (maxPrThreshold = 600) => {
+const dangerPrSize = (maxPrThreshold = 600) => {
   if (danger.github.pr.additions + danger.github.pr.deletions > maxPrThreshold) {
     warn(
       ':exclamation: Big PR size. Pull Request size seems relatively large. If Pull Request contains multiple changes, split each into separate PR. It will improve the CI process.'
     );
   }
 };
+
+module.exports = dangerPrSize;

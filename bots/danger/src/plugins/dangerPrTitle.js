@@ -1,4 +1,4 @@
-import { danger, warn } from 'danger';
+const { danger, warn } = require('danger');
 
 /**
  * Checks if the title of the current Pull Request matches the provided pattern.
@@ -8,10 +8,12 @@ import { danger, warn } from 'danger';
  * @returns {void} - No return value. If the PR title does not match the pattern,
  * a warning message is logged.
  */
-export const dangerPrTitle = (titleRegex) => {
+const dangerPrTitle = (titleRegex) => {
   const { title } = danger.github.pr;
   const titleIsValid = titleRegex.test(title);
   if (!titleIsValid) {
     warn(`:exclamation: PR title does not match the pattern: ${titleRegex}`);
   }
 };
+
+module.exports = dangerPrTitle;

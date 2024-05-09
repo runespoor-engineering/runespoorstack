@@ -1,12 +1,12 @@
-import { dangerAssignee } from './plugins/dangerAssignee.js';
-import { dangerChangelog } from './plugins/dangerChangelog.js';
-import { dangerLockfileUpdate } from './plugins/dangerLockfileUpdate.js';
-import { dangerPrMergingTime } from './plugins/dangerPrMergingTime.js';
-import { dangerPrSize } from './plugins/dangerPrSize.js';
-import { dangerPrTitle } from './plugins/dangerPrTitle.js';
-import { dangerReviewers } from './plugins/dangerReviewers.js';
+const dangerAssignee = require('./plugins/dangerAssignee.js');
+const dangerChangelog = require('./plugins/dangerChangelog.js');
+const dangerLockfileUpdate = require('./plugins/dangerLockfileUpdate.js');
+const dangerPrMergingTime = require('./plugins/dangerPrMergingTime.js');
+const dangerPrSize = require('./plugins/dangerPrSize.js');
+const dangerPrTitle = require('./plugins/dangerPrTitle.js');
+const dangerReviewers = require('./plugins/dangerReviewers.js');
 
-export {
+module.exports = {
   dangerAssignee,
   dangerChangelog,
   dangerLockfileUpdate,

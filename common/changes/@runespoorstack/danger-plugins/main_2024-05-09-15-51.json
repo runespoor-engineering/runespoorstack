@@ -1,0 +1,10 @@
+{
+  "changes": [
+    {
+      "packageName": "@runespoorstack/danger-plugins",
+      "comment": "Use to CommonJS instead of ESM.",
+      "type": "patch"
+    }
+  ],
+  "packageName": "@runespoorstack/danger-plugins"
+}
