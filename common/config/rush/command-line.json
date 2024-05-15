@@ -28,6 +28,15 @@
       "enableParallelism": true,
       "allowWarningsInSuccessfulBuild": false,
       "incremental": true
+    },
+    {
+      "commandKind": "bulk",
+      "name": "test",
+      "summary": "Run unit and integration tests",
+      "description": "Run unit and integration test for each project.",
+      "enableParallelism": true,
+      "allowWarningsInSuccessfulBuild": false,
+      "incremental": true
     }
     // {
     //   /**

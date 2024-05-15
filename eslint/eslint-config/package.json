@@ -5,7 +5,8 @@
   "scripts": {
     "build": "",
     "lint": "eslint . --ext .ts,.tsx,.js,.jsx,.cjs,.mjs --ignore-path ../../.gitignore --quiet",
-    "lint:fix": "eslint . --ext .ts,.tsx,.js,.jsx,.cjs,.mjs --ignore-path ../../.gitignore --fix"
+    "lint:fix": "eslint . --ext .ts,.tsx,.js,.jsx,.cjs,.mjs --ignore-path ../../.gitignore --fix",
+    "test": "echo \"Info: no test specified\""
   },
   "dependencies": {
     "@typescript-eslint/parser": "7.7.1",

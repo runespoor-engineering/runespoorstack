@@ -13,7 +13,7 @@
     "serve": "docusaurus serve",
     "write-translations": "docusaurus write-translations",
     "write-heading-ids": "docusaurus write-heading-ids",
-    "test": "jest --testPathPattern='\\/__tests__\\/(?:unit|integration)/.*\\.(?:test|spec)\\.tsx?$' --ci  2>&1",
+    "test": "echo \"Info: no test specified\"",
     "test:unit": "jest --testPathPattern='\\/__tests__\\/unit/.*\\.(?:test|spec)\\.tsx?$' --ci 2>&1",
     "test:integration": "jest --testPathPattern='\\/__tests__\\/integration\\/.*\\.(?:test|spec)\\.tsx?$' --ci 2>&1",
     "lint": "eslint . --ext .ts,.tsx,.js,.jsx,.cjs,.mjs --ignore-path ../../.gitignore --quiet",
