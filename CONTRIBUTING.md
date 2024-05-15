@@ -117,6 +117,12 @@ Run linters throw all the projects with autofix
 rush lint:fix
 ```
 
+Run tests throw all the projects
+
+```shell
+rush test
+```
+
 <!-- ## Conventional commits
 
 We are using the [conventional commits](https://www.conventionalcommits.org/en/v1.0.0/) in this repo. To automate this
