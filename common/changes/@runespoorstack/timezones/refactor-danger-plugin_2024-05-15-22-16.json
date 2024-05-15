@@ -1,0 +1,10 @@
+{
+  "changes": [
+    {
+      "packageName": "@runespoorstack/timezones",
+      "comment": "`scripts`: Add `test` command.",
+      "type": "none"
+    }
+  ],
+  "packageName": "@runespoorstack/timezones"
+}

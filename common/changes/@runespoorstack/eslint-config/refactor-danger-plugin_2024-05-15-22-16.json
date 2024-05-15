@@ -1,0 +1,10 @@
+{
+  "changes": [
+    {
+      "packageName": "@runespoorstack/eslint-config",
+      "comment": "`core/base-ts` add additional extentions to `import/extensions` rule.",
+      "type": "patch"
+    }
+  ],
+  "packageName": "@runespoorstack/eslint-config"
+}
