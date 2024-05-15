@@ -6,7 +6,8 @@
   "scripts": {
     "build": "",
     "lint": "",
-    "lint:fix": ""
+    "lint:fix": "",
+    "test": "echo \"Info: no test specified\""
   },
   "dependencies": {},
   "devDependencies": {},

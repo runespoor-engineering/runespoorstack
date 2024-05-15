@@ -45,7 +45,6 @@ Create the script file and run it in the CI, following the [Danger.js guide](htt
 ```
 import {
   dangerAssignee,
-  dangerChangelog,
   dangerLockfileUpdate,
   dangerPrMergingTime,
   dangerPrSize,
@@ -54,7 +53,6 @@ import {
 } from '@runespoorstack/danger-plugins'
 
 dangerAssignee();
-dangerChangelog([/stories\.js$/, /stories\/changelog\.mdx/]);
 dangerLockfileUpdate('npm');
 dangerPrMergingTime(48);
 dangerPrSize(777);

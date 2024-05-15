@@ -21,7 +21,10 @@ module.exports = {
       {
         js: 'always',
         cjs: 'always',
-        mjs: 'always'
+        mjs: 'always',
+        ts: 'always',
+        jsx: 'always',
+        tsx: 'always'
       }
     ],
     'import/prefer-default-export': 'off',
