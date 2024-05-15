@@ -1,6 +1,13 @@
 # Change Log - @runespoorstack/eslint-config
 
-This log was last generated on Fri, 26 Apr 2024 12:03:44 GMT and should not be manually modified.
+This log was last generated on Wed, 15 May 2024 22:50:57 GMT and should not be manually modified.
+
+## 1.1.3
+Wed, 15 May 2024 22:50:57 GMT
+
+### Patches
+
+- `core/base-ts` add additional extentions to `import/extensions` rule.
 
 ## 1.1.2
 Fri, 26 Apr 2024 12:03:44 GMT
