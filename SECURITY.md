@@ -6,7 +6,7 @@
 | ---------------------------------------------------------------------------- | ------- | ------------------ |
 | [eslint-config](https://www.npmjs.com/package/@runespoorstack/eslint-config) | 1.x.x   | :white_check_mark: |
 | [timezones](https://www.npmjs.com/package/@runespoorstack/timezones)         | 1.x.x   | :white_check_mark: |
-| [danger-plugins](https://www.npmjs.com/package/@runespoorstack/danger-plugins) | 1.x.x |
+| [danger-plugins](https://www.npmjs.com/package/@runespoorstack/danger-plugins) | 1.x.x | :white_check_mark: |
 
 ## Reporting a Vulnerability
 
