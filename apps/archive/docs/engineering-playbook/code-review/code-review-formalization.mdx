@@ -30,7 +30,7 @@ title: Code Review Fromalization
 
 **Review deadlines:**
 
-- Priority: Emergency - right noee
+- Priority: Emergency - right now
 - Priority: High/Critical - 30m
 - Priority: Medium - 1h
 - Priority: Low - 3h
@@ -43,16 +43,23 @@ title: Code Review Fromalization
 
 **Reviewer** 
 
-- Approve changes? -  Tap approve.
-- Do not approve changes? - Open MR discussions.
-- In the discussion, the author notified about resolving? - Double check ⇒ Resolve / Write questions/suggestions.
-- Notify the author about finishing the review.
+- Approve changes? 
+  - Tap approve.
+  - If you are the last approver, set the `workflow::approved` label.
+- Don't agree with changes?
+  - Open MR discussions.
+  - If you are the last approver, set the `workflow::revoked` label.
+- In the discussion, the author notified about resolving? 
+  - Double check ⇒ Resolve or Write questions/suggestions.
 
 **Author**
 
-- 3 approves? - Add label Workflow::QA.
-- Opened discussions? - Ask questions or add an argument that the suggestion is not correct / Update code to resolve discussion ⇒ notify the discussion
-- QA notified about approval from their side? - Merge MR
+- The `workflow::revoked` label is set or reviewers wrote some comments?
+  - Answer the questions, ask you questions, or apply the suggestions.
+  - Notify the reviewes about fixes in the threads.
+  - Set the `workflow::review` label.
+- 3 approves or the `workflow::approved` label is set?
+  - Merge MR.
 
 ## Exceptions
 
@@ -60,9 +67,9 @@ title: Code Review Fromalization
 - There is no time for resolving code review discussions. - Only if the **MR Priority is** **Emergency,** create a GitLab issue or Jira ticket with provided description for fixing the discussions and add ToDo in the code. After that, you could merge and fix the discussions in the future.
 - The priority of the issue is low? The changes are too minor?  - Developer could make the QA check-up by himself.
 
-## **Best practices**
+## Best practices
 
-### **Everyone**
+### Everyone
 
 - Be kind.
 - Accept that many programming decisions are opinions. Discuss tradeoffs, which you prefer, and reach a resolution quickly.
@@ -77,11 +84,11 @@ title: Code Review Fromalization
 - Consider one-on-one chats or video calls if there are too many “I didn’t understand” or “Alternative solution:” comments. Post a follow-up comment summarizing one-on-one discussion.
 - If you ask a question to a specific person, always start the comment by mentioning them; this ensures they see it if their notification level is set to “mentioned” and other people understand they don’t have to respond.
 
-### **Having your merge request reviewed**
+### Having your merge request reviewed
 
 Please keep in mind that code review is a process that can take multiple iterations, and reviewers may spot things later that they may not have seen the first time.
 
-- The first reviewer of your code is *you*. Before you perform that first push of your shiny new branch, read through the entire diff. Does it make sense? Did you include something unrelated to the overall purpose of the changes? Did you forget to remove any debugging code?
+- The first reviewer of your code is **you**. Before you perform that first push of your shiny new branch, read through the entire diff. Does it make sense? Did you include something unrelated to the overall purpose of the changes? Did you forget to remove any debugging code?
 - Be grateful for the reviewer’s suggestions. (“Good call. I’ll make that change.”)
 - Don’t take it personally. The review is of the code, not of you.
 - Explain why the code exists. (“It’s like that because of these reasons. Would it be more clear if I rename this class/file/method/variable?”)
@@ -93,7 +100,7 @@ Please keep in mind that code review is a process that can take multiple iterati
 - Push commits based on earlier rounds of feedback as isolated commits to the branch. Do not squash until the branch is ready to merge. Reviewers should be able to read individual updates based on their earlier feedback.
 - Request a new review from the reviewer once you are ready for another round of review. If you do not have the ability to request a review, `@` mention the reviewer instead.
 
-### **Reviewing a merge request**
+### Reviewing a merge request
 
 Understand why the change is necessary (fixes a bug, improves the user experience, refactors the existing code). Then:
 
