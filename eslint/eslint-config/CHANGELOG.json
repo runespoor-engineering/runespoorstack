@@ -2,6 +2,20 @@
   "name": "@runespoorstack/eslint-config",
   "entries": [
     {
+      "version": "1.1.4",
+      "tag": "@runespoorstack/eslint-config_v1.1.4",
+      "date": "Tue, 28 May 2024 09:19:52 GMT",
+      "comments": {
+        "patch": [
+          {
+            "comment": "The vitest eslint config has been updated to disable the 'vitest/max-expects' rule and enable the 'vitest/no-commented-out-tests', 'vitest/no-identical-title', 'vitest/no-import-node-test', 'vitest/require-to-throw-message', 'vitest/valid-describe-callback', and 'vitest/valid-expect' rules.",
+            "author": "BorysShulyak <borysshulyak@gmail.com>",
+            "commit": "f534364d19603767e80239fb6d1bb4686c4b7b84"
+          }
+        ]
+      }
+    },
+    {
       "version": "1.1.3",
       "tag": "@runespoorstack/eslint-config_v1.1.3",
       "date": "Wed, 15 May 2024 22:50:57 GMT",

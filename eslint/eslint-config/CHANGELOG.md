@@ -1,6 +1,13 @@
 # Change Log - @runespoorstack/eslint-config
 
-This log was last generated on Wed, 15 May 2024 22:50:57 GMT and should not be manually modified.
+This log was last generated on Tue, 28 May 2024 09:19:52 GMT and should not be manually modified.
+
+## 1.1.4
+Tue, 28 May 2024 09:19:52 GMT
+
+### Patches
+
+- The vitest eslint config has been updated to disable the 'vitest/max-expects' rule and enable the 'vitest/no-commented-out-tests', 'vitest/no-identical-title', 'vitest/no-import-node-test', 'vitest/require-to-throw-message', 'vitest/valid-describe-callback', and 'vitest/valid-expect' rules.
 
 ## 1.1.3
 Wed, 15 May 2024 22:50:57 GMT
