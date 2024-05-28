@@ -1,10 +1,9 @@
 module.exports = {
   plugins: ['vitest'],
-  extends: ['plugin:vitest/all'],
   rules: {
     'vitest/consistent-test-filename': 'error',
     'vitest/consistent-test-it': 'error',
-    'vitest/max-expects': 'error',
+    'vitest/max-expects': 'off',
     'vitest/max-nested-describe': [
       'error',
       {
@@ -12,6 +11,7 @@ module.exports = {
       }
     ],
     'vitest/no-alias-methods': 'error',
+    'vitest/no-commented-out-tests': 'error',
     'vitest/no-conditional-expect': 'error',
     'vitest/no-conditional-in-test': 'error',
     'vitest/no-conditional-tests': 'error',
@@ -20,6 +20,8 @@ module.exports = {
     'vitest/no-duplicate-hooks': 'error',
     'vitest/no-focused-tests': 'error',
     'vitest/no-hooks': 'off',
+    'vitest/no-identical-title': 'error',
+    'vitest/no-import-node-test': 'error',
     'vitest/no-interpolation-in-snapshots': 'error',
     'vitest/no-large-snapshots': 'error',
     'vitest/no-mocks-import': 'error',
@@ -54,8 +56,11 @@ module.exports = {
     'vitest/prefer-to-have-length': 'error',
     'vitest/prefer-todo': 'error',
     'vitest/require-hook': 'error',
+    'vitest/require-local-test-context-for-concurrent-snapshots': 'error',
     'vitest/require-to-throw-message': 'error',
     'vitest/require-top-level-describe': 'error',
+    'vitest/valid-describe-callback': 'error',
+    'vitest/valid-expect': 'error',
     'vitest/valid-title': ['error', { mustMatch: { it: ['^should .+.$'] } }]
   }
 };
