@@ -122,7 +122,10 @@ const sidebars = {
         {
           type: 'category',
           label: 'CI/CD',
-          items: ['engineering-playbook/CI-CD/copy-paste-analyzing']
+          items: [
+            'engineering-playbook/CI-CD/continuous-integration',
+            'engineering-playbook/CI-CD/copy-paste-analyzing'
+          ]
         },
         {
           type: 'category',
@@ -133,11 +136,6 @@ const sidebars = {
           type: 'category',
           label: 'State Management',
           items: ['engineering-playbook/state-management/redux-hidden-dependencies']
-        },
-        {
-          type: 'category',
-          label: 'Documentation',
-          items: ['engineering-playbook/documentation/high-level-requirements-and-purposes']
         },
         {
           type: 'category',
