@@ -1,5 +1,7 @@
 # Runespoor Engineering Archive
 
+<a href="https://www.buymeacoffee.com/borisshulyak" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 60px !important;width: 217px !important;" ></a>
+
 Runespoor Engineering was created by Boris Shulyak as an organization of an ambitious engineers for whom their work is not just writing code and translating tasks into the Done column.
 
 Runespoor Archive Is a set of documents that may help you to increase overall efficiency for team members and the whole team in general, and to strive to be better engineers.

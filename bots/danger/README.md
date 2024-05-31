@@ -1,6 +1,11 @@
 <div align="center">
   <h1>@runespoorstack/danger-bot</h1>
   <p>The Runespoor set of PR linters using Danger.js</p>
+  <div>
+     <a href="https://www.buymeacoffee.com/borisshulyak" target="_blank">
+      <img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 60px !important;width: 217px !important;" >
+    </a>
+  </div>
   <a href="https://github.com/runespoor-engineering/runespoorstack/blob/main/LICENSE">
     <img alt="GitHub License" src="https://img.shields.io/github/license/runespoor-engineering/runespoorstack">
   </a>

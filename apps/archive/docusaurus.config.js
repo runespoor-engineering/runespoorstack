@@ -85,6 +85,11 @@ const config = {
             href: 'https://github.com/runespoor-engineering/runespoorstack/blob/main/apps/archive',
             label: 'GitHub',
             position: 'right'
+          },
+          {
+            href: 'https://www.buymeacoffee.com/borisshulyak',
+            label: 'Sponsor',
+            position: 'right'
           }
         ]
       },

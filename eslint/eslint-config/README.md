@@ -1,6 +1,11 @@
 <div align="center">
   <h1>@runespoorstack/eslint-config</h1>
   <p>Stop maintaining hundreds of eslint configs in you projects. Start using the battle tested, ready for production et of Runespoor ESlint configs just with 4 lines of code.</p>
+  <div>
+    <a href="https://www.buymeacoffee.com/borisshulyak" target="_blank">
+      <img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 60px !important;width: 217px !important;" >
+    </a>
+  </div>
   <a href="https://github.com/runespoor-engineering/runespoorstack/blob/main/LICENSE">
     <img alt="GitHub License" src="https://img.shields.io/github/license/runespoor-engineering/runespoorstack">
   </a>
