@@ -13,8 +13,9 @@ body:
     attributes:
       label: Which component is affected?
       options:
-        - Admin
-        - Server
+        - apps/archive
+        - eslint/eslint-config
+        - bots/danger
     validations:
       required: true
 
