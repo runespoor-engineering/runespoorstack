@@ -2,6 +2,18 @@
   "name": "@runespoorstack/danger-plugins",
   "entries": [
     {
+      "version": "0.1.1",
+      "tag": "@runespoorstack/danger-plugins_v0.1.1",
+      "date": "Tue, 28 May 2024 09:19:52 GMT",
+      "comments": {
+        "dependency": [
+          {
+            "comment": "Updating dependency \"@runespoorstack/eslint-config\" to `1.1.4`"
+          }
+        ]
+      }
+    },
+    {
       "version": "0.1.0",
       "tag": "@runespoorstack/danger-plugins_v0.1.0",
       "date": "Wed, 15 May 2024 22:50:57 GMT",
