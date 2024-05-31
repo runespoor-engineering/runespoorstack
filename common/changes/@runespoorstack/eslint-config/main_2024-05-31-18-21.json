@@ -1,0 +1,10 @@
+{
+  "changes": [
+    {
+      "packageName": "@runespoorstack/eslint-config",
+      "comment": "README: add `Sponsor` button.",
+      "type": "none"
+    }
+  ],
+  "packageName": "@runespoorstack/eslint-config"
+}

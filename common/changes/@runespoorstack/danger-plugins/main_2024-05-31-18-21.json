@@ -1,0 +1,10 @@
+{
+  "changes": [
+    {
+      "packageName": "@runespoorstack/danger-plugins",
+      "comment": "README: add `Sponsor` button.",
+      "type": "none"
+    }
+  ],
+  "packageName": "@runespoorstack/danger-plugins"
+}
