@@ -25,52 +25,29 @@ flowchart TB
     end
 
     subgraph apps
-        archive["archive\nDocusaurus App\n(Engineering Playbook)"]
+        archive["archive\n(Engineering Playbook)\nDocusaurus"]
+    end
+
+    subgraph bots
+        danger["danger\n(Danger.js rules and plugins)\nDanger.js"]
     end
 
     eslint-config .-> archive
+    eslint-config .-> danger
 
     style apps fill:lightgreen
     style eslint fill:skyblue
     style date fill:yellow
+    style bots fill:orange
 ```
 
 ## Merge Request CI
 
-```mermaid
-flowchart LR
-    greetings((Greetings))
-    mr-ci((MR CI/CD))
-
-    setup>checkout\ngit\nnode]
-    rush-change>Verify Change Logs\nrush change --verify]
-    rush-list>List packages\nrush list --version]
-    rush-install>Install deps\nrush install]
-    rush-lint>Lint\nrush lint]
-    rush-rebuild>Rebuild packages\nrush rebuild]
-
-    mr-ci .-> setup --> rush-change --> rush-list --> rush-install --> rush-lint --> rush-rebuild
-    
-    
-```
+![Merge Request CI](assets/ci-mr.png)
 
 ## Main CI
 
-```mermaid
-flowchart LR
-    main-ci((Main CI/CD))
-
-    setup>checkout\ngit\nnode]
-    rush-change>Verify Change Logs\nrush change --verify]
-    rush-list>List packages\nrush list --version]
-    rush-install>Install deps\nrush install]
-    rush-lint>Lint\nrush lint]
-    rush-rebuild>Rebuild packages\nrush rebuild]
-    rush-publish>Publish packages\nrush publish]
-
-    main-ci .-> setup --> rush-change --> rush-list --> rush-install --> rush-lint --> rush-rebuild --> rush-publish
-    
-```
+![Main CI](assets/ci-main.png)
 
 ## 💕 Special Thanks
 
