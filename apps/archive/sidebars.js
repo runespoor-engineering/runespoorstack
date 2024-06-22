@@ -147,7 +147,8 @@ const sidebars = {
           label: 'Growth',
           items: [
             'engineering-playbook/growth/growth-in-depth-or-breadth',
-            'engineering-playbook/growth/company-engineering-culture'
+            'engineering-playbook/growth/company-engineering-culture',
+            'engineering-playbook/growth/engineer-salary-review'
           ]
         }
       ]
