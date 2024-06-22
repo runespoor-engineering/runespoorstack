@@ -239,21 +239,29 @@ In order to follow this methodology, you must know and follow every word from th
 - Follow the "Engineering Playbook/**Processes/Critical Chain**" section.
 - Follow the "Engineering Playbook/**Processes/The delay in managerial decision-making**" section.
 
-**CI Automation:**
-- All the tests, including static once, are automated.
-- Linters for markdown are configured and automated: [markdownlint](https://github.com/DavidAnson/markdownlint), [github-action-markdown-link-check](https://github.com/gaurav-nelson/github-action-markdown-link-check), [write-good](https://github.com/btford/write-good)
-- All the builds and deploys are configured and automated.
-- [Dependabot](https://docs.github.com/en/code-security/dependabot/working-with-dependabot) is configured.
-- [Danger](https://github.com/danger/danger-js) is configured.
-- [Code coverage](https://about.codecov.io/) reports are configured and automated.  
-- Bundle-size analyzers are configured and automated.
-- [Copy-Paste analyzer](https://github.com/kucherenko/jscpd) is configured and automated.
-- [commitlint](https://github.com/conventional-changelog/commitlint) is configured and automated. 
-- The release strategy is documented and automated.
-- The Changelog generation is generated or checked in the CI.
-- Configure the integration between CI servie and your company's communication platform (e.g. Slack) to be quickly notified about the failed pipelines.
-
 **CI Tools:**
-- Use [PostHog](https://github.com/PostHog/posthog) as a Feature Flaxgs service.
-- Use **GitHub Actions**/**GitLab CI** as a CI service.
-- Use [SonarCube](https://www.sonarqube.org/) as an additional code quality tool.
+- [PostHog](https://github.com/PostHog/posthog).
+- [SonarCube](https://www.sonarqube.org/).
+- [markdownlint](https://github.com/DavidAnson/markdownlint), [github-action-markdown-link-check](https://github.com/gaurav-nelson/github-action-markdown-link-check), [write-good](https://github.com/btford/write-good)
+- [Dependabot](https://docs.github.com/en/code-security/dependabot/working-with-dependabot).
+- [Danger](https://github.com/danger/danger-js)
+- [Codecov](https://about.codecov.io/).
+- [Copy-Paste analyzer](https://github.com/kucherenko/jscpd)
+- [commitlint](https://github.com/conventional-changelog/commitlint)
+- [conventional-changelog](https://github.com/conventional-changelog/conventional-changelog)
+- [lint-staged](https://github.com/lint-staged/lint-staged)
+- [dep-tree](https://github.com/gabotechs/dep-tree)
+- [unimported](https://github.com/smeijer/unimported)
+- [bundlesize](https://github.com/siddharthkp/bundlesize)
+
+**Useful GitHub Actions:**
+- [setup-node](https://github.com/actions/setup-node)
+- [checkout](https://github.com/actions/checkout)
+- [first-interaction](https://github.com/actions/first-interaction)
+- [labeler](https://github.com/actions/labeler)
+- [release-action](https://github.com/ncipollo/release-action)
+- [git-auto-commit-action](https://github.com/stefanzweifel/git-auto-commit-action)
+- [download-artifact](https://github.com/actions/download-artifact)
+- [upload-artifact](https://github.com/actions/upload-artifact)
+- [actions-gh-pages](https://github.com/peaceiris/actions-gh-pages)
+- [codecov-action](https://github.com/codecov/codecov-action)
