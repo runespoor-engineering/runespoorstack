@@ -1,6 +1,6 @@
 {
   "name": "@runespoorstack/storybook-utils",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "The Runespoor set of Storybook utils.",
   "main": "dist/index.js",
   "types": "types/index.d.ts",

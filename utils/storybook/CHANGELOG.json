@@ -1,0 +1,19 @@
+{
+  "name": "@runespoorstack/storybook-utils",
+  "entries": [
+    {
+      "version": "0.1.0",
+      "tag": "@runespoorstack/storybook-utils_v0.1.0",
+      "date": "Sun, 23 Jun 2024 15:00:31 GMT",
+      "comments": {
+        "minor": [
+          {
+            "comment": "Implement `generateStoriesUrls` method.",
+            "author": "BorysShulyak <borysshulyak@gmail.com>",
+            "commit": "9f7ef222b6ae09e09a6461270af6239e99fd8d50"
+          }
+        ]
+      }
+    }
+  ]
+}
