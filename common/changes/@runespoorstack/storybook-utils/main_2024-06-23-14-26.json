@@ -1,0 +1,10 @@
+{
+  "changes": [
+    {
+      "packageName": "@runespoorstack/storybook-utils",
+      "comment": "Implement `generateStoriesUrls` method.",
+      "type": "minor"
+    }
+  ],
+  "packageName": "@runespoorstack/storybook-utils"
+}
