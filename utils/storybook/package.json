@@ -1,0 +1,56 @@
+{
+  "name": "@runespoorstack/storybook-utils",
+  "version": "0.0.0",
+  "description": "The Runespoor set of Storybook utils.",
+  "main": "dist/index.js",
+  "types": "types/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "test": "jest --ci 2>&1",
+    "lint": "eslint . --ext .ts,.tsx,.js,.jsx,.cjs,.mjs --ignore-path ../../.gitignore --quiet",
+    "lint:fix": "eslint . --ext .ts,.tsx,.js,.jsx,.cjs,.mjs --ignore-path ../../.gitignore --fix"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@runespoorstack/eslint-config": "workspace:*",
+    "@rushstack/eslint-config": "3.6.8",
+    "typescript": "5.4.5",
+    "eslint": "8.57.0",
+    "prettier": "3.2.5",
+    "ts-jest": "29.1.2",
+    "@types/jest": "29.5.12",
+    "jest": "29.7.0"
+  },
+  "peerDependencies": {},
+  "homepage": "https://github.com/runespoor-engineering/runespoorstack/tree/main/utils/storybook/#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/runespoor-engineering/runespoorstack"
+  },
+  "bugs": {
+    "url": "https://github.com/runespoor-engineering/runespoorstack/issues"
+  },
+  "author": {
+    "name": "BorysShulyak",
+    "email": "borysshulyak@gmail.com",
+    "url": "https://github.com/BorysShulyak"
+  },
+  "maintainers": [
+    {
+      "name": "BorysShulyak",
+      "email": "borysshulyak@gmail.com",
+      "url": "https://github.com/BorysShulyak"
+    }
+  ],
+  "keywords": [
+    "storybook",
+    "utils",
+    "urls",
+    "runespoor",
+    "pull-request",
+    "automation",
+    "review",
+    "changelog"
+  ],
+  "license": "MIT"
+}
