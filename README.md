@@ -22,8 +22,12 @@ flowchart TB
         eslint-config["eslint-config\n(Universal linting configuration)\nESLint/Prettier"]
     end
 
-     subgraph date
+    subgraph date
         timezones["timezones\n(The updated list of timezones)"]
+    end
+
+    subgraph utils
+        storybook["storybook\n(Utils related to Storybook)"]
     end
 
     subgraph apps
@@ -36,10 +40,12 @@ flowchart TB
 
     eslint-config .-> archive
     eslint-config .-> danger
+    eslint-config .-> storybook
 
-    style apps fill:lightgreen
     style eslint fill:skyblue
     style date fill:yellow
+    style utils fill:lightblue
+    style apps fill:lightgreen
     style bots fill:orange
 ```
 
