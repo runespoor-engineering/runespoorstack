@@ -1,5 +1,14 @@
 import { generateStoriesUrls, StorybookStructure } from '../generateStoriesUrls.ts';
 
+// [
+//   'https://storybook.example.com/index.html?path=/docs/components-button--default',
+//   'https://storybook.example.com/index.html?path=/docs/components-button--primary',
+//   'https://storybook.example.com/index.html?path=/docs/components-button--secondary',
+//   'https://storybook.example.com/index.html?path=/docs/components-modal--basic',
+//   'https://storybook.example.com/index.html?path=/docs/components-modal--large',
+//   'https://storybook.example.com/index.html?path=/docs/components-modal--small'
+// ]
+
 describe('generateStoriesUrls', () => {
   it('should generate the story URLs based on the provided `storybookUrl` and `storybookStructure` arguments', () => {
     const mockStorybookUrl = 'https://storybook.example.com';

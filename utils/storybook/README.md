@@ -29,6 +29,7 @@
 
 ## ✨ Features
 
+- Generate stories urls based on the provided storybook structure.
 
 ## 🦾 Installation
 
@@ -38,6 +39,24 @@ npm i --save-dev @runespoorstack/storybook-utils
 
 ## ♾️ Usage
 
+**generateStoriesUrls**
+```
+const storybookUrl = 'https://storybook.example.com';
+const storybookStructure = [
+  { title: 'Components/Button', variants: ['Default', 'Primary', 'Secondary'] },
+  { title: 'Components/Modal', variants: ['Basic', 'Large', 'Small'] }
+];
+const storiesUrls = generateStoriesUrls(storybookUrl, storybookStructure);
+console.log(storiesUrls);
+// [
+//   'https://storybook.example.com/index.html?path=/docs/components-button--default',
+//   'https://storybook.example.com/index.html?path=/docs/components-button--primary',
+//   'https://storybook.example.com/index.html?path=/docs/components-button--secondary',
+//   'https://storybook.example.com/index.html?path=/docs/components-modal--basic',
+//   'https://storybook.example.com/index.html?path=/docs/components-modal--large',
+//   'https://storybook.example.com/index.html?path=/docs/components-modal--small'
+// ]
+```
 
 ## 🛠️ Contributing
 
