@@ -12,6 +12,13 @@
    */
   "commands": [
     {
+      "name": "init-danger-bot",
+      "commandKind": "global",
+      "summary": "Initialize `danger-bot` autoinstaller and install dependencies.",
+      "autoinstallerName": "danger-bot",
+      "shellCommand": "node common/autoinstallers/danger-bot/src/init.js"
+    },
+    {
       "commandKind": "bulk",
       "name": "lint",
       "summary": "Run linters.",
