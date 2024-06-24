@@ -27,7 +27,8 @@ flowchart TB
     end
 
     subgraph utils
-        storybook["storybook\n(Utils related to Storybook)"]
+        storybook-utils["storybook\n(Utils related to Storybook)"]
+        git-utils["git\n(Utils related to Git)"]
     end
 
     subgraph apps
@@ -40,7 +41,8 @@ flowchart TB
 
     eslint-config .-> archive
     eslint-config .-> danger
-    eslint-config .-> storybook
+    eslint-config .-> storybook-utils
+    eslint-config .-> git-utils
 
     style eslint fill:skyblue
     style date fill:yellow
