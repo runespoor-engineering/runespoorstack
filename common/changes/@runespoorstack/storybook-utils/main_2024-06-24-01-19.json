@@ -1,0 +1,10 @@
+{
+  "changes": [
+    {
+      "packageName": "@runespoorstack/storybook-utils",
+      "comment": "Adjust Readme.",
+      "type": "none"
+    }
+  ],
+  "packageName": "@runespoorstack/storybook-utils"
+}

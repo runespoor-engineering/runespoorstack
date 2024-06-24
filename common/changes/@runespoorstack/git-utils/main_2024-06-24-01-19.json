@@ -1,0 +1,10 @@
+{
+  "changes": [
+    {
+      "packageName": "@runespoorstack/git-utils",
+      "comment": "Implement `getModifiedFiles` method.",
+      "type": "minor"
+    }
+  ],
+  "packageName": "@runespoorstack/git-utils"
+}
