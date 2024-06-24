@@ -361,6 +361,12 @@
       "shouldPublish": true
     },
     {
+      "packageName": "@runespoorstack/git-utils",
+      "projectFolder": "utils/git",
+      "tags": ["utils"],
+      "shouldPublish": true
+    },
+    {
       "packageName": "@runespoorstack/timezones",
       "projectFolder": "date/timezones",
       "tags": ["date"],

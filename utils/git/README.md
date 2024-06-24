@@ -1,6 +1,6 @@
 <div align="center">
-  <h1>@runespoorstack/storybook-utils</h1>
-  <p>The Runespoor set of Storybook utils.</p>
+  <h1>@runespoorstack/git-utils</h1>
+  <p>The Runespoor set of Git utils.</p>
   <div>
      <a href="https://www.buymeacoffee.com/borisshulyak" target="_blank">
       <img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 60px !important;width: 217px !important;" >
@@ -12,8 +12,8 @@
   <a href="https://github.com/runespoor-engineering/runespoorstack/issues">
     <img alt="GitHub issues" src="https://img.shields.io/github/issues/runespoor-engineering/runespoorstack?color=5d2de0">
   </a>
-  <a href="https://www.npmjs.com/package/@runespoorstack/storybook-utils">
-    <img alt="npm downloads" src="https://img.shields.io/npm/dw/@runespoorstack/storybook-utils">
+  <a href="https://www.npmjs.com/package/@runespoorstack/git-utils">
+    <img alt="npm downloads" src="https://img.shields.io/npm/dw/@runespoorstack/git-utils">
   </a>
 </div>
 
@@ -29,33 +29,21 @@
 
 ## ✨ Features
 
-- Generate stories urls based on the provided storybook structure.
+- Get modified files.
 
 ## 🦾 Installation
 
 ```shell
-npm i --save-dev @runespoorstack/storybook-utils
+npm i --save-dev @runespoorstack/git-utils
 ```
 
 ## ♾️ Usage
 
-**generateStoriesUrls**
+**getModifiedFiles**
 ```
-const storybookUrl = 'https://storybook.example.com';
-const storybookStructure = [
-  { title: 'Components/Button', variants: ['Default', 'Primary', 'Secondary'] },
-  { title: 'Components/Modal', variants: ['Basic', 'Large', 'Small'] }
-];
-const storiesUrls = generateStoriesUrls(storybookUrl, storybookStructure);
-console.log(storiesUrls);
-// [
-//   'https://storybook.example.com/index.html?path=/docs/components-button--default',
-//   'https://storybook.example.com/index.html?path=/docs/components-button--primary',
-//   'https://storybook.example.com/index.html?path=/docs/components-button--secondary',
-//   'https://storybook.example.com/index.html?path=/docs/components-modal--basic',
-//   'https://storybook.example.com/index.html?path=/docs/components-modal--large',
-//   'https://storybook.example.com/index.html?path=/docs/components-modal--small'
-// ]
+const modifiedFiles = getModifiedFiles();
+console.log(modifiedFiles);
+// ['file1.ts', 'file2.ts', 'file3.ts']
 ```
 
 ## 🛠️ Contributing

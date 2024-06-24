@@ -1,0 +1,33 @@
+{
+  "compilerOptions": {
+      "target": "es2022",
+      "module": "NodeNext",
+      "rootDir": "src",
+      "outDir": "dist",
+      "declaration": true,
+      "moduleResolution": "NodeNext",
+      "allowImportingTsExtensions": true,
+      "noEmit": true,
+      /* Linting */
+      "strict": true,
+      "noUnusedLocals": true,
+      "noUnusedParameters": true,
+      "noFallthroughCasesInSwitch": true
+  },
+  "jest": {
+    "globals": {
+      "global": {}
+    }
+  },
+  "lib":["ES2022"],
+  "include": [
+      "src/**/*.ts",
+      "src/**/*.tsx",
+      ".eslintrc.js",
+  ],
+  "exclude": [
+      "node_modules",
+      "dist"
+  ],
+  "types": ["node"]
+}
