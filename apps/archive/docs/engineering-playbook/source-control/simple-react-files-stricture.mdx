@@ -31,7 +31,7 @@ src/
 
 - **api.ts** - file for api ednpoints.
 - **hooks.ts** - file for api hooks (e.g. wrapers over `useQuery`, `useMutation` in case of Tanstack Query).
-- **types.ts** - file for the server api response types.
+- **types** - folder for the server api payloads and entities types.
 - **parsers.ts** - file for the server api response parsers.
 
 ```
@@ -39,12 +39,16 @@ api /
   <group1>
     api.ts
     hooks.ts
-    types.ts
+    types / 
+      payloads.ts
+      commont.ts
     parsers.ts
   <groupN>
     api.ts
     hooks.ts
-    types.ts
+    types / 
+      payloads.ts
+      commont.ts
     parsers.ts
 ```
 
