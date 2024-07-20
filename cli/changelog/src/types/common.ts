@@ -1,9 +1,16 @@
+export const CHANGE_FILES_FOLDER = 'changes';
+
 export enum ChangesTypes {
   Major = 'MAJOR',
   Minor = 'MINOR',
   Patch = 'PATCH',
   None = 'NONE'
 }
+
+export type ChangeData = {
+  comment: string;
+  type: ChangesTypes;
+};
 
 export enum ChangesTypesDescriptions {
   Major = 'These are breaking changes that are not backward compatible.\nExamples are: renaming a public class, adding/removing a non-optional parameter from a public API, or renaming a variable or function that is exported.',

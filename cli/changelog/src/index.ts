@@ -5,8 +5,8 @@ import select from '@inquirer/select';
 import { program } from 'commander';
 
 import { ChangesTypes, ChangesTypesDescriptions } from './types/common';
-
-// import packageJson from '../package.json';
+import { createChangeFile } from './utils/createChangeFile';
+import { generateChangeFileName } from './utils/generateChangeFileName';
 
 const packageVersion = '0.0.0';
 
@@ -47,7 +47,13 @@ program
         }
       ]
     });
-    console.log(changesComment, changesType);
+    const changeData = {
+      comment: changesComment,
+      type: changesType
+    };
+
+    const changeFileName = generateChangeFileName();
+    createChangeFile(changeFileName, changeData);
   });
 
 program.parse();
