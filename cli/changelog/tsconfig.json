@@ -2,17 +2,17 @@
   "compilerOptions": {
       "target": "es2022",
       "module": "NodeNext",
-      "rootDir": "src",
-      "outDir": "dist",
+      "rootDir": "./src",
+      "outDir": "./dist",
       "declaration": true,
       "moduleResolution": "NodeNext",
-      "allowImportingTsExtensions": true,
-      "noEmit": true,
       /* Linting */
       "strict": true,
       "noUnusedLocals": true,
       "noUnusedParameters": true,
-      "noFallthroughCasesInSwitch": true
+      "noFallthroughCasesInSwitch": true,
+      "esModuleInterop": true,
+      "resolveJsonModule": true
   },
   "jest": {
     "globals": {

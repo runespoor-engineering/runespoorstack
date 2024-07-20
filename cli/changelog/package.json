@@ -10,7 +10,15 @@
     "lint": "eslint . --ext .ts,.tsx,.js,.jsx,.cjs,.mjs --ignore-path ../../.gitignore --quiet",
     "lint:fix": "eslint . --ext .ts,.tsx,.js,.jsx,.cjs,.mjs --ignore-path ../../.gitignore --fix"
   },
-  "dependencies": {},
+  "bin": {
+    "rune": "dist/index.js"
+  },
+  "dependencies": {
+    "commander": "12.1.0",
+    "@inquirer/input": "2.2.3",
+    "@inquirer/select": "2.4.1",
+    "@inquirer/confirm": "3.1.16"
+  },
   "devDependencies": {
     "@runespoorstack/eslint-config": "workspace:*",
     "@rushstack/eslint-config": "3.6.8",

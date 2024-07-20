@@ -80,3 +80,4 @@ common/autoinstallers/*/.npmrc
 
 # Production buids
 build/
+dist/
