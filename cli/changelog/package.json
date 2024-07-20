@@ -1,6 +1,6 @@
 {
   "name": "@runespoorstack/changelog-manager",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "The Runespoor CLI for changelog management and semantic versioning.",
   "main": "dist/index.js",
   "types": "types/index.d.ts",

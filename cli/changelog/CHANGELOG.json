@@ -2,6 +2,20 @@
   "name": "@runespoorstack/changelog-manager",
   "entries": [
     {
+      "version": "0.1.0",
+      "tag": "@runespoorstack/changelog-manager_v0.1.0",
+      "date": "Sat, 20 Jul 2024 23:19:46 GMT",
+      "comments": {
+        "minor": [
+          {
+            "comment": "Implement `change file` creation",
+            "author": "BorysShulyak <borysshulyak@gmail.com>",
+            "commit": "26ad341190e4fc1bffa110fd9087c30f81b88185"
+          }
+        ]
+      }
+    },
+    {
       "version": "0.0.1",
       "tag": "@runespoorstack/changelog-manager_v0.0.1",
       "date": "Sat, 20 Jul 2024 21:41:02 GMT",
