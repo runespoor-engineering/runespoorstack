@@ -1,0 +1,19 @@
+{
+  "name": "@runespoorstack/changelog-manager",
+  "entries": [
+    {
+      "version": "0.0.1",
+      "tag": "@runespoorstack/changelog-manager_v0.0.1",
+      "date": "Sat, 20 Jul 2024 21:41:02 GMT",
+      "comments": {
+        "patch": [
+          {
+            "comment": "Create the package and implement `change` command placeholder.",
+            "author": "Boris Shulyak <55171497+BorysShulyak@users.noreply.github.com>",
+            "commit": "89f14044c4b65785ca75579eae811e194cb0cb0f"
+          }
+        ]
+      }
+    }
+  ]
+}
