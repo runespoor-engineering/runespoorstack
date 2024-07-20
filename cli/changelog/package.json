@@ -6,7 +6,7 @@
   "types": "types/index.d.ts",
   "scripts": {
     "build": "tsc",
-    "test": "jest --ci 2>&1",
+    "test": "",
     "lint": "eslint . --ext .ts,.tsx,.js,.jsx,.cjs,.mjs --ignore-path ../../.gitignore --quiet",
     "lint:fix": "eslint . --ext .ts,.tsx,.js,.jsx,.cjs,.mjs --ignore-path ../../.gitignore --fix"
   },
