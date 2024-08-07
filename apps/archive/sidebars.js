@@ -129,6 +129,11 @@ const sidebars = {
         },
         {
           type: 'category',
+          label: 'Authentication',
+          items: ['engineering-playbook/authentication/basic-authentication']
+        },
+        {
+          type: 'category',
           label: 'GraphQL',
           items: ['engineering-playbook/graphql/graphql-disadvantages']
         },
