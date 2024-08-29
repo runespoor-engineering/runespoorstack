@@ -2,6 +2,25 @@
   "name": "@runespoorstack/danger-plugins",
   "entries": [
     {
+      "version": "0.1.2",
+      "tag": "@runespoorstack/danger-plugins_v0.1.2",
+      "date": "Thu, 29 Aug 2024 08:13:53 GMT",
+      "comments": {
+        "none": [
+          {
+            "comment": "README: add `Sponsor` button.",
+            "author": "BorysShulyak <borysshulyak@gmail.com>",
+            "commit": "77f2365334a0908d7aef68b02984b45f0fdcf44a"
+          }
+        ],
+        "dependency": [
+          {
+            "comment": "Updating dependency \"@runespoorstack/eslint-config\" to `1.1.5`"
+          }
+        ]
+      }
+    },
+    {
       "version": "0.1.1",
       "tag": "@runespoorstack/danger-plugins_v0.1.1",
       "date": "Tue, 28 May 2024 09:19:52 GMT",

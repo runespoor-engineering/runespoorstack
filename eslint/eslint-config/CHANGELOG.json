@@ -2,6 +2,27 @@
   "name": "@runespoorstack/eslint-config",
   "entries": [
     {
+      "version": "1.1.5",
+      "tag": "@runespoorstack/eslint-config_v1.1.5",
+      "date": "Thu, 29 Aug 2024 08:13:53 GMT",
+      "comments": {
+        "none": [
+          {
+            "comment": "README: add `Sponsor` button.",
+            "author": "BorysShulyak <borysshulyak@gmail.com>",
+            "commit": "77f2365334a0908d7aef68b02984b45f0fdcf44a"
+          }
+        ],
+        "patch": [
+          {
+            "comment": "base-ts/base-js: turn off `no-useless-constructor`, `no-empty-function`, `class-methods-use-this` rules.",
+            "author": "BorysShulyak <borysshulyak@gmail.com>",
+            "commit": "77f2365334a0908d7aef68b02984b45f0fdcf44a"
+          }
+        ]
+      }
+    },
+    {
       "version": "1.1.4",
       "tag": "@runespoorstack/eslint-config_v1.1.4",
       "date": "Tue, 28 May 2024 09:19:52 GMT",
