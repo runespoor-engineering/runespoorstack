@@ -28,6 +28,9 @@ module.exports = {
     'func-names': 'error',
     'no-underscore-dangle': 'off',
     camelcase: 'off',
+    'no-useless-constructor': 'off',
+    'no-empty-function': 'off',
+    'class-methods-use-this': 'off',
     'no-restricted-imports': [
       'error',
       {
