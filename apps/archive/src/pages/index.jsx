@@ -1,6 +1,5 @@
-import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
-import HomepageFeatures from '@site/src/components/HomepageFeatures';
+import playbookPreviewUrl from '@site/static/img/playbook-preview.png';
 import Heading from '@theme/Heading';
 import Layout from '@theme/Layout';
 import clsx from 'clsx';
@@ -10,20 +9,11 @@ import styles from './index.module.css';
 const HomepageHeader = () => {
   const { siteConfig } = useDocusaurusContext();
   return (
-    <header className={clsx('hero hero--primary', styles.heroBanner)}>
+    <header className={clsx('hero', styles.heroBanner)}>
       <div className="container">
-        <Heading as="h1" className="hero__title">
-          {siteConfig.title}
-        </Heading>
+        <Heading as="h1">{siteConfig.title}</Heading>
         <p className="hero__subtitle">{siteConfig.tagline}</p>
-        <div className={styles.buttons}>
-          <Link
-            className="button button--secondary button--lg"
-            to="/docs/engineering-playbook/engineering-playbook-checklist"
-          >
-            Engineering Playbook
-          </Link>
-        </div>
+        <img alt="Runespoor" src={playbookPreviewUrl} />
       </div>
     </header>
   );
@@ -37,9 +27,7 @@ const Home = () => {
       title={`Welcome to ${siteConfig.title}`}
     >
       <HomepageHeader />
-      <main>
-        <HomepageFeatures />
-      </main>
+      <main />
     </Layout>
   );
 };

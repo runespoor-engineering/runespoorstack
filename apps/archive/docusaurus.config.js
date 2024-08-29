@@ -90,6 +90,11 @@ const config = {
             href: 'https://www.buymeacoffee.com/borisshulyak',
             label: 'Sponsor',
             position: 'right'
+          },
+          {
+            href: 'https://substack.com/@runespoor',
+            label: 'Subscribe',
+            position: 'right'
           }
         ]
       },
@@ -113,8 +118,8 @@ const config = {
                 href: 'https://github.com/BorysShulyak'
               },
               {
-                label: 'DevTo',
-                href: 'https://dev.to/borysshulyak'
+                label: 'Substack',
+                href: 'https://substack.com/@runespoor'
               },
               {
                 label: 'LinkedIn',
