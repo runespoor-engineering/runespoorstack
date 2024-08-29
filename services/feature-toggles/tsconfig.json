@@ -16,6 +16,19 @@
     "noImplicitAny": false,
     "strictBindCallApply": false,
     "forceConsistentCasingInFileNames": false,
-    "noFallthroughCasesInSwitch": false
-  }
+    /* Linting */
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true
+  },
+  "include": [
+      "src/**/*.ts",
+      "test/**/*.ts",
+      ".eslintrc.js",
+  ],
+  "exclude": [
+      "node_modules",
+      "dist"
+  ]
 }
