@@ -17,7 +17,7 @@ title: Testing Conventions
 - Bad tests is worth than no tests. - If you don't know how to cover some functionality with tests, if you understand that your tests are bad - don't push 1-2 useless test cases to master!
 - If you use TDD, you should follow [the correct TDD flow](/docs/engineering-playbook/testing/tdd).
 
-## Integration Tests
+## Integration/Component Tests
 
 - Use [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/).
 - Follow the [priotiry of React Testing Library queries](https://testing-library.com/docs/queries/about#priority).
@@ -52,7 +52,9 @@ The more your tests resemble the way your software is used, the more confidence 
 - `describe`:
   - Do not use nested `describe`.
   - The message should be the name of the component/method/class your are testing.
-  - Example: ``describe('useEntitiesMap', () => {})``
+  - Example: `describe('useEntitiesMap', () => {})`
+  - Use separte `describe` for covering corner cases in the same testing file. It might be useful when you fix bugs and want to decrease the bugs repetition.
+    - Example: `describe('useEntitiesMap (corner cases)', () => {})`
 - `it`:
   - The message should be started with `should` word.
   - The message should be in the **present tense**.
@@ -60,4 +62,5 @@ The more your tests resemble the way your software is used, the more confidence 
   - Example: ``it('should skip the entity if it does not have an object by the provided `entityDataPath`', () => {})``
 - Mocks:
   - The name of the mock function or constant should be started with `mock` word. (not `mocking` , not `mocked` )
+
 

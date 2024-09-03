@@ -8,7 +8,7 @@ We are going to talk about the testing levels and the testing trophy. Your testi
 
 I should mention, that all my work experience is 80% Front End one. Therefore, this article is written through the prism of this experience.
 
-For the Unit, Integration, and E2E tests I have provided a “Tested/Mocked” schema to have more clear picture. The technologies were provided just an example and you could easily swap it with your own. 
+For the Unit, Component, Integration, and E2E tests I have provided a “Tested/Mocked/NotTested” schema to have more clear picture. The technologies were provided just an example and you could easily swap it with your own. 
 
 ## Testing Trophy
 
@@ -62,7 +62,6 @@ It is a pleasure to use it in collaboration with integration tests - when your i
 Unit tests would help you to write clean and healthy code! 
 
 > If it is difficult to cover some code with tests, it is a bad code…
-> 
 
 In conclusion, you will get:
 
@@ -78,9 +77,8 @@ In conclusion, you will get:
 
 ### When to use unit tests?
 
-- **Exported functions, classes, and hooks**: Anything exported can be reused at various places in ways you have no control over. You should document the expected behavior of the public interface with tests.
-- **Apollo Client Queries**: Any Apollo Client query must work consistently, independent of the component it is triggered from.
-- **Apollo Client Mutations**: For complex Apollo Client mutations, you should write the tests including the check-up of all the post-mutation actions (e.g. onError, onComplete, …)
+- **Exported functions and hooks**: Anything exported can be reused at various places in ways you have no control over. You should document the expected behavior of the public interface with tests.
+- **Storage/Cache/State Management**: You also should cover with unit tests you state management (e.g. Redux, Recoil, MobX, etc.) and cache (e.g. Apollo Client, TanstackQuery).
 
 ### What not to mock in unit tests?
 
@@ -146,6 +144,50 @@ Secondly, all the products and all the software should be accessible for users w
 
 - [Storybook a11y addon](https://storybook.js.org/docs/react/writing-tests/accessibility-testing)
 
+## Component Tests
+
+![Component Tests](/img/componentTests.png)
+
+### What are component tests?
+
+**Component testing** is a software testing technique that is used to verify that several units work together in harmony, excepting client-server communication.
+
+### Why should you use component tests?
+
+Unit tests are great, but they only test the logic of your small units. Unit tests don’t test how they work together. 
+Integration tests are great and even so similar to component tests, but they are more expensive to write and maintain.
+So the component tests are the golden mean between unit and integration tests. They are cheaper than integration tests and provide more confidence than unit tests.
+
+Also, one of the purposes of testing categorization is separating tests execution. You could now run component and integration tests
+in parallel and get the result faster in you CI/CD pipeline.
+
+### When not to use component tests?
+
+- **Client-Server communitation**: It should be covered with integration tests.
+- **Full user flow across pages**: Trying to render the whole app/page using the non-e2e testing tools could be too expensive. Such tests could also be duplicated on the e2e stage testing.
+
+### When to use component tests?
+
+- **React Components**: Verify that several units (functions, hooks, other components) work together in harmony.
+
+### What not to mock in component tests?
+
+- **Child components**: Every component (unit) and its logic should be covered in the integration tests. We don’t use shallow rendering.
+- **Hooks, functions, Apollo Client:** All the logic and functionality of the component should be covered with tests.
+- **DOM**: Testing on the real DOM ensures your components work in the intended environment.
+
+### What to mock in component tests?
+
+- **Side effects, excepting server api calls**: Anything that can change an external state should be mocked.
+- **3rd party library (not all of them)**: For example, we should mock the `next/router` module to successfully write our tests, but it is not necessary to mock `material-ui`.
+
+### Recommended component tests tools
+
+- [Vitest](https://vitest.dev/)
+- [Jest](https://jestjs.io/ru/)
+- [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/)
+- [Storybook](https://storybook.js.org/docs/react/writing-tests/interaction-testing)
+
 ## Integration Tests
 
 ![Integration Tests](/img/integrationTests.png)
@@ -163,6 +205,9 @@ Integration tests are the first step in testing how your system is used by the e
 
 Integration tests are the silver bullet - it is pretty quick, easy to maintain, and provide strong confidence. With a well-designed integration test, you will get a fully described user flow in the code, as your tests should simulate the user behavior as much as possible.
 
+The key difference between component and integration tests is that integration once cover the client-server communication (with mocked server API), while component tests cover only the client-side logic. 
+You could think about them in this way: if you mock the server API in the tests - it is an integration test, if you don’t - it is a component test (or some other).
+
 In conclusion, you will get:
 
 - High confidence in the logic of your components.
@@ -170,13 +215,12 @@ In conclusion, you will get:
 
 ### When not to use integration tests?
 
-**Full user flow across pages**: Trying to render the whole app/page using the non-e2e testing tools could be too expensive. Such tests could also be duplicated on the e2e stage testing.
-
-**Framework-specific integration:** If you have a framework-specific integration, like Next.js with its `getServerSideProps/getStaticProps` , you should not (or even can’t) test it on the integration level. It would be covered with e2e tests.
+- **Full user flow across pages**: Trying to render the whole app/page using the non-e2e testing tools could be too expensive. Such tests could also be duplicated on the e2e stage testing.
+- **Framework-specific integration:** If you have a framework-specific integration, like Next.js with its `getServerSideProps/getStaticProps` , you should not (or even can’t) test it on the integration level. It would be covered with e2e tests.
 
 ### When to use integration tests?
 
-**React Components:** Verify that several units (functions, hooks, other components) work together in harmony.
+- **React Components + server API calls** Verify that several units (functions, hooks, other components) work together in harmony in cline-server communication.
 
 ### What not to mock in integration tests?
 
@@ -187,7 +231,7 @@ In conclusion, you will get:
 ### What to mock in integration tests?
 
 - **Side effects**: Anything that can change an external state (for example, a network request) should be mocked.
-- **3rd party library (not all of them): F**or example, ****we should mock the `next/router` module to successfully write our tests, but it is not necessary to mock `material-ui`.
+- **3rd party library (not all of them)**: For example, we should mock the `next/router` module to successfully write our tests, but it is not necessary to mock `material-ui`.
 
 ### Recommended integration tests tools
 
@@ -267,5 +311,3 @@ The main things you should keep in mind are:
 In conclusion, testing is an essential part of software development. Each type of test serves a specific purpose, from catching errors early on with static tests to verifying that the system behaves as expected with end-to-end tests. By understanding the cost of tests and the appropriate use cases for each type, developers can create a comprehensive testing strategy that ensures their software meets the required standards for quality and functionality.
 
 Thank you, my dear reader! In addition, I’m going to publish a lot of other articles for the **Mastering Testing Dzen** series. I believe you would get a lot of useful information! So welcome to my followers!
-
-If you find this article useful or interesting, you could tap some emoji on it or write a comment and help to grow our community!
