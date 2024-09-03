@@ -2,6 +2,25 @@
   "name": "@runespoorstack/storybook-utils",
   "entries": [
     {
+      "version": "0.1.1",
+      "tag": "@runespoorstack/storybook-utils_v0.1.1",
+      "date": "Thu, 29 Aug 2024 08:13:53 GMT",
+      "comments": {
+        "none": [
+          {
+            "comment": "Adjust Readme.",
+            "author": "BorysShulyak <borysshulyak@gmail.com>",
+            "commit": "77f2365334a0908d7aef68b02984b45f0fdcf44a"
+          }
+        ],
+        "dependency": [
+          {
+            "comment": "Updating dependency \"@runespoorstack/eslint-config\" to `1.1.5`"
+          }
+        ]
+      }
+    },
+    {
       "version": "0.1.0",
       "tag": "@runespoorstack/storybook-utils_v0.1.0",
       "date": "Sun, 23 Jun 2024 15:00:31 GMT",

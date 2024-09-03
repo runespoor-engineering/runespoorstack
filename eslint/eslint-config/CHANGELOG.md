@@ -1,6 +1,13 @@
 # Change Log - @runespoorstack/eslint-config
 
-This log was last generated on Tue, 28 May 2024 09:19:52 GMT and should not be manually modified.
+This log was last generated on Thu, 29 Aug 2024 08:13:53 GMT and should not be manually modified.
+
+## 1.1.5
+Thu, 29 Aug 2024 08:13:53 GMT
+
+### Patches
+
+- base-ts/base-js: turn off `no-useless-constructor`, `no-empty-function`, `class-methods-use-this` rules.
 
 ## 1.1.4
 Tue, 28 May 2024 09:19:52 GMT

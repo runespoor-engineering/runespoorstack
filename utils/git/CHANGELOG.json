@@ -2,6 +2,18 @@
   "name": "@runespoorstack/git-utils",
   "entries": [
     {
+      "version": "0.1.1",
+      "tag": "@runespoorstack/git-utils_v0.1.1",
+      "date": "Thu, 29 Aug 2024 08:13:53 GMT",
+      "comments": {
+        "dependency": [
+          {
+            "comment": "Updating dependency \"@runespoorstack/eslint-config\" to `1.1.5`"
+          }
+        ]
+      }
+    },
+    {
       "version": "0.1.0",
       "tag": "@runespoorstack/git-utils_v0.1.0",
       "date": "Mon, 24 Jun 2024 01:22:22 GMT",

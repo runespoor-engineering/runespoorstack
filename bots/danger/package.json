@@ -1,6 +1,6 @@
 {
   "name": "@runespoorstack/danger-plugins",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "The Runespoor set of PR linters using Danger.js",
   "main": "dist/index.js",
   "types": "types/index.d.ts",
