@@ -4,10 +4,6 @@ title: Simple React Files Structure
 
 # Simple React Files Structure
 
-There is a few silver bullet rules for (modules) **hooks**, **utils**, **types**, **constants**, **components**, etc. placing:
-- If it is a general module - it should be placed on the highest level (e.g. src).
-- If it is used in 2 or more modules - it should be placed on the higher level of it's usage or in the module folder.
-
 ```mermaid
 graph LR
   subgraph srcBlock[src]
@@ -31,7 +27,9 @@ graph LR
   end
 
   subgraph apiBlock[api]
+    apiN --> client.ts
     apiN --> apiEntityN
+    apiEntityN --> api.ts
     apiEntityN --> apiEntityHooks[hooks]
     apiEntityN --> apiEntityParsers[parsers]
     apiEntityN --> apiEntityTypes[types]
@@ -133,36 +131,34 @@ graph TD
 
 ```
 src/
-  <api> - is used for everything related to server API (api, hooks, types, parsers). There could be more that one `api` folder, e.g. `apiGitLab`, `apiJira`.
-  assets - is used for static asserts.
-  app - is used App.tsx component, pages, and templates components.
-  modules - is used for splitting app entities by modules. Entities are used for splitting components, hooks, etc. by the app entities.
-  shared - is used for separating shared components, hooks, etc. shared folder contains groups folders
-  stories - general stories, documentation.
-  test - tests setup files.
-  config - app configuration files.
+  <apiN> 
+  assets
+  app
+  modules
+  shared
+  stories
+  test
+  config
 ```
 
 ## Api
 
-- **api.ts** - file for api ednpoints.
-- **hooks.ts** - file for api hooks (e.g. wrapers over `useQuery`, `useMutation` in case of Tanstack Query).
-- **types** - folder for the server api entities, payload, and responses types.
-- **parsers.ts** - file for the server api response parsers.
-
 ```mermaid
 graph TD
-  apiN --> entityN
-  entityN --> hooks
-  entityN --> parsers
-  entityN --> types
-  types --> payloads.ts
-  types --> responses.ts
-  types --> common.ts
+  apiN --> client.ts
+  apiN --> apiEntityN
+  apiEntityN --> api.ts
+  apiEntityN --> apiEntityHooks[hooks]
+  apiEntityN --> apiEntityParsers[parsers]
+  apiEntityN --> apiEntityTypes[types]
+  apiEntityTypes --> payloads.ts
+  apiEntityTypes --> responses.ts
+  apiEntityTypes --> common.ts
 ```
 
 ```
-api /
+<apiN> /
+  client.ts
   <entity1>
     api.ts
     hooks.ts
@@ -182,8 +178,6 @@ api /
 ```
 
 ## App Folder
-
-- App foldre is used for the main App component, pages, and templates components.
 
 ```mermaid
 graph TD
@@ -206,14 +200,6 @@ app /
 ```
 
 ## Modules Folder
-
-- Split your app by modules and by entities inside the modules.
-- Inside the **entity/components** folder create the **atoms**, **molecules**, **organisms** folders.
-- Inside the components **atoms**, **molecules**, **organisms** folders create the separate folders for each component. 
-Follow the [Atomic Design](https://atomicdesign.bradfrost.com/chapter-2/) in organization of your exported components.
-- I suggest creation  folders as the separate modules.
-- Store the **hooks**, **utils**, **types**, **constants**, **context** in the module folder that are fully related to this 
-module and shared across different component in the module.
 
 ```mermaid
 graph TD
@@ -271,7 +257,6 @@ src/
 ```
 
 ## Shared Folder
-- Split separate your shared fucntionality and split it by groups.
 
 ```mermaid
 graph TD
@@ -327,18 +312,6 @@ src/
 
 ## Component
 
-- **hooks** - folder for hooks related to this component directly or 2 or more components in the `<Comonent1>/components` folder.
-- **utils** - folder for utility functions related to this component directly or 2 or more components in the `<Comonent1>/components` folder.
-- **types** - folder for types related to this component directly or 2 or more components in the `<Comonent1>/components` folder.
-- **constants** - folder for constants related to this component directly or 2 or more components in the `<Comonent1>/components` folder.
-- **context** - folder for context related to this component directly.
-- **components** - folder for nested components. 
-  - If some components are used only in this component, they should be placed under this component.
-  - If some components are used in 2 or more components, they should be placed on the higher level.
-- **stories** - folder for stories related to this component directly.
-- **\_\_tests\_\_/integration** - folder for tests related to this component directly (if includes testing integration with server api) 
-OR **\_\_tests\_\_/component** (if does not include testing integration with server api).
-
 ```mermaid
 graph TD
   ComponentN --> ComponentN.tsx
@@ -354,7 +327,7 @@ graph TD
 
 ```
 <Component1>
-  Component1.tsx
+  <Component1.tsx>
   hooks
   utils
   types
@@ -367,11 +340,6 @@ graph TD
 
 ## Hook
 
-- **utils** - folder for utility functions related for this hook directly.
-- **types** - folder for types related for this hook directly.
-- **constants** - folder for constants related for this hook directly.
-- **__tests__/unit** - folder for tests related for this hook directly.
-
 ```mermaid
 graph TD
   useFunctionalityN --> useFunctionalityN.ts
@@ -383,7 +351,7 @@ graph TD
 
 ```
 <useFunctionality1>
-  useFunctionality1.tsx
+  <useFunctionality1.tsx>
   utils
   types
   constants
@@ -391,10 +359,6 @@ graph TD
 ```
 
 ## Util
-
-- **types** - folder for types related for this util directly.
-- **constants** - folder for constants related for this util directly.
-- **\_\_tests\_\_/unit** - folder for tests related for this util directly.
 
 ```mermaid
 graph TD
@@ -406,16 +370,13 @@ graph TD
 
 ```
 <util1>
-  util1.tsx
+  <util1.tsx>
   types
   constants
   __tests__/unit
 ```
 
 ## Context
-
-- **Context1.tsx** - Use the singe file for Context and Provider.
-- Other folders follow the same rules.
 
 ```mermaid
 graph TD
@@ -433,7 +394,7 @@ graph TD
 context /
   <group1>
     <Context1> / 
-      Context1.tsx
+      <Context1.tsx>
       hooks
       utils
       types
