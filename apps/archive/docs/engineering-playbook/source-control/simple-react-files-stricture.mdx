@@ -16,9 +16,18 @@ graph LR
     src --> assets
     src --> app
     src --> modules
+    src --> shared
     src --> stories
     src --> test
     src --> config
+  end
+
+  subgraph appBlock[app]
+    app --> App.tsx
+    app --> pages
+    app --> templates
+    pages --> pageComponentN[ComponentN]
+    templates --> templateComponentN[ComponentN]
   end
 
   subgraph apiBlock[api]
@@ -31,28 +40,30 @@ graph LR
     apiEntityTypes --> common.ts
   end
 
-  subgraph moduleBlock[module]
+  subgraph modulesBlock[modules]
     modules --> moduleN
-    moduleN --> moduleComponents[components]
-    moduleN --> moduleHooks[hooks]
-    moduleN --> moduleHocs[hocs]
-    moduleN --> moduleUtils[utils]
-    moduleN --> moduleTypes[types]
-    moduleN --> moduleConstants[constants]
-    moduleN --> moduleContext[context]
+    moduleN --> entityN
+    entityN --> entityComponents[components]
+    entityN --> entityHooks[hooks]
+    entityN --> entityHocs[hocs]
+    entityN --> entityUtils[utils]
+    entityN --> entityTypes[types]
+    entityN --> entityConstants[constants]
+    entityN --> entityContext[context]
+  end
+
+  subgraph sharedBlock[shared]
+    shared --> groupN
+    groupN --> similarToEntityStructure
   end
 
   subgraph componentsBlock[components]
-    moduleComponents --> atoms
-    moduleComponents --> molecules
-    moduleComponents --> organisms
-    moduleComponents --> templates
-    moduleComponents --> pages
+    entityComponents --> atoms
+    entityComponents --> molecules
+    entityComponents --> organisms
     atoms --> Component1
     molecules --> Component2
     organisms --> ComponentN
-    templates --> Component4
-    pages --> Component5
   end
 
   subgraph componentBlock[Component]
@@ -86,26 +97,20 @@ graph LR
   end
 
   subgraph contextBlock[Context]
-    moduleContext --> ContextN
-    ContextN --> ContextN.tsx
-    ContextN --> contextHooks[hooks]
-    ContextN --> contextUtils[utils]
-    ContextN --> contextTypes[types]
-    ContextN --> contextConstants[constants]
-    ContextN --> contextComponents[components]
-    ContextN --> contextStories[stories]
-    ContextN --> contextTests[__tests__/integration]
+    entityContext --> ContextN
+    ContextN --> similarToComponentStructure
   end
 
   style srcBlock fill:lightgreen
   style apiBlock fill:skyblue
-  style moduleBlock fill:lightyellow
+  style appBlock fill:#b5e4ff
+  style modulesBlock fill:lightyellow
+  style sharedBlock fill:#cfb5ff
   style componentsBlock fill:lightblue
   style componentBlock fill:#b5fff1
   style hookBlock fill:#ffdab5
   style utilBlock fill:pink
   style contextBlock fill:#cfffb5
-
 ```
 
 ## Src
