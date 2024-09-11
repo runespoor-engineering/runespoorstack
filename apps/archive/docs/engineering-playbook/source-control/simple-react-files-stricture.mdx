@@ -6,22 +6,128 @@ title: Simple React Files Structure
 
 There is a few silver bullet rules for (modules) **hooks**, **utils**, **types**, **constants**, **components**, etc. placing:
 - If it is a general module - it should be placed on the highest level (e.g. src).
-- If it is used in 2 or more modules - it should be placed on the higher level of it's usage or in the goup folder.
+- If it is used in 2 or more modules - it should be placed on the higher level of it's usage or in the module folder.
+
+```mermaid
+graph LR
+  subgraph srcBlock[src]
+    src --> api1
+    src --> apiN
+    src --> assets
+    src --> app
+    src --> modules
+    src --> stories
+    src --> test
+    src --> config
+  end
+
+  subgraph apiBlock[api]
+    apiN --> apiModuleN
+    apiModuleN --> apiModuleHooks[hooks]
+    apiModuleN --> apiModuleParsers[parsers]
+    apiModuleN --> apiModuleTypes[types]
+    apiModuleTypes --> payloads.ts
+    apiModuleTypes --> responses.ts
+    apiModuleTypes --> common.ts
+  end
+
+  subgraph moduleBlock[module]
+    modules --> moduleN
+    moduleN --> moduleComponents[components]
+    moduleN --> moduleHooks[hooks]
+    moduleN --> moduleHocs[hocs]
+    moduleN --> moduleUtils[utils]
+    moduleN --> moduleTypes[types]
+    moduleN --> moduleConstants[constants]
+    moduleN --> moduleContext[context]
+  end
+
+  subgraph componentsBlock[components]
+    moduleComponents --> atoms
+    moduleComponents --> molecules
+    moduleComponents --> organisms
+    moduleComponents --> templates
+    moduleComponents --> pages
+    atoms --> Component1
+    molecules --> Component2
+    organisms --> ComponentN
+    templates --> Component4
+    pages --> Component5
+  end
+
+  subgraph componentBlock[Component]
+    ComponentN --> ComponentN.tsx
+    ComponentN --> componentTests[__tests__/integration]
+    ComponentN --> componentHooks[hooks]
+    ComponentN --> componentTypes[types]
+    ComponentN --> componentConstants[constants]
+    ComponentN --> componentContext[context]
+    ComponentN --> componentComponents[components]
+    ComponentN --> componentStories[stories]
+    componentStories --> ComponentN.stories.tsx
+    ComponentN --> componentUtils[utils]
+  end
+
+  subgraph hookBlock[hook]
+    componentHooks --> useFunctionalityN
+    useFunctionalityN --> useFunctionalityN.ts
+    useFunctionalityN --> hookUtils[utils]
+    useFunctionalityN --> hookTypes[types]
+    useFunctionalityN --> hookConstants[constants]
+    useFunctionalityN --> hookTests[__tests__/unit]
+  end
+
+  subgraph utilBlock[util]
+    hookUtils --> utilN
+    utilN --> utilN.ts
+    utilN --> utilTypes[types]
+    utilN --> utilConstants[constants]
+    utilN --> utilTests[__tests__/unit]
+  end
+
+  subgraph contextBlock[Context]
+    moduleContext --> ContextN
+    ContextN --> ContextN.tsx
+    ContextN --> contextHooks[hooks]
+    ContextN --> contextUtils[utils]
+    ContextN --> contextTypes[types]
+    ContextN --> contextConstants[constants]
+    ContextN --> contextComponents[components]
+    ContextN --> contextStories[stories]
+    ContextN --> contextTests[__tests__/integration]
+  end
+
+  style srcBlock fill:lightgreen
+  style apiBlock fill:skyblue
+  style moduleBlock fill:lightyellow
+  style componentsBlock fill:lightblue
+  style componentBlock fill:#b5fff1
+  style hookBlock fill:#ffdab5
+  style utilBlock fill:pink
+  style contextBlock fill:#cfffb5
+
+```
 
 ## Src
 
+```mermaid
+graph TD
+  src --> api1
+  src --> api2
+  src --> assets
+  src --> app
+  src --> modules
+  src --> stories
+  src --> test
+  src --> config
+```
+
 ```
 src/
-  api - is used for everything related to server API (api, hooks, types, parsers).
+  <api> - is used for everything related to server API (api, hooks, types, parsers). There could be more that one `api` folder, e.g. `apiGitLab`, `apiJira`.
   assets - is used for static asserts.
   app - is used App.tsx component.
-  components - is used for as a root components folder
-  hooks - general (shared) hooks.
-  hocs - general (shared) HOCs.
-  utils - general (shared) utils.
-  types - general (shared) types.
-  constants - general (shared) constants.
-  context - general (shared) context.
+  modules - is used for splitting components, hooks, etc. by the app modules.
   stories - general stories, documentation.
   test - tests setup files.
   config - app configuration files.
@@ -34,9 +140,20 @@ src/
 - **types** - folder for the server api entities, payload, and responses types.
 - **parsers.ts** - file for the server api response parsers.
 
+```mermaid
+graph TD
+  apiN --> moduleN
+  moduleN --> hooks
+  moduleN --> parsers
+  moduleN --> types
+  types --> payloads.ts
+  types --> responses.ts
+  types --> common.ts
+```
+
 ```
 api /
-  <group1>
+  <module1>
     api.ts
     hooks.ts
     types / 
@@ -44,7 +161,7 @@ api /
       responses.ts
       common.ts
     parsers.ts
-  <groupN>
+  <module2>
     api.ts
     hooks.ts
     types / 
@@ -54,30 +171,74 @@ api /
     parsers.ts
 ```
 
-## Root Components Folder
+## Modules Folder
 
-- Follow the [Atomic Design](https://atomicdesign.bradfrost.com/chapter-2/) in organization of your high level exported components.
-- Create the separate **group** folders to split you components by entities or anything else (e.g. shared, games, domains).
-- Inside the **group** folder create the **atoms**, **molecules**, **organisms** folders.
-- Inside the **atoms**, **molecules**, **organisms** folders create the separate folders for each component.
-- **templates** and **pages** are so high level components so they are not spit by the groups.
+- Split your app by modules (e.g. auth, `<someEntity>`, permissions) + one **shared** module for shared components, hooks, etc.
+- Inside the **module/components** folder create the **atoms**, **molecules**, **organisms** folders.
+- Inside the components **atoms**, **molecules**, **organisms**, **templates** and **pages** folders create the separate folders for each component. 
+Follow the [Atomic Design](https://atomicdesign.bradfrost.com/chapter-2/) in organization of your exported components.
+- I suggest creation  folders as the separate modules.
+- Store the **hooks**, **utils**, **types**, **constants**, **context** in the module folder that are fully related to this 
+module and shared across different component in the module.
+
+```mermaid
+graph TD
+  src --> modules
+  modules --> moduleN
+  moduleN --> components
+  moduleN --> hooks
+  moduleN --> hocs
+  moduleN --> utils
+  moduleN --> types
+  moduleN --> constants
+  moduleN --> context
+  components --> atoms
+  components --> molecules
+  components --> organisms
+  components --> templates
+  components --> pages
+  atoms --> Component1
+  molecules --> Component2
+  organisms --> Component3
+  templates --> Component4
+  pages --> Component5
+```
 
 ```
 src/
-components /
-  templates 
-  pages
-  <group1> / 
-    organisms
-      <Component1>
-    molecules
-      <Component2>
-    atoms
-      <Component3>
-  <group2> /
-    organisms
-    molecules
-    atoms
+  modules /
+    <module1> /
+      components /
+        atoms
+          <Component1>
+        molecules
+          <Component2>
+        organisms
+          <Component3>
+      hooks
+      hocs
+      utils
+      types
+      constants
+      context
+    <moduleN> /
+      components /
+        atoms
+          <Component1>
+        molecules
+          <Component2>
+        organisms
+          <Component3>
+        templates
+          <Component4>
+        pages
+          <Component5>
+      hooks
+      hocs
+      utils
+      types
+      constants
+      context
 ```
 
 ## Component
@@ -91,7 +252,21 @@ components /
   - If some components are used only in this component, they should be placed under this component.
   - If some components are used in 2 or more components, they should be placed on the higher level.
 - **stories** - folder for stories related to this component directly.
-- **__tests__/integration** - folder for tests related to this component directly.
+- **\_\_tests\_\_/integration** - folder for tests related to this component directly (if includes testing integration with server api) 
+OR **\_\_tests\_\_/component** (if does not include testing integration with server api).
+
+```mermaid
+graph TD
+  ComponentN --> ComponentN.tsx
+  ComponentN --> hooks
+  ComponentN --> utils
+  ComponentN --> types
+  ComponentN --> constants
+  ComponentN --> context
+  ComponentN --> components
+  ComponentN --> stories
+  ComponentN --> __tests__/integration
+```
 
 ```
 <Component1>
@@ -103,18 +278,7 @@ components /
   context
   components
   stories
-  __tests__/integration
-```
-
-## Hooks
-
-```
-hooks /
-  <group1>
-    <useFunctionality1>
-    <useFunctionality2>
-  <groupN>
-    <useFunctionalityN>
+  __tests__/<integration/component>
 ```
 
 ## Hook
@@ -122,7 +286,16 @@ hooks /
 - **utils** - folder for utility functions related for this hook directly.
 - **types** - folder for types related for this hook directly.
 - **constants** - folder for constants related for this hook directly.
-- **__tests__** - folder for tests related for this hook directly.
+- **__tests__/unit** - folder for tests related for this hook directly.
+
+```mermaid
+graph TD
+  useFunctionalityN --> useFunctionalityN.ts
+  useFunctionalityN --> utils
+  useFunctionalityN --> types
+  useFunctionalityN --> constants
+  useFunctionalityN --> __tests__/unit
+```
 
 ```
 <useFunctionality1>
@@ -133,22 +306,19 @@ hooks /
   __tests__/unit
 ```
 
-## Utils
-
-```
-utils /
-  <group1>
-    <util1>
-    <util2>
-  <groupN>
-    <utilN>
-```
-
 ## Util
 
 - **types** - folder for types related for this util directly.
 - **constants** - folder for constants related for this util directly.
-- **__tests__** - folder for tests related for this util directly.
+- **\_\_tests\_\_/unit** - folder for tests related for this util directly.
+
+```mermaid
+graph TD
+  utilN --> utilN.ts
+  utilN --> types
+  utilN --> constants
+  utilN --> __tests__/unit
+```
 
 ```
 <util1>
@@ -158,32 +328,22 @@ utils /
   __tests__/unit
 ```
 
-## Types
-
-```
-types /
-  <group1>
-    <type1>.tsx
-    <type2>.tsx
-  <groupN>
-    <typeN>.tsx
-```
-
-## Constants
-
-```
-constants /
-  <group1>
-    <constant1>.ts
-    <constant2>.ts
-  <groupN>
-    <constantN>.ts
-```
-
 ## Context
 
 - **Context1.tsx** - Use the singe file for Context and Provider.
-- Athor folders follow the same rules.
+- Other folders follow the same rules.
+
+```mermaid
+graph TD
+  ContextN --> ContextN.tsx
+  ContextN --> hooks
+  ContextN --> utils
+  ContextN --> types
+  ContextN --> constants
+  ContextN --> components
+  ContextN --> stories
+  ContextN --> __tests__/integration
+```
 
 ```
 context /
@@ -196,20 +356,9 @@ context /
       constants
       components
       stories
-      __tests__/integration
+      __tests__/<integration/component>
   <groupN>
     <ContextN>
-```
-
-## hocs
-
-```
-hocs /
-  <group1>
-    <hoc1>
-    <hoc2>
-  <groupN>
-    <hocN>
 ```
 
 ## Stories
