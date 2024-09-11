@@ -22,13 +22,13 @@ graph LR
   end
 
   subgraph apiBlock[api]
-    apiN --> apiModuleN
-    apiModuleN --> apiModuleHooks[hooks]
-    apiModuleN --> apiModuleParsers[parsers]
-    apiModuleN --> apiModuleTypes[types]
-    apiModuleTypes --> payloads.ts
-    apiModuleTypes --> responses.ts
-    apiModuleTypes --> common.ts
+    apiN --> apiEntityN
+    apiEntityN --> apiEntityHooks[hooks]
+    apiEntityN --> apiEntityParsers[parsers]
+    apiEntityN --> apiEntityTypes[types]
+    apiEntityTypes --> payloads.ts
+    apiEntityTypes --> responses.ts
+    apiEntityTypes --> common.ts
   end
 
   subgraph moduleBlock[module]
@@ -117,17 +117,22 @@ graph TD
   src --> assets
   src --> app
   src --> modules
+  src --> shared
   src --> stories
   src --> test
   src --> config
+  modules --> moduleN
+  moduleN --> entityN
+  shared --> groupN
 ```
 
 ```
 src/
   <api> - is used for everything related to server API (api, hooks, types, parsers). There could be more that one `api` folder, e.g. `apiGitLab`, `apiJira`.
   assets - is used for static asserts.
-  app - is used App.tsx component.
-  modules - is used for splitting components, hooks, etc. by the app modules.
+  app - is used App.tsx component, pages, and templates components.
+  modules - is used for splitting app entities by modules. Entities are used for splitting components, hooks, etc. by the app entities.
+  shared - is used for separating shared components, hooks, etc. shared folder contains groups folders
   stories - general stories, documentation.
   test - tests setup files.
   config - app configuration files.
@@ -142,10 +147,10 @@ src/
 
 ```mermaid
 graph TD
-  apiN --> moduleN
-  moduleN --> hooks
-  moduleN --> parsers
-  moduleN --> types
+  apiN --> entityN
+  entityN --> hooks
+  entityN --> parsers
+  entityN --> types
   types --> payloads.ts
   types --> responses.ts
   types --> common.ts
@@ -153,7 +158,7 @@ graph TD
 
 ```
 api /
-  <module1>
+  <entity1>
     api.ts
     hooks.ts
     types / 
@@ -161,7 +166,7 @@ api /
       responses.ts
       common.ts
     parsers.ts
-  <module2>
+  <entityN>
     api.ts
     hooks.ts
     types / 
@@ -171,11 +176,35 @@ api /
     parsers.ts
 ```
 
+## App Folder
+
+- App foldre is used for the main App component, pages, and templates components.
+
+```mermaid
+graph TD
+  app --> App.tsx
+  app --> pages
+  app --> templates
+  pages --> pageComponentN[ComponentN]
+  templates --> templateComponentN[ComponentN]
+```
+
+```
+app /
+  App.tsx
+  pages /
+    <Component1>
+    <ComponentN>
+  templates /
+    <Component1>
+    <ComponentN>
+```
+
 ## Modules Folder
 
-- Split your app by modules (e.g. auth, `<someEntity>`, permissions) + one **shared** module for shared components, hooks, etc.
-- Inside the **module/components** folder create the **atoms**, **molecules**, **organisms** folders.
-- Inside the components **atoms**, **molecules**, **organisms**, **templates** and **pages** folders create the separate folders for each component. 
+- Split your app by modules and by entities inside the modules.
+- Inside the **entity/components** folder create the **atoms**, **molecules**, **organisms** folders.
+- Inside the components **atoms**, **molecules**, **organisms** folders create the separate folders for each component. 
 Follow the [Atomic Design](https://atomicdesign.bradfrost.com/chapter-2/) in organization of your exported components.
 - I suggest creation  folders as the separate modules.
 - Store the **hooks**, **utils**, **types**, **constants**, **context** in the module folder that are fully related to this 
@@ -185,29 +214,83 @@ module and shared across different component in the module.
 graph TD
   src --> modules
   modules --> moduleN
-  moduleN --> components
-  moduleN --> hooks
-  moduleN --> hocs
-  moduleN --> utils
-  moduleN --> types
-  moduleN --> constants
-  moduleN --> context
+  moduleN --> entityN
+  entityN --> components
+  entityN --> hooks
+  entityN --> hocs
+  entityN --> utils
+  entityN --> types
+  entityN --> constants
+  entityN --> context
   components --> atoms
   components --> molecules
   components --> organisms
-  components --> templates
-  components --> pages
   atoms --> Component1
   molecules --> Component2
   organisms --> Component3
-  templates --> Component4
-  pages --> Component5
 ```
 
 ```
 src/
   modules /
     <module1> /
+      <entity1> /
+        components /
+          atoms
+            <Component1>
+          molecules
+            <Component2>
+          organisms
+            <Component3>
+        hooks
+        hocs
+        utils
+        types
+        constants
+        context
+    <moduleN> /
+      <entityN> /
+        components /
+          atoms
+            <Component1>
+          molecules
+            <Component2>
+          organisms
+            <Component3>
+        hooks
+        hocs
+        utils
+        types
+        constants
+        context
+```
+
+## Shared Folder
+- Split separate your shared fucntionality and split it by groups.
+
+```mermaid
+graph TD
+  src --> shared
+  shared --> groupN
+  groupN --> components
+  groupN --> hooks
+  groupN --> hocs
+  groupN --> utils
+  groupN --> types
+  groupN --> constants
+  groupN --> context
+  components --> atoms
+  components --> molecules
+  components --> organisms
+  atoms --> Component1
+  molecules --> Component2
+  organisms --> Component3
+```
+
+```
+src/
+  shared /
+    <group1> /
       components /
         atoms
           <Component1>
@@ -221,18 +304,14 @@ src/
       types
       constants
       context
-    <moduleN> /
-      components /
+    <groupN> /
+     components /
         atoms
           <Component1>
         molecules
           <Component2>
         organisms
           <Component3>
-        templates
-          <Component4>
-        pages
-          <Component5>
       hooks
       hocs
       utils
