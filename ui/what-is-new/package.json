@@ -31,11 +31,9 @@
     "lint:fix": "eslint . --ext .ts,.tsx,.js,.jsx,.cjs,.mjs --fix",
     "preview": "vite preview"
   },
-  "peerDependencies": {
-    "react-dom": ">=18.2.0",
-    "react": ">=18.2.0"
-  },
   "dependencies": {
+    "react-dom": "18.2.0",
+    "react": "18.2.0",
     "markdown-to-jsx": "7.5.0",
     "@radix-ui/react-popover": "1.1.1",
     "class-variance-authority": "0.7.0",
