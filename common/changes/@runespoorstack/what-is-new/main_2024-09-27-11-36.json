@@ -1,0 +1,10 @@
+{
+  "changes": [
+    {
+      "packageName": "@runespoorstack/what-is-new",
+      "comment": "Implement component. First Release.",
+      "type": "major"
+    }
+  ],
+  "packageName": "@runespoorstack/what-is-new"
+}
