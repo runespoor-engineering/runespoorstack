@@ -1,0 +1,10 @@
+{
+  "changes": [
+    {
+      "packageName": "@runespoorstack/what-is-new",
+      "comment": "hotfix build",
+      "type": "none"
+    }
+  ],
+  "packageName": "@runespoorstack/what-is-new"
+}
