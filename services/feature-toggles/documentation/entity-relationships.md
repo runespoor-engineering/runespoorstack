@@ -21,7 +21,7 @@ erDiagram
 
     Environment {
         uuid id
-        uuid[] flags
+        uuid[] flagIds
         string name
     }
 
@@ -31,7 +31,7 @@ erDiagram
         boolean enabled
         json meta
         string description
-        enum modificationLevel
+        enum category
     }
 
     Tag {
@@ -40,9 +40,21 @@ erDiagram
         string name
     }
 
+    FlagHistory {
+        uuid id
+        uuid flagId
+        enum action
+        Flag currentFlag
+        Flag previousFlag
+        date createdAt
+        uuid createdBy
+    }
+
     User }|--o{ Project : creates
+    User ||--o{ FlagHistory : "generates by actions over flag"
     Project ||--o{ Environment : contains
     Project ||--o{ Tag : has
     Environment ||--o{ Flag : contains
     Flag }o--o{ Tag : assigned
+    FlagHistory ||--|| Flag : "describes changes "
 ```
