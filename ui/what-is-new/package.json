@@ -2,7 +2,7 @@
   "name": "@runespoorstack/what-is-new",
   "description": "What is new component for React applications.",
   "private": false,
-  "version": "0.0.0",
+  "version": "1.0.0",
   "type": "module",
   "main": "./dist/index.umd.js",
   "module": "./dist/index.es.js",
