@@ -2,6 +2,7 @@
 require('@rushstack/eslint-config/patch/modern-module-resolution');
 
 module.exports = {
+  ignorePatterns: ['vitest.config.mjs'],
   parserOptions: {
     project: 'tsconfig.json',
     tsconfigRootDir: __dirname,

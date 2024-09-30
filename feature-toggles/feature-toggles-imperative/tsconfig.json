@@ -1,5 +1,5 @@
 {
-  "include": ["src", ".eslintrc.js", "tsup.config.ts", "vitest.config.ts"],
+  "include": ["src", ".eslintrc.js", "tsup.config.ts", "vitest.config.mjs"],
   "exclude": ["node_modules", "dist"],
   "compilerOptions": {
     "module": "esnext",

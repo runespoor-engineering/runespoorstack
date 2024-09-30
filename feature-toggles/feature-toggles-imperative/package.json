@@ -13,8 +13,6 @@
     "lint": "eslint . --ext .ts,.tsx,.js,.jsx,.cjs,.mjs --ignore-path ../../.gitignore --quiet",
     "lint:fix": "eslint . --ext .ts,.tsx,.js,.jsx,.cjs,.mjs --ignore-path ../../.gitignore --fix"
   },
-  "dependencies": {
-  },
   "devDependencies": {
     "@runespoorstack/eslint-config": "workspace:*",
     "@rushstack/eslint-config": "3.6.8",
@@ -25,7 +23,6 @@
    "vitest":"1.4.0",
     "@types/node": "20.14.8"
   },
-  "peerDependencies": {},
   "homepage": "https://github.com/runespoor-engineering/runespoorstack/tree/main/feature-toggles/feature-toggles-imperative/#readme",
   "repository": {
     "type": "git",
