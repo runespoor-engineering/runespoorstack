@@ -2,6 +2,20 @@
   "name": "@runespoorstack/feature-toggles-imperative",
   "entries": [
     {
+      "version": "0.0.5",
+      "tag": "@runespoorstack/feature-toggles-imperative_v0.0.5",
+      "date": "Mon, 30 Sep 2024 14:48:25 GMT",
+      "comments": {
+        "patch": [
+          {
+            "comment": "- Adjust `tsconfig`.<br/>- Replace `tsc` with `tsup`.<br/>- Replace `jest` with `vitest`.",
+            "author": "BorysShulyak <borysshulyak@gmail.com>",
+            "commit": "b3f23b141900daf7431e0e5123ae8aa5332bf21d"
+          }
+        ]
+      }
+    },
+    {
       "version": "0.0.3",
       "tag": "@runespoorstack/feature-toggles-imperative_v0.0.3",
       "date": "Mon, 30 Sep 2024 11:28:28 GMT",
