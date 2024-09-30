@@ -1,0 +1,19 @@
+{
+  "name": "@runespoorstack/feature-toggles-imperative",
+  "entries": [
+    {
+      "version": "0.0.1",
+      "tag": "@runespoorstack/feature-toggles-imperative_v0.0.1",
+      "date": "Mon, 30 Sep 2024 10:33:34 GMT",
+      "comments": {
+        "patch": [
+          {
+            "comment": "Release package.",
+            "author": "BorysShulyak <borysshulyak@gmail.com>",
+            "commit": "a89fca8a959e3454bcd041c1d28c5e028cd1c175"
+          }
+        ]
+      }
+    }
+  ]
+}
