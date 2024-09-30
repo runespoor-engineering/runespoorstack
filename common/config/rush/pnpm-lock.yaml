@@ -155,7 +155,29 @@ importers:
       tailwindcss: 3.4.3
       typescript: 5.4.5
 
-  ../../services/feature-toggles:
+  ../../feature-toggles/feature-toggles-imperative:
+    specifiers:
+      '@runespoorstack/eslint-config': workspace:*
+      '@rushstack/eslint-config': 3.6.8
+      '@types/jest': 29.5.12
+      '@types/node': 20.14.8
+      eslint: 8.57.0
+      jest: 29.7.0
+      prettier: 3.2.5
+      ts-jest: 29.1.2
+      typescript: 5.4.5
+    devDependencies:
+      '@runespoorstack/eslint-config': link:../../eslint/eslint-config
+      '@rushstack/eslint-config': 3.6.8_te743w6atip6hhlha3uq43n2xe
+      '@types/jest': 29.5.12
+      '@types/node': 20.14.8
+      eslint: 8.57.0
+      jest: 29.7.0_@types+node@20.14.8
+      prettier: 3.2.5
+      ts-jest: 29.1.2_efpzjt3ouzl3k5daexyworxca4
+      typescript: 5.4.5
+
+  ../../feature-toggles/feature-toggles-service:
     specifiers:
       '@nestjs/cli': 10.4.4
       '@nestjs/common': 10.4.1
@@ -15710,7 +15732,7 @@ packages:
     dependencies:
       bs-logger: 0.2.6
       fast-json-stable-stringify: 2.1.0
-      jest: 29.7.0
+      jest: 29.7.0_@types+node@20.14.8
       jest-util: 29.7.0
       json5: 2.2.3
       lodash.memoize: 4.1.2

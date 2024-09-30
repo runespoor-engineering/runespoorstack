@@ -1,0 +1,58 @@
+{
+  "name": "@runespoorstack/feature-toggles-imperative",
+  "version": "0.0.0",
+  "description": "Imperative feature toggles as code for JavaScript and TypeScript.",
+  "main": "dist/index.js",
+  "types": "types/index.d.ts",
+  "private": false,
+  "scripts": {
+    "build": "tsc",
+    "test": "jest --ci 2>&1",
+    "lint": "eslint . --ext .ts,.tsx,.js,.jsx,.cjs,.mjs --ignore-path ../../.gitignore --quiet",
+    "lint:fix": "eslint . --ext .ts,.tsx,.js,.jsx,.cjs,.mjs --ignore-path ../../.gitignore --fix"
+  },
+  "dependencies": {
+  },
+  "devDependencies": {
+    "@runespoorstack/eslint-config": "workspace:*",
+    "@rushstack/eslint-config": "3.6.8",
+    "typescript": "5.4.5",
+    "eslint": "8.57.0",
+    "prettier": "3.2.5",
+    "ts-jest": "29.1.2",
+    "jest": "29.7.0",
+    "@types/jest": "29.5.12",
+    "@types/node": "20.14.8"
+  },
+  "peerDependencies": {},
+  "homepage": "https://github.com/runespoor-engineering/runespoorstack/tree/main/feature-toggles/feature-toggles-imperative/#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/runespoor-engineering/runespoorstack"
+  },
+  "bugs": {
+    "url": "https://github.com/runespoor-engineering/runespoorstack/issues"
+  },
+  "author": {
+    "name": "BorysShulyak",
+    "email": "borysshulyak@gmail.com",
+    "url": "https://github.com/BorysShulyak"
+  },
+  "maintainers": [
+    {
+      "name": "BorysShulyak",
+      "email": "borysshulyak@gmail.com",
+      "url": "https://github.com/BorysShulyak"
+    }
+  ],
+  "keywords": [
+    "feature-toggles",
+    "feature-flags",
+    "release-toggles",
+    "ci/cd",
+    "runespoorstack",
+    "javascript",
+    "typescript"
+  ],
+  "license": "MIT"
+}
