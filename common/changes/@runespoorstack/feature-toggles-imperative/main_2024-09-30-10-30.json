@@ -1,0 +1,10 @@
+{
+  "changes": [
+    {
+      "packageName": "@runespoorstack/feature-toggles-imperative",
+      "comment": "Release package.",
+      "type": "patch"
+    }
+  ],
+  "packageName": "@runespoorstack/feature-toggles-imperative"
+}
