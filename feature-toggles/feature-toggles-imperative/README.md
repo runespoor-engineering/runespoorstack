@@ -43,7 +43,7 @@ It is the simplest way to manage feature toggles - as code.
 ## 🦾 Installation
 
 ```shell
-npm i --save-dev @runespoorstack/feature-toggles-imperative
+npm i @runespoorstack/feature-toggles-imperative
 ```
 
 ## ♾️ Usage
@@ -101,6 +101,8 @@ const FEATURE_TOGGLES = {
 Create feature toggles:
 
 ```typescript
+import { createFeatureToggles } from '@runespoorstack/feature-toggles-imperative';
+
 const { getFeatureToggle } = createFeatureToggles({
   featureToggles: FEATURE_TOGGLES,
   envs: ENVS,

@@ -2,7 +2,6 @@
   "compilerOptions": {
       "target": "es2022",
       "module": "NodeNext",
-      "rootDir": "./src",
       "outDir": "./dist",
       "declaration": true,
       "moduleResolution": "NodeNext",
@@ -20,12 +19,10 @@
   "lib":["ES2022"],
   "include": [
       "src/**/*.ts",
-      "src/**/*.tsx",
       ".eslintrc.js",
   ],
   "exclude": [
       "node_modules",
       "dist"
-  ],
-  "types": ["node"]
+  ]
 }
