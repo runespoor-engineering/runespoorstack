@@ -1,0 +1,10 @@
+{
+  "changes": [
+    {
+      "packageName": "@runespoorstack/feature-toggles-imperative",
+      "comment": "Fix build options.",
+      "type": "patch"
+    }
+  ],
+  "packageName": "@runespoorstack/feature-toggles-imperative"
+}
