@@ -2,6 +2,20 @@
   "name": "@runespoorstack/feature-toggles-imperative",
   "entries": [
     {
+      "version": "0.0.3",
+      "tag": "@runespoorstack/feature-toggles-imperative_v0.0.3",
+      "date": "Mon, 30 Sep 2024 11:28:28 GMT",
+      "comments": {
+        "patch": [
+          {
+            "comment": "Fix build options.",
+            "author": "BorysShulyak <borysshulyak@gmail.com>",
+            "commit": "16b7e0add2f451721cfae3cd2eb8ae4c021698ee"
+          }
+        ]
+      }
+    },
+    {
       "version": "0.0.1",
       "tag": "@runespoorstack/feature-toggles-imperative_v0.0.1",
       "date": "Mon, 30 Sep 2024 10:33:34 GMT",
