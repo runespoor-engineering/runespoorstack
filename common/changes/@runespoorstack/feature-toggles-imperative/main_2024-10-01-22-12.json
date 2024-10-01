@@ -1,0 +1,10 @@
+{
+  "changes": [
+    {
+      "packageName": "@runespoorstack/feature-toggles-imperative",
+      "comment": "No changes.",
+      "type": "none"
+    }
+  ],
+  "packageName": "@runespoorstack/feature-toggles-imperative"
+}

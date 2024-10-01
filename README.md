@@ -27,6 +27,8 @@ See the [CONTRIBUTING.md](https://github.com/runespoor-engineering/runespoorstac
 | eslint/eslint-config | Battle tested, ready for production set of Runespoor ESlint configs. |
 | ui/what-is-new | "What Is New" component for React applications. |
 | cli/changelog | The Runespoor CLI for changelog management and semantic versioning. |
+| utils/storybook | The Runespoor set of Storybook utils. |
+| utils/git | The Runespoor set of Git utils. |
 
 
 ## Merge Request CI

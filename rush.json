@@ -331,7 +331,7 @@
     * separated by hyphens or slashes, where a word may contain lowercase ASCII letters, digits,
     * ".", and "@" characters.
     */
-  "allowedProjectTags": ["eslint", "bots", "utils", "apps", "feature-toggles", "date", "cli", "ui"],
+  "allowedProjectTags": ["eslint", "bots", "utils", "apps", "feature-toggles", "cli", "ui"],
 
   /**
    * (Required) This is the inventory of projects to be managed by Rush.
@@ -373,12 +373,6 @@
       "shouldPublish": true
     },
     {
-      "packageName": "@runespoorstack/timezones",
-      "projectFolder": "date/timezones",
-      "tags": ["date"],
-      "shouldPublish": true
-    },
-    {
       "packageName": "@runespoorstack/archive",
       "projectFolder": "apps/archive",
       "tags": ["apps"],
@@ -389,12 +383,6 @@
       "projectFolder": "feature-toggles/feature-toggles-imperative",
       "tags": ["feature-toggles"],
       "shouldPublish": true
-    },
-    {
-      "packageName": "@runespoorstack/feature-toggles-service",
-      "projectFolder": "feature-toggles/feature-toggles-service",
-      "tags": ["feature-toggles"],
-      "shouldPublish": false
     },
     {
       "packageName": "@runespoorstack/what-is-new",
