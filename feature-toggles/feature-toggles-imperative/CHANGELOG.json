@@ -2,6 +2,20 @@
   "name": "@runespoorstack/feature-toggles-imperative",
   "entries": [
     {
+      "version": "0.0.6",
+      "tag": "@runespoorstack/feature-toggles-imperative_v0.0.6",
+      "date": "Tue, 01 Oct 2024 17:44:59 GMT",
+      "comments": {
+        "patch": [
+          {
+            "comment": "Return `null` if the feature toggle does not exist on calling `getFeatureToggle` with the feature toggle key",
+            "author": "BorysShulyak <borysshulyak@gmail.com>",
+            "commit": "710230d777bad12c94b12c508c9f29fa34c2c2ba"
+          }
+        ]
+      }
+    },
+    {
       "version": "0.0.5",
       "tag": "@runespoorstack/feature-toggles-imperative_v0.0.5",
       "date": "Mon, 30 Sep 2024 14:48:25 GMT",
