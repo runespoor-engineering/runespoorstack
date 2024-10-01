@@ -1,0 +1,10 @@
+{
+  "changes": [
+    {
+      "packageName": "@runespoorstack/feature-toggles-imperative",
+      "comment": "Return `null` if the feature toggle does not exist on calling `getFeatureToggle` with the feature toggle key",
+      "type": "patch"
+    }
+  ],
+  "packageName": "@runespoorstack/feature-toggles-imperative"
+}
