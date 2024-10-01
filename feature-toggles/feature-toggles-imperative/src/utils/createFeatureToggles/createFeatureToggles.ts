@@ -17,6 +17,7 @@ export const createFeatureToggles = <TEnvs extends readonly string[]>({
   });
 
   const getFeatureToggle = (key: string) => {
+    if (!featureToggles[key]) return null;
     return {
       meta: featureToggles[key].meta,
       enabled: featureToggles[key].enabled[env],

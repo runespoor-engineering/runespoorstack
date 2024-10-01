@@ -276,7 +276,7 @@ describe('createFeatureToggles', () => {
     expect(typeof result.getFeatureToggle).toBe('function');
   });
 
-  it('should return correct feature toggle for the provided environment', () => {
+  it('should return correct feature toggle for the provided environment by calling `getFeatureToggle` with the feature toggle key', () => {
     expect.hasAssertions();
     const { getFeatureToggle } = createFeatureToggles({
       featureToggles: mockFulfilledFeatureToggles,
@@ -304,5 +304,15 @@ describe('createFeatureToggles', () => {
       enabled: false,
       value: undefined
     });
+  });
+
+  it('should return `null` if the feature toggle does not exist on calling `getFeatureToggle` with the feature toggle key', () => {
+    expect.hasAssertions();
+    const { getFeatureToggle } = createFeatureToggles({
+      featureToggles: mockFulfilledFeatureToggles,
+      envs: mockEnvs,
+      env: 'dev'
+    });
+    expect(getFeatureToggle('feature3')).toBeNull();
   });
 });
