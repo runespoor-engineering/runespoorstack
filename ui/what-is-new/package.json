@@ -1,6 +1,6 @@
 {
   "name": "@runespoorstack/what-is-new",
-  "description": "What is new component for React applications.",
+  "description": "\"What Is New\" component for React applications.",
   "private": false,
   "version": "1.0.0",
   "type": "module",

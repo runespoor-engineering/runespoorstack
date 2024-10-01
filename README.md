@@ -5,6 +5,7 @@
 - [Runespoor Stack](#runespoor-stack)
   - [🛠️ Contributing](#️-contributing)
   - [Monorepo](#monorepo)
+  - [Monorepo Structure](#monorepo-structure)
   - [Merge Request CI](#merge-request-ci)
   - [Main CI](#main-ci)
   - [💕 Special Thanks](#-special-thanks)
@@ -16,40 +17,17 @@ See the [CONTRIBUTING.md](https://github.com/runespoor-engineering/runespoorstac
 
 ## Monorepo
 
-```mermaid
-flowchart TB
-    subgraph eslint
-        eslint-config["eslint-config\n(Universal linting configuration)\nESLint/Prettier"]
-    end
+## Monorepo Structure
 
-    subgraph date
-        timezones["timezones\n(The updated list of timezones)"]
-    end
+| Path | Description |
+|-----------|-------------|
+| apps/archive | A set of documents that may help you to increase overall efficiency for team members and the whole team in general, and to strive to be better engineers. |
+| bots/danger | The Runespoor set of PR linters using Danger.js |
+| feature-toggles/feature-toggles-imperative | Imperative feature toggles as code for JavaScript and TypeScript. |
+| eslint/eslint-config | Battle tested, ready for production set of Runespoor ESlint configs. |
+| ui/what-is-new | "What Is New" component for React applications. |
+| cli/changelog | The Runespoor CLI for changelog management and semantic versioning. |
 
-    subgraph utils
-        storybook-utils["storybook\n(Utils related to Storybook)"]
-        git-utils["git\n(Utils related to Git)"]
-    end
-
-    subgraph apps
-        archive["archive\n(Engineering Playbook)\nDocusaurus"]
-    end
-
-    subgraph bots
-        danger["danger\n(Danger.js rules and plugins)\nDanger.js"]
-    end
-
-    eslint-config .-> archive
-    eslint-config .-> danger
-    eslint-config .-> storybook-utils
-    eslint-config .-> git-utils
-
-    style eslint fill:skyblue
-    style date fill:yellow
-    style utils fill:lightblue
-    style apps fill:lightgreen
-    style bots fill:orange
-```
 
 ## Merge Request CI
 
