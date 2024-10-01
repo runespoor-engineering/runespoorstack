@@ -1,6 +1,13 @@
 # Change Log - @runespoorstack/feature-toggles-imperative
 
-This log was last generated on Mon, 30 Sep 2024 14:48:25 GMT and should not be manually modified.
+This log was last generated on Tue, 01 Oct 2024 17:44:59 GMT and should not be manually modified.
+
+## 0.0.6
+Tue, 01 Oct 2024 17:44:59 GMT
+
+### Patches
+
+- Return `null` if the feature toggle does not exist on calling `getFeatureToggle` with the feature toggle key
 
 ## 0.0.5
 Mon, 30 Sep 2024 14:48:25 GMT

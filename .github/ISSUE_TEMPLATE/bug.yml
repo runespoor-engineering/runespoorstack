@@ -15,7 +15,8 @@ body:
       options:
         - apps/archive
         - eslint/eslint-config
-        - bots/danger
+        - cli/changelog
+        - ui/what-is-new
     validations:
       required: true
 

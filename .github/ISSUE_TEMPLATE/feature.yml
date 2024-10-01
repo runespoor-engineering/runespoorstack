@@ -11,6 +11,19 @@ body:
     validations:
       required: true
 
+  - type: dropdown
+    id: component
+    attributes:
+      label: Which component is related to the feature?
+      options:
+        - apps/archive
+        - eslint/eslint-config
+        - cli/changelog
+        - ui/what-is-new
+        - new package
+    validations:
+      required: true
+
   - type: textarea
     id: solution
     attributes:
