@@ -16,7 +16,10 @@ body:
         - apps/archive
         - eslint/eslint-config
         - cli/changelog
-        - ui/what-is-new
+        - feature-toggles/feature-toggles-imperative
+        - bots/danger
+        - utils/storybook
+        - utils/eslint-config
     validations:
       required: true
 
