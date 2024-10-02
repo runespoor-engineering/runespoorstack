@@ -17,7 +17,7 @@ See the [CONTRIBUTING.md](https://github.com/runespoor-engineering/runespoorstac
 
 ## Monorepo
 
-## Monorepo Structure
+## Monorepo Packages
 
 | Path | Description |
 |-----------|-------------|
