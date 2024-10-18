@@ -147,7 +147,10 @@ const sidebars = {
         {
           type: 'category',
           label: 'Developer Experience',
-          items: ['engineering-playbook/developer-experience/recommended-soft']
+          items: [
+            'engineering-playbook/developer-experience/engineer-hardware-software-setup',
+            'engineering-playbook/developer-experience/recommended-soft'
+          ]
         },
         {
           type: 'category',
