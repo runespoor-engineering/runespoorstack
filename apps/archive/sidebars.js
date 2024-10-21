@@ -125,8 +125,9 @@ const sidebars = {
           label: 'CI/CD',
           items: [
             'engineering-playbook/CI-CD/continuous-integration',
-            'engineering-playbook/CI-CD/copy-paste-analyzing',
-            'engineering-playbook/CI-CD/feature-flags'
+            'engineering-playbook/CI-CD/ci-cd-pipelines',
+            'engineering-playbook/CI-CD/feature-flags',
+            'engineering-playbook/CI-CD/copy-paste-analyzing'
           ]
         },
         {

@@ -213,14 +213,6 @@ mindmap
 - Continuous Integration allows us to maintain a Release-Ready Mainline, which means the decision to release the latest version of the product into production is purely a business decision. If the stakeholders want the latest to go live, it's a matter of minutes running an automated pipeline to make it so.
 - Continuous Integration and a Release-Ready Mainline removes one of the biggest barriers to frequent deployment. Frequent deployment is valuable because it allows our users to get new features more rapidly, to give more rapid feedback on those features, and generally become more collaborative in the development cycle. This helps break down the barriers between customers and development - barriers which I believe are the biggest barriers to successful software development.
 
-## Basic MR CI/CD Pipeline (FE)
-
-![Basic MR CI/CD Pipeline](/img/ci-mr-basic.png)
-
-## Basic Main CI/CD Pipeline (FE)
-
-![Basic Main CI/CD Pipeline](/img/ci-main-basic.png)
-
 ## Resources
 
 In order to follow this methodology, you must know and follow every word from this material:
@@ -239,37 +231,3 @@ In order to follow this methodology, you must know and follow every word from th
 - Follow the "Engineering Playbook/**Processes/Critical Chain**" section.
 - Follow the "Engineering Playbook/**Processes/The delay in managerial decision-making**" section.
 
-**CI Tools:**
-- [PostHog](https://github.com/PostHog/posthog).
-- [SonarCube](https://www.sonarqube.org/).
-- [markdownlint](https://github.com/DavidAnson/markdownlint), [github-action-markdown-link-check](https://github.com/gaurav-nelson/github-action-markdown-link-check), [write-good](https://github.com/btford/write-good)
-- [Dependabot](https://docs.github.com/en/code-security/dependabot/working-with-dependabot).
-- [Danger](https://github.com/danger/danger-js)
-- [Codecov](https://about.codecov.io/).
-- [Copy-Paste analyzer](https://github.com/kucherenko/jscpd)
-- [commitlint](https://github.com/conventional-changelog/commitlint)
-- [conventional-changelog](https://github.com/conventional-changelog/conventional-changelog)
-- [lint-staged](https://github.com/lint-staged/lint-staged)
-- [dep-tree](https://github.com/gabotechs/dep-tree)
-- [unimported](https://github.com/smeijer/unimported)
-- [bundlesize](https://github.com/siddharthkp/bundlesize)
-- [srollup-plugin-visualizer](https://github.com/btd/rollup-plugin-visualizer)
-- [tsup](https://github.com/egoist/tsup)
-- [github-slack](https://github.com/integrations/slack)
-
-**Useful GitHub Actions:**
-- [setup-node](https://github.com/actions/setup-node)
-- [checkout](https://github.com/actions/checkout)
-- [first-interaction](https://github.com/actions/first-interaction)
-- [labeler](https://github.com/actions/labeler)
-- [release-action](https://github.com/ncipollo/release-action)
-- [git-auto-commit-action](https://github.com/stefanzweifel/git-auto-commit-action)
-- [download-artifact](https://github.com/actions/download-artifact)
-- [upload-artifact](https://github.com/actions/upload-artifact)
-- [actions-gh-pages](https://github.com/peaceiris/actions-gh-pages)
-- [codecov-action](https://github.com/codecov/codecov-action)
-
-## CI/CD Pipeline Recommendations
-
-- Set up it in the way to ensure that only a single job or workflow using the same concurrency group will run at a time. It will reduce costs spent on unnecessary jobs. [GitHub Example](https://docs.github.com/en/actions/writing-workflows/workflow-syntax-for-github-actions#concurrency).
-- Parallelize jobs where possible.
