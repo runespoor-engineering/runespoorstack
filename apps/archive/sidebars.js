@@ -132,6 +132,14 @@ const sidebars = {
         },
         {
           type: 'category',
+          label: 'Documentation',
+          items: [
+            'engineering-playbook/documentation/documentation-first-approach',
+            'engineering-playbook/documentation/documentation-store'
+          ]
+        },
+        {
+          type: 'category',
           label: 'Authentication',
           items: ['engineering-playbook/authentication/basic-authentication']
         },
