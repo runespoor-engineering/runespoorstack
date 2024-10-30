@@ -128,6 +128,7 @@ const sidebars = {
             'engineering-playbook/CI-CD/ci-cd-pipelines',
             'engineering-playbook/CI-CD/feature-flags',
             'engineering-playbook/CI-CD/production-hot-fixes',
+            'engineering-playbook/CI-CD/cd-github-vs-gitlab',
             'engineering-playbook/CI-CD/copy-paste-analyzing'
           ]
         },

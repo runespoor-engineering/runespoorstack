@@ -1,0 +1,29 @@
+---
+title: Continuous Delivery GitHub vs GitLab
+---
+
+# Continuous Delivery: GitHub vs GitLab
+
+![Continuous Delivery: GitHub vs GitLab](/img/cd-github-vs-gitlab.png)
+
+## GitHub:
+
+Github does not support manual jobs out of the box. We can only create manually triggered workflows.
+
+- On the image we could see the GitHub Continuous Delivery mainline - a manually triggered workflow for deploying to production runs only on the latest commit in our mainline branch.
+- Only the last deployed commit is marked as deployable, with no deployment actions along the way.
+- Rollback is indicated on one of the earlier commits that was deployed to production.
+
+Conclusion: We don't have an ability to deploy any version of the mainline branch, only the latest commit.
+
+## GitLab
+
+- In the GitLab workflow, each Conitnuous Delivery pipeline on the mainline its own manual `Deploy to Prod` job, and each successful deployment is labeled as "Deployed".
+- Each commit is marked as deployable.
+- Rollback is indicated on one of the earlier commits that was deployed to production.
+
+Conclusion: We have an ability to deploy any version of the mainline branch, not only the latest commit.
+
+## Conclusion
+
+GitLab provides a more flexible approach to deployment, improves Continuous Delivery process, and provides easier rollback options.
