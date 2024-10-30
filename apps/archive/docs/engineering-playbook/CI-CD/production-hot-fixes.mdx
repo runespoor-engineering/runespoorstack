@@ -1,0 +1,123 @@
+---
+title: Production hot fixes Strategies
+---
+
+# Production hot fixes Strategies
+
+When fixing a production issue, there are several strategies to consider. 
+The choice of strategy depends on the specific circumstances, including the urgency of the issue, the complexity of the fix, and the potential risks involved.
+
+I suggest choosing the strategy in the following priority:
+
+1. Roll Forward
+2. Roll Back
+3. Revert
+
+## Roll Forward
+
+![Roll forward](/img/roll-forward.png)
+
+**Roll forward** is a strategy where instead of reverting to a previous known-good state when encountering a production issue, 
+you fix the problem and deploy a new version that includes the fix. This approach aligns well with 
+Continuous Integration and Continuous Delivery practices as it:
+
+- Maintains the forward momentum of development
+- Keeps the codebase moving in a single direction
+- Avoids complex merge conflicts that can occur with reverts
+- Reinforces the team's ability to deploy quickly and confidently
+
+### When to use Roll Forward
+
+Roll forward is most effective when:
+
+- You have a robust CI/CD pipeline that allows quick deployments
+- The fix is well understood and can be implemented quickly
+- The current production issue is not causing critical data loss or security vulnerabilities
+- You have good monitoring and can verify the fix works
+- Your team has strong testing practices to validate the fix
+
+### When to avoid Roll Forward
+
+Roll forward may not be the best choice when:
+
+- The production issue is causing active data corruption or security breaches
+- The root cause is not well understood
+- The fix requires extensive changes or testing
+- You don't have confidence in your deployment process
+- Time to resolution is critical and a known good state exists
+
+In these cases, rolling back or reverting might be more appropriate strategies to quickly restore service stability.
+
+
+## Roll Back
+
+![Roll back](/img/roll-back.png)
+
+**Roll back** is a strategy where you return to a previous known-good version of your application when encountering production issues. 
+This approach involves deploying an earlier version that was working correctly. Rolling back is:
+
+- Quick to execute since the version is already built and tested
+- Low risk as you're returning to a known stable state
+- Immediate relief from the current production issue
+- A good temporary solution while a proper fix is developed
+
+### When to use Roll Back
+
+Roll back is most effective when:
+
+- There's an urgent need to restore service stability
+- The previous version is known to work correctly
+- The issue is causing significant user impact
+- You need time to properly investigate and fix the root cause
+- You have a reliable way to roll back without data loss
+- Your deployment process supports quick version switching
+
+### When to avoid Roll Back
+
+Roll back may not be appropriate when:
+
+- Database schema changes prevent backward compatibility
+- The previous version has known critical issues
+- Important user data would be lost in the process
+- The issue exists in multiple previous versions
+- New features that users depend on would be lost
+- Integration with third-party services requires the current version
+
+In these scenarios, rolling forward with a fix or finding alternative mitigation strategies might be more suitable.
+
+## Revert
+
+![Revert](/img/revert.png)
+
+**Revert** is a strategy where you undo specific changes by creating a new commit that reverses the problematic code changes.
+This approach involves using version control (like Git) to negate the effects of previous commits. Reverting is:
+
+- Precise since it targets specific changes
+- Traceable as it maintains a clear history
+- Safe as it doesn't disrupt the commit timeline
+- Collaborative as it works well with team workflows
+- Reversible if the revert itself needs to be undone
+
+### When to use Revert
+
+Revert is most effective when:
+
+- You can identify the exact changes causing the issue
+- Multiple releases have happened since the problematic change
+- You need to maintain a clear audit trail
+- The changes are isolated and don't affect other features
+- You want to preserve the ability to re-apply the changes later
+- Rolling back would undo too many good changes
+
+### When to avoid Revert
+
+Revert may not be appropriate when:
+
+- The issue spans multiple interconnected changes
+- The original changes have complex dependencies
+- Reverting would create merge conflicts
+- The problem requires new code rather than removing code
+- Time is extremely critical (rolling back might be faster)
+- The changes involve complex database migrations
+
+In these cases, creating a new fix or using other mitigation strategies might be more appropriate.
