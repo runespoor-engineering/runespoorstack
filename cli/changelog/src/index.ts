@@ -7,6 +7,7 @@ import { program } from 'commander';
 import { ChangesTypes, ChangesTypesDescriptions } from './types/common';
 import { createChangeFile } from './utils/createChangeFile';
 import { generateChangeFileName } from './utils/generateChangeFileName';
+import { verifyCommitsCount } from './validation/verifyCommitsCount/verifyCommitsCount';
 
 const packageVersion = '0.0.0';
 
@@ -21,6 +22,8 @@ program
     "Asks a series of questions and then generates a `<branchname>-<timestamp>.json` file in the common folder.\nThe `publish` command will consume these files and perform the proper version bumps. Note these changes will eventually be published in a `CHANGELOG.md` file in the root of the repository.\nThe possible types of changes are:\nMAJOR - these are breaking changes that are not backward compatible. Examples are: renaming a public class, adding/removing a non-optional parameter from a public API, or renaming a variable or function that is exported.\nMINOR - these are changes that are backward compatible (but not forward compatible). Examples are: adding a new public API or adding an optional parameter to a public API\nPATCH - these are changes that are backward and forward-compatible. Examples are: Modifying a private API or fixing a bug in the logic of how an existing API works.\nNONE - these are changes that are backward and forwards compatible and don't require an immediate release. Examples are Modifying dev tooling configurations like eslint."
   )
   .action(async () => {
+    verifyCommitsCount();
+
     const changesComment = await input({ message: 'Describe the changes:' });
     const changesType = await select({
       message: 'Choose the changes type:',

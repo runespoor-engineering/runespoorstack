@@ -14,6 +14,7 @@
     "rune": "dist/index.js"
   },
   "dependencies": {
+    "@runespoorstack/git-utils": "workspace:*",
     "commander": "12.1.0",
     "@inquirer/input": "2.2.3",
     "@inquirer/select": "2.4.1",
