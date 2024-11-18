@@ -20,7 +20,7 @@
     "tsup": "8.3.0",
     "eslint": "8.57.0",
     "prettier": "3.2.5",
-   "vitest":"1.4.0",
+    "vitest":"1.4.0",
     "@types/node": "20.14.8"
   },
   "homepage": "https://github.com/runespoor-engineering/runespoorstack/tree/main/feature-toggles/feature-toggles-imperative/#readme",
