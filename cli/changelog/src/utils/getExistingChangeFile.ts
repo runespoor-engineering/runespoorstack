@@ -1,10 +1,10 @@
 import { getDeepFilesFromDir } from '@runespoorstack/files-system-utils';
 
-import { getChangesDirectoryPath } from '../../utils/getChangesDirectoryPath';
-import { getDateFromChangeFileName } from '../../utils/getDateFromChangeFileName';
-import { getFirstUniqueCommitDate } from '../../utils/getFirstUniqueCommitDate';
+import { getChangesDirectoryPath } from './getChangesDirectoryPath';
+import { getDateFromChangeFileName } from './getDateFromChangeFileName';
+import { getFirstUniqueCommitDate } from './getFirstUniqueCommitDate';
 
-export const verifyExistingChangeFile = (
+export const getExistingChangeFile = (
   defaultBranch: string,
   currentBranch: string
 ): string | undefined => {

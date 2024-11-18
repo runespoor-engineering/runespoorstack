@@ -12,8 +12,8 @@ import { program } from 'commander';
 import { ChangesTypes, ChangesTypesDescriptions } from './types/common';
 import { createChangeFile } from './utils/createChangeFile';
 import { generateChangeFileName } from './utils/generateChangeFileName';
-import { verifyCommitsCount } from './validation/verifyCommitsCount/verifyCommitsCount';
-import { verifyExistingChangeFile } from './validation/verifyExistingChangeFile/verifyExistingChangeFile';
+import { getCommitsCount } from './utils/getCommitsCount';
+import { getExistingChangeFile } from './utils/getExistingChangeFile';
 
 const packageVersion = '0.0.0';
 
@@ -31,9 +31,23 @@ program
     execSync(GIT_COMMANDS.fetchOrigin());
     const currentBranch = execSync(GIT_COMMANDS.currentBranchName()).toString().trim();
     const defaultBranch = execSync(GIT_COMMANDS.defaultBranchName()).toString().trim();
-    verifyCommitsCount(`origin/${defaultBranch}`, currentBranch);
 
-    const existingChangeFile = verifyExistingChangeFile(defaultBranch, currentBranch);
+    try {
+      const commitsCount = getCommitsCount(`origin/${defaultBranch}`, currentBranch);
+      if (commitsCount === 0) {
+        console.error(
+          `Error: No new commits found in the current branch. Please make sure you have committed your changes and your branch is ahead of ${defaultBranch}.`
+        );
+        process.exit(1);
+      }
+    } catch (error) {
+      console.error(
+        `Error: Failed to verify branch commits. ${error instanceof Error ? error.message : String(error)}`
+      );
+      process.exit(1);
+    }
+
+    const existingChangeFile = getExistingChangeFile(defaultBranch, currentBranch);
     let shouldRewriteChangeFile = false;
     if (existingChangeFile) {
       shouldRewriteChangeFile = await confirm({

@@ -4,5 +4,5 @@ export const getDateFromChangeFileName = (fileName: string): Date | null => {
   if (!match) return null;
   const dateStr = match[0];
   const [year, month, day, hour, minute, second, ms] = dateStr.split('-').map(Number);
-  return new Date(year, month - 1, day, hour, minute, second, ms);
+  return new Date(Date.UTC(year, month - 1, day, hour, minute, second, ms));
 };

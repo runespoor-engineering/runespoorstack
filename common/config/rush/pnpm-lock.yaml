@@ -81,6 +81,7 @@ importers:
       '@inquirer/input': 2.2.3
       '@inquirer/select': 2.4.1
       '@runespoorstack/eslint-config': workspace:*
+      '@runespoorstack/files-system-utils': workspace:*
       '@runespoorstack/git-utils': workspace:*
       '@rushstack/eslint-config': 3.6.8
       '@types/jest': 29.5.12
@@ -95,6 +96,7 @@ importers:
       '@inquirer/confirm': 3.1.16
       '@inquirer/input': 2.2.3
       '@inquirer/select': 2.4.1
+      '@runespoorstack/files-system-utils': link:../../utils/filesSystem
       '@runespoorstack/git-utils': link:../../utils/git
       commander: 12.1.0
     devDependencies:
