@@ -1,4 +1,4 @@
-import fs from 'fs';
+import fs from 'node:fs';
 
 import { ChangeData } from '../types/common';
 import { generateChangeFilePath } from './generateChangeFilePath';

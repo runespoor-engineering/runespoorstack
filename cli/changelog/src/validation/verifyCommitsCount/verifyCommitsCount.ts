@@ -1,19 +1,15 @@
-import { GIT_COMMANDS } from '@runespoorstack/git-utils';
-import { execSync } from 'child_process';
+import { execSync } from 'node:child_process';
 
-export const verifyCommitsCount = () => {
+import { GIT_COMMANDS } from '@runespoorstack/git-utils';
+
+export const verifyCommitsCount = (defaultBranch: string, currentBranch: string) => {
   try {
-    execSync(GIT_COMMANDS.fetchOrigin());
-    const currentBranch = execSync(GIT_COMMANDS.currentBranchName()).toString().trim();
-    const defaultBranch = execSync(GIT_COMMANDS.defaultBranchName()).toString().trim();
     const commitsCount = parseInt(
-      execSync(GIT_COMMANDS.commitsCountBetweenBranches(`origin/${defaultBranch}`, currentBranch))
+      execSync(GIT_COMMANDS.commitsCountBetweenBranches(defaultBranch, currentBranch))
         .toString()
         .trim(),
       10
     );
-
-    console.log(currentBranch, defaultBranch, commitsCount);
 
     if (commitsCount === 0) {
       console.error(
