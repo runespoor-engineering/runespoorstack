@@ -1,0 +1,10 @@
+{
+  "changes": [
+    {
+      "packageName": "@runespoorstack/files-system-utils",
+      "comment": "Implement `getDeepFilesFromDir` method.",
+      "type": "minor"
+    }
+  ],
+  "packageName": "@runespoorstack/files-system-utils"
+}

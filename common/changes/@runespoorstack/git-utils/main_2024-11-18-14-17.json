@@ -1,0 +1,10 @@
+{
+  "changes": [
+    {
+      "packageName": "@runespoorstack/git-utils",
+      "comment": "Implement `GIT_COMMANDS` object.",
+      "type": "minor"
+    }
+  ],
+  "packageName": "@runespoorstack/git-utils"
+}

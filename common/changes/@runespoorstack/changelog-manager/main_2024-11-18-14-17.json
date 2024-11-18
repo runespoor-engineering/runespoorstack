@@ -1,0 +1,10 @@
+{
+  "changes": [
+    {
+      "packageName": "@runespoorstack/changelog-manager",
+      "comment": "Implement commits count verification for `change` command.",
+      "type": "minor"
+    }
+  ],
+  "packageName": "@runespoorstack/changelog-manager"
+}
