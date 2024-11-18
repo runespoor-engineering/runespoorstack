@@ -5,7 +5,7 @@
 - [Runespoor Stack](#runespoor-stack)
   - [🛠️ Contributing](#️-contributing)
   - [Monorepo](#monorepo)
-  - [Monorepo Structure](#monorepo-structure)
+  - [Monorepo Packages](#monorepo-packages)
   - [Merge Request CI](#merge-request-ci)
   - [Main CI](#main-ci)
   - [💕 Special Thanks](#-special-thanks)
@@ -28,6 +28,7 @@ See the [CONTRIBUTING.md](https://github.com/runespoor-engineering/runespoorstac
 | cli/changelog | The Runespoor CLI for changelog management and semantic versioning. |
 | utils/storybook | The Runespoor set of Storybook utils. |
 | utils/git | The Runespoor set of Git utils. |
+| utils/filesSystem | The Runespoor set of files system utils. |
 
 
 ## Merge Request CI

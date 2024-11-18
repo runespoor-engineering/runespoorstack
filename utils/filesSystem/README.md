@@ -1,6 +1,6 @@
 <div align="center">
-  <h1>@runespoorstack/git-utils</h1>
-  <p>The Runespoor set of Git utils.</p>
+  <h1>@runespoorstack/files-system-utils</h1>
+  <p>The Runespoor set of Files System utils.</p>
   <div>
      <a href="https://www.buymeacoffee.com/borisshulyak" target="_blank">
       <img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 60px !important;width: 217px !important;" >
@@ -12,8 +12,8 @@
   <a href="https://github.com/runespoor-engineering/runespoorstack/issues">
     <img alt="GitHub issues" src="https://img.shields.io/github/issues/runespoor-engineering/runespoorstack?color=5d2de0">
   </a>
-  <a href="https://www.npmjs.com/package/@runespoorstack/git-utils">
-    <img alt="npm downloads" src="https://img.shields.io/npm/dw/@runespoorstack/git-utils">
+  <a href="https://www.npmjs.com/package/@runespoorstack/files-system-utils">
+    <img alt="npm downloads" src="https://img.shields.io/npm/dw/@runespoorstack/files-system-utils">
   </a>
 </div>
 
@@ -44,16 +44,6 @@ npm i --save-dev @runespoorstack/git-utils
 const modifiedFiles = getModifiedFiles();
 console.log(modifiedFiles);
 // ['file1.ts', 'file2.ts', 'file3.ts']
-```
-
-**GIT_COMMANDS**
-```
-import { execSync } from 'child_process';
-import { GIT_COMMANDS } from '@runespoorstack/git-utils';
-
-execSync(GIT_COMMANDS.currentBranchName());
-execSync(GIT_COMMANDS.defaultBranchName());
-execSync(GIT_COMMANDS.commitsCountBetweenBranches('origin/main', 'main'));
 ```
 
 ## 🛠️ Contributing

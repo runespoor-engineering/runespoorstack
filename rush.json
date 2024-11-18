@@ -367,6 +367,12 @@
       "shouldPublish": true
     },
     {
+      "packageName": "@runespoorstack/files-system-utils",
+      "projectFolder": "utils/filesSystem",
+      "tags": ["utils"],
+      "shouldPublish": true
+    },
+    {
       "packageName": "@runespoorstack/git-utils",
       "projectFolder": "utils/git",
       "tags": ["utils"],
