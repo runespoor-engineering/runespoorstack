@@ -96,4 +96,34 @@ program
     }
   });
 
+program
+  .command('verify')
+  .description('Verifies that change files are provided and are valid.')
+  .action(async () => {
+    execSync(GIT_COMMANDS.fetchOrigin());
+    const currentBranch = execSync(GIT_COMMANDS.currentBranchName()).toString().trim();
+    const defaultBranch = execSync(GIT_COMMANDS.defaultBranchName()).toString().trim();
+
+    try {
+      const commitsCount = getCommitsCount(`origin/${defaultBranch}`, currentBranch);
+      if (commitsCount === 0) {
+        console.info(`Success: The change files are not required.`);
+        process.exit(0);
+      }
+    } catch (error) {
+      console.error(
+        `Error: Failed to verify branch commits. ${error instanceof Error ? error.message : String(error)}`
+      );
+      process.exit(1);
+    }
+
+    const existingChangeFile = getExistingChangeFile(defaultBranch, currentBranch);
+    if (!existingChangeFile) {
+      console.error(`Error: No change files found.`);
+      process.exit(1);
+    }
+
+    console.info(`Success: Found change file: ${existingChangeFile}.`);
+  });
+
 program.parse();
