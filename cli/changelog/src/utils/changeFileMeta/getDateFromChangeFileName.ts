@@ -1,5 +1,7 @@
+import { CHANGE_FILE_DATE_REGEXP } from '../../constants/regexp';
+
 export const getDateFromChangeFileName = (fileName: string): Date | null => {
-  const datePattern = /\d{4}-\d{2}-\d{2}-\d{2}-\d{2}-\d{2}-\d{2}/;
+  const datePattern = CHANGE_FILE_DATE_REGEXP;
   const match = fileName.match(datePattern);
   if (!match) return null;
   const dateStr = match[0];
