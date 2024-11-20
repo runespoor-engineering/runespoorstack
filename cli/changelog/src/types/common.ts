@@ -1,10 +1,12 @@
 export const CHANGE_FILES_FOLDER = 'changes';
+export const CHANGELOG_FILE = 'CHANGELOG.md';
+export const PACKAGE_JSON_FILE = 'package.json';
 
 export enum ChangesTypes {
-  Major = 'MAJOR',
-  Minor = 'MINOR',
-  Patch = 'PATCH',
-  None = 'NONE'
+  Major = 'major',
+  Minor = 'minor',
+  Patch = 'patch',
+  None = 'none'
 }
 
 export type ChangeData = {

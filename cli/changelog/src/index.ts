@@ -10,17 +10,26 @@ import { GIT_COMMANDS } from '@runespoorstack/git-utils';
 import { program } from 'commander';
 
 import { ChangesTypes, ChangesTypesDescriptions } from './types/common';
-import { createChangeFile } from './utils/createChangeFile';
-import { generateChangeFileName } from './utils/generateChangeFileName';
-import { getCommitsCount } from './utils/getCommitsCount';
-import { getExistingChangeFile } from './utils/getExistingChangeFile';
+import { generateChangeFileName } from './utils/changeFileMeta/generateChangeFileName';
+import { getDateFromChangeFileName } from './utils/changeFileMeta/getDateFromChangeFileName';
+import { getChangeFileData } from './utils/filesData/getChangeFileData';
+import { getPackageJsonData } from './utils/filesData/getPackageJsonData';
+import { createChangeFile } from './utils/filesOperations/createChangeFile';
+import { createChangelogFile } from './utils/filesOperations/createChangelogFile';
+import { modifyChangelog } from './utils/filesOperations/modifyChangelog';
+import { modifyPackageVersion } from './utils/filesOperations/modifyPackageVersion';
+import { getCommitsCount } from './utils/git/getCommitsCount';
+import { getChangelogFilePath } from './utils/paths/getChangelogFilePath';
+import { getExistingChangeFilePath } from './utils/paths/getExistingChangeFilePath';
+import { getPackageJsonFilePath } from './utils/paths/getPackageJsonFilePath';
+import { bumpSemver } from './utils/semver/bumpSemver';
 
-const packageVersion = '0.0.0';
+const cliVersion = '0.0.0';
 
 program
   .name('rune')
   .description('CLI for changelog management and semantic versioning.')
-  .version(packageVersion);
+  .version(cliVersion);
 
 program
   .command('change')
@@ -47,9 +56,9 @@ program
       process.exit(1);
     }
 
-    const existingChangeFile = getExistingChangeFile(defaultBranch, currentBranch);
+    const existingChangeFilePath = getExistingChangeFilePath(defaultBranch, currentBranch);
     let shouldRewriteChangeFile = false;
-    if (existingChangeFile) {
+    if (existingChangeFilePath) {
       shouldRewriteChangeFile = await confirm({
         message: 'Change file already exists. Do you want to rewrite it?'
       });
@@ -92,7 +101,7 @@ program
     const changeFileName = generateChangeFileName();
     createChangeFile(changeFileName, changeData);
     if (shouldRewriteChangeFile) {
-      fs.unlinkSync(existingChangeFile!);
+      fs.unlinkSync(existingChangeFilePath!);
     }
   });
 
@@ -117,13 +126,43 @@ program
       process.exit(1);
     }
 
-    const existingChangeFile = getExistingChangeFile(defaultBranch, currentBranch);
-    if (!existingChangeFile) {
+    const existingChangeFilePath = getExistingChangeFilePath(defaultBranch, currentBranch);
+    if (!existingChangeFilePath) {
       console.error(`Error: No change files found.`);
       process.exit(1);
     }
 
-    console.info(`Success: Found change file: ${existingChangeFile}.`);
+    console.info(`Success: Found change file: ${existingChangeFilePath}.`);
+  });
+
+program
+  .command('apply')
+  .description('Applies the change files to the changelod.')
+  .action(async () => {
+    execSync(GIT_COMMANDS.fetchOrigin());
+    const currentBranch = execSync(GIT_COMMANDS.currentBranchName()).toString().trim();
+    const defaultBranch = execSync(GIT_COMMANDS.defaultBranchName()).toString().trim();
+
+    createChangelogFile();
+    const existingChangeFilePath = getExistingChangeFilePath(defaultBranch, currentBranch);
+    const changeFileDate = getDateFromChangeFileName(existingChangeFilePath!);
+    const changeFileData = getChangeFileData(existingChangeFilePath!);
+    const packageJsonData = getPackageJsonData();
+
+    const bumpedPackageVersion = bumpSemver(packageJsonData.version, changeFileData.type);
+    modifyPackageVersion(bumpedPackageVersion!);
+    modifyChangelog({
+      bumpedPackageVersion: bumpedPackageVersion!,
+      date: changeFileDate!,
+      changesType: changeFileData.type,
+      comment: changeFileData.comment
+    });
+
+    fs.unlinkSync(existingChangeFilePath!);
+    execSync(GIT_COMMANDS.add(getPackageJsonFilePath()));
+    execSync(GIT_COMMANDS.add(getChangelogFilePath()));
+    execSync(GIT_COMMANDS.commit(`chore(changelog): apply change file [ci skip]`));
+    execSync(GIT_COMMANDS.push());
   });
 
 program.parse();

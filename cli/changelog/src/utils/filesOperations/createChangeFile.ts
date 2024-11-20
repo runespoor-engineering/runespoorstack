@@ -1,12 +1,12 @@
 import fs from 'node:fs';
 
-import { ChangeData } from '../types/common';
-import { generateChangeFilePath } from './generateChangeFilePath';
-import { getChangesDirectoryPath } from './getChangesDirectoryPath';
+import { ChangeData } from '../../types/common';
+import { getChangeFilePath } from '../paths/getChangeFilePath';
+import { getChangesDirectoryPath } from '../paths/getChangesDirectoryPath';
 
 export const createChangeFile = (changeFileName: string, changeData: ChangeData) => {
   const changeDirectoryPath = getChangesDirectoryPath();
-  const changeFilePath = generateChangeFilePath(changeDirectoryPath, changeFileName);
+  const changeFilePath = getChangeFilePath(changeDirectoryPath, changeFileName);
   if (!fs.existsSync(changeDirectoryPath)) {
     fs.mkdirSync(changeDirectoryPath);
   }
