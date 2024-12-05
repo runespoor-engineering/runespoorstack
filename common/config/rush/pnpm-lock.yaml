@@ -86,10 +86,12 @@ importers:
       '@rushstack/eslint-config': 3.6.8
       '@types/jest': 29.5.12
       '@types/node': 20.14.8
+      '@types/semver': 7.5.8
       commander: 12.1.0
       eslint: 8.57.0
       jest: 29.7.0
       prettier: 3.2.5
+      semver: 7.6.3
       ts-jest: 29.1.2
       typescript: 5.4.5
     dependencies:
@@ -99,11 +101,13 @@ importers:
       '@runespoorstack/files-system-utils': link:../../utils/filesSystem
       '@runespoorstack/git-utils': link:../../utils/git
       commander: 12.1.0
+      semver: 7.6.3
     devDependencies:
       '@runespoorstack/eslint-config': link:../../eslint/eslint-config
       '@rushstack/eslint-config': 3.6.8_te743w6atip6hhlha3uq43n2xe
       '@types/jest': 29.5.12
       '@types/node': 20.14.8
+      '@types/semver': 7.5.8
       eslint: 8.57.0
       jest: 29.7.0_@types+node@20.14.8
       prettier: 3.2.5
@@ -13834,7 +13838,7 @@ packages:
     dependencies:
       bs-logger: 0.2.6
       fast-json-stable-stringify: 2.1.0
-      jest: 29.7.0
+      jest: 29.7.0_@types+node@20.14.8
       jest-util: 29.7.0
       json5: 2.2.3
       lodash.memoize: 4.1.2
