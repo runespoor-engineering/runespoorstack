@@ -24,6 +24,7 @@ Suppose you need to select a library, and you already know the requirements for 
 
 - **Strictly specify versions of all npm packages**. - [Do not use any symbols](https://docs.npmjs.com/cli/v8/configuring-npm/package-json#dependencies) (`^`, `~`, etc.) - this can lead to sudden bugs, as you might easily overlook that some packages have been updated, miss testing-related functionality, fail to inform QA about it, and as a result, deliver bugs to production.
 - Use [dependabot](https://docs.github.com/ru/code-security/dependabot/working-with-dependabot).
+- Use [npm-check-updates](https://github.com/raineorshine/npm-check-updates)
 
 ## Choosing a Dependency Manager
 
