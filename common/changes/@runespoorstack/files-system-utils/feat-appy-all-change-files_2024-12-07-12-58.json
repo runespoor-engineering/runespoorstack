@@ -1,0 +1,10 @@
+{
+  "changes": [
+    {
+      "packageName": "@runespoorstack/files-system-utils",
+      "comment": "Implement package",
+      "type": "minor"
+    }
+  ],
+  "packageName": "@runespoorstack/files-system-utils"
+}
