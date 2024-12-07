@@ -4,7 +4,8 @@ export const ERRORS = {
     `Error: No new commits found in the current branch. Please make sure you have committed your changes and your branch is ahead of ${branchName}.`,
   failedBranchCommitsVerification: (error: unknown) =>
     `Error: Failed to verify branch commits. ${error instanceof Error ? error.message : String(error)}`,
-  invalidChangeFileName: () => `Error: Invalid change file name.`,
+  invalidChangeFileName: () =>
+    `Error: Invalid change file name. Expected format: <branch-name>_yyyy-mm-dd-hh-mm-ss-ms.json`,
   noChangeFiles: () => `Error: No change files found.`,
   fileNotFound: (filePath: string) => `${filePath} file not found`
 };
