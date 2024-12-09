@@ -1,7 +1,6 @@
-import { getDeepFilesFromDir } from '@runespoorstack/files-system-utils';
-
 import { getDateFromChangeFileName } from '../changeFileMeta/getDateFromChangeFileName';
 import { getChangesDirectoryPath } from '../paths/getChangesDirectoryPath';
+import { getDeepFilesFromDir } from './getDeepFilesFromDir';
 
 export const getChangeFilesPaths = () => {
   const changeFilesPaths = getDeepFilesFromDir(getChangesDirectoryPath(), /\.json$/);

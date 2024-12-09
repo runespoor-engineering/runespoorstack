@@ -2,7 +2,6 @@
   "name": "@runespoorstack/changelog-manager",
   "version": "0.1.1",
   "description": "The Runespoor CLI for changelog management and semantic versioning.",
-  "type": "module",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
@@ -18,8 +17,6 @@
     "rune": "dist/index.js"
   },
   "dependencies": {
-    "@runespoorstack/git-utils": "workspace:*",
-    "@runespoorstack/files-system-utils": "workspace:*",
     "commander": "12.1.0",
     "@inquirer/input": "2.2.3",
     "@inquirer/select": "2.4.1",

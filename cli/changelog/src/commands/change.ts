@@ -4,12 +4,12 @@ import fs from 'node:fs';
 import confirm from '@inquirer/confirm';
 import input from '@inquirer/input';
 import select from '@inquirer/select';
-import { GIT_COMMANDS } from '@runespoorstack/git-utils';
 
 import { ERRORS } from '../constants/errorMessages';
 import { ChangesTypes, ChangesTypesDescriptions } from '../types/common';
 import { generateChangeFileName } from '../utils/changeFileMeta/generateChangeFileName';
 import { createChangeFile } from '../utils/filesOperations/createChangeFile';
+import { GIT_COMMANDS } from '../utils/git/command';
 import { getCommitsCount } from '../utils/git/getCommitsCount';
 import { getExistingChangeFilePath } from '../utils/paths/getExistingChangeFilePath';
 

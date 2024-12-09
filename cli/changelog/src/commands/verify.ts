@@ -1,9 +1,9 @@
-import { GIT_COMMANDS } from '@runespoorstack/git-utils';
 import { execSync } from 'child_process';
 
 import { ERRORS } from '../constants/errorMessages';
 import { CHANGE_FILE_NAME_REGEXP } from '../constants/regexp';
 import { SUCCESS } from '../constants/successMessages';
+import { GIT_COMMANDS } from '../utils/git/command';
 import { getCommitsCount } from '../utils/git/getCommitsCount';
 import { getExistingChangeFilePath } from '../utils/paths/getExistingChangeFilePath';
 

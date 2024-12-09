@@ -1,6 +1,6 @@
 import { execSync } from 'node:child_process';
 
-import { GIT_COMMANDS } from '@runespoorstack/git-utils';
+import { GIT_COMMANDS } from './command';
 
 export const getCommitsCount = (defaultBranch: string, currentBranch: string) => {
   return parseInt(

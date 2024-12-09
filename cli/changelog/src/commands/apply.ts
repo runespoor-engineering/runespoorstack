@@ -1,8 +1,6 @@
 import { execSync } from 'node:child_process';
 import fs from 'node:fs';
 
-import { GIT_COMMANDS } from '@runespoorstack/git-utils';
-
 import { ERRORS } from '../constants/errorMessages';
 import { getDateFromChangeFileName } from '../utils/changeFileMeta/getDateFromChangeFileName';
 import { getChangeFileData } from '../utils/filesData/getChangeFileData';
@@ -11,6 +9,7 @@ import { getPackageJsonData } from '../utils/filesData/getPackageJsonData';
 import { createChangelogFile } from '../utils/filesOperations/createChangelogFile';
 import { modifyChangelog } from '../utils/filesOperations/modifyChangelog';
 import { modifyPackageVersion } from '../utils/filesOperations/modifyPackageVersion';
+import { GIT_COMMANDS } from '../utils/git/command';
 import { getChangelogFilePath } from '../utils/paths/getChangelogFilePath';
 import { getPackageJsonFilePath } from '../utils/paths/getPackageJsonFilePath';
 import { bumpSemver } from '../utils/semver/bumpSemver';
