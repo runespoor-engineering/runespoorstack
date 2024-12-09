@@ -1,11 +1,13 @@
 {
   "compilerOptions": {
       "target": "esnext",
-      "module": "NodeNext",
+      "module": "esnext",
+      "moduleResolution": "node",
       "rootDir": "./src",
       "outDir": "./dist",
       "declaration": true,
-      "moduleResolution": "NodeNext",
+      "skipLibCheck": true,
+      "esModuleInterop": true,
       /* Linting */
       "strict": true,
       "noUnusedLocals": true,
