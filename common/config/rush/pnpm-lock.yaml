@@ -88,7 +88,6 @@ importers:
       '@runespoorstack/files-system-utils': workspace:*
       '@runespoorstack/git-utils': workspace:*
       '@rushstack/eslint-config': 3.6.8
-      '@types/jest': 29.5.12
       '@types/node': 20.14.8
       '@types/semver': 7.5.8
       commander: 12.1.0
@@ -109,7 +108,6 @@ importers:
     devDependencies:
       '@runespoorstack/eslint-config': link:../../eslint/eslint-config
       '@rushstack/eslint-config': 3.6.8_te743w6atip6hhlha3uq43n2xe
-      '@types/jest': 29.5.12
       '@types/node': 20.14.8
       '@types/semver': 7.5.8
       eslint: 8.57.0
