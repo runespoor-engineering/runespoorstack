@@ -2,6 +2,7 @@
 require('@rushstack/eslint-config/patch/modern-module-resolution');
 
 module.exports = {
+  ignorePatterns: ['vitest.config.mjs'],
   parserOptions: {
     project: 'tsconfig.json',
     tsconfigRootDir: __dirname,
@@ -21,11 +22,15 @@ module.exports = {
   },
   extends: [
     '@runespoorstack/eslint-config/core/base-ts',
-    '@runespoorstack/eslint-config/mixins/prettier',
-    '@runespoorstack/eslint-config/mixins/jest'
+    '@runespoorstack/eslint-config/mixins/prettier'
+  ],
+  overrides: [
+    {
+      files: ['**/*.@(spec|test).[tj]s?(x)'],
+      extends: ['@runespoorstack/eslint-config/mixins/vitest']
+    }
   ],
   rules: {
-    '@typescript-eslint/no-explicit-any': 'off',
     'import/extensions': [
       'error',
       'ignorePackages',
