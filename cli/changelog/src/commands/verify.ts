@@ -25,7 +25,7 @@ export const verify = async () => {
 
   const existingChangeFilePath = getExistingChangeFilePath(defaultBranch, currentBranch);
   if (!existingChangeFilePath) {
-    console.error(ERRORS.noChangeFiles());
+    console.error(ERRORS.noChangeFiles(currentBranch));
     process.exit(1);
   }
   if (!CHANGE_FILE_NAME_REGEXP.test(existingChangeFilePath)) {
