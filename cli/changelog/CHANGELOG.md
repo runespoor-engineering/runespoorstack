@@ -1,6 +1,13 @@
 # Change Log - @runespoorstack/changelog-manager
 
-This log was last generated on Tue, 10 Dec 2024 02:45:15 GMT and should not be manually modified.
+This log was last generated on Tue, 10 Dec 2024 05:52:15 GMT and should not be manually modified.
+
+## 0.4.8
+Tue, 10 Dec 2024 05:52:15 GMT
+
+### Patches
+
+- Fix critical issues.
 
 ## 0.4.2
 Tue, 10 Dec 2024 02:45:15 GMT
