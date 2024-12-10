@@ -5,6 +5,6 @@ export const GIT_COMMANDS = {
   defaultBranchName: () => 'git remote show origin | grep "HEAD branch" | cut -d" " -f5',
   add: (path: string = '.') => `git add ${path}`,
   commit: (message: string) => `git commit -m "${message}"`,
-  push: () => 'git push',
+  push: (branch: string) => `git push --set-upstream origin ${branch}`,
   configUserName: () => 'git config user.name'
 };

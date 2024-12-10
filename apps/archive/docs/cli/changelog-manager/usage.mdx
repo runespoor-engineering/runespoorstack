@@ -60,14 +60,16 @@ jobs:
       run: npm ci
 
     - name: Verify Changelog
-      run: npm run changelog:verify
+      run: npm run changelog:verify -- --sourceBranch origin/${{ github.head_ref || github.ref_name }} 
 
   ...
 
 ```
 
 Integrate `rune apply` command with your Main CI (GitHub Actions example).
-Make sure to add this job on the **end** of your pipeline:
+Authorize the git user and personal access token as a secret to be able to push to the repository. [Read the Guide](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens)
+I suggest creating the separate service account for such purposes.
+Make sure to add this job to the **end** of your pipeline:
 
 ```yml
 name: Main CI
@@ -91,6 +93,15 @@ jobs:
     steps:
     - name: Checkout Repository
       uses: actions/checkout@v4
+      with:
+        fetch-depth: 2
+        token: ${{ secrets.ACTIONS_PTA }}
+
+    - name: Git set author name
+      run: git config --global user.name "ServiceAccount"
+
+    - name: Git set author email
+      run: git config --global user.email "serviceaccount@gmail.com"
 
     - name: Setup Node
       uses: actions/setup-node@v4

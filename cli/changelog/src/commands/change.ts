@@ -14,15 +14,16 @@ import { GIT_COMMANDS } from '../utils/git/command';
 import { getCommitsCount } from '../utils/git/getCommitsCount';
 import { getExistingChangeFilePath } from '../utils/paths/getExistingChangeFilePath';
 
-export const change = async () => {
+export const change = async (options?: { targetBranch?: string }) => {
   execSync(GIT_COMMANDS.fetchOrigin());
-  const currentBranch = execSync(GIT_COMMANDS.currentBranchName()).toString().trim();
-  const defaultBranch = execSync(GIT_COMMANDS.defaultBranchName()).toString().trim();
+  const sourceBranch =
+    execSync(GIT_COMMANDS.currentBranchName()).toString().trim();
+  const targetBranch = options?.targetBranch || execSync(GIT_COMMANDS.defaultBranchName()).toString().trim();
 
   try {
-    const commitsCount = getCommitsCount(`origin/${defaultBranch}`, currentBranch);
+    const commitsCount = getCommitsCount(`origin/${targetBranch}`, sourceBranch);
     if (commitsCount === 0) {
-      console.error(INFO.noNewCommits(`origin/${defaultBranch}`));
+      console.error(INFO.noNewCommits(`origin/${targetBranch}`));
       process.exit(0);
     }
   } catch (error) {
@@ -30,7 +31,7 @@ export const change = async () => {
     process.exit(1);
   }
 
-  const existingChangeFilePath = getExistingChangeFilePath(defaultBranch, currentBranch);
+  const existingChangeFilePath = getExistingChangeFilePath(targetBranch, sourceBranch);
   let shouldRewriteChangeFile = false;
   if (existingChangeFilePath) {
     shouldRewriteChangeFile = await confirm({

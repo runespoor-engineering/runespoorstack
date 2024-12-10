@@ -7,13 +7,13 @@ import { GIT_COMMANDS } from '../utils/git/command';
 import { getCommitsCount } from '../utils/git/getCommitsCount';
 import { getExistingChangeFilePath } from '../utils/paths/getExistingChangeFilePath';
 
-export const verify = async () => {
+export const verify = async (options?: { sourceBranch?: string, targetBranch?: string }) => {
   execSync(GIT_COMMANDS.fetchOrigin());
-  const currentBranch = execSync(GIT_COMMANDS.currentBranchName()).toString().trim();
-  const defaultBranch = execSync(GIT_COMMANDS.defaultBranchName()).toString().trim();
+  const sourceBranch = options?.sourceBranch || execSync(GIT_COMMANDS.currentBranchName()).toString().trim();
+  const targetBranch = options?.targetBranch || execSync(GIT_COMMANDS.defaultBranchName()).toString().trim();
 
   try {
-    const commitsCount = getCommitsCount(`origin/${defaultBranch}`, currentBranch);
+    const commitsCount = getCommitsCount(`origin/${targetBranch}`, sourceBranch);
     if (commitsCount === 0) {
       console.info(SUCCESS.changeFilesNotRequired());
       process.exit(0);
@@ -23,9 +23,9 @@ export const verify = async () => {
     process.exit(1);
   }
 
-  const existingChangeFilePath = getExistingChangeFilePath(defaultBranch, currentBranch);
+  const existingChangeFilePath = getExistingChangeFilePath(targetBranch, sourceBranch);
   if (!existingChangeFilePath) {
-    console.error(ERRORS.noChangeFiles(currentBranch));
+    console.error(ERRORS.noChangeFiles(sourceBranch));
     process.exit(1);
   }
   if (!CHANGE_FILE_NAME_REGEXP.test(existingChangeFilePath)) {

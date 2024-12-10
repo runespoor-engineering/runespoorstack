@@ -39,19 +39,21 @@ rune change
 **Optional arguments**:
 ```
 Optional arguments:
-  -h, --help            Show this help message and exit.
+  -h, --help                                  Show this help message and exit.
+  -t, --targetBranch <source-branch-name>     name of the target branch
 ```
 `
 **Functionality**: 
 - Should fetch the latest changes from the remote repository.
-- Should get the current branch name and default branch name (main/master).
+- Should get the current branch name and target branch name (main/master) or use the provided target one.
 - Should ask to **describe** the changes. Message: `Describe the changes:`.
 - Should ask to select the **changes type**: `minor` / `major` / `patch` / `none` (described below). Message: `Choose the changes type:`.
 - Should create the **change file**.
   - File name should follow the convention: `<branch-name>_yyyy-mm-dd-hh-mm-ss-ms.json`.
   - File should be located in the `<root>/changes` directory.
   - File should have the following specific structure (described below).
-  - If there were no new commits comparing with the default branch (`main` or `master`), should print the following message and exit with status code 0: `Info: No new commits found in the current branch. Please make sure you have committed your changes and your branch is ahead of origin/main`
+  - If there were no new commits comparing with the default branch (`main` or `master`) or the provided target one,
+  should print the following message and exit with status code 0: `Info: No new commits found in the current branch. Please make sure you have committed your changes and your branch is ahead of origin/main`
   - If the **change file** already exists, should ask if the user needs to `overwrite` it. Message: `The change file already exists. Do you want to overwrite it? (y/n)`. 
   If user chooses `n`, the command will be finished with status code 0. 
   If user chooses `y`, the command will continue, the new change file should be generated and the old one should be deleted.
@@ -90,13 +92,15 @@ rune change
 **Optional arguments**:
 ```
 Optional arguments:
-  -h, --help            Show this help message and exit.
+  -h, --help                                  Show this help message and exit.
+  -s, --sourceBranch <source-branch-name>     name of the source branch (required in the CI)
+  -t, --targetBranch <source-branch-name>     name of the target branch
 ```
 
 **Functionality**:
 - Should fetch the latest changes from the remote repository.
-- Should get the current branch name and default branch name (main/master).
-- Should verify that there are new commits in the current branch comparing with the default branch.
+- Should get the current branch name and default branch name (main/master) or use the provided once.
+- Should verify that there are new commits in the current branch comparing with the default branch or do the same with the provided source and target branches.
   - If there are no new commits, should print message and exit with status code 0: `Success: No new commits found in the current branch. Change files are not required.`
   - If verification fails, should print error message and exit with status code 1: `Error: Failed to verify branch commits. Error: <error message>`
 - Should verify that change file exists and follows the naming convention.
@@ -124,13 +128,13 @@ rune apply [-h]
 ```
 Optional arguments:
   -h, --help            Show this help message and exit.
+  -t, --targetBranch <source-branch-name>     name of the target branch(required in the CI)
 ```
 
 **Functionality**: 
 
-- Should verify that change files exist and are valid, the same as `rune verify` command.
 - Should create changelog files if it doesn't exist.
-- Should get the date from change files name.
+- Should get the date from change files names.
 - Should read change files data.
 - Should read package.json data to get current version.
 - Should bump the package version according to the change types:

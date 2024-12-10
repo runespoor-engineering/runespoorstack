@@ -17,8 +17,8 @@ import { getPackageJsonFilePath } from '../utils/paths/getPackageJsonFilePath';
 import { bumpSemver } from '../utils/semver/bumpSemver';
 import { verify } from './verify';
 
-export const apply = async () => {
-  await verify();
+export const apply = async (options?: { targetBranch?: string }) => {
+  const targetBranch = options?.targetBranch || execSync(GIT_COMMANDS.defaultBranchName()).toString().trim();
 
   createChangelogTextFile();
   createChangelogJsonFile();
@@ -51,5 +51,5 @@ export const apply = async () => {
   execSync(GIT_COMMANDS.add(getChangelogTextFilePath()));
   execSync(GIT_COMMANDS.add(getChangelogJsonFilePath()));
   execSync(GIT_COMMANDS.commit(`chore(changelog): apply change file [ci skip]`));
-  execSync(GIT_COMMANDS.push());
+  execSync(GIT_COMMANDS.push(targetBranch));
 };
