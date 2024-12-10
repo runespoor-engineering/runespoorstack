@@ -44,6 +44,7 @@ export const apply = async (options?: { targetBranch?: string }) => {
     });
     updatedPackageVersion = bumpedPackageVersion;
     fs.unlinkSync(changeFilePath);
+    execSync(GIT_COMMANDS.add(changeFilePath));
   });
 
   modifyPackageVersion(updatedPackageVersion);

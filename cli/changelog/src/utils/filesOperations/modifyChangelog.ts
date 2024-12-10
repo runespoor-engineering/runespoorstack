@@ -60,8 +60,9 @@ const modifyChangelogJsonFile = ({
   };
 
   const existingContent = getChangelogJsonData();
+  console.log(existingContent)
   if (existingContent) {
-    fs.writeFileSync(changelogFilePath, JSON.stringify(existingContent?.unshift(changelogRecord)));
+    fs.writeFileSync(changelogFilePath, JSON.stringify([changelogRecord, ...existingContent]));
   } else {
     fs.writeFileSync(changelogFilePath, JSON.stringify([changelogRecord]));
   }
