@@ -1,0 +1,10 @@
+{
+  "changes": [
+    {
+      "packageName": "@runespoorstack/changelog-manager",
+      "comment": "`verify`, `change`: verify change file based on branch name + date, not only",
+      "type": "patch"
+    }
+  ],
+  "packageName": "@runespoorstack/changelog-manager"
+}
