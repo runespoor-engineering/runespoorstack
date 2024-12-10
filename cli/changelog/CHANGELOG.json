@@ -2,6 +2,20 @@
   "name": "@runespoorstack/changelog-manager",
   "entries": [
     {
+      "version": "0.4.1",
+      "tag": "@runespoorstack/changelog-manager_v0.4.1",
+      "date": "Tue, 10 Dec 2024 02:26:12 GMT",
+      "comments": {
+        "patch": [
+          {
+            "comment": "`change`: fix `no changes directory` error.",
+            "author": "Boris Shulyak <55171497+BorysShulyak@users.noreply.github.com>",
+            "commit": "899c6ab09a038c340b2f7cea02e85d1bd5290466"
+          }
+        ]
+      }
+    },
+    {
       "version": "0.4.0",
       "tag": "@runespoorstack/changelog-manager_v0.4.0",
       "date": "Tue, 10 Dec 2024 01:42:14 GMT",
