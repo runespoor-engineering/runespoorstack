@@ -2,6 +2,20 @@
   "name": "@runespoorstack/changelog-manager",
   "entries": [
     {
+      "version": "0.4.0",
+      "tag": "@runespoorstack/changelog-manager_v0.4.0",
+      "date": "Tue, 10 Dec 2024 01:42:14 GMT",
+      "comments": {
+        "minor": [
+          {
+            "comment": "Add author info to changelog.",
+            "author": "Boris Shulyak <55171497+BorysShulyak@users.noreply.github.com>",
+            "commit": "32bdf9edddcb5782a6a6eaeece413563820fe95a"
+          }
+        ]
+      }
+    },
+    {
       "version": "0.3.0",
       "tag": "@runespoorstack/changelog-manager_v0.3.0",
       "date": "Tue, 10 Dec 2024 00:50:59 GMT",
