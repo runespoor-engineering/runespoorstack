@@ -15,10 +15,10 @@ import { getChangelogJsonFilePath } from '../utils/paths/getChangelogJsonFilePat
 import { getChangelogTextFilePath } from '../utils/paths/getChangelogTextFilePath';
 import { getPackageJsonFilePath } from '../utils/paths/getPackageJsonFilePath';
 import { bumpSemver } from '../utils/semver/bumpSemver';
-import { verify } from './verify';
 
 export const apply = async (options?: { targetBranch?: string }) => {
-  const targetBranch = options?.targetBranch || execSync(GIT_COMMANDS.defaultBranchName()).toString().trim();
+  const targetBranch =
+    options?.targetBranch || execSync(GIT_COMMANDS.defaultBranchName()).toString().trim();
 
   createChangelogTextFile();
   createChangelogJsonFile();

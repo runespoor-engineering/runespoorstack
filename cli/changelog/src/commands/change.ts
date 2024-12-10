@@ -16,9 +16,9 @@ import { getExistingChangeFilePath } from '../utils/paths/getExistingChangeFileP
 
 export const change = async (options?: { targetBranch?: string }) => {
   execSync(GIT_COMMANDS.fetchOrigin());
-  const sourceBranch =
-    execSync(GIT_COMMANDS.currentBranchName()).toString().trim();
-  const targetBranch = options?.targetBranch || execSync(GIT_COMMANDS.defaultBranchName()).toString().trim();
+  const sourceBranch = execSync(GIT_COMMANDS.currentBranchName()).toString().trim();
+  const targetBranch =
+    options?.targetBranch || execSync(GIT_COMMANDS.defaultBranchName()).toString().trim();
 
   try {
     const commitsCount = getCommitsCount(`origin/${targetBranch}`, sourceBranch);

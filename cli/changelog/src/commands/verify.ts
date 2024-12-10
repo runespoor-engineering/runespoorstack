@@ -7,10 +7,12 @@ import { GIT_COMMANDS } from '../utils/git/command';
 import { getCommitsCount } from '../utils/git/getCommitsCount';
 import { getExistingChangeFilePath } from '../utils/paths/getExistingChangeFilePath';
 
-export const verify = async (options?: { sourceBranch?: string, targetBranch?: string }) => {
+export const verify = async (options?: { sourceBranch?: string; targetBranch?: string }) => {
   execSync(GIT_COMMANDS.fetchOrigin());
-  const sourceBranch = options?.sourceBranch || execSync(GIT_COMMANDS.currentBranchName()).toString().trim();
-  const targetBranch = options?.targetBranch || execSync(GIT_COMMANDS.defaultBranchName()).toString().trim();
+  const sourceBranch =
+    options?.sourceBranch || execSync(GIT_COMMANDS.currentBranchName()).toString().trim();
+  const targetBranch =
+    options?.targetBranch || execSync(GIT_COMMANDS.defaultBranchName()).toString().trim();
 
   try {
     const commitsCount = getCommitsCount(`origin/${targetBranch}`, sourceBranch);
