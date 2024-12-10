@@ -6,10 +6,12 @@ import { getDateFromChangeFileName } from '../utils/changeFileMeta/getDateFromCh
 import { getChangeFileData } from '../utils/filesData/getChangeFileData';
 import { getChangeFilesPaths } from '../utils/filesData/getChangeFilesPaths';
 import { getPackageJsonData } from '../utils/filesData/getPackageJsonData';
+import { createChangelogJsonFile } from '../utils/filesOperations/createChangelogJsonFile';
 import { createChangelogTextFile } from '../utils/filesOperations/createChangelogTextFile';
 import { modifyChangelog } from '../utils/filesOperations/modifyChangelog';
 import { modifyPackageVersion } from '../utils/filesOperations/modifyPackageVersion';
 import { GIT_COMMANDS } from '../utils/git/command';
+import { getChangelogJsonFilePath } from '../utils/paths/getChangelogJsonFilePath';
 import { getChangelogTextFilePath } from '../utils/paths/getChangelogTextFilePath';
 import { getPackageJsonFilePath } from '../utils/paths/getPackageJsonFilePath';
 import { bumpSemver } from '../utils/semver/bumpSemver';
@@ -19,6 +21,7 @@ export const apply = async () => {
   await verify();
 
   createChangelogTextFile();
+  createChangelogJsonFile();
 
   const packageJsonData = getPackageJsonData();
   const changeFilesPaths = getChangeFilesPaths();
@@ -45,6 +48,7 @@ export const apply = async () => {
   modifyPackageVersion(updatedPackageVersion);
   execSync(GIT_COMMANDS.add(getPackageJsonFilePath()));
   execSync(GIT_COMMANDS.add(getChangelogTextFilePath()));
+  execSync(GIT_COMMANDS.add(getChangelogJsonFilePath()));
   execSync(GIT_COMMANDS.commit(`chore(changelog): apply change file [ci skip]`));
   execSync(GIT_COMMANDS.push());
 };
