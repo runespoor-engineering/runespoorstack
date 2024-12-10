@@ -1,6 +1,6 @@
 import fs from 'node:fs';
 
-import { ChangesTypes } from '../../types/common';
+import { ChangelogRecord, ChangesTypes } from '../../types/common';
 import { getChangelogJsonData } from '../filesData/getChangelogJsonData';
 import { getChangelogTextData } from '../filesData/getChangelogTextData';
 import { getChangelogJsonFilePath } from '../paths/getChangelogJsonFilePath';
@@ -10,14 +10,17 @@ const modifyChangelogTextFile = ({
   bumpedPackageVersion,
   date,
   changesType,
-  comment
+  comment,
+  author
 }: {
   bumpedPackageVersion: string;
   date: Date;
   changesType: ChangesTypes;
   comment: string;
+  author: string;
 }) => {
   const changelogFilePath = getChangelogTextFilePath();
+
   const changelogRecord = `
   ## ${bumpedPackageVersion}
   ${date.toString()}
@@ -26,6 +29,7 @@ const modifyChangelogTextFile = ({
 
   ${comment}
 
+  Author: **${author}**
   `;
 
   const existingContent = getChangelogTextData();
@@ -36,19 +40,23 @@ const modifyChangelogJsonFile = ({
   bumpedPackageVersion,
   date,
   changesType,
-  comment
+  comment,
+  author
 }: {
   bumpedPackageVersion: string;
   date: Date;
   changesType: ChangesTypes;
   comment: string;
+  author: string;
 }) => {
   const changelogFilePath = getChangelogJsonFilePath();
-  const changelogRecord = {
+
+  const changelogRecord: ChangelogRecord = {
     version: bumpedPackageVersion,
     type: changesType,
     comment,
-    date: date.toDateString()
+    date: date.toDateString(),
+    author
   };
 
   const existingContent = getChangelogJsonData();
@@ -63,13 +71,15 @@ export const modifyChangelog = ({
   bumpedPackageVersion,
   date,
   changesType,
-  comment
+  comment,
+  author
 }: {
   bumpedPackageVersion: string;
   date: Date;
   changesType: ChangesTypes;
   comment: string;
+  author: string;
 }) => {
-  modifyChangelogTextFile({ bumpedPackageVersion, date, changesType, comment });
-  modifyChangelogJsonFile({ bumpedPackageVersion, date, changesType, comment });
+  modifyChangelogTextFile({ bumpedPackageVersion, date, changesType, comment, author });
+  modifyChangelogJsonFile({ bumpedPackageVersion, date, changesType, comment, author });
 };

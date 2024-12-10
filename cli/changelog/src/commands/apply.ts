@@ -39,7 +39,8 @@ export const apply = async () => {
       bumpedPackageVersion,
       date: changeFileDate!,
       changesType: changeFileData.type,
-      comment: changeFileData.comment
+      comment: changeFileData.comment,
+      author: changeFileData.author
     });
     updatedPackageVersion = bumpedPackageVersion;
     fs.unlinkSync(changeFilePath);
