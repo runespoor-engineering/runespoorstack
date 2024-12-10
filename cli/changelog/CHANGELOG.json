@@ -2,6 +2,20 @@
   "name": "@runespoorstack/changelog-manager",
   "entries": [
     {
+      "version": "0.4.10",
+      "tag": "@runespoorstack/changelog-manager_v0.4.10",
+      "date": "Tue, 10 Dec 2024 06:27:51 GMT",
+      "comments": {
+        "patch": [
+          {
+            "comment": "`apply`: stage deleted change files",
+            "author": "BorysShulyak <borysshulyak@gmail.com>",
+            "commit": "208e8d9f645a94cf0a7e8d1031658d764f1ee707"
+          }
+        ]
+      }
+    },
+    {
       "version": "0.4.8",
       "tag": "@runespoorstack/changelog-manager_v0.4.8",
       "date": "Tue, 10 Dec 2024 05:52:15 GMT",
