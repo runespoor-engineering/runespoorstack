@@ -1,0 +1,203 @@
+---
+title: Tech Insights
+---
+
+# Changelog Manager: Tech Insights
+
+**Note:** This CLI is designed to work with Continuous Integration / Trunk Based Development workflows.
+
+## What is the problem?
+
+- The problem over changelog and semantic versioning management in **single** repositories.
+
+### Solution
+
+`@runespoor/changelog-manager` CLI package. With the following functionality allowed by `rune` command`:
+
+`rune change`
+--
+
+**Description**:
+Asks a series of questions and then generates a `<branchname>-<timestamp>.json` file in the common folder. 
+The `apply` command will consume these files and perform the proper version bumps. Note these changes will eventually be published in 
+a `CHANGELOG.md` file in the root of the repository. The possible types of changes are: MAJOR - these are breaking changes that are 
+not backward compatible. Examples are: renaming a public class, adding/removing a non-optional parameter from a public API, or 
+renaming a variable or function that is exported. MINOR - these are changes that are backward compatible (but not forward compatible). 
+Examples are: adding a new public API or adding an optional parameter to a public API PATCH - these are changes that are backward and 
+forward-compatible. Examples are: Modifying a private API or fixing a bug in the logic of how an existing API works. NONE - these are 
+changes that are backward and forwards compatible and don't require an immediate release. Examples are Modifying dev tooling 
+configurations like eslint.
+
+When to run the command?
+- Before each Merge Request or direct push to the main branch.
+
+**Usage**:
+```
+rune change
+```
+
+**Optional arguments**:
+```
+Optional arguments:
+  -h, --help            Show this help message and exit.
+```
+`
+**Functionality**: 
+- Should fetch the latest changes from the remote repository.
+- Should get the current branch name and default branch name (main/master).
+- Should ask to **describe** the changes. Message: `Describe the changes:`.
+- Should ask to select the **changes type**: `minor` / `major` / `patch` / `none` (described below). Message: `Choose the changes type:`.
+- Should create the **change file**.
+  - File name should follow the convention: `<branch-name>_yyyy-mm-dd-hh-mm-ss-ms.json`.
+  - File should be located in the `<root>/changes` directory.
+  - File should have the following specific structure (described below).
+  - If there were no new commits comparing with the default branch (`main` or `master`), should print the following message and exit with status code 0: `Error: No new commits found in the current branch. Please make sure you have committed your changes and your branch is ahead of origin/main`
+  - If the **change file** already exists, should ask if the user needs to `overwrite` it. Message: `The change file already exists. Do you want to overwrite it? (y/n)`. 
+  If user chooses `n`, the command will be finished with status code 0. 
+  If user chooses `y`, the command will continue, the new change file should be generated and the old one should be deleted.
+
+**Additional info**:
+
+The possible types of changes are: 
+- **minor** - these are breaking changes that are not backward compatible. Examples are: renaming a public class, adding/removing a non-optional parameter from a public API, or renaming a variable or function that is exported. 
+- **major** - these are changes that are backward compatible (but not forward compatible). Examples are: adding a new public API or adding an optional parameter to a public API.
+- **patch** - these are changes that are backward and forward-compatible. Examples are: Modifying a private API or fixing a bug in the logic of how an existing API works. 
+- **none** - these are changes that are backward and forward-compatible and don't require an immediate release. Examples are: Modifying dev tooling configurations like eslint.
+
+Specific **change file** structure:
+```
+{
+  "comment": "<description>",
+  "type": "<major/minor/patch/none",
+  "author": "GitUserName"
+}
+```
+
+`rune verify`
+--
+
+**Description**:
+Verifies that change files are provided and are valid.
+
+When to run the command?
+- In the CI workflow on each Merge Request.
+
+**Usage**:
+```
+rune change
+```
+
+**Optional arguments**:
+```
+Optional arguments:
+  -h, --help            Show this help message and exit.
+```
+
+**Functionality**:
+- Should fetch the latest changes from the remote repository.
+- Should get the current branch name and default branch name (main/master).
+- Should verify that there are new commits in the current branch comparing with the default branch.
+  - If there are no new commits, should print message and exit with status code 0: `Success: No new commits found in the current branch. Change files are not required.`
+  - If verification fails, should print error message and exit with status code 1: `Error: Failed to verify branch commits. Error: <error message>`
+- Should verify that change file exists and follows the naming convention.
+  - If change file doesn't exist, should print error message and exit with status code 1: `Error: No change files found. Please run 'rune change' to generate change files.`
+  - If change file name is invalid, should print error message and exit with status code 1: `Error: Invalid change file name. Expected format: <branch-name>_yyyy-mm-dd-hh-mm-ss-ms.json`
+- If verification passes, should print success message with change file path and return the path: `Success: Found change file: <change-file-path>`
+
+`rune apply`
+--
+
+**Description**:
+
+Reads and processes project change requests generated by `rush change`, applies the description of the changes to the changelog file, bumps the version of the project, and makes the commit. 
+
+When to run the command?
+- On the Main CI pipeline.
+
+**Usage**:
+
+```
+rune apply [-h]
+```
+
+**Optional arguments**:
+```
+Optional arguments:
+  -h, --help            Show this help message and exit.
+```
+
+**Functionality**: 
+
+- Should verify that change files exist and are valid, the same as `rune verify` command.
+- Should create changelog files if it doesn't exist.
+- Should get the date from change files name.
+- Should read change files data.
+- Should read package.json data to get current version.
+- Should bump the package version according to the change types:
+  - If change type is `none`, should not bump the version.
+  - If version bump fails, should print error message and exit with status code 1: `Error: Failed to bump package version.`
+- Should modify package.json with the new version.
+- Should modify changelog file with:
+  - Bumped package version
+  - Date from change file
+  - Change type (MAJOR/MINOR/PATCH)
+  - Comment from change file
+- Should delete the change file.
+- Should stage package.json and changelog files.
+- Should commit changes with message "chore(changelog): apply change file [ci skip]".
+- Should push changes to remote repository.
+
+**Additional info**:
+
+`CHANGELOG.json` structure:
+```
+[
+  {
+    "version": "<bumped version>",
+    "date": "<Tue, 28 May 2024 09:19:52 GMT>",
+    "type": "major/minor/patch/none",
+    "comment": "<comment-from-change-file>",
+    "author": "GitUserName"
+  }
+]
+```
+
+`CHANGELOG.md` structure:
+```
+# Change Log - <project-name>
+
+This log was last generated on <Tue, 28 May 2024 09:19:52 GMT> and should not be manually modified.
+
+## <bumped-version>
+<Tue, 28 May 2024 09:19:52 GMT>
+
+### <MAJOR/MINOR/PATCH>
+
+<comment-from-change-file>
+
+Author: **GitUserName**
+
+## <bumped-version>
+<Tue, 28 May 2024 09:19:52 GMT>
+
+### <MAJOR/MINOR/PATCH>
+
+<comment-from-change-file>
+
+Author: **GitUserName**
+
+```
+
+### Describe alternatives you've considered
+
+### Additional context
+
+Tech Stack to analyze: 
+- https://github.com/vadimdemedes/ink
+- https://github.com/chalk/chalk
+- https://github.com/tj/commander.js
+- https://github.com/google/zx
+- https://github.com/SBoudrias/Inquirer.js
+
+Guides:
+- https://blog.npmjs.org/post/118810260230/building-a-simple-command-line-tool-with-npm.html

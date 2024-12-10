@@ -173,6 +173,19 @@ const sidebars = {
           ]
         }
       ]
+    },
+    {
+      type: 'category',
+      label: 'CLI',
+      collapsible: true,
+      collapsed: true,
+      items: [
+        {
+          type: 'category',
+          label: 'Changelog Manager',
+          items: ['cli/changelog-manager/usage', 'cli/changelog-manager/tech-insights']
+        }
+      ]
     }
   ]
 };
