@@ -2,6 +2,20 @@
   "name": "@runespoorstack/changelog-manager",
   "entries": [
     {
+      "version": "0.4.13",
+      "tag": "@runespoorstack/changelog-manager_v0.4.13",
+      "date": "Tue, 10 Dec 2024 07:27:59 GMT",
+      "comments": {
+        "patch": [
+          {
+            "comment": "`apply`: add condition for final git commands.",
+            "author": "BorysShulyak <borysshulyak@gmail.com>",
+            "commit": "2d1da45feb0c6f9870d9cdc0637b030f2c527c8f"
+          }
+        ]
+      }
+    },
+    {
       "version": "0.4.12",
       "tag": "@runespoorstack/changelog-manager_v0.4.12",
       "date": "Tue, 10 Dec 2024 07:17:41 GMT",

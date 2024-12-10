@@ -1,6 +1,13 @@
 # Change Log - @runespoorstack/changelog-manager
 
-This log was last generated on Tue, 10 Dec 2024 07:17:41 GMT and should not be manually modified.
+This log was last generated on Tue, 10 Dec 2024 07:27:59 GMT and should not be manually modified.
+
+## 0.4.13
+Tue, 10 Dec 2024 07:27:59 GMT
+
+### Patches
+
+- `apply`: add condition for final git commands.
 
 ## 0.4.12
 Tue, 10 Dec 2024 07:17:41 GMT
