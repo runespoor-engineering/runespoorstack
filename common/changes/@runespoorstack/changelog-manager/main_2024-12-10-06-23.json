@@ -1,0 +1,10 @@
+{
+  "changes": [
+    {
+      "packageName": "@runespoorstack/changelog-manager",
+      "comment": "`apply`: stage deleted change files",
+      "type": "patch"
+    }
+  ],
+  "packageName": "@runespoorstack/changelog-manager"
+}
