@@ -2,6 +2,25 @@
   "name": "@runespoorstack/changelog-manager",
   "entries": [
     {
+      "version": "0.2.0",
+      "tag": "@runespoorstack/changelog-manager_v0.2.0",
+      "date": "Tue, 10 Dec 2024 00:03:33 GMT",
+      "comments": {
+        "minor": [
+          {
+            "comment": "**appy** command: apply all change files.",
+            "author": "Boris Shulyak <55171497+BorysShulyak@users.noreply.github.com>",
+            "commit": "2da07d06660dffebb9059040493f84c02db367b4"
+          },
+          {
+            "comment": "Implement commits count verification for `change` command.",
+            "author": "Boris Shulyak <55171497+BorysShulyak@users.noreply.github.com>",
+            "commit": "bbcedab88cc98798cd6b99f1f1662a80adf44ac9"
+          }
+        ]
+      }
+    },
+    {
       "version": "0.1.1",
       "tag": "@runespoorstack/changelog-manager_v0.1.1",
       "date": "Thu, 29 Aug 2024 08:13:53 GMT",
