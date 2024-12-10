@@ -13,6 +13,7 @@ export enum ChangesTypes {
 export type ChangeData = {
   comment: string;
   type: ChangesTypes;
+  author: string;
 };
 
 export type ChangelogRecord = {

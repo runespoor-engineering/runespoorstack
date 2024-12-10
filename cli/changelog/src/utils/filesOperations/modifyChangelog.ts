@@ -12,15 +12,16 @@ const modifyChangelogTextFile = ({
   bumpedPackageVersion,
   date,
   changesType,
-  comment
+  comment,
+  author
 }: {
   bumpedPackageVersion: string;
   date: Date;
   changesType: ChangesTypes;
   comment: string;
+  author: string;
 }) => {
   const changelogFilePath = getChangelogTextFilePath();
-  const author = execSync(GIT_COMMANDS.configUserName()).toString().trim()
 
   const changelogRecord = `
   ## ${bumpedPackageVersion}
@@ -41,15 +42,16 @@ const modifyChangelogJsonFile = ({
   bumpedPackageVersion,
   date,
   changesType,
-  comment
+  comment,
+  author
 }: {
   bumpedPackageVersion: string;
   date: Date;
   changesType: ChangesTypes;
   comment: string;
+  author: string;
 }) => {
   const changelogFilePath = getChangelogJsonFilePath();
-  const author = execSync(GIT_COMMANDS.configUserName()).toString().trim()
 
   const changelogRecord: ChangelogRecord = {
     version: bumpedPackageVersion,
@@ -71,13 +73,15 @@ export const modifyChangelog = ({
   bumpedPackageVersion,
   date,
   changesType,
-  comment
+  comment,
+  author
 }: {
   bumpedPackageVersion: string;
   date: Date;
   changesType: ChangesTypes;
   comment: string;
+  author: string;
 }) => {
-  modifyChangelogTextFile({ bumpedPackageVersion, date, changesType, comment });
-  modifyChangelogJsonFile({ bumpedPackageVersion, date, changesType, comment });
+  modifyChangelogTextFile({ bumpedPackageVersion, date, changesType, comment, author });
+  modifyChangelogJsonFile({ bumpedPackageVersion, date, changesType, comment, author });
 };

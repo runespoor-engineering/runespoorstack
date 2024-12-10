@@ -66,9 +66,11 @@ export const change = async () => {
       }
     ]
   });
+  const author = execSync(GIT_COMMANDS.configUserName()).toString().trim();
   const changeData = {
     comment: changesComment,
-    type: changesType
+    type: changesType,
+    author
   };
 
   const changeFileName = generateChangeFileName();
