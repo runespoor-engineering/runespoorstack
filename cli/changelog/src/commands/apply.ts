@@ -47,10 +47,12 @@ export const apply = async (options?: { targetBranch?: string }) => {
     execSync(GIT_COMMANDS.add(changeFilePath));
   });
 
-  modifyPackageVersion(updatedPackageVersion);
-  execSync(GIT_COMMANDS.add(getPackageJsonFilePath()));
-  execSync(GIT_COMMANDS.add(getChangelogTextFilePath()));
-  execSync(GIT_COMMANDS.add(getChangelogJsonFilePath()));
-  execSync(GIT_COMMANDS.commit(`chore(changelog): apply change file [ci skip]`));
-  execSync(GIT_COMMANDS.push(targetBranch));
+  if(changeFilesPaths.length) {
+    modifyPackageVersion(updatedPackageVersion);
+    execSync(GIT_COMMANDS.add(getPackageJsonFilePath()));
+    execSync(GIT_COMMANDS.add(getChangelogTextFilePath()));
+    execSync(GIT_COMMANDS.add(getChangelogJsonFilePath()));
+    execSync(GIT_COMMANDS.commit(`chore(changelog): apply change file [ci skip]`));
+    execSync(GIT_COMMANDS.push(targetBranch));
+  }
 };
