@@ -2,6 +2,20 @@
   "name": "@runespoorstack/changelog-manager",
   "entries": [
     {
+      "version": "0.4.11",
+      "tag": "@runespoorstack/changelog-manager_v0.4.11",
+      "date": "Tue, 10 Dec 2024 06:56:11 GMT",
+      "comments": {
+        "patch": [
+          {
+            "comment": "`apply`: remove useless logs.",
+            "author": "BorysShulyak <borysshulyak@gmail.com>",
+            "commit": "34685c0b41996493a7633c8726940bc8ad207816"
+          }
+        ]
+      }
+    },
+    {
       "version": "0.4.10",
       "tag": "@runespoorstack/changelog-manager_v0.4.10",
       "date": "Tue, 10 Dec 2024 06:27:51 GMT",
