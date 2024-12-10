@@ -1,5 +1,6 @@
 export const CHANGE_FILES_FOLDER = 'changes';
-export const CHANGELOG_FILE = 'CHANGELOG.md';
+export const CHANGELOG_TEXT_FILE = 'CHANGELOG.md';
+export const CHANGELOG_JSON_FILE = 'CHANGELOG.json';
 export const PACKAGE_JSON_FILE = 'package.json';
 
 export enum ChangesTypes {
@@ -12,6 +13,13 @@ export enum ChangesTypes {
 export type ChangeData = {
   comment: string;
   type: ChangesTypes;
+};
+
+export type ChangelogRecord = {
+  version: string;
+  comment: string;
+  type: ChangesTypes;
+  date: string;
 };
 
 export enum ChangesTypesDescriptions {
