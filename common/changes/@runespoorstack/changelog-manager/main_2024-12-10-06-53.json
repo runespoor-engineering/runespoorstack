@@ -1,0 +1,10 @@
+{
+  "changes": [
+    {
+      "packageName": "@runespoorstack/changelog-manager",
+      "comment": "`apply`: remove useless logs.",
+      "type": "patch"
+    }
+  ],
+  "packageName": "@runespoorstack/changelog-manager"
+}
