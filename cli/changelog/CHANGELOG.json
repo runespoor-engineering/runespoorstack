@@ -2,6 +2,20 @@
   "name": "@runespoorstack/changelog-manager",
   "entries": [
     {
+      "version": "0.3.0",
+      "tag": "@runespoorstack/changelog-manager_v0.3.0",
+      "date": "Tue, 10 Dec 2024 00:50:59 GMT",
+      "comments": {
+        "minor": [
+          {
+            "comment": "Save changelog in `CHAGELOG.json` file.",
+            "author": "Boris Shulyak <55171497+BorysShulyak@users.noreply.github.com>",
+            "commit": "e380686cb3386722fa805448e9cf578de4eb0537"
+          }
+        ]
+      }
+    },
+    {
       "version": "0.2.1",
       "tag": "@runespoorstack/changelog-manager_v0.2.1",
       "date": "Tue, 10 Dec 2024 00:18:09 GMT",

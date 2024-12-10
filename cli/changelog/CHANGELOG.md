@@ -1,6 +1,13 @@
 # Change Log - @runespoorstack/changelog-manager
 
-This log was last generated on Tue, 10 Dec 2024 00:18:09 GMT and should not be manually modified.
+This log was last generated on Tue, 10 Dec 2024 00:50:59 GMT and should not be manually modified.
+
+## 0.3.0
+Tue, 10 Dec 2024 00:50:59 GMT
+
+### Minor changes
+
+- Save changelog in `CHAGELOG.json` file.
 
 ## 0.2.1
 Tue, 10 Dec 2024 00:18:09 GMT
