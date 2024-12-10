@@ -2,6 +2,20 @@
   "name": "@runespoorstack/changelog-manager",
   "entries": [
     {
+      "version": "0.4.12",
+      "tag": "@runespoorstack/changelog-manager_v0.4.12",
+      "date": "Tue, 10 Dec 2024 07:17:41 GMT",
+      "comments": {
+        "patch": [
+          {
+            "comment": "Make `changes` directory safe.",
+            "author": "BorysShulyak <borysshulyak@gmail.com>",
+            "commit": "58df3db820fb6b9ab2d42f65787283dcda2ec994"
+          }
+        ]
+      }
+    },
+    {
       "version": "0.4.11",
       "tag": "@runespoorstack/changelog-manager_v0.4.11",
       "date": "Tue, 10 Dec 2024 06:56:11 GMT",
