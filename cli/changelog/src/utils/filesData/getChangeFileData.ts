@@ -1,7 +1,7 @@
 import fs from 'node:fs';
 
-import { checkFileExisting } from '../validation/checkFileExisting';
 import { ChangeData } from '../../types/common';
+import { checkFileExisting } from '../validation/checkFileExisting';
 
 export const getChangeFileData = (changeFilePath: string): ChangeData => {
   checkFileExisting(changeFilePath);

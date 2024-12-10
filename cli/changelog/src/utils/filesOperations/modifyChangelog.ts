@@ -1,10 +1,8 @@
-import { execSync } from 'node:child_process';
 import fs from 'node:fs';
 
 import { ChangelogRecord, ChangesTypes } from '../../types/common';
 import { getChangelogJsonData } from '../filesData/getChangelogJsonData';
 import { getChangelogTextData } from '../filesData/getChangelogTextData';
-import { GIT_COMMANDS } from '../git/command';
 import { getChangelogJsonFilePath } from '../paths/getChangelogJsonFilePath';
 import { getChangelogTextFilePath } from '../paths/getChangelogTextFilePath';
 
@@ -58,7 +56,7 @@ const modifyChangelogJsonFile = ({
     type: changesType,
     comment,
     date: date.toDateString(),
-    author: author
+    author
   };
 
   const existingContent = getChangelogJsonData();
