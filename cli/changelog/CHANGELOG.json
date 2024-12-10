@@ -2,6 +2,20 @@
   "name": "@runespoorstack/changelog-manager",
   "entries": [
     {
+      "version": "0.4.14",
+      "tag": "@runespoorstack/changelog-manager_v0.4.14",
+      "date": "Tue, 10 Dec 2024 19:26:24 GMT",
+      "comments": {
+        "patch": [
+          {
+            "comment": "`verify`, `change`: verify change file based on branch name + date, not only",
+            "author": "BorysShulyak <borysshulyak@gmail.com>",
+            "commit": "834ac7d77a7364351e63828674bcdd12a324cb3c"
+          }
+        ]
+      }
+    },
+    {
       "version": "0.4.13",
       "tag": "@runespoorstack/changelog-manager_v0.4.13",
       "date": "Tue, 10 Dec 2024 07:27:59 GMT",
