@@ -1,0 +1,10 @@
+{
+  "changes": [
+    {
+      "packageName": "@runespoorstack/changelog-manager",
+      "comment": "`verify`: provide more informative error message.",
+      "type": "patch"
+    }
+  ],
+  "packageName": "@runespoorstack/changelog-manager"
+}
