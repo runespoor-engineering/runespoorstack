@@ -6,6 +6,7 @@ import input from '@inquirer/input';
 import select from '@inquirer/select';
 
 import { ERRORS } from '../constants/errorMessages';
+import { INFO } from '../constants/infoMessages';
 import { ChangesTypes, ChangesTypesDescriptions } from '../types/common';
 import { generateChangeFileName } from '../utils/changeFileMeta/generateChangeFileName';
 import { createChangeFile } from '../utils/filesOperations/createChangeFile';
@@ -21,8 +22,8 @@ export const change = async () => {
   try {
     const commitsCount = getCommitsCount(`origin/${defaultBranch}`, currentBranch);
     if (commitsCount === 0) {
-      console.error(ERRORS.noNewCommits(`origin/${defaultBranch}`));
-      process.exit(1);
+      console.error(INFO.noNewCommits(`origin/${defaultBranch}`));
+      process.exit(0);
     }
   } catch (error) {
     console.error(ERRORS.failedBranchCommitsVerification(error));

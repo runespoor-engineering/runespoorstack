@@ -51,7 +51,7 @@ Optional arguments:
   - File name should follow the convention: `<branch-name>_yyyy-mm-dd-hh-mm-ss-ms.json`.
   - File should be located in the `<root>/changes` directory.
   - File should have the following specific structure (described below).
-  - If there were no new commits comparing with the default branch (`main` or `master`), should print the following message and exit with status code 0: `Error: No new commits found in the current branch. Please make sure you have committed your changes and your branch is ahead of origin/main`
+  - If there were no new commits comparing with the default branch (`main` or `master`), should print the following message and exit with status code 0: `Info: No new commits found in the current branch. Please make sure you have committed your changes and your branch is ahead of origin/main`
   - If the **change file** already exists, should ask if the user needs to `overwrite` it. Message: `The change file already exists. Do you want to overwrite it? (y/n)`. 
   If user chooses `n`, the command will be finished with status code 0. 
   If user chooses `y`, the command will continue, the new change file should be generated and the old one should be deleted.
