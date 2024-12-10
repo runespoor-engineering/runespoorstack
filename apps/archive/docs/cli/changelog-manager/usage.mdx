@@ -1,0 +1,114 @@
+---
+title: Usage
+---
+
+# Changelog Manager: Usage
+
+
+## Install
+
+```shell
+npm install --save-dev @runespoorstack/changelog-manager
+```
+
+## Setup
+
+Add npm scripts to your `package.json` file.
+
+```json
+{
+  ...
+  "scripts": {
+    ...
+    "changelog:change": "rune change",
+    "changelog:verify": "rune verify",
+    "changelog:apply": "rune apply"
+  }
+  ...
+}
+```
+
+Integrate `rune verify` command with your Merge Request CI (GitHub Actions example). 
+Make sure to add this job on the **beginning** of your pipeline:
+
+```yml
+name: Merge Request CI
+on:
+  pull_request:
+    branches:
+      - '*'
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: ${{ github.ref != 'refs/heads/main' }}
+
+jobs:
+  changelog-verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v4
+
+    - name: Setup Node
+      uses: actions/setup-node@v4
+      with:
+        node-version: 20
+        cache: 'npm'
+
+    - name: Install dependencies
+      run: npm ci
+
+    - name: Verify Changelog
+      run: npm run changelog:verify
+
+  ...
+
+```
+
+Integrate `rune apply` command with your Main CI (GitHub Actions example).
+Make sure to add this job on the **end** of your pipeline:
+
+```yml
+name: Main CI
+on:
+  push:
+    branches:
+      - main
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: ${{ github.ref == 'refs/heads/main' }}
+
+
+jobs:
+
+  ...
+
+  changelog-apply:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v4
+
+    - name: Setup Node
+      uses: actions/setup-node@v4
+      with:
+        node-version: 20
+        cache: 'npm'
+
+    - name: Install dependencies
+      run: npm ci
+
+    - name: Apply Changelog
+      run: npm run changelog:apply
+```
+
+## Manual commands
+
+Run `rune change` command and commit the resulted files to provide change files, before opening any Merge Request:
+
+```shell
+npm run changelog:change
+```
