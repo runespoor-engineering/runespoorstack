@@ -1,14 +1,14 @@
-import fs from 'node:fs'
+import fs from 'node:fs';
 
 import { getDateFromChangeFileName } from '../changeFileMeta/getDateFromChangeFileName';
 import { getChangesDirectoryPath } from '../paths/getChangesDirectoryPath';
 import { getDeepFilesFromDir } from './getDeepFilesFromDir';
 
 export const getChangeFilesPaths = () => {
-  const changeDirectoryPath = getChangesDirectoryPath()
+  const changeDirectoryPath = getChangesDirectoryPath();
   if (!fs.existsSync(changeDirectoryPath)) {
-    fs.mkdirSync(changeDirectoryPath)
-  };
+    fs.mkdirSync(changeDirectoryPath);
+  }
   const changeFilesPaths = getDeepFilesFromDir(changeDirectoryPath, /\.json$/);
   const sortedChangeFilesPaths = changeFilesPaths.sort((file1, file2) => {
     const date1 = getDateFromChangeFileName(file1);
