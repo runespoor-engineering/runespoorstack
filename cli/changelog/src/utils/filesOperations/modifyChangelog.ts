@@ -1,8 +1,10 @@
+import { execSync } from 'node:child_process';
 import fs from 'node:fs';
 
-import { ChangesTypes } from '../../types/common';
+import { ChangelogRecord, ChangesTypes } from '../../types/common';
 import { getChangelogJsonData } from '../filesData/getChangelogJsonData';
 import { getChangelogTextData } from '../filesData/getChangelogTextData';
+import { GIT_COMMANDS } from '../git/command';
 import { getChangelogJsonFilePath } from '../paths/getChangelogJsonFilePath';
 import { getChangelogTextFilePath } from '../paths/getChangelogTextFilePath';
 
@@ -18,6 +20,8 @@ const modifyChangelogTextFile = ({
   comment: string;
 }) => {
   const changelogFilePath = getChangelogTextFilePath();
+  const author = execSync(GIT_COMMANDS.configUserName()).toString().trim()
+
   const changelogRecord = `
   ## ${bumpedPackageVersion}
   ${date.toString()}
@@ -26,6 +30,7 @@ const modifyChangelogTextFile = ({
 
   ${comment}
 
+  Author: **${author}**
   `;
 
   const existingContent = getChangelogTextData();
@@ -44,11 +49,14 @@ const modifyChangelogJsonFile = ({
   comment: string;
 }) => {
   const changelogFilePath = getChangelogJsonFilePath();
-  const changelogRecord = {
+  const author = execSync(GIT_COMMANDS.configUserName()).toString().trim()
+
+  const changelogRecord: ChangelogRecord = {
     version: bumpedPackageVersion,
     type: changesType,
     comment,
-    date: date.toDateString()
+    date: date.toDateString(),
+    author: author
   };
 
   const existingContent = getChangelogJsonData();
