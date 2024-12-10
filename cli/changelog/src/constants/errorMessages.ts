@@ -6,6 +6,7 @@ export const ERRORS = {
     `Error: Failed to verify branch commits. ${error instanceof Error ? error.message : String(error)}`,
   invalidChangeFileName: () =>
     `Error: Invalid change file name. Expected format: <branch-name>_yyyy-mm-dd-hh-mm-ss-ms.json`,
-  noChangeFiles: (branchName: string) => `Error: No change files found for ${branchName} branch. Please run 'rune change' locally to generate change files.`,
+  noChangeFiles: (branchName: string) =>
+    `Error: No change files found for ${branchName} branch. Please run 'rune change' locally to generate change files.`,
   fileNotFound: (filePath: string) => `${filePath} file not found`
 };
