@@ -24,6 +24,59 @@ It will reduce costs spent on unnecessary jobs. [GitHub Example](https://docs.gi
 - Parallelize tests by splitting them into multiple jobs by tests type: static, unit, component, integration.
 - Parallelize long running jobs (component/integration tests) by splitting them into multiple shards. See [Vitest Sharding](https://vitest.dev/guide/improving-performance.html#sharding)
 
+### Use Cache for Eslint to speed up pipeline
+
+npm lint scripts (`package.json`):
+```json
+{
+  ...
+  "scripts": {
+    ...
+    "lint": "eslint . --ext .ts,.tsx,.js,.jsx,.cjs,.mjs --quiet --cache --cache-strategy content --cache-location ~/.eslintcache/lint",
+    "lint:fix": "eslint . --ext .ts,.tsx,.js,.jsx,.cjs,.mjs --fix --cache --cache-strategy content --cache-location ~/.eslintcache/lint",
+  }
+  ...
+}
+```
+
+Reusable Linting Job (`.github/workflows/reusable-test-static.yml`):
+```yml
+name: Test Static
+on:
+  workflow_call
+
+jobs:
+  test-static:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v4
+
+    - name: Setup Node
+      uses: actions/setup-node@v4
+      with:
+        node-version: 20
+        cache: 'npm'
+
+    - name: Use Eslint Cache
+      uses: actions/cache@v4
+      with:
+        path: |
+          ~/.eslintcache/
+        key: eslint-cache-${{ runner.os }}-${{ hashFiles('**/package-lock.json', '**/.eslintrc.js') }}
+
+    - name: Install dependencies
+      run: npm ci
+
+    - name: Test Static
+      run: npm run lint
+```
+
+**Additional info:**
+- [ESlint caching](https://eslint.org/docs/latest/use/command-line-interface#caching)
+
+
 ## CI Tools:
 - [PostHog](https://github.com/PostHog/posthog).
 - [SonarCube](https://www.sonarqube.org/).
