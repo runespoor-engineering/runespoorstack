@@ -2,6 +2,20 @@
   "name": "@runespoorstack/changelog-manager",
   "entries": [
     {
+      "version": "0.2.1",
+      "tag": "@runespoorstack/changelog-manager_v0.2.1",
+      "date": "Tue, 10 Dec 2024 00:18:09 GMT",
+      "comments": {
+        "patch": [
+          {
+            "comment": "`generateChangeFileName`: replace `/` symbol with `-` in branch name.",
+            "author": "Boris Shulyak <55171497+BorysShulyak@users.noreply.github.com>",
+            "commit": "bc7fa8d037f522caa870327c32caa01c779e7a1a"
+          }
+        ]
+      }
+    },
+    {
       "version": "0.2.0",
       "tag": "@runespoorstack/changelog-manager_v0.2.0",
       "date": "Tue, 10 Dec 2024 00:03:33 GMT",
