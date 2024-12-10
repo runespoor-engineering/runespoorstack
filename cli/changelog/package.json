@@ -3,9 +3,12 @@
   "version": "0.1.1",
   "description": "The Runespoor CLI for changelog management and semantic versioning.",
   "main": "dist/index.js",
-  "types": "types/index.d.ts",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "files": ["dist"],
+  "private": false,
   "scripts": {
-    "build": "tsc",
+    "build": "tsup",
     "test": "",
     "lint": "eslint . --ext .ts,.tsx,.js,.jsx,.cjs,.mjs --ignore-path ../../.gitignore --quiet",
     "lint:fix": "eslint . --ext .ts,.tsx,.js,.jsx,.cjs,.mjs --ignore-path ../../.gitignore --fix"
@@ -14,8 +17,6 @@
     "rune": "dist/index.js"
   },
   "dependencies": {
-    "@runespoorstack/git-utils": "workspace:*",
-    "@runespoorstack/files-system-utils": "workspace:*",
     "commander": "12.1.0",
     "@inquirer/input": "2.2.3",
     "@inquirer/select": "2.4.1",
@@ -25,12 +26,11 @@
   "devDependencies": {
     "@runespoorstack/eslint-config": "workspace:*",
     "@rushstack/eslint-config": "3.6.8",
+    "tsup": "8.3.0",
     "typescript": "5.4.5",
     "eslint": "8.57.0",
     "prettier": "3.2.5",
-    "ts-jest": "29.1.2",
-    "jest": "29.7.0",
-    "@types/jest": "29.5.12",
+    "vitest":"1.4.0",
     "@types/node": "20.14.8",
     "@types/semver": "7.5.8"
   },

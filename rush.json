@@ -361,24 +361,6 @@
       "shouldPublish": true
     },
     {
-      "packageName": "@runespoorstack/storybook-utils",
-      "projectFolder": "utils/storybook",
-      "tags": ["utils"],
-      "shouldPublish": true
-    },
-    {
-      "packageName": "@runespoorstack/files-system-utils",
-      "projectFolder": "utils/filesSystem",
-      "tags": ["utils"],
-      "shouldPublish": true
-    },
-    {
-      "packageName": "@runespoorstack/git-utils",
-      "projectFolder": "utils/git",
-      "tags": ["utils"],
-      "shouldPublish": true
-    },
-    {
       "packageName": "@runespoorstack/archive",
       "projectFolder": "apps/archive",
       "tags": ["apps"],

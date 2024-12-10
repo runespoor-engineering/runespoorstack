@@ -1,6 +1,6 @@
 import { execSync } from 'node:child_process';
 
-import { GIT_COMMANDS } from '@runespoorstack/git-utils';
+import { GIT_COMMANDS } from '../git/command';
 
 export const generateChangeFileName = () => {
   const branchName = execSync(GIT_COMMANDS.currentBranchName()).toString().trim();

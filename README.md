@@ -26,9 +26,6 @@ See the [CONTRIBUTING.md](https://github.com/runespoor-engineering/runespoorstac
 | feature-toggles/feature-toggles-imperative | Imperative feature toggles as code for JavaScript and TypeScript. |
 | eslint/eslint-config | Battle tested, ready for production set of Runespoor ESlint configs. |
 | cli/changelog | The Runespoor CLI for changelog management and semantic versioning. |
-| utils/storybook | The Runespoor set of Storybook utils. |
-| utils/git | The Runespoor set of Git utils. |
-| utils/filesSystem | The Runespoor set of files system utils. |
 
 
 ## Merge Request CI

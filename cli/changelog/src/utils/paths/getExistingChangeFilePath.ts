@@ -1,6 +1,5 @@
-import { getDeepFilesFromDir } from '@runespoorstack/files-system-utils';
-
 import { getDateFromChangeFileName } from '../changeFileMeta/getDateFromChangeFileName';
+import { getDeepFilesFromDir } from '../filesData/getDeepFilesFromDir';
 import { getFirstUniqueCommitDate } from '../git/getFirstUniqueCommitDate';
 import { getChangesDirectoryPath } from './getChangesDirectoryPath';
 

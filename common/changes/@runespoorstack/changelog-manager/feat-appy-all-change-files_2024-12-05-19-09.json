@@ -1,0 +1,10 @@
+{
+  "changes": [
+    {
+      "packageName": "@runespoorstack/changelog-manager",
+      "comment": "**appy** command: apply all change files.",
+      "type": "minor"
+    }
+  ],
+  "packageName": "@runespoorstack/changelog-manager"
+}
