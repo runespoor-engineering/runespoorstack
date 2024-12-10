@@ -47,7 +47,7 @@ export const apply = async (options?: { targetBranch?: string }) => {
     execSync(GIT_COMMANDS.add(changeFilePath));
   });
 
-  if(changeFilesPaths.length) {
+  if (changeFilesPaths.length) {
     modifyPackageVersion(updatedPackageVersion);
     execSync(GIT_COMMANDS.add(getPackageJsonFilePath()));
     execSync(GIT_COMMANDS.add(getChangelogTextFilePath()));
