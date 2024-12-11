@@ -7,7 +7,11 @@ import { GIT_COMMANDS } from '../utils/git/command';
 import { getCommitsCount } from '../utils/git/getCommitsCount';
 import { getExistingChangeFilePath } from '../utils/paths/getExistingChangeFilePath';
 
-export const verify = async (options?: { sourceBranch?: string; targetBranch?: string }) => {
+export const verify = async (options?: {
+  sourceBranch?: string;
+  targetBranch?: string;
+  remoteName?: string;
+}) => {
   execSync(GIT_COMMANDS.fetchOrigin());
   const sourceBranch =
     options?.sourceBranch || execSync(GIT_COMMANDS.currentBranchName()).toString().trim();
@@ -25,7 +29,11 @@ export const verify = async (options?: { sourceBranch?: string; targetBranch?: s
     process.exit(1);
   }
 
-  const existingChangeFilePath = getExistingChangeFilePath(targetBranch, sourceBranch);
+  const existingChangeFilePath = getExistingChangeFilePath({
+    targetBranch,
+    sourceBranch,
+    remoteName: options?.remoteName
+  });
   if (!existingChangeFilePath) {
     console.error(ERRORS.noChangeFiles(sourceBranch));
     process.exit(1);

@@ -2,11 +2,13 @@ import { prepareBranchForChangeFileName } from '../prepareBranchForChangeFileNam
 
 export const testChangeFilePathByBranchName = ({
   branchName,
-  changeFilePath
+  changeFilePath,
+  remoteName
 }: {
   branchName: string;
   changeFilePath: string;
+  remoteName?: string;
 }) => {
-  const formattedBranchName = prepareBranchForChangeFileName(branchName);
+  const formattedBranchName = prepareBranchForChangeFileName({ branchName, remoteName });
   return changeFilePath.includes(`/${formattedBranchName}_`);
 };

@@ -29,6 +29,7 @@ program
     '-s, --sourceBranch <source-branch-name>',
     'name of the source branch (required in the CI)'
   )
+  .option('-r, --remoteName <origin>', 'name of the git remote (required in the CI)')
   .action(async (options) => {
     verify(options);
   });

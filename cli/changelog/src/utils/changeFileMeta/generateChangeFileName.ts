@@ -6,7 +6,7 @@ import { prepareBranchForChangeFileName } from './prepareBranchForChangeFileName
 export const generateChangeFileName = () => {
   const branchName = execSync(GIT_COMMANDS.currentBranchName()).toString().trim();
   const timestamp = new Date().toISOString().replace(/[:.T]/g, '-').slice(0, -2);
-  const formattedBranchName = prepareBranchForChangeFileName(branchName);
+  const formattedBranchName = prepareBranchForChangeFileName({ branchName });
   const changeFileName = `${formattedBranchName}_${timestamp}.json`;
   return changeFileName;
 };

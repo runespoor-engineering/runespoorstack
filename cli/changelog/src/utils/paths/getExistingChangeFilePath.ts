@@ -6,17 +6,29 @@ import { getDeepFilesFromDir } from '../filesData/getDeepFilesFromDir';
 import { getFirstUniqueCommitDate } from '../git/getFirstUniqueCommitDate';
 import { getChangesDirectoryPath } from './getChangesDirectoryPath';
 
-export const getExistingChangeFilePath = (
-  defaultBranch: string,
-  currentBranch: string
-): string | undefined => {
-  const firstUniqueCommitDate = getFirstUniqueCommitDate(`origin/${defaultBranch}`, currentBranch);
+export const getExistingChangeFilePath = ({
+  sourceBranch,
+  targetBranch,
+  remoteName
+}: {
+  sourceBranch: string;
+  targetBranch: string;
+  remoteName?: string;
+}): string | undefined => {
+  const firstUniqueCommitDate = getFirstUniqueCommitDate(
+    `${remoteName}/${targetBranch}`,
+    sourceBranch
+  );
   const changeDirectoryPath = getChangesDirectoryPath();
   if (!fs.existsSync(changeDirectoryPath)) return undefined;
 
   const changeFiles = getDeepFilesFromDir(changeDirectoryPath, /\.json$/);
   const filteredChangeFilesByBranchName = changeFiles.filter((filePath) =>
-    testChangeFilePathByBranchName({ branchName: currentBranch, changeFilePath: filePath })
+    testChangeFilePathByBranchName({
+      branchName: sourceBranch,
+      changeFilePath: filePath,
+      remoteName
+    })
   );
 
   const existingChangeFile = filteredChangeFilesByBranchName.find((filePath) => {

@@ -31,7 +31,7 @@ export const change = async (options?: { targetBranch?: string }) => {
     process.exit(1);
   }
 
-  const existingChangeFilePath = getExistingChangeFilePath(targetBranch, sourceBranch);
+  const existingChangeFilePath = getExistingChangeFilePath({ targetBranch, sourceBranch });
   let shouldRewriteChangeFile = false;
   if (existingChangeFilePath) {
     shouldRewriteChangeFile = await confirm({
