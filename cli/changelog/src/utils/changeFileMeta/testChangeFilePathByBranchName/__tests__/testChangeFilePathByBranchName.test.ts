@@ -1,39 +1,30 @@
 import { testChangeFilePathByBranchName } from '../testChangeFilePathByBranchName';
 
 describe('testChangeFilePathByBranchName', () => {
-  it('should return `true` for valid change file name matching branch', () => {
+  it('should return `true` when paths match', () => {
     expect.hasAssertions();
     const result = testChangeFilePathByBranchName({
       branchName: 'feature/test-branch',
-      changeFileName: '/path/to/feature-test-branch_2024-01-15-10-30-45-00.json'
+      changeFilePath: `/path/to/changes/feature-test-branch_2024-12-10-19-30-03-23.json`
     });
     expect(result).toBeTruthy();
   });
 
-  it('should return `false` for change file from different branch', () => {
+  it('should return `false` when branch names do not match', () => {
     expect.hasAssertions();
     const result = testChangeFilePathByBranchName({
       branchName: 'feature/test-branch',
-      changeFileName: '/path/to/other-branch_2024-01-15-10-30-45-00.json'
+      changeFilePath: `/path/to/changes/different-branch_2024-12-10-19-30-03-23.json`
     });
     expect(result).toBeFalsy();
   });
 
-  it('should return `false` for invalid date format', () => {
+  it('should handle branch names with multiple slashes', () => {
     expect.hasAssertions();
     const result = testChangeFilePathByBranchName({
-      branchName: 'feature/test-branch',
-      changeFileName: '/path/to/feature-test-branch_2024-01-15.json'
+      branchName: 'feature/test/branch/name',
+      changeFilePath: `/path/to/changes/feature-test-branch-name_2024-12-10-19-30-03-23.json`
     });
-    expect(result).toBeFalsy();
-  });
-
-  it('should return `false` for invalid file extension', () => {
-    expect.hasAssertions();
-    const result = testChangeFilePathByBranchName({
-      branchName: 'feature/test-branch',
-      changeFileName: '/path/to/feature-test-branch_2024-01-15-10-30-45-00.txt'
-    });
-    expect(result).toBeFalsy();
+    expect(result).toBeTruthy();
   });
 });

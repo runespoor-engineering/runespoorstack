@@ -2,14 +2,11 @@ import { prepareBranchForChangeFileName } from '../prepareBranchForChangeFileNam
 
 export const testChangeFilePathByBranchName = ({
   branchName,
-  changeFileName
+  changeFilePath
 }: {
   branchName: string;
-  changeFileName: string;
+  changeFilePath: string;
 }) => {
   const formattedBranchName = prepareBranchForChangeFileName(branchName);
-  const changeFileNameRegex = new RegExp(
-    `/${formattedBranchName}_\\d{4}-\\d{2}-\\d{2}-\\d{2}-\\d{2}-\\d{2}-\\d{2}\\.json$`
-  );
-  return changeFileNameRegex.test(changeFileName);
+  return changeFilePath.includes(`/${formattedBranchName}_`);
 };
