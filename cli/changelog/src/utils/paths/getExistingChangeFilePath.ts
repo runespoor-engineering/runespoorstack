@@ -1,5 +1,6 @@
 import fs from 'node:fs';
 
+import { DEFAULT_GIT_REMOTE_NAME } from '../../constants/common';
 import { getDateFromChangeFileName } from '../changeFileMeta/getDateFromChangeFileName';
 import { testChangeFilePathByBranchName } from '../changeFileMeta/testChangeFilePathByBranchName/testChangeFilePathByBranchName';
 import { getDeepFilesFromDir } from '../filesData/getDeepFilesFromDir';
@@ -16,7 +17,7 @@ export const getExistingChangeFilePath = ({
   remoteName?: string;
 }): string | undefined => {
   const firstUniqueCommitDate = getFirstUniqueCommitDate(
-    `${remoteName}/${targetBranch}`,
+    `${remoteName || DEFAULT_GIT_REMOTE_NAME}/${targetBranch}`,
     sourceBranch
   );
   const changeDirectoryPath = getChangesDirectoryPath();

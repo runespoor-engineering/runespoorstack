@@ -1,5 +1,6 @@
 import { execSync } from 'child_process';
 
+import { DEFAULT_GIT_REMOTE_NAME } from '../constants/common';
 import { ERRORS } from '../constants/errorMessages';
 import { CHANGE_FILE_NAME_REGEXP } from '../constants/regexp';
 import { SUCCESS } from '../constants/successMessages';
@@ -19,7 +20,10 @@ export const verify = async (options?: {
     options?.targetBranch || execSync(GIT_COMMANDS.defaultBranchName()).toString().trim();
 
   try {
-    const commitsCount = getCommitsCount(`origin/${targetBranch}`, sourceBranch);
+    const commitsCount = getCommitsCount(
+      `${options?.remoteName || DEFAULT_GIT_REMOTE_NAME}/${targetBranch}`,
+      sourceBranch
+    );
     if (commitsCount === 0) {
       console.info(SUCCESS.changeFilesNotRequired());
       process.exit(0);
