@@ -1,0 +1,10 @@
+{
+  "changes": [
+    {
+      "packageName": "@runespoorstack/changelog-manager",
+      "comment": "`verify`: provide `remoteName` option",
+      "type": "minor"
+    }
+  ],
+  "packageName": "@runespoorstack/changelog-manager"
+}
