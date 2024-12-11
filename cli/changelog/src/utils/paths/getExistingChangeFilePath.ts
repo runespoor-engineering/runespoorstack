@@ -16,7 +16,7 @@ export const getExistingChangeFilePath = (
 
   const changeFiles = getDeepFilesFromDir(changeDirectoryPath, /\.json$/);
   const filteredChangeFilesByBranchName = changeFiles.filter((filePath) =>
-    testChangeFilePathByBranchName({ branchName: defaultBranch, changeFilePath: filePath })
+    testChangeFilePathByBranchName({ branchName: currentBranch, changeFilePath: filePath })
   );
 
   const existingChangeFile = filteredChangeFilesByBranchName.find((filePath) => {
