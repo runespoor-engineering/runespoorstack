@@ -168,6 +168,7 @@ const sidebars = {
           type: 'category',
           label: 'Growth',
           items: [
+            'engineering-playbook/growth/engineer-levels',
             'engineering-playbook/growth/growth-in-depth-or-breadth',
             'engineering-playbook/growth/company-engineering-culture',
             'engineering-playbook/growth/engineer-salary-review'
