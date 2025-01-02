@@ -1,6 +1,6 @@
 import fs from 'node:fs';
 
-import { getDateFromChangeFileName } from '../changeFileMeta/getDateFromChangeFileName';
+import { getDateFromChangeFileName } from '../changeFileMeta/getDateFromChangeFileName/getDateFromChangeFileName';
 import { getChangesDirectoryPath } from '../paths/getChangesDirectoryPath';
 import { getDeepFilesFromDir } from './getDeepFilesFromDir';
 

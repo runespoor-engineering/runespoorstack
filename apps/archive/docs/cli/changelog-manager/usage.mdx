@@ -20,7 +20,7 @@ Add npm scripts to your `package.json` file.
   ...
   "scripts": {
     ...
-    "changelog:change": "rune change",
+    "changelog:change": "rune change --issueLinkPattern https://jira.com/browse/{{issueId}}",
     "changelog:verify": "rune verify",
     "changelog:apply": "rune apply"
   }

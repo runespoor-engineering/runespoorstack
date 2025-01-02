@@ -2,7 +2,7 @@ import { execSync } from 'node:child_process';
 import fs from 'node:fs';
 
 import { ERRORS } from '../constants/errorMessages';
-import { getDateFromChangeFileName } from '../utils/changeFileMeta/getDateFromChangeFileName';
+import { getDateFromChangeFileName } from '../utils/changeFileMeta/getDateFromChangeFileName/getDateFromChangeFileName';
 import { getChangeFileData } from '../utils/filesData/getChangeFileData';
 import { getChangeFilesPaths } from '../utils/filesData/getChangeFilesPaths';
 import { getPackageJsonData } from '../utils/filesData/getPackageJsonData';
@@ -40,7 +40,8 @@ export const apply = async (options?: { targetBranch?: string }) => {
       date: changeFileDate!,
       changesType: changeFileData.type,
       comment: changeFileData.comment,
-      author: changeFileData.author
+      author: changeFileData.author,
+      issueLink: changeFileData.issueLink
     });
     updatedPackageVersion = bumpedPackageVersion;
     fs.unlinkSync(changeFilePath);

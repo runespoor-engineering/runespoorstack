@@ -7,14 +7,15 @@ import select from '@inquirer/select';
 
 import { ERRORS } from '../constants/errorMessages';
 import { INFO } from '../constants/infoMessages';
-import { ChangesTypes, ChangesTypesDescriptions } from '../types/common';
+import { ChangeData, ChangesTypes, ChangesTypesDescriptions } from '../types/common';
 import { generateChangeFileName } from '../utils/changeFileMeta/generateChangeFileName';
+import { generateIssueLink } from '../utils/changeFileMeta/generateIssueLink/generateIssueLink';
 import { createChangeFile } from '../utils/filesOperations/createChangeFile';
 import { GIT_COMMANDS } from '../utils/git/command';
 import { getCommitsCount } from '../utils/git/getCommitsCount';
 import { getExistingChangeFilePath } from '../utils/paths/getExistingChangeFilePath';
 
-export const change = async (options?: { targetBranch?: string }) => {
+export const change = async (options?: { targetBranch?: string; issueLinkPattern?: string }) => {
   execSync(GIT_COMMANDS.fetchOrigin());
   const sourceBranch = execSync(GIT_COMMANDS.currentBranchName()).toString().trim();
   const targetBranch =
@@ -68,11 +69,21 @@ export const change = async (options?: { targetBranch?: string }) => {
       }
     ]
   });
+
+  let issueLink;
+  if (options?.issueLinkPattern) {
+    const issueId = await input({
+      message: `Enter the issue id (it will be used in the following link ${options?.issueLinkPattern}):`
+    });
+    issueLink = generateIssueLink({ issueId, issueLinkPattern: options?.issueLinkPattern });
+  }
+
   const author = execSync(GIT_COMMANDS.configUserName()).toString().trim();
-  const changeData = {
+  const changeData: ChangeData = {
     comment: changesComment,
     type: changesType,
-    author
+    author,
+    issueLink
   };
 
   const changeFileName = generateChangeFileName();

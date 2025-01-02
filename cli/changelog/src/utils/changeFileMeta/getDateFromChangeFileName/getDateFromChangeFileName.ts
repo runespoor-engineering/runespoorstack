@@ -1,4 +1,4 @@
-import { CHANGE_FILE_DATE_REGEXP } from '../../constants/regexp';
+import { CHANGE_FILE_DATE_REGEXP } from '../../../constants/regexp';
 
 export const getDateFromChangeFileName = (fileName: string): Date | null => {
   const datePattern = CHANGE_FILE_DATE_REGEXP;

@@ -1,7 +1,7 @@
 import fs from 'node:fs';
 
 import { DEFAULT_GIT_REMOTE_NAME } from '../../constants/common';
-import { getDateFromChangeFileName } from '../changeFileMeta/getDateFromChangeFileName';
+import { getDateFromChangeFileName } from '../changeFileMeta/getDateFromChangeFileName/getDateFromChangeFileName';
 import { testChangeFilePathByBranchName } from '../changeFileMeta/testChangeFilePathByBranchName/testChangeFilePathByBranchName';
 import { getDeepFilesFromDir } from '../filesData/getDeepFilesFromDir';
 import { getFirstUniqueCommitDate } from '../git/getFirstUniqueCommitDate';
