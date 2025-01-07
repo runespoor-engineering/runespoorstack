@@ -31,8 +31,7 @@ const modifyChangelogTextFile = ({
 
   ${comment}
 
-  ${issueLink ? `[Issue Link](${issueLink})` : ''}
-  Author: **${author}**
+  ${issueLink ? `[Issue Link](${issueLink}) | ` : ''}Author: **${author}**
   `;
 
   const existingContent = getChangelogTextData();
