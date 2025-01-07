@@ -1,6 +1,13 @@
 # Change Log - @runespoorstack/changelog-manager
 
-This log was last generated on Thu, 02 Jan 2025 10:24:59 GMT and should not be manually modified.
+This log was last generated on Tue, 07 Jan 2025 11:27:04 GMT and should not be manually modified.
+
+## 0.6.1
+Tue, 07 Jan 2025 11:27:04 GMT
+
+### Patches
+
+- `modifyChangelogTextFile`: adjust changelog template
 
 ## 0.6.0
 Thu, 02 Jan 2025 10:24:59 GMT
