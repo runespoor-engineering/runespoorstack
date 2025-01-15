@@ -2,6 +2,20 @@
   "name": "@runespoorstack/changelog-manager",
   "entries": [
     {
+      "version": "0.6.1",
+      "tag": "@runespoorstack/changelog-manager_v0.6.1",
+      "date": "Tue, 07 Jan 2025 11:27:04 GMT",
+      "comments": {
+        "patch": [
+          {
+            "comment": "`modifyChangelogTextFile`: adjust changelog template",
+            "author": "BorysShulyak <borysshulyak@gmail.com>",
+            "commit": "4799734383f9ce8e1079884bc0fc95a1b48cd897"
+          }
+        ]
+      }
+    },
+    {
       "version": "0.6.0",
       "tag": "@runespoorstack/changelog-manager_v0.6.0",
       "date": "Thu, 02 Jan 2025 10:24:59 GMT",
