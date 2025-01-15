@@ -7,6 +7,7 @@ export const generateIssueLink = ({
   issueId: string;
   issueLinkPattern: string;
 }) => {
+  if (!issueId) return undefined;
   const issueLink = issueLinkPattern.replace(ISSUE_ID_REGEXP, issueId);
   return issueLink;
 };
