@@ -2,6 +2,20 @@
   "name": "@runespoorstack/changelog-manager",
   "entries": [
     {
+      "version": "0.6.2",
+      "tag": "@runespoorstack/changelog-manager_v0.6.2",
+      "date": "Wed, 15 Jan 2025 08:24:58 GMT",
+      "comments": {
+        "patch": [
+          {
+            "comment": "`generateIssueLink`: return `undefined` if `issueId` is not provided so that `apply` command will not add `issueLink` to the changelog.",
+            "author": "BorysShulyak <borysshulyak@gmail.com>",
+            "commit": "2c7c0cb5824b54c1fa3d7e7d22d2e5f83d8875cb"
+          }
+        ]
+      }
+    },
+    {
       "version": "0.6.1",
       "tag": "@runespoorstack/changelog-manager_v0.6.1",
       "date": "Tue, 07 Jan 2025 11:27:04 GMT",
