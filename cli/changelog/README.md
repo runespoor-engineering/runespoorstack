@@ -58,7 +58,6 @@ A specialized CLI tool (`@runespoor/changelog-manager`) designed for managing ch
 - **CI/CD Integration**: Built-in commands for verification in CI pipelines
 - **Issue Tracking**: Optional integration with issue tracking systems
 - **Git Integration**: Automated commit and push functionality
-- **Flexible Configuration**: Supports custom branch names and remote configurations
 
 ## Use Cases
 
