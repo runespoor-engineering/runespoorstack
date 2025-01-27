@@ -173,6 +173,11 @@ const sidebars = {
             'engineering-playbook/growth/company-engineering-culture',
             'engineering-playbook/growth/engineer-salary-review'
           ]
+        },
+        {
+          type: 'category',
+          label: 'UI Design',
+          items: ['engineering-playbook/ui-design/ui-design-review']
         }
       ]
     },

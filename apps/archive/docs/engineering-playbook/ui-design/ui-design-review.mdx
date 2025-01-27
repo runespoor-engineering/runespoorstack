@@ -1,0 +1,103 @@
+---
+title: UI Design Review
+---
+
+# UI Design Review
+
+UI Design Review is a crucial process that ensures our user interfaces are consistent, accessible,
+and aligned with our design principles. Similar to code reviews, having a formalized UI design
+review process helps maintain quality and provides clear guidelines for both designers and developers.
+
+This document outlines our UI Design Review process, including:
+
+- When a UI Design Review is required
+- Who should participate in the review
+- Review criteria and checklist
+- How to submit designs for review
+- Review deadlines and expectations
+- How to handle feedback and iterations
+- Exception handling process
+
+A thorough UI Design Review helps prevent common issues like:
+
+- Inconsistent component usage
+- Accessibility violations
+- Poor responsive behavior
+- Deviations from our design system
+- User experience issues
+- Development performance concerns
+- App performance issues
+
+By following this process, we ensure our UI implementations meet our quality standards before
+they reach implementation.
+
+For UI review we use **Figma Branching** functionality. Read more:
+- [Best practices: Figma Branching](https://www.figma.com/best-practices/branching-in-figma/)
+- [Figma Branching](https://help.figma.com/hc/en-us/sections/5665686755479-Branching-and-merging)
+
+## When a UI Design Review is required
+
+A UI Design Review is required in the following scenarios:
+
+### New Components or Features
+- When introducing new UI components to the design system
+- For major feature implementations with significant UI changes
+- When creating new page layouts or templates
+- When implementing complex interactive elements
+
+### Design System Changes
+- Updates to existing design system components
+- Changes to design tokens (colors, typography, spacing, etc.)
+- Modifications to component behavior or interaction patterns
+- Introduction of new design patterns or guidelines
+
+### Complex changes is UI
+- The review is not required in fixing some UI issues, or adding something really small like one more button/field/etc. to the existing UI.
+- But if the changes are complex, and it introduces something new to the screens, then the review is required.
+
+## UI Design Review Formalization
+
+**UI Review frequency:**
+
+- At least 1 review per day.
+
+**UI Review checklist:**
+
+- All the reusable global elements are created as a components.
+- No custom colors, icon sizes.
+- No custom styles for components, excepting corner cases.
+- All the text nodes use the Typography component from the design system.
+
+**Required reviewers:**
+- UI/UX designers
+- At least 1 Frontend Engineer/Tech Lead - this process is mostly create for frontend engineers.
+
+**Optional participants:**
+- Product Owner
+- Business Analyst
+- QA Engineers
+
+## UI Review Flow
+
+**Author**
+
+- Follow this guide for [Requesting a Figma Branch Review](https://help.figma.com/hc/en-us/articles/5691414603543-Request-a-branch-review)
+- The reviewers wrote some comments?
+  - Answer the questions, ask you questions, or apply the suggestions.
+  - Notify the reviewers about fixes in the threads.
+- 1 approve from Frontend Engineer/Tech Lead and 1 approve from UI/UX designer?
+  - [Merge the Figma branch](https://help.figma.com/hc/en-us/articles/5691189138839-Merge-branch-into-main-file).
+
+**Reviewer** 
+- Approve changes? 
+  - Tap approve.
+- Don't agree with changes?
+  - Open discussions in comments.
+- In the discussion, the author notified about resolving? 
+  - Double check ⇒ Resolve comment or Write questions/suggestions.
+
+## Exceptions
+
+- Two people did not come to an agreement in the same discussion? - Ask the opinion of other reviewers.
+- There is no time for resolving code review discussions. - Only if the **Task Priority is** **Emergency,** create the comment in mainline or Jira ticket with provided description for fixing the discussions. After that, you could merge and fix the discussions in the future.
+- The priority of the issue is low? The changes are too minor?  - UI designer could make the QA check-up by himself.
