@@ -38,7 +38,7 @@ See the [CONTRIBUTING.md](https://github.com/runespoor-engineering/runespoorstac
 
 ## 💕 Special Thanks
 
-- I want to say thank you to the best woman in the world, **my wife Diana** for her love, daily support, motivation and inspiration.
+I want to say thank you to the best woman in the world, **my wife Diana** for her love, daily support, motivation and inspiration.
 
 ## ❤️ Support or Donate
 
