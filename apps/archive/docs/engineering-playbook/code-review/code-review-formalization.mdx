@@ -1,12 +1,12 @@
 ---
-title: Code Review Fromalization
+title: Code Review Formalization
 ---
 
-# Code Review Fromalization
+# Code Review Formalization
 
 **MR checklist:**
 
-- ✅ Changes were structured by the logical commits/MRs: one logical change - one commit/MR.
+- ✅ Changes were structured by logical commits/MRs: one logical change - one commit/MR.
 - ✅ MR pipeline is green.
 - ✅ Tests are added/updated (if relevant)
 - ✅ Storybook stories are added/updated (if relevant)
@@ -22,7 +22,7 @@ title: Code Review Fromalization
 **Reviewers:**
 
 - The MR **Author** should assign the **Reviewers**.
-- If someone is not assigned as a reviewer but wants to review the MR, he could assign himself.
+- If someone is not assigned as a reviewer but wants to review the MR, they can assign themselves.
 
 **Required reviewers:**
 - 1 code owner
@@ -43,7 +43,7 @@ title: Code Review Fromalization
 
 **Reviewer** 
 
-- Starting the review - tap on reaction on the MR (e.g. 👀) to let everyone know that you have started cove review.
+- Starting the review - tap on reaction on the MR (e.g. 👀) to let everyone know that you have started code review.
 - Approve changes? 
   - Tap approve.
   - If you are the last approver, set the `workflow::approved` label.
@@ -56,17 +56,17 @@ title: Code Review Fromalization
 **Author**
 
 - The `workflow::revoked` label is set or reviewers wrote some comments?
-  - Answer the questions, ask you questions, or apply the suggestions.
+  - Answer the questions, ask your questions, or apply the suggestions.
   - Notify the reviewers about fixes in the threads.
   - Set the `workflow::review` label.
-- 3 approves or the `workflow::approved` label is set?
+- 3 approvals or the `workflow::approved` label is set?
   - Merge MR.
 
 ## Exceptions
 
 - Two people did not come to an agreement in the same discussion? - Ask the opinion of other code reviewers.
-- There is no time for resolving code review discussions. - Only if the **MR Priority is** **Emergency,** create a GitLab issue or Jira ticket with provided description for fixing the discussions and add ToDo in the code. After that, you could merge and fix the discussions in the future.
-- The priority of the issue is low? The changes are too minor?  - Developer could make the QA check-up by himself.
+- There is no time for resolving code review discussions. - Only if the **MR Priority is Emergency**, create a GitLab issue or Jira ticket with provided description for fixing the discussions and add ToDo in the code. After that, you can merge and fix the discussions in the future.
+- The priority of the issue is low? The changes are too minor? - Developer can make the QA check-up themselves.
 
 ## Best practices
 
