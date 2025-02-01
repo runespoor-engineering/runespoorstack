@@ -1,6 +1,13 @@
 # Change Log - @runespoorstack/changelog-manager
 
-This log was last generated on Sat, 01 Feb 2025 00:16:00 GMT and should not be manually modified.
+This log was last generated on Sat, 01 Feb 2025 00:56:50 GMT and should not be manually modified.
+
+## 0.7.1
+Sat, 01 Feb 2025 00:56:50 GMT
+
+### Patches
+
+- `verify`: fetch source branch
 
 ## 0.7.0
 Sat, 01 Feb 2025 00:16:00 GMT

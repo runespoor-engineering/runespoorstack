@@ -2,6 +2,20 @@
   "name": "@runespoorstack/changelog-manager",
   "entries": [
     {
+      "version": "0.7.1",
+      "tag": "@runespoorstack/changelog-manager_v0.7.1",
+      "date": "Sat, 01 Feb 2025 00:56:50 GMT",
+      "comments": {
+        "patch": [
+          {
+            "comment": "`verify`: fetch source branch",
+            "author": "BorysShulyak <borysshulyak@gmail.com>",
+            "commit": "1c3a8b0189100200395db98a27447bc0945ae61a"
+          }
+        ]
+      }
+    },
+    {
       "version": "0.7.0",
       "tag": "@runespoorstack/changelog-manager_v0.7.0",
       "date": "Sat, 01 Feb 2025 00:16:00 GMT",
