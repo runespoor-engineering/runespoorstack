@@ -2,6 +2,20 @@
   "name": "@runespoorstack/changelog-manager",
   "entries": [
     {
+      "version": "0.7.0",
+      "tag": "@runespoorstack/changelog-manager_v0.7.0",
+      "date": "Sat, 01 Feb 2025 00:16:00 GMT",
+      "comments": {
+        "minor": [
+          {
+            "comment": "`verify`, `apply`, `change` commands: provide `remoteName` options and fetch only needed branches",
+            "author": "BorysShulyak <borysshulyak@gmail.com>",
+            "commit": "f779e65d707d3f33f8b4f21421b473680b35c8e8"
+          }
+        ]
+      }
+    },
+    {
       "version": "0.6.2",
       "tag": "@runespoorstack/changelog-manager_v0.6.2",
       "date": "Wed, 15 Jan 2025 08:24:58 GMT",
