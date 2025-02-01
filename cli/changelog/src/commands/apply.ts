@@ -1,6 +1,7 @@
 import { execSync } from 'node:child_process';
 import fs from 'node:fs';
 
+import { DEFAULT_GIT_REMOTE_NAME } from '../constants/common';
 import { ERRORS } from '../constants/errorMessages';
 import { getDateFromChangeFileName } from '../utils/changeFileMeta/getDateFromChangeFileName/getDateFromChangeFileName';
 import { getChangeFileData } from '../utils/filesData/getChangeFileData';
@@ -16,9 +17,11 @@ import { getChangelogTextFilePath } from '../utils/paths/getChangelogTextFilePat
 import { getPackageJsonFilePath } from '../utils/paths/getPackageJsonFilePath';
 import { bumpSemver } from '../utils/semver/bumpSemver';
 
-export const apply = async (options?: { targetBranch?: string }) => {
+export const apply = async (options?: { targetBranch?: string; remoteName?: string }) => {
+  const remote = options?.remoteName || DEFAULT_GIT_REMOTE_NAME;
+
   const targetBranch =
-    options?.targetBranch || execSync(GIT_COMMANDS.defaultBranchName()).toString().trim();
+    options?.targetBranch || execSync(GIT_COMMANDS.defaultBranchName(remote)).toString().trim();
 
   createChangelogTextFile();
   createChangelogJsonFile();
@@ -54,6 +57,6 @@ export const apply = async (options?: { targetBranch?: string }) => {
     execSync(GIT_COMMANDS.add(getChangelogTextFilePath()));
     execSync(GIT_COMMANDS.add(getChangelogJsonFilePath()));
     execSync(GIT_COMMANDS.commit(`chore(changelog): apply change file [ci skip]`));
-    execSync(GIT_COMMANDS.push(targetBranch));
+    execSync(GIT_COMMANDS.push(remote, targetBranch));
   }
 };

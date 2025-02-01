@@ -23,6 +23,7 @@ program
     '-i, --issueLinkPattern <issue-link-pattern>',
     'pattern to generate issue link (leave {{issueId}} placeholder in the correct link place)'
   )
+  .option('-r, --remoteName <origin>', 'name of the git remote')
   .action(change);
 
 program
@@ -45,6 +46,7 @@ program
     '-t, --targetBranch <source-branch-name>',
     'name of the target branch (required in the CI)'
   )
+  .option('-r, --remoteName <origin>', 'name of the git remote')
   .action(apply);
 
 program.parse();

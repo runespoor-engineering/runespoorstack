@@ -16,10 +16,8 @@ export const getExistingChangeFilePath = ({
   targetBranch: string;
   remoteName?: string;
 }): string | undefined => {
-  const firstUniqueCommitDate = getFirstUniqueCommitDate(
-    `${remoteName || DEFAULT_GIT_REMOTE_NAME}/${targetBranch}`,
-    sourceBranch
-  );
+  const remote = remoteName || DEFAULT_GIT_REMOTE_NAME;
+  const firstUniqueCommitDate = getFirstUniqueCommitDate(`${remote}/${targetBranch}`, sourceBranch);
   const changeDirectoryPath = getChangesDirectoryPath();
   if (!fs.existsSync(changeDirectoryPath)) return undefined;
 

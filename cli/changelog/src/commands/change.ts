@@ -5,6 +5,7 @@ import confirm from '@inquirer/confirm';
 import input from '@inquirer/input';
 import select from '@inquirer/select';
 
+import { DEFAULT_GIT_REMOTE_NAME } from '../constants/common';
 import { ERRORS } from '../constants/errorMessages';
 import { INFO } from '../constants/infoMessages';
 import { ChangeData, ChangesTypes, ChangesTypesDescriptions } from '../types/common';
@@ -15,16 +16,22 @@ import { GIT_COMMANDS } from '../utils/git/command';
 import { getCommitsCount } from '../utils/git/getCommitsCount';
 import { getExistingChangeFilePath } from '../utils/paths/getExistingChangeFilePath';
 
-export const change = async (options?: { targetBranch?: string; issueLinkPattern?: string }) => {
-  execSync(GIT_COMMANDS.fetchOrigin());
+export const change = async (options?: {
+  targetBranch?: string;
+  issueLinkPattern?: string;
+  remoteName?: string;
+}) => {
+  const remote = options?.remoteName || DEFAULT_GIT_REMOTE_NAME;
   const sourceBranch = execSync(GIT_COMMANDS.currentBranchName()).toString().trim();
   const targetBranch =
-    options?.targetBranch || execSync(GIT_COMMANDS.defaultBranchName()).toString().trim();
+    options?.targetBranch || execSync(GIT_COMMANDS.defaultBranchName(remote)).toString().trim();
+
+  execSync(GIT_COMMANDS.fetch(remote, targetBranch));
 
   try {
-    const commitsCount = getCommitsCount(`origin/${targetBranch}`, sourceBranch);
+    const commitsCount = getCommitsCount(`${remote}/${targetBranch}`, sourceBranch);
     if (commitsCount === 0) {
-      console.error(INFO.noNewCommits(`origin/${targetBranch}`));
+      console.error(INFO.noNewCommits(`${remote}/${targetBranch}`));
       process.exit(0);
     }
   } catch (error) {

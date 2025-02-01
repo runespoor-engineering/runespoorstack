@@ -13,17 +13,16 @@ export const verify = async (options?: {
   targetBranch?: string;
   remoteName?: string;
 }) => {
-  execSync(GIT_COMMANDS.fetchOrigin());
+  const remote = options?.remoteName || DEFAULT_GIT_REMOTE_NAME;
   const sourceBranch =
     options?.sourceBranch || execSync(GIT_COMMANDS.currentBranchName()).toString().trim();
   const targetBranch =
-    options?.targetBranch || execSync(GIT_COMMANDS.defaultBranchName()).toString().trim();
+    options?.targetBranch || execSync(GIT_COMMANDS.defaultBranchName(remote)).toString().trim();
+
+  execSync(GIT_COMMANDS.fetch(remote, targetBranch));
 
   try {
-    const commitsCount = getCommitsCount(
-      `${options?.remoteName || DEFAULT_GIT_REMOTE_NAME}/${targetBranch}`,
-      sourceBranch
-    );
+    const commitsCount = getCommitsCount(`${remote}/${targetBranch}`, sourceBranch);
     if (commitsCount === 0) {
       console.info(SUCCESS.changeFilesNotRequired());
       process.exit(0);
