@@ -19,8 +19,7 @@ export const verify = async (options?: {
   const targetBranch =
     options?.targetBranch || execSync(GIT_COMMANDS.defaultBranchName(remote)).toString().trim();
 
-  execSync(GIT_COMMANDS.fetch(remote, targetBranch));
-  execSync(GIT_COMMANDS.fetch(remote, sourceBranch));
+  execSync(GIT_COMMANDS.fetchRemote(remote));
 
   try {
     const commitsCount = getCommitsCount(`${remote}/${targetBranch}`, sourceBranch);

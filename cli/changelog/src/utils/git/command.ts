@@ -1,4 +1,5 @@
 export const GIT_COMMANDS = {
+  fetchRemote: (remote: string) => `git fetch ${remote}`,
   fetch: (remote: string, branch: string) => `git fetch ${remote} ${branch}`,
   commitsCountBetweenBranches: (from: string, to: string) => `git rev-list --count ${from}..${to}`,
   currentBranchName: () => 'git rev-parse --abbrev-ref HEAD',
