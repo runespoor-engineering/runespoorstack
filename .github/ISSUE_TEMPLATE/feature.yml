@@ -21,8 +21,6 @@ body:
         - cli/changelog
         - feature-toggles/feature-toggles-imperative
         - bots/danger
-        - utils/storybook
-        - utils/eslint-config
         - new package
     validations:
       required: true
