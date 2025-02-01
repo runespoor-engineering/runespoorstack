@@ -1,6 +1,13 @@
 # Change Log - @runespoorstack/changelog-manager
 
-This log was last generated on Wed, 15 Jan 2025 08:24:58 GMT and should not be manually modified.
+This log was last generated on Sat, 01 Feb 2025 00:16:00 GMT and should not be manually modified.
+
+## 0.7.0
+Sat, 01 Feb 2025 00:16:00 GMT
+
+### Minor changes
+
+- `verify`, `apply`, `change` commands: provide `remoteName` options and fetch only needed branches
 
 ## 0.6.2
 Wed, 15 Jan 2025 08:24:58 GMT
