@@ -1,0 +1,10 @@
+{
+  "changes": [
+    {
+      "packageName": "@runespoorstack/changelog-manager",
+      "comment": "Fix linter errors.",
+      "type": "none"
+    }
+  ],
+  "packageName": "@runespoorstack/changelog-manager"
+}
