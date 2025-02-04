@@ -18,8 +18,6 @@ body:
         - cli/changelog
         - feature-toggles/feature-toggles-imperative
         - bots/danger
-        - utils/storybook
-        - utils/eslint-config
     validations:
       required: true
 
