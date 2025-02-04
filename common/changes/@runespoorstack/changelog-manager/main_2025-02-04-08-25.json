@@ -1,0 +1,10 @@
+{
+  "changes": [
+    {
+      "packageName": "@runespoorstack/changelog-manager",
+      "comment": "`apply`: skip git hooks on pushing changelogs.",
+      "type": "patch"
+    }
+  ],
+  "packageName": "@runespoorstack/changelog-manager"
+}
