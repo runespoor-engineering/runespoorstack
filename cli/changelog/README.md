@@ -38,7 +38,7 @@ A specialized CLI tool (`@runespoor/changelog-manager`) designed for managing ch
 1. `rune change`
    - Interactive command to document changes before merging
    - Generates timestamped JSON files containing change details
-   - Captures change type (major/minor/patch/none), description, and optional issue links
+   - Captures change type (major/minor/patch/none), description, author, and optional issue links
 
 2. `rune verify`
    - CI-focused validation command
