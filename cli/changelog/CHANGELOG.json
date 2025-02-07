@@ -2,6 +2,27 @@
   "name": "@runespoorstack/changelog-manager",
   "entries": [
     {
+      "version": "0.7.3",
+      "tag": "@runespoorstack/changelog-manager_v0.7.3",
+      "date": "Tue, 04 Feb 2025 08:33:07 GMT",
+      "comments": {
+        "patch": [
+          {
+            "comment": "`apply`: skip git hooks on pushing changelogs.",
+            "author": "BorysShulyak <borysshulyak@gmail.com>",
+            "commit": "8c0284c6fc43495a76daef4230a9937a8684f98b"
+          }
+        ],
+        "none": [
+          {
+            "comment": "Fix linter errors.",
+            "author": "BorysShulyak <borysshulyak@gmail.com>",
+            "commit": "7e4fcc1bee520b866f9e39e692d1446282499c6d"
+          }
+        ]
+      }
+    },
+    {
       "version": "0.7.2",
       "tag": "@runespoorstack/changelog-manager_v0.7.2",
       "date": "Sat, 01 Feb 2025 01:16:03 GMT",

@@ -1,6 +1,13 @@
 # Change Log - @runespoorstack/changelog-manager
 
-This log was last generated on Sat, 01 Feb 2025 01:16:03 GMT and should not be manually modified.
+This log was last generated on Tue, 04 Feb 2025 08:33:07 GMT and should not be manually modified.
+
+## 0.7.3
+Tue, 04 Feb 2025 08:33:07 GMT
+
+### Patches
+
+- `apply`: skip git hooks on pushing changelogs.
 
 ## 0.7.2
 Sat, 01 Feb 2025 01:16:03 GMT
