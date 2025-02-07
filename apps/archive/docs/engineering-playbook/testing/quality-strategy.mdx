@@ -1,0 +1,202 @@
+---
+title: Quality Strategy
+---
+
+# Quality Strategy
+
+## What is Quality?
+
+Quality is not throwing something "over the fence" to be tested; rather it is a goal that the 
+entire team share, from idea to delivery and beyond.
+
+Good quality practices provide the confidence and ability to develop quickly and release 
+frequently; resulting in a better product and happier customers.
+
+Quality is about making everything better. When we say everything, we really mean that too. 
+Quality isn’t just about the product, it’s about the experience of everyone involved. 
+From the Product Manager, to the Designer, the Software Engineers, the Data Engineers, 
+the Sales person, the Support team, and of course, our end users.
+
+Talking of end users. Quality is “goodness” and “correctness” (just because something is ‘correct’, 
+it doesn’t necessarily mean it’s ‘good’); it’s the value that a customer or user feels while using 
+the product or service, and it is entirely unique to that customer.
+
+Although testing plays a huge part in our perceived quality, testing alone can never guarantee 
+software with goodness at the centre of it; we also need to create and drive a culture of quality, 
+where quality is at the forefront of everything we do, from ideation to product design, to 
+engineering, to release processes, to customer support, etc
+
+![Quality Strategy](/img/quality-strategy.png)
+
+## Ideation
+
+### What is it?
+
+Where most stories begin, with an idea. The ideation stage is the earliest point of an idea 
+and testing here is just as important as it is in every stage that follows.
+
+### How do we test it?
+
+**Test Ideas.** We are looking for business value. This is often Product Owners or Managers working with 
+customers to decide if the feature is something they want. They are testing the idea with 
+the target audience but can also do this internally through existing product research or 
+speaking to those closest to our users.
+
+**Determine Value**. An evaluation of how much value the idea will bring to our users, 
+and if the value it offers is likely to justify the level of work required to realise it.
+
+## Plan
+
+### What is it?
+The planning phase is where the wider team becomes involved with the ideas created during 
+the ideation phase. This is our opportunity to make sure the whole team understands the ideas, 
+the risks and complexities involved in realising the idea
+
+### How do we test it?
+
+**Shape Story**. Refinements, or story shaping sessions provide the opportunity to take a deeper dive into 
+the requirements to fulfil the idea. They also provide the opportunity to break down ideas 
+into smaller individually developable and testable stories so that value can be delivered 
+regularly. It also gives an opportunity to test assumptions that have been made in the 
+ideation stage.
+
+**Analyse Risk**. There are many risks we can assess at this stage.
+
+- The risk of not doing the work, and the impact this will have on customer satisfaction.
+- The risks involved in doing the work, including security risks, risk to performance etc.
+- Any risks to being able to deliver, both this work and the impact on delivering other work, 
+including external and internal dependencies.
+
+
+## Build
+
+### What is it?
+
+This stage is where we write code, build our stories, write our tests and create the value 
+the ideas are intended to create.
+
+### How do we test it?
+
+**Test as you build**. Testing at every stage of development reduces the potential for things 
+to have bugs when done. Test Driven Development is a great way to test as you build and ensure 
+you write the minimal code to meet the requirements.
+
+**Create New Tests**. Writing new tests at the right level of the test pyramid - as low in 
+the stack as they can, while still offering value and meaningful results. Writing tests that 
+provide coverage of your changes where tests don’t already exist ensure that whoever touches 
+the code next is at far less risk of accidentally breaking the intended action of your code.
+
+**Update Existing Tests**. If your code changes affect the intended behaviour of code or the 
+user experience, then updating existing tests may be needed to reflect the change in behaviour 
+and prevent those tests from failing incorrectly.
+
+**Run Static Code Analysis**. There are a number of different ways to run static code analysis 
+depending on your tech stack and what you are looking to achieve.
+
+**Linting / Prettier** - These tools are designed that can check code for programming errors, 
+bugs, stylistic errors and suspicious constructs. Often these tools can also write corrections 
+to the code for you.
+
+**Software Composition Analysis** - Enable developers and security teams to easily know what open 
+source components are used in their application software, as well as track the security, stability 
+and licensing risks in all dependent components.
+
+**Static application security testing** - SAST is used to secure software by reviewing the source 
+code of the software to identify sources of vulnerabilities.
+
+**Conduct Exploratory Testing**. In exploratory testing, you are not working on the basis of 
+previously created test cases. Instead you would check the system without a plan in mind to 
+discover bugs that users may face when using the product. In this case most likely you would 
+be testing areas of the system that are related or adjacent to the area of code that has been 
+changed in order to uncover unintended consequences.
+
+**Run Tests**. Writing tests is one thing, but remember to run not only the new ones, but the 
+existing tests too so you discover issues at the earliest opportunity.
+
+**Code Review**. Code review does two things:
+
+- Provides ad hoc opportunities for learning and coaching by having others review your code and 
+provide advice and guidance as required.
+- Prevent bugs and mistakes in code. Even the most experienced developers can make mistakes. 
+Code review helps eliminate these mistakes before it proceeds to the next steps by inviting a 
+fresh pair of eyes to review the code.
+
+## Continuous Integration
+
+[Read more about Testing Trophy](/docs/engineering-playbook/testing/testing-trophy).
+
+## Deployment
+
+### What is it?
+Deploying code changes to different environments.
+
+### How do we test it?
+
+**Smoke tests**. Most commonly at this stage we rely on a small set of smoke tests to confirm 
+the deployment has completed successfully. They would normally be a set of tests at the API
+level, UI level, or a combination of the two, that contain tests that exercise core user 
+journeys to give confidence that the system is working correctly after deployment. They 
+can also include non-functional tests that provide confidence that the system is performing 
+as intended after the deployment completes.
+
+## Release
+
+### What is it?
+Release is different to Deployment in that we can deploy code behind feature toggles that means it is not available to the end user. Release is when we then make those code changes available to users.
+
+### How do we test it?
+
+**Smoke tests**. These would be the same smoke tests we run at deployment, but run again to 
+ensure the code we just made available has not broken anything.
+
+**Manual checks**. Checking that the newly available code paths are functioning as expected.
+
+**Targeted Automated Tests**. If we have written API, UI or non-functional tests that specifically 
+target the newly released code, we may also want to run these following the release.
+
+## Monitor
+
+### What is it?
+
+During the monitoring phase teams observe how their product is used by their customers, 
+and how it performs. They can hypothesise about how to improve and are testing the assumptions 
+we made upfront.
+
+### How do we test it?
+
+**Synthetic Monitors**. These are scripts that are run on a schedule by our observability 
+platform that interact with our products to confirm certain behaviour. They can perform 
+actions users typically do like login and confirm certain elements are visible, or make 
+API calls to check responses etc and alert us when the behaviour is different from what 
+is expected.
+
+**Alerting**. Most commonly powered by our observability platform, alerts can be set up for 
+just about any metric we can collect data for, from performance of servers, to log capturing, 
+to whether or not services are running.
+
+**Observability**. Observability is related to the previous two points, but rather than being 
+based on gathering predefined sets of metrics or logs, observability is tooling or technical 
+solutions that allows teams to actively debug their system. Our observability platform provides 
+this by giving us the ability to collate the data we collect in meaningful and understandable ways.
+
+## Continuous Feedback
+
+### What is it?
+
+We have to make sure that we built the right things, and although everything on the right hand 
+side of our loop contributes to this, none do more so than continuous feedback. Feedback is 
+our route to understanding how our customers perceive the Quality of our products.
+
+### How do we test it?
+
+**Track Results**. Most importantly, you need to identify a way to capture the data needed 
+to be able to have something to analyse. To do this we collect various bits of data including:
+
+**Use in-app tools to collect feedback such as:**
+
+- Net Promoter Score ratings
+- New feature ratings and comments
+- Google analytics for all user flows and pages that so we can track the users interaction with out product
+- Event emissions to provide detailed analysis of how our customers use features
+- Detailed logging
+- Feedback channels that provide us with oversight of our customers pain points
