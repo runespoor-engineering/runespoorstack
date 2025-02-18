@@ -33,6 +33,7 @@ graph LR
     apiEntityN --> apiEntityHooks[hooks]
     apiEntityN --> apiEntityParsers[parsers]
     apiEntityN --> apiEntityTypes[types]
+    apiEntityN --> apiEntityCacheUpdates[cacheUpdates]
     apiEntityTypes --> payloads.ts
     apiEntityTypes --> responses.ts
     apiEntityTypes --> common.ts
@@ -151,6 +152,7 @@ graph TD
   apiEntityN --> apiEntityHooks[hooks]
   apiEntityN --> apiEntityParsers[parsers]
   apiEntityN --> apiEntityTypes[types]
+  apiEntityN --> apiEntityCacheUpdates[cacheUpdates]
   apiEntityTypes --> payloads.ts
   apiEntityTypes --> responses.ts
   apiEntityTypes --> common.ts
@@ -162,6 +164,7 @@ graph TD
   <entity1>
     api.ts
     hooks.ts
+    cacheUpdates.ts
     types / 
       payloads.ts
       responses.ts
@@ -170,6 +173,7 @@ graph TD
   <entityN>
     api.ts
     hooks.ts
+    cacheUpdates.ts
     types / 
       payloads.ts
       responses.ts
