@@ -1,0 +1,87 @@
+---
+title: Zero Bugs Policy
+---
+
+# Zero Bugs Policy
+
+## What a Zero Bug Policy ISN’T
+
+Zero **Bugs** Policy and Zero **Defects** Policy may seem like similar, but they are different. 
+
+A bug is an error or flaw in a software application that causes it to behave unexpectedly or 
+produce incorrect results. On the other hand, a defect is a broader term that encompasses any 
+deviation from a product’s expected behavior or functionality, including software.
+
+**All bugs are defects, but not all defects are bugs** it’s important to note that a Zero Defect Policy doesn’t mean 
+your product will never have any defects. It is a** commitment** towards a way of working and an attitude towards 
+the way that you handle defects when they do arise.
+
+![Zero Defects Policy](/img/zero-bugs-classification.png)
+
+## What IS a Zero Defect Policy?
+
+Zero Defect Policy is a commitment made by the team. In this context I mean the broad set of people involved in the delivery of the product. 
+This includes the obvious Software and Quality Engineers , but also Product, Designers, Leadership etc. 
+Everyone needs to buy into the commitments otherwise it will fail at the first challenge.
+
+## Defects Found Before Production
+
+If we find a defect caused by a change with **high severity**, we do not ship that change until the defect is resolved.  
+No if’s, no but’s, no maybes. We never knowingly ship code that introduces a new critical defect.
+
+## Defects Found In Production
+
+Defects found in production are having a direct impact on our users. 
+They should be reviewed as soon as practical. 
+For the next part I will assume that the teams already have good practices in place for incident detection. 
+Therefore any other defects reported are not severe enough to trigger an incident.
+
+For the defects found in production, a ticket should be created that can be triaged by the relevant team. 
+The team will apply a ranking to the ticket and priortise its fix as necessary. 
+
+## Triaging Defects
+
+Teams should review reported defects at a regular cadence. Exactly what cadence will depend on your workflow, 
+but as an example I would expect a team working in scrum on 2 week sprints to triage defects at least once per sprint.
+
+The triaging process should involve a cross discipline group that includes representatives of Product, 
+Software Engineering, Quality, and any other SME’s as appropriate to the defects. It does not require the whole team, 
+but you may want to include them the first few times you go through the process.
+
+[Learn more about triaging defects.](https://www.ministryoftesting.com/articles/a-guide-to-bug-refinement-in-software-testing-streamlining-your-workflow)
+
+### Assessing the defect
+
+The pupose of the triaging is to assess:
+
+- **User impact** – Is it affecting all users or a subset? Is it part of a commonly used area or one that is rarely used?
+- **Severity** – How critical is the defect? Is it preventing a core part of the system from being used, or are there acceptable work arounds?
+- **Complexity** – How difficult will the defect be to resolve? Or what work is requried to understand the root cause before we make an assessment on the resolution?
+
+This will be a discussion across the team members involved in the call. It’s goal is to enable them to come a consensus on a ranking of the defect.
+
+### Ranking the defect priority
+For ranking we prefer a simple system consisting of 3 options.
+
+- **Fix it now** – This type of defect provides a degraded user experience. It is only not an incident because there is an acceptable work around, 
+or a delay in restoring access to this feature is an accepted business risk. Ticket included as part of the next sprint.
+- **Low priority fix** – This defect is providing a degraded user experience, but to a limited user base. Alternatively it may be an edge case 
+that is unlikely to affect many users. Kept in a backlog and reviewed for inclusion each sprint.  Any ticket not prioritised after 6 sprints 
+to be considered for changing to Won’t fix.
+- **Won’t fix** – These defects won’t be fixed. They may exist in a legacy system that we are no longer maintaining or are in the process of replacing. 
+The defect may be an annoyance but one that does not prevent the user completing the required actions. Or the complexity to resolve the issue is too 
+high and it is an acceptable business risk to not resolve it.
+
+
+## Measuring Success
+
+How we measure success is an interesting point. It comes down to what the purpose of introducing the Zero Defect Policy was. 
+For me this likely boils down the next points:
+
+- Reduce number of open Defect tickets
+- Increase the velocity at which we resolve high priority defects
+
+For each of these it would be possible to measure success using our ticketing system (I nearly wrote Jira, but I know not everyone uses it). 
+Reduction in open defect tickets is easy to measure as its simply a count of open tickets. The increase in velocity at which we resolve high 
+priortity defects may be more diffiult to confirm an improvement if we had no way to categorising defects before. With the introduction of 
+categorising defects, we can now confirm we are meeting the commitment we made in our Zero Defect Policy.
