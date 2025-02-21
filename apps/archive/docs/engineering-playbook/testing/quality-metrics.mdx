@@ -1,0 +1,127 @@
+---
+title: Quality Metrics
+---
+
+# Quality Metrics
+
+Quality metrics provide essential insights into the health and effectiveness of our software development process. 
+Here's why collecting and analyzing these metrics is crucial:
+
+- **Early Detection of Issues**
+  - Helps identify and fix defects before they reach production
+  - Reduces the cost of fixing defects
+- **Data-Driven Decision Making**
+  - Provides objective data to support process improvements
+  - Helps prioritize quality initiatives based on measurable impact
+  - Enables tracking of improvement efforts over time
+- **Team Performance Optimization**
+  - Identifies bottlenecks in development and testing processes
+  - Highlights areas where additional training or resources may be needed
+  - Helps set realistic quality goals and benchmarks
+- **Business Value**
+  - Demonstrates ROI of quality initiatives to stakeholders
+  - Helps predict and prevent potential production issues
+  - Supports better resource allocation decisions
+- **Continuous Improvement**
+  - Establishes baselines for measuring progress
+  - Facilitates goal-setting and tracking
+  - Provides feedback on the effectiveness of process changes
+- **Risk Management**
+  - Helps assess the quality impact of new features or changes
+  - Identifies high-risk areas requiring additional attention
+  - Supports better release decisions
+
+By consistently collecting and analyzing quality metrics, teams can make informed decisions, 
+improve their processes, and deliver higher quality software more efficiently. However, it's important to 
+remember that metrics should be used as tools for improvement, not as punitive measures or the sole measure of success.
+
+## List of Quality Metrics (Client Side)
+
+### Engineering/Common Quality Metrics
+- **Total/Periodic number of open defects**
+  - Tracks the current defect backlog and workload.
+  - Goal: Maintain a decreasing trend to ensure defects are being addressed efficiently.
+- **Total/Periodic number of fixed defects**
+  - Measures the team's defect resolution rate.
+  - Goal: Demonstrate consistent or improving resolution velocity.
+- **Total/Periodic number of returned defects during manual checkup**
+  - Evaluates the effectiveness of initial fixes and quality of solutions.
+  - Goal: Minimize returns by ensuring thorough fixes the first time.
+- **Total/Periodic number of defects found in production**
+  - Assesses the effectiveness of pre-production testing.
+  - Goal: Minimize production defects through improved testing and quality processes.
+- **Total/Periodic number of defects found by customers/end users**
+  - Indicates gaps in internal testing processes.
+  - Goal: Reduce customer-found defects by strengthening internal testing.
+- **Number of defects found during each regression testing**
+  - Measures the stability of existing functionality.
+  - Goal: Minimize regression defects by ensuring changes don't break existing features.
+- **Defect Severity Index (DSI) = Sum of (Defects Count * Severity Level) / Total number of defects** 
+  - Provides weighted measure of defect impact.
+  - Goal: Maintain low DSI by prioritizing high-severity defects.
+- **Customers/end users satisfaction score**
+  - Measures overall quality from user perspective.
+  - Goal: Maintain high satisfaction scores through quality deliverables.
+- **Test coverage**
+  - Indicates thoroughness of automated testing.
+  - Goal: Maintain high coverage levels (typically 80%+) to ensure code reliability.
+
+### QA Metrics
+- **Average Time to Test a Bug Fix** = Total time between bug fix & retest for all bugs / Total number of bugs
+  - Measures efficiency of testing process for bug fixes.
+  - Goal: Minimize testing time while maintaining quality of verification.
+- **Cost per bug fix** = Hours spent on a bug fix x developer’s hourly rate
+  - Measures the cost efficiency of bug fixes.
+  - Goal: Minimize costs while maintaining quality of verification.
+- **Defect Category** = Defects belonging to a particular category/ Total number of defects.
+  - Helps identify patterns in defect types (e.g. UI, functionality, performance) to target process improvements and training needs.
+  - Goal: Use category insights to implement preventive measures and reduce recurring defect types.
+- **Defect Density** = Defect Count/Size of the Release/Module
+  - Measures the number of defects relative to the size of code changes, helping identify problematic modules or releases that need refactoring.
+  - Goal: Maintain low defect density by improving code quality through better design, testing and reviews.
+- **Defect injection rate** = Number of tested changes / Problems attributable to the changes
+  - Measures the rate of defects introduced by changes.
+  - Goal: Minimize defects by improving testing processes and code quality.
+- **Defect Leakage** = (Total Number of Defects Found in UAT/ Total Number of Defects Found Before UAT) x 100
+  - Indicates the proportion of defects that were not detected in earlier testing stages.
+  - Goal: Minimize leakage by strengthening testing processes and improving defect detection.
+- **Defect Removal Efficiency (DRE)** = Number of defects resolved by the development team/ (Total number of defects at the moment of measurement)
+  - Measures how effectively the team identifies and removes defects during development before they reach production.
+  - Goal: Achieve high DRE (>95%) to minimize defects reaching customers and reduce overall maintenance costs.
+- **Mean Time To Detect (MTTD)** = Amount of time spent locating a defect / Total number of defects located
+  - Measures average time taken to identify defects, indicating effectiveness of testing and monitoring processes.
+  - Goal: Minimize MTTD to catch defects earlier in development cycle when they are less costly to fix.
+- **Mean Time To Repair (MTTR)** = Amount of time spent fixing a defect / Total number of defects located
+  - Measures average time taken to fix defects once identified, indicating development team's efficiency.
+  - Goal: Reduce MTTR to improve system reliability and user satisfaction.
+- **Number of bugs per test** = Total number of defects / Total number of tests
+  - Indicates test suite effectiveness in finding defects and potential areas needing more test coverage.
+  - Goal: Balance this ratio to ensure tests are meaningful and productive at finding issues.
+- **Number of Test Runs Per Time Period** = Number of test runs / Total time
+  - Measures testing velocity and continuous integration efficiency.
+  - Goal: Maintain high frequency of test runs while ensuring quality of execution.
+- **Review Efficiency (RE)** = Total number of review defects / (Total number of review defects + Total number of testing defects) x 100
+- **Schedule variance (if testing finishes earlier than planned)** = Planned schedule – Actual schedule
+  - Measures how much ahead of schedule testing completed, indicating process efficiency.
+  - Goal: Maintain positive variances while ensuring thorough testing.
+- **Schedule variance (if testing finishes later than planned)** = Actual schedule – Planned schedule
+  - Measures delays in testing completion, highlighting potential process bottlenecks.
+  - Goal: Minimize negative variances through better planning and execution.
+- **Test Case Effectiveness** = (Number of defects detected / Number of test cases run) x 100
+  - Measures how good test cases are at finding defects.
+  - Goal: Optimize test suite to maintain high defect detection rate with minimal redundancy.
+- **Test Case Productivity** = (Number of Test Cases / Time Spent for Test Case Preparation)
+  - Measures efficiency in creating test cases.
+  - Goal: Improve productivity while maintaining test case quality and coverage.
+- **Test Coverage** = (Total number of requirements mapped to test cases / Total number of requirements) x 100
+  - Measures how completely requirements are tested.
+  - Goal: Achieve comprehensive coverage (100%) of all requirements through test cases.
+- **Test Design Efficiency** = Number of tests designed / Total time
+  - Measures speed and productivity of test creation process.
+  - Goal: Optimize test design process while maintaining quality and coverage.
+- **Test Execution Coverage** = (Total number of executed test cases or scripts / Total number of test cases or scripts planned to be executed) x 100
+  - Measures completeness of test execution against plan.
+  - Goal: Achieve 100% execution of planned test cases in each testing cycle.
+- **Total/Periodic number of user support requests**
+  - Tracks volume of user-reported issues and support needs.
+  - Goal: Reduce support requests through improved product quality and user documentation.

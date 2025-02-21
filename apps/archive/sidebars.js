@@ -105,6 +105,7 @@ const sidebars = {
           items: [
             'engineering-playbook/testing/quality-strategy',
             'engineering-playbook/testing/zero-bugs-policy',
+            'engineering-playbook/testing/quality-metrics',
             'engineering-playbook/testing/why-automated-testing',
             'engineering-playbook/testing/ideal-testing-trophy',
             'engineering-playbook/testing/test-desiderata',
