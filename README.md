@@ -27,15 +27,6 @@ See the [CONTRIBUTING.md](https://github.com/runespoor-engineering/runespoorstac
 | eslint/eslint-config | Battle tested, ready for production set of Runespoor ESlint configs. |
 | cli/changelog | The Runespoor CLI for changelog management and semantic versioning. |
 
-
-## Merge Request CI
-
-![Merge Request CI](assets/ci-mr.png)
-
-## Main CI
-
-![Main CI](assets/ci-main.png)
-
 ## 💕 Special Thanks
 
 I want to say thank you to the best woman in the world, **my wife Diana** for her love, daily support, motivation and inspiration.
