@@ -1,6 +1,13 @@
 # Change Log - @runespoorstack/changelog-manager
 
-This log was last generated on Tue, 04 Feb 2025 08:33:07 GMT and should not be manually modified.
+This log was last generated on Sun, 23 Feb 2025 09:54:09 GMT and should not be manually modified.
+
+## 0.7.4
+Sun, 23 Feb 2025 09:54:09 GMT
+
+### Patches
+
+- `deps`: upgrade `commander`, `@inquirer/input`, `@inquirer/select`, `@inquirer/confirm`, `semver`
 
 ## 0.7.3
 Tue, 04 Feb 2025 08:33:07 GMT

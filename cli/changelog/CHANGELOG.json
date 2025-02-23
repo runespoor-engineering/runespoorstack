@@ -2,6 +2,20 @@
   "name": "@runespoorstack/changelog-manager",
   "entries": [
     {
+      "version": "0.7.4",
+      "tag": "@runespoorstack/changelog-manager_v0.7.4",
+      "date": "Sun, 23 Feb 2025 09:54:09 GMT",
+      "comments": {
+        "patch": [
+          {
+            "comment": "`deps`: upgrade `commander`, `@inquirer/input`, `@inquirer/select`, `@inquirer/confirm`, `semver`",
+            "author": "BorysShulyak <borysshulyak@gmail.com>",
+            "commit": "6b4546d6323708b5817ebda7003d89e5dd0505e1"
+          }
+        ]
+      }
+    },
+    {
       "version": "0.7.3",
       "tag": "@runespoorstack/changelog-manager_v0.7.3",
       "date": "Tue, 04 Feb 2025 08:33:07 GMT",
