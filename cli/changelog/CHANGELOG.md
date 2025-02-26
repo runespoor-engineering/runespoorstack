@@ -1,6 +1,11 @@
 # Change Log - @runespoorstack/changelog-manager
 
-This log was last generated on Sun, 23 Feb 2025 09:54:09 GMT and should not be manually modified.
+This log was last generated on Wed, 26 Feb 2025 14:43:53 GMT and should not be manually modified.
+
+## 0.7.5
+Wed, 26 Feb 2025 14:43:53 GMT
+
+_Version update only_
 
 ## 0.7.4
 Sun, 23 Feb 2025 09:54:09 GMT

@@ -1,6 +1,11 @@
 # Change Log - @runespoorstack/danger-plugins
 
-This log was last generated on Thu, 29 Aug 2024 08:13:53 GMT and should not be manually modified.
+This log was last generated on Wed, 26 Feb 2025 14:43:53 GMT and should not be manually modified.
+
+## 0.1.3
+Wed, 26 Feb 2025 14:43:53 GMT
+
+_Version update only_
 
 ## 0.1.2
 Thu, 29 Aug 2024 08:13:53 GMT
