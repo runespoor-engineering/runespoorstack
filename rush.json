@@ -358,7 +358,7 @@
       "packageName": "@runespoorstack/danger-plugins",
       "projectFolder": "bots/danger",
       "tags": ["bots"],
-      "shouldPublish": true
+      "shouldPublish": false
     },
     {
       "packageName": "@runespoorstack/archive",
