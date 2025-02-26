@@ -1,6 +1,13 @@
 # Change Log - @runespoorstack/eslint-config
 
-This log was last generated on Thu, 29 Aug 2024 08:13:53 GMT and should not be manually modified.
+This log was last generated on Wed, 26 Feb 2025 18:11:13 GMT and should not be manually modified.
+
+## 1.2.0
+Wed, 26 Feb 2025 18:11:13 GMT
+
+### Minor changes
+
+- <br/>- `core/react-ts`, `core-react-js`: remove `testing-library` plugin and export that config as a separate mixin. <br/>- `mixing/testing-library-react`: export new mixin with preconfigured rules (`testing-library/consistent-data-testid`, `testing-library/no-debugging-utils`, `testing-library/prefer-explicit-assert`, `testing-library/prefer-user-event`)
 
 ## 1.1.5
 Thu, 29 Aug 2024 08:13:53 GMT

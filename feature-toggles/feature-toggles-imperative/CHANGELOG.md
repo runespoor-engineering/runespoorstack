@@ -1,6 +1,11 @@
 # Change Log - @runespoorstack/feature-toggles-imperative
 
-This log was last generated on Tue, 01 Oct 2024 17:44:59 GMT and should not be manually modified.
+This log was last generated on Wed, 26 Feb 2025 18:11:13 GMT and should not be manually modified.
+
+## 0.0.7
+Wed, 26 Feb 2025 18:11:13 GMT
+
+_Version update only_
 
 ## 0.0.6
 Tue, 01 Oct 2024 17:44:59 GMT
