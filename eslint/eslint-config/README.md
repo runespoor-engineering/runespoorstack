@@ -44,7 +44,8 @@
   - `mixins/prettier`
   - `mixins/tailwind`
   - `mixins/jest`
-  - `mixins/vitest`
+  - `mixins/vitest`,
+  - `mixins/testing-library-react`
 - Out of the box `no-restricted-imports` rules that will save your time on dealing with bundle size.
 - The configs are created over the best `eslint` plugin and configs:
   - `eslint-config-airbnb-base`
@@ -191,6 +192,29 @@ module.exports = {
       files: ['**/*.@(spec|test).[tj]s?(x)'], // or any other pattern
       extends: [
         '@runespoorstack/eslint-config/mixins/vitest'
+      ]
+    }
+  ]
+}
+```
+
+Use a Testing Library React mixin:
+
+```javascript
+// This is a workaround for https://github.com/eslint/eslint/issues/3458
+require('@rushstack/eslint-config/patch/modern-module-resolution');
+module.exports = {
+  ignorePatterns: ['!.storybook'],
+  "extends": [
+    "@runespoorstack/eslint-config/core/react-js", 
+    "@runespoorstack/eslint-config/mixins/prettier", 
+    "@runespoorstack/eslint-config/mixins/tailwind", 
+  ],
+   overrides: [
+    {
+      files: ['**/*.@(spec|test).[tj]s?(x)'], // or any other pattern
+      extends: [
+        '@runespoorstack/eslint-config/mixins/testing-library-react'
       ]
     }
   ]

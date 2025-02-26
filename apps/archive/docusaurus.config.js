@@ -123,7 +123,7 @@ const config = {
               },
               {
                 label: 'LinkedIn',
-                href: 'https://www.linkedin.com/in/boris-shulyak-1a3b441b7'
+                href: 'https://ua.linkedin.com/in/boris-shuliak-1a3b441b7'
               }
             ]
           },

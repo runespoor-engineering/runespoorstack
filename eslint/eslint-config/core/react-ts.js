@@ -13,11 +13,10 @@ module.exports = {
   extends: [
     'airbnb',
     'airbnb/hooks',
-    'plugin:testing-library/react',
     'plugin:storybook/recommended',
     'plugin:@typescript-eslint/recommended'
   ],
-  plugins: ['simple-import-sort', '@typescript-eslint', 'testing-library'],
+  plugins: ['simple-import-sort', '@typescript-eslint'],
   rules: {
     'react/react-in-jsx-scope': 'off',
     'react/jsx-props-no-spreading': 'off',
