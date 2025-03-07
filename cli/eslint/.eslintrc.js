@@ -27,10 +27,14 @@ module.exports = {
   overrides: [
     {
       files: ['**/*.@(spec|test).[tj]s?(x)'],
-      extends: ['@runespoorstack/eslint-config/mixins/vitest']
+      extends: ['@runespoorstack/eslint-config/mixins/vitest'],
+      rules: {
+        '@typescript-eslint/no-explicit-any': 'off'
+      }
     }
   ],
   rules: {
+    'no-console': 'off',
     'import/extensions': [
       'error',
       'ignorePackages',
