@@ -35,3 +35,4 @@ I want to say thank you to the best woman in the world, **my wife Diana** for he
 
 If you are enjoying this work and feel extra appreciative, you could [buy me a book](https://bmc.link/borisshulyak)
 📖 or 3 📖📖📖.
+
