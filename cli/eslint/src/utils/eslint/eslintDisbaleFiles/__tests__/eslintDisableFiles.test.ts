@@ -12,10 +12,10 @@ vi.mock('node:path');
 vi.mock('../../../fs/getDeepFilesFromDir/getDeepFilesFromDir');
 
 describe('eslintDisableFiles', () => {
-  const mockConsoleError = vi.spyOn(console, 'error');
+  const mockConsoleError = vi.spyOn(console, 'error').mockImplementation(() => {});
 
   beforeEach(() => {
-    vi.clearAllMocks();
+    vi.resetAllMocks();
   });
 
   it('should add eslint-disable to files that do not have it', async () => {
@@ -28,10 +28,6 @@ describe('eslintDisableFiles', () => {
     vi.mocked(path.join).mockReturnValue('./file1.ts');
     vi.mocked(fs.readFile).mockImplementation((_, callback: any) => {
       callback(null, Buffer.from(mockContent));
-    });
-    // @ts-expect-error - types are not needed here
-    vi.mocked(fs.writeFile).mockImplementation((_, __, ___, callback) => {
-      callback(null);
     });
 
     await eslintDisableFiles('./', [/\.ts$/]);
