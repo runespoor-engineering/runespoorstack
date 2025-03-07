@@ -355,6 +355,12 @@
       "shouldPublish": true
     },
     {
+      "packageName": "@runespoorstack/eslint-cli",
+      "projectFolder": "cli/eslint",
+      "tags": ["cli"],
+      "shouldPublish": false
+    },
+    {
       "packageName": "@runespoorstack/danger-plugins",
       "projectFolder": "bots/danger",
       "tags": ["bots"],
