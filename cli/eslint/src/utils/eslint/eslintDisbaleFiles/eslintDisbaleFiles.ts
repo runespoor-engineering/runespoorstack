@@ -7,8 +7,15 @@ import { DEFAULT_LINTED_FILE_REGEX } from '../../../constants/regex';
 import { getDeepFilesFromDir } from '../../fs/getDeepFilesFromDir/getDeepFilesFromDir';
 
 export const eslintDisableFiles = async (
-  rootDir = './',
-  filesRegex: RegExp[] = [DEFAULT_LINTED_FILE_REGEX]
+  {
+    rootDir = './',
+    filesRegex = [DEFAULT_LINTED_FILE_REGEX],
+    onFileProcessed = () => {}
+  }: { rootDir?: string; filesRegex?: RegExp[]; onFileProcessed?: (filePath: string) => void } = {
+    rootDir: './',
+    filesRegex: [DEFAULT_LINTED_FILE_REGEX],
+    onFileProcessed: () => {}
+  }
 ) => {
   const files = getDeepFilesFromDir(rootDir, filesRegex);
 
@@ -24,8 +31,12 @@ export const eslintDisableFiles = async (
         const content = data.toString();
         if (!content.trim().startsWith(ESLINT_DISABLE_FILES)) {
           const updatedContents = `${ESLINT_DISABLE_FILES}\n\n${content}`;
-          fs.writeFile(filePath, updatedContents, 'utf8', () => {
-            console.error(ERRORS.writeFileError(filePath));
+          fs.writeFile(filePath, updatedContents, 'utf8', (writeErr) => {
+            if (writeErr) {
+              console.error(ERRORS.writeFileError(filePath));
+              return;
+            }
+            onFileProcessed(filePath);
           });
         }
       });

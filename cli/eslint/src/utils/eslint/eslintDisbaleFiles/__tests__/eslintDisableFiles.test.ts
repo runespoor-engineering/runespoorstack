@@ -30,7 +30,7 @@ describe('eslintDisableFiles', () => {
       callback(null, Buffer.from(mockContent));
     });
 
-    await eslintDisableFiles('./', [/\.ts$/]);
+    await eslintDisableFiles({ filesRegex: [/\.ts$/] });
 
     expect(fs.writeFile).toHaveBeenCalledWith(
       expect.stringContaining('file'),
@@ -52,7 +52,7 @@ describe('eslintDisableFiles', () => {
       callback(null, Buffer.from(mockContent));
     });
 
-    await eslintDisableFiles('./', [/\.ts$/]);
+    await eslintDisableFiles({ rootDir: './', filesRegex: [/\.ts$/] });
 
     expect(fs.writeFile).not.toHaveBeenCalled();
   });
@@ -68,7 +68,7 @@ describe('eslintDisableFiles', () => {
       callback(mockError, null);
     });
 
-    await eslintDisableFiles('./', [/\.ts$/]);
+    await eslintDisableFiles({ rootDir: './', filesRegex: [/\.ts$/] });
 
     expect(mockConsoleError).toHaveBeenCalledWith(ERRORS.readFileError('./file1.ts'));
   });
@@ -78,6 +78,7 @@ describe('eslintDisableFiles', () => {
     const mockFiles = ['file1.ts'];
     const mockContent = 'export const test = true;';
     const mockError = new Error('Write error');
+    const mockOnFileProcessed = vi.fn();
 
     vi.spyOn(getDeepFilesFromDirModule, 'getDeepFilesFromDir').mockReturnValue(mockFiles);
     vi.mocked(path.join).mockReturnValue('./file1.ts');
@@ -89,8 +90,37 @@ describe('eslintDisableFiles', () => {
       callback(mockError);
     });
 
-    await eslintDisableFiles('./', [/\.ts$/]);
+    await eslintDisableFiles({
+      rootDir: './',
+      filesRegex: [/\.ts$/],
+      onFileProcessed: mockOnFileProcessed
+    });
 
     expect(mockConsoleError).toHaveBeenCalledWith(ERRORS.writeFileError('./file1.ts'));
+    expect(mockOnFileProcessed).not.toHaveBeenCalled();
+  });
+
+  it('should call onFileProcessed for each file processed', async () => {
+    expect.hasAssertions();
+    const mockFiles = ['file1.ts'];
+    const mockOnFileProcessed = vi.fn();
+
+    vi.spyOn(getDeepFilesFromDirModule, 'getDeepFilesFromDir').mockReturnValue(mockFiles);
+    vi.mocked(path.join).mockReturnValue('./file1.ts');
+    vi.mocked(fs.readFile).mockImplementation((_, callback: any) => {
+      callback(null, Buffer.from(''));
+    });
+    // @ts-expect-error - types are not needed here
+    vi.mocked(fs.writeFile).mockImplementation((_, __, ___, callback) => {
+      callback(null);
+    });
+
+    await eslintDisableFiles({
+      rootDir: './',
+      filesRegex: [/\.ts$/],
+      onFileProcessed: mockOnFileProcessed
+    });
+
+    expect(mockOnFileProcessed).toHaveBeenCalledTimes(1);
   });
 });
