@@ -7,8 +7,8 @@ import { disable } from './commands/disable';
 const cliVersion = '0.0.0';
 
 program
-  .name('rune')
-  .description('CLI for changelog management and semantic versioning.')
+  .name('lintspoor')
+  .description('CLI for smooth eslint integration and management.')
   .version(cliVersion);
 
 program
