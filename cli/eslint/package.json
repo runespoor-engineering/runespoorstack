@@ -1,6 +1,6 @@
 {
   "name": "@runespoorstack/eslint-cli",
-  "version": "0.0.1",
+  "version": "0.0.5",
   "description": "The Runespoor CLI for smooth eslint integration and management.",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
@@ -14,7 +14,7 @@
     "lint:fix": "eslint . --ext .ts,.tsx,.js,.jsx,.cjs,.mjs --ignore-path ../../.gitignore --fix"
   },
   "bin": {
-    "rune": "dist/index.js"
+    "lintspoor": "dist/index.js"
   },
   "dependencies": {
     "commander": "13.1.0",
