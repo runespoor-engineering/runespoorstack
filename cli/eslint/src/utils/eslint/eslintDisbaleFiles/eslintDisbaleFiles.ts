@@ -7,6 +7,14 @@ import { DEFAULT_LINTED_FILE_REGEX } from '../../../constants/regex';
 import { getDeepFilesFromDir } from '../../fs/getDeepFilesFromDir/getDeepFilesFromDir';
 import { readFileStream } from '../../fs/readFileStream/readFileStream';
 
+/**
+ * Adds "/* eslint-disable *\/" comment to the top of files that match the provided regex patterns
+ * @param {Object} options - Configuration options
+ * @param {string} [options.rootDir=./] - Directory path to start searching from
+ * @param {RegExp[]} [options.filesRegex=[/\.[cm]?[jt]sx?$/]] - Array of RegExp patterns to match files against
+ * @param {function} [options.onFileProcessed] - Callback function called after each file is processed with the file path
+ * @returns {Promise<void[]>} Promise that resolves when all files have been processed
+ */
 export const eslintDisableFiles = async (
   {
     rootDir = './',

@@ -5,11 +5,13 @@ import { beforeEach, describe, expect, it, vi } from 'vitest';
 
 import { ERRORS } from '../../../../constants/errorMessages';
 import * as getDeepFilesFromDirModule from '../../../fs/getDeepFilesFromDir/getDeepFilesFromDir';
+import * as readFileStreamModule from '../../../fs/readFileStream/readFileStream';
 import { eslintDisableFiles } from '../eslintDisbaleFiles';
 
 vi.mock('node:fs');
 vi.mock('node:path');
 vi.mock('../../../fs/getDeepFilesFromDir/getDeepFilesFromDir');
+vi.mock('../../../fs/readFileStream/readFileStream');
 
 describe('eslintDisableFiles', () => {
   const mockConsoleError = vi.spyOn(console, 'error').mockImplementation(() => {});
@@ -26,8 +28,12 @@ describe('eslintDisableFiles', () => {
 
     vi.spyOn(getDeepFilesFromDirModule, 'getDeepFilesFromDir').mockReturnValue(mockFiles);
     vi.mocked(path.join).mockReturnValue('./file1.ts');
-    vi.mocked(fs.readFile).mockImplementation((_, callback: any) => {
-      callback(null, Buffer.from(mockContent));
+    vi.spyOn(readFileStreamModule, 'readFileStream').mockImplementation((_, callback) => {
+      callback(null, mockContent);
+    });
+    // @ts-expect-error - types are not needed here
+    vi.mocked(fs.writeFile).mockImplementation((_, __, ___, callback) => {
+      callback(null);
     });
 
     await eslintDisableFiles({ filesRegex: [/\.ts$/] });
@@ -48,8 +54,8 @@ describe('eslintDisableFiles', () => {
 
     vi.spyOn(getDeepFilesFromDirModule, 'getDeepFilesFromDir').mockReturnValue(mockFiles);
     vi.mocked(path.join).mockReturnValue('./file1.ts');
-    vi.mocked(fs.readFile).mockImplementation((_, callback: any) => {
-      callback(null, Buffer.from(mockContent));
+    vi.spyOn(readFileStreamModule, 'readFileStream').mockImplementation((_, callback) => {
+      callback(null, mockContent);
     });
 
     await eslintDisableFiles({ rootDir: './', filesRegex: [/\.ts$/] });
@@ -64,13 +70,16 @@ describe('eslintDisableFiles', () => {
 
     vi.spyOn(getDeepFilesFromDirModule, 'getDeepFilesFromDir').mockReturnValue(mockFiles);
     vi.mocked(path.join).mockReturnValue('./file1.ts');
-    vi.mocked(fs.readFile).mockImplementation((_, callback: any) => {
+    vi.spyOn(readFileStreamModule, 'readFileStream').mockImplementation((_, callback) => {
       callback(mockError, null);
     });
 
     await eslintDisableFiles({ rootDir: './', filesRegex: [/\.ts$/] });
 
-    expect(mockConsoleError).toHaveBeenCalledWith(ERRORS.readFileError('./file1.ts'));
+    expect(mockConsoleError).toHaveBeenCalledWith(
+      ERRORS.readFileError('./file1.ts'),
+      mockError.message
+    );
   });
 
   it('should handle write file errors', async () => {
@@ -82,8 +91,8 @@ describe('eslintDisableFiles', () => {
 
     vi.spyOn(getDeepFilesFromDirModule, 'getDeepFilesFromDir').mockReturnValue(mockFiles);
     vi.mocked(path.join).mockReturnValue('./file1.ts');
-    vi.mocked(fs.readFile).mockImplementation((_, callback: any) => {
-      callback(null, Buffer.from(mockContent));
+    vi.spyOn(readFileStreamModule, 'readFileStream').mockImplementation((_, callback) => {
+      callback(null, mockContent);
     });
     // @ts-expect-error - types are not needed here
     vi.mocked(fs.writeFile).mockImplementation((_, __, ___, callback) => {
@@ -107,8 +116,8 @@ describe('eslintDisableFiles', () => {
 
     vi.spyOn(getDeepFilesFromDirModule, 'getDeepFilesFromDir').mockReturnValue(mockFiles);
     vi.mocked(path.join).mockReturnValue('./file1.ts');
-    vi.mocked(fs.readFile).mockImplementation((_, callback: any) => {
-      callback(null, Buffer.from(''));
+    vi.spyOn(readFileStreamModule, 'readFileStream').mockImplementation((_, callback) => {
+      callback(null, '');
     });
     // @ts-expect-error - types are not needed here
     vi.mocked(fs.writeFile).mockImplementation((_, __, ___, callback) => {
