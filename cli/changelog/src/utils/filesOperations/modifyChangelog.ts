@@ -32,7 +32,7 @@ const modifyChangelogTextFile = ({
   ${comment}
 
   Author: **${author}**<br/>
-  ${issueLinks ? `Issue Links: <br/>- ${issueLinks?.join('<br/>- ')}` : ''}
+  ${issueLinks?.length ? `Issue Links: <br/>- ${issueLinks?.join('<br/>- ')}` : ''}
   `;
 
   const existingContent = getChangelogTextData();
