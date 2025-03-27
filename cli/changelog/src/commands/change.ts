@@ -10,7 +10,7 @@ import { ERRORS } from '../constants/errorMessages';
 import { INFO } from '../constants/infoMessages';
 import { ChangeData, ChangesTypes, ChangesTypesDescriptions } from '../types/common';
 import { generateChangeFileName } from '../utils/changeFileMeta/generateChangeFileName';
-import { generateIssueLink } from '../utils/changeFileMeta/generateIssueLink/generateIssueLink';
+import { getIssueLinksFromIds } from '../utils/changeFileMeta/getIssueLinksFromIds/getIssueLinksFromIds';
 import { createChangeFile } from '../utils/filesOperations/createChangeFile';
 import { GIT_COMMANDS } from '../utils/git/command';
 import { getCommitsCount } from '../utils/git/getCommitsCount';
@@ -77,12 +77,12 @@ export const change = async (options?: {
     ]
   });
 
-  let issueLink;
+  let issueLinks: string[] = [];
   if (options?.issueLinkPattern) {
-    const issueId = await input({
-      message: `Enter the issue id (it will be used in the following link ${options?.issueLinkPattern}):`
+    const issueIds = await input({
+      message: `Enter comma separated issue ids (it will be used with the following link ${options?.issueLinkPattern}):`
     });
-    issueLink = generateIssueLink({ issueId, issueLinkPattern: options?.issueLinkPattern });
+    issueLinks = getIssueLinksFromIds(issueIds, options?.issueLinkPattern);
   }
 
   const author = execSync(GIT_COMMANDS.configUserName()).toString().trim();
@@ -90,7 +90,7 @@ export const change = async (options?: {
     comment: changesComment,
     type: changesType,
     author,
-    issueLink
+    issueLinks
   };
 
   const changeFileName = generateChangeFileName();

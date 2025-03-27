@@ -12,14 +12,14 @@ const modifyChangelogTextFile = ({
   changesType,
   comment,
   author,
-  issueLink
+  issueLinks
 }: {
   bumpedPackageVersion: string;
   date: Date;
   changesType: ChangesTypes;
   comment: string;
   author: string;
-  issueLink?: string;
+  issueLinks?: string[];
 }) => {
   const changelogFilePath = getChangelogTextFilePath();
 
@@ -31,7 +31,8 @@ const modifyChangelogTextFile = ({
 
   ${comment}
 
-  ${issueLink ? `[Issue Link](${issueLink}) | ` : ''}Author: **${author}**
+  Author: **${author}**<br/>
+  ${issueLinks ? `Issue Links: <br/>- ${issueLinks?.join('<br/>- ')}` : ''}
   `;
 
   const existingContent = getChangelogTextData();
@@ -44,14 +45,14 @@ const modifyChangelogJsonFile = ({
   changesType,
   comment,
   author,
-  issueLink
+  issueLinks
 }: {
   bumpedPackageVersion: string;
   date: Date;
   changesType: ChangesTypes;
   comment: string;
   author: string;
-  issueLink?: string;
+  issueLinks?: string[];
 }) => {
   const changelogFilePath = getChangelogJsonFilePath();
 
@@ -61,7 +62,7 @@ const modifyChangelogJsonFile = ({
     comment,
     date: date.toDateString(),
     author,
-    issueLink
+    issueLinks
   };
 
   const existingContent = getChangelogJsonData();
@@ -78,15 +79,15 @@ export const modifyChangelog = ({
   changesType,
   comment,
   author,
-  issueLink
+  issueLinks
 }: {
   bumpedPackageVersion: string;
   date: Date;
   changesType: ChangesTypes;
   comment: string;
   author: string;
-  issueLink?: string;
+  issueLinks?: string[];
 }) => {
-  modifyChangelogTextFile({ bumpedPackageVersion, date, changesType, comment, author, issueLink });
-  modifyChangelogJsonFile({ bumpedPackageVersion, date, changesType, comment, author, issueLink });
+  modifyChangelogTextFile({ bumpedPackageVersion, date, changesType, comment, author, issueLinks });
+  modifyChangelogJsonFile({ bumpedPackageVersion, date, changesType, comment, author, issueLinks });
 };

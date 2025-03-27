@@ -50,7 +50,7 @@ Optional arguments:
 - Should get the current branch name and target branch name (main/master) or use the provided target one.
 - Should ask to **describe** the changes. Message: `Describe the changes:`.
 - Should ask to select the **changes type**: `minor` / `major` / `patch` / `none` (described below). Message: `Choose the changes type:`.
-- If the issue link pattern is provided, should ask to enter the issue id. Message: `Enter the issue id:`.
+- If the issue link pattern is provided, should ask to enter the issue id. Message: `Enter comma separated issue ids (it will be used with the following link ...):`
 - Should create the **change file**.
   - File name should follow the convention: `<branch-name>_yyyy-mm-dd-hh-mm-ss-ms.json`.
   - File should be located in the `<root>/changes` directory.
@@ -75,7 +75,7 @@ Specific **change file** structure:
   "comment": "<description>",
   "type": "<major/minor/patch/none>",
   "author": "GitUserName",
-  "issueLink": "<issue-link>"
+  "issueLinks": ["<issue-link>", "<issue-link>"]
 }
 ```
 
@@ -153,7 +153,7 @@ Optional arguments:
   - Change type (MAJOR/MINOR/PATCH)
   - Comment from change file
   - Author name
-  - Issue Link (if `--issueLinkPattern` was provided to `rune change` command)
+  - Issue Links (if `--issueLinkPattern` was provided to `rune change` command)
 - Should delete the change file.
 - Should stage package.json and changelog files.
 - Should commit changes with message "chore(changelog): apply change file [ci skip]".
@@ -170,7 +170,7 @@ Optional arguments:
     "type": "major/minor/patch/none",
     "comment": "<comment-from-change-file>",
     "author": "GitUserName",
-    "issueLink": "<issue-link>"
+    "issueLinks": ["<issue-link>", "<issue-link>"]
   }
 ]
 ```
@@ -188,7 +188,10 @@ This log was last generated on <Tue, 28 May 2024 09:19:52 GMT> and should not be
 
 <comment-from-change-file>
 
-[Issue Link](<issue-link>) | Author: **GitUserName**
+Author: **GitUserName**
+- <issue-link>
+- <issue-link>
+- <issue-link>
 
 ## <bumped-version>
 <Tue, 28 May 2024 09:19:52 GMT>

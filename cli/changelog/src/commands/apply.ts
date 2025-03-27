@@ -44,7 +44,7 @@ export const apply = async (options?: { targetBranch?: string; remoteName?: stri
       changesType: changeFileData.type,
       comment: changeFileData.comment,
       author: changeFileData.author,
-      issueLink: changeFileData.issueLink
+      issueLinks: changeFileData.issueLinks
     });
     updatedPackageVersion = bumpedPackageVersion;
     fs.unlinkSync(changeFilePath);
