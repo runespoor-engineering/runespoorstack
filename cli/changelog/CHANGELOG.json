@@ -2,6 +2,20 @@
   "name": "@runespoorstack/changelog-manager",
   "entries": [
     {
+      "version": "0.8.0",
+      "tag": "@runespoorstack/changelog-manager_v0.8.0",
+      "date": "Thu, 27 Mar 2025 10:26:08 GMT",
+      "comments": {
+        "minor": [
+          {
+            "comment": "`change`, `apply` commands:  provide ability to log more than one issue link",
+            "author": "BorysShulyak <borysshulyak@gmail.com>",
+            "commit": "0d1008d65b4e9fe633a97d06b771984cd42f0018"
+          }
+        ]
+      }
+    },
+    {
       "version": "0.7.5",
       "tag": "@runespoorstack/changelog-manager_v0.7.5",
       "date": "Wed, 26 Feb 2025 14:43:53 GMT",
