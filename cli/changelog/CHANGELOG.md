@@ -1,6 +1,13 @@
 # Change Log - @runespoorstack/changelog-manager
 
-This log was last generated on Thu, 27 Mar 2025 10:26:08 GMT and should not be manually modified.
+This log was last generated on Thu, 27 Mar 2025 20:50:53 GMT and should not be manually modified.
+
+## 0.8.1
+Thu, 27 Mar 2025 20:50:53 GMT
+
+### Patches
+
+- `apply`: ensure issue links are displayed only if present
 
 ## 0.8.0
 Thu, 27 Mar 2025 10:26:08 GMT
