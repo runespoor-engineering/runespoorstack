@@ -2,6 +2,20 @@
   "name": "@runespoorstack/changelog-manager",
   "entries": [
     {
+      "version": "0.8.1",
+      "tag": "@runespoorstack/changelog-manager_v0.8.1",
+      "date": "Thu, 27 Mar 2025 20:50:53 GMT",
+      "comments": {
+        "patch": [
+          {
+            "comment": "`apply`: ensure issue links are displayed only if present",
+            "author": "BorysShulyak <borysshulyak@gmail.com>",
+            "commit": "297e1af14facd8e6102165f4f617a8bdf49ee629"
+          }
+        ]
+      }
+    },
+    {
       "version": "0.8.0",
       "tag": "@runespoorstack/changelog-manager_v0.8.0",
       "date": "Thu, 27 Mar 2025 10:26:08 GMT",
