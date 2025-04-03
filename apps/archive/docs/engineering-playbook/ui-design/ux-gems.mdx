@@ -1,0 +1,39 @@
+---
+title: UX Gems
+---
+
+# UX Gems
+
+## 1. Clearing state of non-unmountable but closable components
+
+### Suggestions
+1. The state of non-unmountable but closable components should be reset when the component is closed.
+2. Make sure to reset the state not during closing but when the component is already closed.
+
+**Bad:** In this case the UI will be flickering when the component is closing due to state resetting and React Batching functionality.
+
+```jsx
+const [isOpen, setIsOpen] = useState(false);
+
+const handleClose = () => {
+  // Reset component state
+  setIsOpen(false);
+};
+```
+
+**Good:**
+
+```jsx
+const [isOpen, setIsOpen] = useState(false);
+
+const handleClose = () => {
+  // Reset component state
+  setIsOpen(false);
+};
+
+useEffect(() => {
+  if (!isOpen) {
+    // Reset component state
+  }
+}, [isOpen]);
+```
