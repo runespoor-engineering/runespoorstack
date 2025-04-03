@@ -4,7 +4,7 @@ title: UX Gems
 
 # UX Gems
 
-## 1. Clearing state of non-unmountable but closable components
+## 1. Clearing state of non-unmountable but closable components.
 
 ### Suggestions
 1. The state of non-unmountable but closable components should be reset when the component is closed.
@@ -37,3 +37,9 @@ useEffect(() => {
   }
 }, [isOpen]);
 ```
+
+## 2. Add delay for opening tooltips/popovers/etc on hover to avoid flickering, especially when you have list of items and each item has tooltip/popover on hover.
+
+### Suggestions
+1. Add 150ms delay to avoid disco during mouse dragging through the items that have tooltips/popovers/etc on hover.
+
