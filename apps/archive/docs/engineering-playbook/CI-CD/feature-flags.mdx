@@ -9,10 +9,6 @@ They fall into various usage categories, and it's important to take that categor
 Toggles introduce complexity. We can keep that complexity in check by using smart toggle implementation practices and appropriate tools to 
 manage our toggle configuration, but we should also aim to constrain the number of toggles in our system.
 
-## Used Infro
-
-- [Feature Toggles (aka Feature Flags)](https://martinfowler.com/articles/feature-toggles.html)
-
 ## Basic Feature Flag Birth
 
 1. Added some boolean (or other type) toggle value + conditional logic based on this value.
@@ -205,6 +201,56 @@ mindmap
     Overriding configuration
 ```
 
+### Hardcoded Toggle Configuration
+The most basic technique - perhaps so basic as to not be considered a Feature Flag - is to simply comment or uncomment blocks of code. For example:
+
+```javascript
+function reticulateSplines(){
+  //return oldFashionedSplineReticulation();
+  return enhancedSplineReticulation();
+}
+```
+
+Slightly more sophisticated than the commenting approach is the use of a preprocessor's #ifdef feature, where available.
+
+Because this type of hardcoding doesn't allow dynamic re-configuration of a toggle it is only suitable for feature flags where we're willing to 
+follow a pattern of deploying code in order to re-configure the flag.
+
+### Parameterized Toggle Configuration
+
+The build-time configuration provided by hardcoded configuration isn't flexible enough for many use cases, including a lot of testing scenarios. 
+A simple approach which at least allows feature flags to be re-configured without re-building an app or service is to specify Toggle Configuration 
+via command-line arguments or environment variables. This is a simple and time-honored approach to toggling which has been around since well before 
+anyone referred to the technique as Feature Toggling or Feature Flagging. However it comes with limitations. It can become unwieldy to coordinate 
+configuration across a large number of processes, and changes to a toggle's configuration require either a re-deploy or at the very least a process 
+restart (and probably privileged access to servers by the person re-configuring the toggle too).
+
+### Toggle Configuration File
+
+Another option is to read Toggle Configuration from some sort of structured file. It's quite common for this approach to Toggle Configuration to begin 
+life as one part of a more general application configuration file.
+
+With a Toggle Configuration file you can now re-configure a feature flag by simply changing that file rather than re-building application code itself. 
+However, although you don't need to re-build your app to toggle a feature in most cases you'll probably still need to perform a re-deploy in order to 
+re-configure a flag.
+
+### Toggle Configuration in App DB
+
+Using static files to manage toggle configuration can become cumbersome once you reach a certain scale. Modifying configuration via files is 
+relatively fiddly. Ensuring consistency across a fleet of servers becomes a challenge, making changes consistently even more so. In response 
+to this many organizations move Toggle Configuration into some type of centralized store, often an existing application DB. This is usually 
+accompanied by the build-out of some form of admin UI which allows system operators, testers and product managers to view and modify Features 
+Flags and their configuration.
+
+### Distributed Toggle Configuration
+
+Using a general purpose DB which is already part of the system architecture to store toggle configuration is very common; it's an obvious place 
+to go once Feature Flags are introduced and start to gain traction. However nowadays there are a breed of special-purpose hierarchical key-value stores 
+which are a better fit for managing application configuration - services like Growthbook, Launchdarkly, or Posthog. Configuration can be modified 
+dynamically whenever required, and all nodes in the cluster are automatically informed of the change - a very handy bonus feature. 
+Managing Toggle Configuration using these systems means we can have Toggle Routers on each and every node in a fleet making decisions based on 
+Toggle Configuration which is coordinated across the entire fleet.
+
 ## Working with feature-flagged systems
 
 ```mermaid
@@ -214,6 +260,35 @@ mindmap
     Take advantage of structured Toggle Configuration files
     Manage different toggles differently
 ```
+
+### Expose current feature toggle configuration
+It's always been a helpful practice to embed build/version numbers into a deployed artifact and expose that metadata somewhere so that a dev, 
+tester or operator can find out what specific code is running in a given environment. The same idea should be applied with feature flags. Any 
+system using feature flags should expose some way for an operator to discover the current state of the toggle configuration. In an HTTP-oriented 
+SOA system this is often accomplished via some sort of metadata API endpoint or endpoints. See for example Spring Boot's Actuator endpoints.
+
+### Take advantage of structured Toggle Configuration files
+It's typical to store base Toggle Configuration in some sort of structured, human-readable file (often in YAML format) managed via source-control. 
+There are some additional benefits we can derive from this file. Including a human-readable description for each toggle is surprisingly useful, 
+particularly for toggles managed by folks other than the core delivery team. What would you prefer to see when trying to decide whether to enable
+an Ops toggle during a production outage event: basic-rec-algo or “Use a simplistic recommendation algorithm. This is fast and produces less load 
+on backend systems, but is way less accurate than our standard algorithm.”? Some teams also opt to include additional metadata in their toggle 
+configuration files such as a creation date, a primary developer contact, or even an expiration date for toggles which are intended to be short lived.
+
+### Manage different toggles differently
+As discussed earlier, there are various categories of Feature Toggles with different characteristics. These differences should be embraced, and 
+different toggles managed in different ways, even if all the various toggles might be controlled using the same technical machinery.
+
+Let's revisit our previous example of an ecommerce site which has a Recommended Products section on the homepage. Initially we might have placed 
+that section behind a Release Toggle while it was under development. We might then have moved it to being behind an Experiment Toggle to validate 
+that it was helping drive revenue. Finally we might move it behind an Ops Toggle so that we can turn it off when we're under extreme load. If we've 
+followed the earlier advice around de-coupling decision logic from Toggle Points then these differences in toggle category should have had no impact 
+on the Toggle Point code at all.
+
+However from a feature flag management perspective these transitions absolutely should have an impact. As part of transitioning from Release Toggle 
+to an Experiment Toggle the way the toggle is configured will change, and likely move to a different area - perhaps into an Admin UI rather than a 
+yaml file in source control. Product folks will likely now manage the configuration rather than developers. Likewise, the transition from Experiment 
+Toggle to Ops Toggle will mean another change in how the toggle is configured, where that configuration lives, and who manages the configuration.
 
 ## Feature Toggles introduce validation complexity
 
