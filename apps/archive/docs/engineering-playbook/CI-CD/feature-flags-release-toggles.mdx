@@ -67,35 +67,35 @@ Define feature toggles configuration:
 
 ```typescript
 const RELEASE_TOGGLES_CONFIG = {
- [ReleaseTogglesEnum.Feature1]: {
- meta: {
- description: 'Feature 1',
- createdAt: '2023-01-01',
- createdBy: 'John Doe'
- },
- enabled: {
- dev: true,
- qa: false,
- prod: false
- },
- },
- [ReleaseTogglesEnum.Feature2]: {
- meta: {
- description: 'Feature 2',
- createdAt: '2023-01-02',
- createdBy: 'Jane Doe'
- },
- enabled: {
- dev: false,
- qa: false,
- prod: true
- },
- value: {
- dev: 'value4',
- qa: 'value5',
- prod: 'value6'
- }
- }
+  [ReleaseTogglesEnum.Feature1]: {
+    meta: {
+      description: 'Feature 1',
+      createdAt: '2023-01-01',
+      createdBy: 'John Doe'
+    },
+    enabled: {
+      dev: true,
+      qa: false,
+      prod: false
+    },
+  },
+  [ReleaseTogglesEnum.Feature2]: {
+    meta: {
+      description: 'Feature 2',
+      createdAt: '2023-01-02',
+      createdBy: 'Jane Doe'
+    },
+    enabled: {
+      dev: false,
+      qa: false,
+      prod: true
+    },
+    value: {
+      dev: 'value4',
+      qa: 'value5',
+      prod: 'value6'
+    }
+  }
 } as const;
 ```
 
