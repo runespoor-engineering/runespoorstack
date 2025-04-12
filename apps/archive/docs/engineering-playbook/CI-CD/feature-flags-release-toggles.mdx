@@ -5,44 +5,40 @@ title: Feature Flags - Release Toggles
 # Feature Flags: Release Toggles
 
 Release Toggles are a fundamental type of feature flag primarily used to enable trunk-based development and continuous delivery practices. 
-They provide teams with the ability to deploy incomplete or untested code to production in a dormant state, and give product managers 
+They provide teams with the ability to deploy incomplete or untested code to production in a dormant state and give product managers 
 flexibility in controlling feature visibility.
 
 These toggles are characterized by their relatively short lifespan, typically lasting only days to weeks, and their deployment-based 
 change pattern. When a release toggle configuration changes, it affects all users consistently through a new deployment, rather 
 than varying per-request.
 
-Basically, a release toggle is a simple and good way for a team to start using feature flags and continuous delivery practices.
+A release toggle is a simple and effective way for a team to start using feature flags and continuous delivery practices.
 
 Let's explore the key aspects of Release Toggles and how they support modern development practices.
 
 **Abilities:**
 - Used to **enable trunk-based** development for teams practicing **Continuous Delivery**. 
-- Allow incomplete and un-tested codepaths to be shipped to production as **latent code** which may never be turned on.
-- Allow product-managers to **not show a partly or fully ready feature to end users** (for many reasons).
+- Allow incomplete and un-tested code paths to be shipped to production as **latent code** which may never be turned on.
+- Allow product managers to **not show a partly or fully ready feature to end users** (for many reasons).
 
 **Characteristics:**
-- **Loves form Days to Weeks** - generally not stick around much longer than a week or two (although product-centric toggles may need to remain in place for a 
+- **Lives form Days to Weeks** - generally not stick around much longer than a week or two (although product-centric toggles may need to remain in place for a 
 longer period).
 - **Changes with deployment** - every toggling decision for a given release version will be the same, and changing that toggling decision by 
 rolling out a new release with a toggle configuration change is usually perfectly acceptable.
 
-## Implementing a Release toggles
+## Implementing Release Toggles
 
-Создание релиз тоглов занимает очень мало времени. Для этого нам понадобяться следующие компоненты:
-1. `ReleaseTogglesEnum`, `ENVS`, `ENV_NAME` environment variable with current env name from `ENV_NAMES`  - перечисление всех тоглов в системе, cписок уникальных строк,
-которые будут использоваться для идентификации тоглов в файле конфигурации и для получения значения тоглов в коде. Так же нам понадобится перечисление всех 
-енвов, в которых будут использоваться тоглы, и сама енв переменная, которая будет содержать имя текущего енва.
-2. `RELEASE_TOGGLES_CONFIG` (static configuration) - файл с конфигурацией тоглов, который по ключу тогла будет содержать его значение (булевый тип) для каждого енва.
-3. `featureTogglesAPI` - API для получения значения тоглов в коде по их ключу и для валидации.
+Creating release toggles takes very little time. For this, we need the following components:
+1. `ReleaseTogglesEnum`, `ENVS`, `ENV_NAME` environment variable with current env name from `ENV_NAMES` - an enumeration of all toggles in the system, a list of unique strings that will be used to identify toggles in the configuration file and to get toggle values in the code. We also need an enumeration of all environments where toggles will be used, and the environment variable itself that will contain the name of the current environment.
+2. `RELEASE_TOGGLES_CONFIG` (static configuration) - a file with toggle configuration that will contain the toggle value (boolean type) for each environment by toggle key.
+3. `featureTogglesAPI` - API for getting toggle values in code by their key and for validation.
 
-![Release Toggles Implementation](/img/feate-toggles-implementation.png)
+![Release Toggles Implementation](/img/release-toggles-implementation.png)
 
-На рисунке выше изображена схема реализации релиз тоглов в приложении. `ReleaseTogglesEnum` и `ENVS` мы используем для создания `RELEASE_TOGGLES_CONFIG`.
-Этот конфиг, в свою очередь, используется в `featureTogglesAPI` для получения значения тоглов в коде по их ключу и для валидации. Соответственно, `featureTogglesAPI`
-так же должен получать ключ тогла с `ReleaseTogglesEnum` и ключ енва с `ENVS`.
+The diagram above shows the implementation scheme of release toggles in the application. We use `ReleaseTogglesEnum` and `ENVS` to create `RELEASE_TOGGLES_CONFIG`. This config, in turn, is used in `featureTogglesAPI` to get toggle values in code by their key and for validation. Accordingly, `featureTogglesAPI` should also receive the toggle key from `ReleaseTogglesEnum` and the environment key from `ENVS`.
 
-Дальше вы увидите примеры кода для создания и использования тоглов.
+Below you will see code examples for creating and using toggles.
 
 List app environments:
 
@@ -50,7 +46,7 @@ List app environments:
 const ENVS = ['dev', 'qa', 'prod'] as const;
 ```
 
-Use env variable name to get the current environment (vite example). You can use NODE_ENV or set your own variable:
+Use the env variable name to get the current environment (vite example). You can use NODE_ENV or set your own variable:
 
 ```typescript
 const ENVS = ['dev', 'qa', 'prod'] as const;
@@ -62,8 +58,8 @@ List feature toggles:
 
 ```typescript
 const ReleaseTogglesEnum {
-  Feature1 = 'feature1',
-  Feature2 = 'feature2',
+ Feature1 = 'feature1',
+ Feature2 = 'feature2',
 };
 ```
 
@@ -71,35 +67,35 @@ Define feature toggles configuration:
 
 ```typescript
 const RELEASE_TOGGLES_CONFIG = {
-  [ReleaseTogglesEnum.Feature1]: {
-    meta: {
-      description: 'Feature 1',
-      createdAt: '2023-01-01',
-      createdBy: 'John Doe'
-    },
-    enabled: {
-      dev: true,
-      qa: false,
-      prod: false
-    },
-  },
-  [ReleaseTogglesEnum.Feature2]: {
-    meta: {
-      description: 'Feature 2',
-      createdAt: '2023-01-02',
-      createdBy: 'Jane Doe'
-    },
-    enabled: {
-      dev: false,
-      qa: false,
-      prod: true
-    },
-    value: {
-      dev: 'value4',
-      qa: 'value5',
-      prod: 'value6'
-    }
-  }
+ [ReleaseTogglesEnum.Feature1]: {
+ meta: {
+ description: 'Feature 1',
+ createdAt: '2023-01-01',
+ createdBy: 'John Doe'
+ },
+ enabled: {
+ dev: true,
+ qa: false,
+ prod: false
+ },
+ },
+ [ReleaseTogglesEnum.Feature2]: {
+ meta: {
+ description: 'Feature 2',
+ createdAt: '2023-01-02',
+ createdBy: 'Jane Doe'
+ },
+ enabled: {
+ dev: false,
+ qa: false,
+ prod: true
+ },
+ value: {
+ dev: 'value4',
+ qa: 'value5',
+ prod: 'value6'
+ }
+ }
 } as const;
 ```
 
@@ -109,9 +105,9 @@ Create feature toggles:
 import { createFeatureToggles } from '@runespoorstack/feature-toggles-imperative';
 
 const featureTogglesAPI = createFeatureToggles({
-  featureToggles: RELEASE_TOGGLES_CONFIG,
-  envs: ENVS,
-  env: ENV_NAME
+ featureToggles: RELEASE_TOGGLES_CONFIG,
+ envs: ENVS,
+ env: ENV_NAME
 });
 ```
 
@@ -121,34 +117,93 @@ Use feature toggles:
 const feature1 = featureTogglesAPI.getFeatureToggle(ReleaseTogglesEnum.Feature1);
 console.log(feature1);
 // {
-//   meta: {
-//     description: 'Feature 1',
-//     createdAt: '2023-01-01',
-//     createdBy: 'John Doe'
-//   },
-//   enabled: true,
-//   value: 'value6'
+// meta: {
+// description: 'Feature 1',
+// createdAt: '2023-01-01',
+// createdBy: 'John Doe'
+// },
+// enabled: true,
+// value: 'value6'
 // }
 ```
 
 ## Mistakes in using release toggles
 
-### 1. Using not descriptive toggle names
+### 1. Not exposing the current feature toggle configuration
 
-### 2. Not using meta information
+It's always been a helpful practice to embed build/version numbers into a deployed artifact and expose that metadata somewhere so that a dev, 
+tester, or operator can find out what specific code is running in a given environment. The same idea should be applied to feature flags. Any 
+system using feature flags should expose some way for an operator to discover the current state of the toggle configuration. 
 
-### 3. Not covering Toggle Router with tests
+Everyone in your team should always know what feature toggles are enabled in some environments and should be able to ask you to enable or disable some toggles.
 
-### 4. Forgetting to get rid of unused toggles
+### 2. Using not descriptive toggle names
 
-### 5. Not exposing current feature toggle configuration
+Feature toggle names should be descriptive and indicate what functionality they control. Using generic names like "feature1" or "toggle2" 
+makes it difficult for team members to understand the purpose of each toggle. Like any other variable, toggle names should be descriptive and 
+follow the naming conventions of the project.
 
+### 3. Not using meta information
 
+Feature toggles should include metadata that provides important context about the toggle. Key metadata fields include:
 
+- `createdBy` - Identifies who created the toggle, making it easy to know who to contact for questions and who is responsible for getting rid of the toggle.
+- `createdAt` - Records when the toggle was added, helping track the age.
+- `description` - Explains the purpose and impact of the toggle in clear business terms.
 
+This metadata is crucial for several reasons:
 
+1. **Accountability** - Having creator information helps teams track ownership and responsibility for toggles
+2. **Toggle Lifecycle Management** - Creation dates help identify old toggles that may need cleanup
+3. **Documentation** - Clear descriptions ensure all team members understand what each toggle controls
+4. **Auditing** - Metadata provides an audit trail of when and why toggles were added
+5. **Onboarding** - New team members can more easily understand the toggle system through good metadata
 
+When exposing toggle configuration to the team, I suggest doing it in a table format, including sorting and filtering options.
 
+### 4. Not covering newly introduced functionality with tests
 
+When introducing new functionality behind a feature toggle, it's crucial to thoroughly test both the enabled and disabled states. Common testing mistakes include:
 
+1. **Only testing the "happy path"** - Testing only when the toggle is enabled and the new feature is active. You must test:
+   - Toggle enabled (new functionality)
+   - And Toggle disabled (old/fallback functionality)
+2. **Not testing toggle configuration changes** - Ensure your test suite covers:
+   - Proper handling of invalid toggle configurations
+   - Edge cases around toggle state transitions
+3. **Missing integration tests** - Feature toggles often impact multiple parts of the system:
+   - Test interactions between toggled features and existing functionality
+   - Verify proper behavior when multiple related toggles are in different states
+   - Test performance impact in both toggle states
+
+### 5. Forgetting to get rid of unused toggles
+
+Feature toggles should be temporary and removed once they're no longer needed. 
+Common issues with toggle cleanup include:
+
+1. **Not tracking toggle lifecycle** 
+   - Toggles should have clear expiration dates or cleanup criteria
+   - Regular audits should identify and remove stale toggles
+   - Consider automated alerts for toggles past their expiration date
+2. **Accumulating technical debt**
+   - Old toggles increase code complexity and maintenance burden
+   - Multiple layers of toggles make code harder to understand
+   - Dead toggles waste configuration space and cognitive load
+3. **Missing cleanup processes**
+   - Teams should have defined processes for toggle removal
+   - Code reviews should check for toggle cleanup opportunities
+   - Toggle inventory should be regularly reviewed
+
+Best practices for toggle cleanup:
+
+- Set clear expiration dates when creating toggles
+- Schedule regular toggle cleanup sprints
+- Automate detection of unused toggles
+- Document toggle lifecycle expectations
+
+### 6. Turning on the feature toggle in the production environment long before the release
+
+Enabling feature toggles in production long before actual release can lead to several problems, but the 
+most common is releasing half-baked features to production. Following the CI/CD methodology, we should always 
+be ready for the release, and we should not enable feature toggles in a production environment before the release.
 

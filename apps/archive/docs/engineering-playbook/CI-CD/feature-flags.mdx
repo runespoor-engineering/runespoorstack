@@ -67,7 +67,7 @@ Feature toggles can be categorized across two major dimensions:
 - Allow product-managers to **not show a partly or fully ready feature to end users** (for many reasons).
 
 **Characteristics:**
-- **Loves form Days to Weeks** - generally not stick around much longer than a week or two (although product-centric toggles may need to remain in place for a 
+- **Lives form Days to Weeks** - generally not stick around much longer than a week or two (although product-centric toggles may need to remain in place for a 
 longer period).
 - **Changes with deployment** - every toggling decision for a given release version will be the same, and changing that toggling decision by 
 rolling out a new release with a toggle configuration change is usually perfectly acceptable.
@@ -264,8 +264,7 @@ mindmap
 ### Expose current feature toggle configuration
 It's always been a helpful practice to embed build/version numbers into a deployed artifact and expose that metadata somewhere so that a dev, 
 tester or operator can find out what specific code is running in a given environment. The same idea should be applied with feature flags. Any 
-system using feature flags should expose some way for an operator to discover the current state of the toggle configuration. In an HTTP-oriented 
-SOA system this is often accomplished via some sort of metadata API endpoint or endpoints. See for example Spring Boot's Actuator endpoints.
+system using feature flags should expose some way for an operator to discover the current state of the toggle configuration.
 
 ### Take advantage of structured Toggle Configuration files
 It's typical to store base Toggle Configuration in some sort of structured, human-readable file (often in YAML format) managed via source-control. 
