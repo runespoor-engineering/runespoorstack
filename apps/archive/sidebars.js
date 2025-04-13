@@ -38,8 +38,7 @@ const sidebars = {
             'engineering-playbook/source-control/feature-issue-template',
             'engineering-playbook/source-control/docs-issue-template',
             'engineering-playbook/source-control/bug-issue-template',
-            'engineering-playbook/source-control/managing-dependencies',
-            'engineering-playbook/source-control/simple-react-files-stricture'
+            'engineering-playbook/source-control/managing-dependencies'
           ]
         },
         {
