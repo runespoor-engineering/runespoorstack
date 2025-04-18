@@ -2,13 +2,13 @@
   "name": "danger-bot",
   "version": "1.0.0",
   "private": true,
-  "type": "module",
   "scripts": {
     "lint": "eslint . --ext .ts,.tsx,.js,.jsx,.cjs,.mjs --ignore-path ../../../.gitignore --quiet",
     "lint:fix": "eslint . --ext .ts,.tsx,.js,.jsx,.cjs,.mjs --ignore-path ../../../.gitignore --fix"
   },
   "dependencies": {
-    "@runespoorstack/danger-plugins": "0.0.1",
+    "danger": "12.2.0",
+    "@runespoorstack/danger-plugins": "0.0.2",
     "@runespoorstack/eslint-config": "1.1.2",
     "@rushstack/eslint-config": "3.6.9",
     "eslint": "8.57.0",
