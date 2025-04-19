@@ -6,8 +6,6 @@
   - [🛠️ Contributing](#️-contributing)
   - [Monorepo](#monorepo)
   - [Monorepo Packages](#monorepo-packages)
-  - [Merge Request CI](#merge-request-ci)
-  - [Main CI](#main-ci)
   - [💕 Special Thanks](#-special-thanks)
   - [❤️ Support or Donate](#️-support-or-donate)
 
@@ -26,6 +24,7 @@ See the [CONTRIBUTING.md](https://github.com/runespoor-engineering/runespoorstac
 | feature-toggles/feature-toggles-imperative | Imperative feature toggles as code for JavaScript and TypeScript. |
 | eslint/eslint-config | Battle tested, ready for production set of Runespoor ESlint configs. |
 | cli/changelog | The Runespoor CLI for changelog management and semantic versioning. |
+| utils/color | Everything you need to work with colors in JavaScript and TypeScript. |
 
 ## 💕 Special Thanks
 
