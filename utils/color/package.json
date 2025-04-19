@@ -9,7 +9,7 @@
   "private": false,
   "scripts": {
     "build": "tsup",
-    "test": "",
+    "test": "vitest run",
     "lint": "eslint . --ext .ts,.tsx,.js,.jsx,.cjs,.mjs --ignore-path ../../.gitignore --quiet",
     "lint:fix": "eslint . --ext .ts,.tsx,.js,.jsx,.cjs,.mjs --ignore-path ../../.gitignore --fix"
   },
