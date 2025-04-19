@@ -378,6 +378,12 @@
       "tags": ["feature-toggles"],
       "shouldPublish": true
     },
+    {
+      "packageName": "@runespoorstack/color-utils",
+      "projectFolder": "utils/color",
+      "tags": ["utils"],
+      "shouldPublish": false
+    }
     // {
     //   /**
     //    * The NPM package name of the project (must match package.json)

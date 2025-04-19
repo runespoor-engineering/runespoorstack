@@ -210,6 +210,26 @@ importers:
       typescript: 5.4.5
       vitest: 1.4.0_@types+node@20.14.8
 
+  ../../utils/color:
+    specifiers:
+      '@runespoorstack/eslint-config': workspace:*
+      '@rushstack/eslint-config': 3.6.8
+      '@types/node': 20.14.8
+      eslint: 8.57.0
+      prettier: 3.2.5
+      tsup: 8.3.0
+      typescript: 5.4.5
+      vitest: 1.4.0
+    devDependencies:
+      '@runespoorstack/eslint-config': link:../../eslint/eslint-config
+      '@rushstack/eslint-config': 3.6.8_te743w6atip6hhlha3uq43n2xe
+      '@types/node': 20.14.8
+      eslint: 8.57.0
+      prettier: 3.2.5
+      tsup: 8.3.0_typescript@5.4.5
+      typescript: 5.4.5
+      vitest: 1.4.0_@types+node@20.14.8
+
 packages:
 
   /@algolia/autocomplete-core/1.17.7_li57hd45mremvtuwuf7fyrsxs4:
