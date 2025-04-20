@@ -17,6 +17,8 @@ stays on track.
 the team can learn from past experiences and avoid making the same mistakes in the future. This can help in improving the overall 
 quality of the project.
 
+Here you can see an example of such a document.
+
 ## Testing
 
 <table>
@@ -30,19 +32,19 @@ quality of the project.
   <tbody>
     <tr>
       <td>jsdom: ResizeObserver is not defined on window  <a href="https://github.com/jsdom/jsdom/issues/3368">Issue</a></td>
-      <td>Unable to test the components that uses the <code>ResizeObserver</code>, for emaple the Radix ScrollArea component</td>
+      <td>Unable to test components that use the <code>ResizeObserver</code>, for example the Radix ScrollArea component</td>
       <td><a href="https://github.com/jsdom/jsdom/issues/3368#issuecomment-1147970817">Mock <code>global.ResizeObserver</code></a></td>
     </tr>
     <tr>
       <td>Inability to test <code>Radix Select</code> in tests, <a href="https://github.com/radix-ui/primitives/issues/1822">Issue</a></td>
       <td>The library cannot open the select when writing unit tests with @testing-library/react against the Select component.</td>
-      <td>We don't have solution yet</td>
+      <td>We don't have a solution yet</td>
     </tr>
     <tr>
-      <td>msw: Unable to use Networking Overrides for post requests correctly. <a href="https://github.com/mswjs/msw/discussions/1970">Dicsussion</a></td>
-      <td>It seems that if success case is run first, handlers, that are supposed to override it, will be ignored. If I move this
-        kind of test to be run in the beginning, the whole suite passes. If test is run in isolation it will also pass. If I move it to 
-        the end, after tests which used default handler run, it will fail because handler override is ignored.</td>
+      <td>msw: Unable to use Networking Overrides for post requests correctly. <a href="https://github.com/mswjs/msw/discussions/1970">Discussion</a></td>
+      <td>It seems that if the success case is run first, handlers that are supposed to override it will be ignored. If I move this
+        kind of test to be run at the beginning, the whole suite passes. If the test is run in isolation, it will also pass. If I move it to 
+        the end, after tests which used the default handler run, it will fail because the handler override is ignored.</td>
       <td>Add the "workaround test" before such test cases.</td>
     </tr>
   </tbody>
@@ -60,15 +62,15 @@ quality of the project.
   </thead>
   <tbody>
     <tr>
-      <td>React Table: The need to memoize data provided table, <a href='https://github.com/TanStack/table/issues/4614'>Issue</a></td>
+      <td>React Table: The need to memoize data provided to table, <a href='https://github.com/TanStack/table/issues/4614'>Issue</a></td>
       <td>The component keeps rerendering if data is not memoized</td>
-      <td>Just wrap data that you pass into <code>useMemo</code></td>
+      <td>Just wrap the data that you pass into <code>useMemo</code></td>
     </tr>
     <tr>
-      <td>React Hook Form: the debounced form values causes form rerendering  <a href="https://github.com/orgs/react-hook-form/discussions/3078">Issue</a></td>
+      <td>React Hook Form: The debounced form values cause form rerendering  <a href="https://github.com/orgs/react-hook-form/discussions/3078">Issue</a></td>
       <td>If we add something like this: <code>const formWatch = form.watch(); const debouncedForm = useDebounceValue(formWatch, 1000);</code> the 
       form component starts rerendering every 1 second.</td>
-      <td><a href="https://github.com/orgs/react-hook-form/discussions/3078#discussioncomment-5937584">Create the separate <code>useDebounceFormWatch</code> hook</a></td>
+      <td><a href="https://github.com/orgs/react-hook-form/discussions/3078#discussioncomment-5937584">Create a separate <code>useDebounceFormWatch</code> hook</a></td>
     </tr>
   </tbody>
-</table>
+</table> 

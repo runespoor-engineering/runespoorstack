@@ -12,16 +12,17 @@ title: Changelog
 - **Versioning and Release Management:** Changelogs are essential in version control. They assist in managing different software versions, making it easier to identify changes between versions, and ensuring consistency in the release process.
 - **Historical Reference:** Changelogs serve as a historical reference for developers, providing insights into past decisions, implementations, and feature introductions. This historical context can be invaluable for understanding the software's evolution and making future development decisions.
 - **Customer Support and User Engagement:** For customer support teams, a changelog can be a useful resource to understand recent changes and help users troubleshoot issues or adapt to new features. Additionally, informing users about new functionalities or improvements via a changelog can increase user engagement.
-- **Semantic Versioning:** Changelogs help in semantic versioning, which is a crucial aspect of version control. By documenting changes in a structured manner, it becomes easier to determine the appropriate version number for each release, understand the changes between versions, and make the right decisions about the current release flow (what should be release for each part of the system, in which order, etc.).
+- **Semantic Versioning:** Changelogs help in semantic versioning, which is a crucial aspect of version control. By documenting changes in a structured manner, it becomes easier to determine the appropriate version number for each release, understand the changes between versions, and make the right decisions about the current release flow (what should be released for each part of the system, in which order, etc.).
 
 ## How?
 
 - Basic convention - [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
-- I recommend creating a changelog notes for each of your project **packages** on **each PR** to have a clear and informative history of code changes.
-- Split your changelogs! I suggest creating **not only a development** changelog, but an **end-user one too**, e.g. separate changelog file inside the Stroybook. Your customer, end-user, etc. doesn’t need to know anything about the code changes, but it would be useful if they could have something like a product changelog with all information about product changes, new feature development, and minor or major changes.
+- I recommend creating changelog notes for each of your project **packages** in **each PR** to have a clear and informative history of code changes.
+- Split your changelogs! I suggest creating **not only a development** changelog but an **end-user one too**, e.g., a separate changelog file inside Storybook. Your customer, end-user, etc. doesn't need to know anything about the code changes, but it would be useful if they could have something like a product changelog with all information about product changes, new feature development, and minor or major changes.
 - Save your time - use the existing tools:
-    - https://github.com/conventional-changelog/conventional-changelog
-    - You are lucky if you use **Rush.js** monorepo as it provides a built-in required changelog generation. [Read More](https://rushjs.io/pages/best_practices/change_logs/).
+    - [conventional-changelog](https://github.com/conventional-changelog/conventional-changelog)
+    - You are lucky if you use **Rush.js** monorepo as it provides built-in required changelog generation. [Read More](https://rushjs.io/pages/best_practices/change_logs/).
+    - [changesets](https://github.com/changesets/changesets)
 
 ## Semantic Versioning
 
@@ -29,26 +30,14 @@ Read the original [Semantic Versioning](https://semver.org/) specification.
 
 Changes types for libraries, backend API, etc.:
 
-- **MAJOR** - these are breaking changes that are not backwards
-compatible. Examples are: renaming a public class, adding/removing a
-non-optional parameter from a public API, or renaming an variable or function
-that is exported. 
-- **MINOR** - these are changes that are backwards compatible
-(but not forwards compatible). Examples are: adding a new public API or
-adding an optional parameter to a public API 
-- **PATCH** - these are changes that
-are backwards and forwards compatible. Examples are: Modifying a private API
-or fixing a bug in the logic of how an existing API works. 
-- **NONE** - these are changes that are backwards and forwards compatible and don't require an
-immediate release. Examples are: Modifying dev tooling configuration like
-eslint. 
+- **MAJOR** - these are breaking changes that are not backward compatible. Examples are: renaming a public class, adding/removing a non-optional parameter from a public API, or renaming a variable or function that is exported.
+- **MINOR** - these are changes that are backward compatible (but not forward compatible). Examples are: adding a new public API or adding an optional parameter to a public API.
+- **PATCH** - these are changes that are backward and forward compatible. Examples are: modifying a private API or fixing a bug in the logic of how an existing API works.
+- **NONE** - these are changes that are backward and forward compatible and don't require an immediate release. Examples are: modifying dev tooling configuration like ESLint.
 
 Changes types for frontend apps:
 
-- **MAJOR** - the same as previous specification, but including some other examples
-that intuitively are MAJOR changes: this would include significant redesigns and 
-things that somehow “start a new era”, as I call it.
-- **MINOR** - the same as previous specification, but including the fact of
-integration with backend API: if you start using some API that was not used before, it's a MINOR change.
-- **PATCH** - the same as previous specification.
-- **NONE** - the same as previous specification.
+- **MAJOR** - the same as the previous specification, but including some other examples that intuitively are MAJOR changes: this would include significant redesigns and things that somehow "start a new era," as I call it.
+- **MINOR** - the same as the previous specification, but including the fact of integration with backend API: if you start using some API that was not used before, it's a MINOR change.
+- **PATCH** - the same as the previous specification.
+- **NONE** - the same as the previous specification.

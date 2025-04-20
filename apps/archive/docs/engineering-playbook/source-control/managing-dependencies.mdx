@@ -1,30 +1,32 @@
 ---
-title: Managing dependencies
+title: Managing Dependencies
 ---
 
-# Managing dependencies
+# Managing Dependencies
 
-## Choosing npm packages
+## Choosing npm Packages
 
-Suppose you need to select a library, and you already know the requirements for which you are searching for this library. Here's what to consider when making the final decision:
+Suppose you need to select a library, and you already know the requirements for which you are searching. Here's what to consider when making the final decision:
 
-- **Bundle size.** - Compare the bundle size of each package using https://pkg-size.dev/.
-- **Over engineering.** - Evaluate how much unnecessary functionality this package offers. If it affects the bundle size, it's better to look for alternatives.
-- **Popularity.** - The number of GitHub stars and monthly downloads.
-- **Activity.** - How recently and how often the package has been updated? Activity in terms of issues and pull requests.
-- **Code quality.** - Read the source code of the package.
+- **Bundle size** - Compare the bundle size of each package using https://pkg-size.dev/.
+- **Over-engineering** - Evaluate how much unnecessary functionality this package offers. If it affects the bundle size, it's better to look for alternatives.
+- **Popularity** - The number of GitHub stars and monthly downloads.
+- **Activity** - How recently and how often the package has been updated? Activity in terms of issues and pull requests.
+- **Code quality** - Read the source code of the package.
+- **Documentation** - How well documented is the package.
 
-## Updating npm package versions
+## Updating npm Package Versions
 
-- Do not hurry to upgrade to major versions (especially in the context of big frameworks like Next.js), waite for at least 1-2 minor/patch versions afterward (unless it is needed and we embraced the risks).
+- Do not hurry to upgrade to major versions (especially in the context of big frameworks like Next.js). Wait for at least 1-2 minor/patch versions afterward (unless it is needed and we have embraced the risks).
 - When updating a version, carefully read the package's **Changelog** to avoid breaking changes.
-- **Test** all the functionality related to the updated package.
+- **Test** all functionality related to the updated package.
 
-## How to manage dependency versions
+## How to Manage Dependency Versions
 
-- **Strictly specify versions of all npm packages**. - [Do not use any symbols](https://docs.npmjs.com/cli/v8/configuring-npm/package-json#dependencies) (`^`, `~`, etc.) - this can lead to sudden bugs, as you might easily overlook that some packages have been updated, miss testing-related functionality, fail to inform QA about it, and as a result, deliver bugs to production.
-- Use [dependabot](https://docs.github.com/ru/code-security/dependabot/working-with-dependabot).
-- Use [npm-check-updates](https://github.com/raineorshine/npm-check-updates)
+- **Strictly specify versions of all npm packages** - [Do not use any symbols](https://docs.npmjs.com/cli/v8/configuring-npm/package-json#dependencies) (`^`, `~`, etc.) - this can lead to sudden bugs, as you might easily overlook that some packages have been updated, miss testing related functionality, fail to inform QA about it, and as a result, deliver bugs to production.
+- Use [Dependabot](https://docs.github.com/ru/code-security/dependabot/working-with-dependabot).
+- Use [npm-check-updates](https://github.com/raineorshine/npm-check-updates).
+- Use [Renovate](https://github.com/renovatebot/renovate) (Recommended).
 
 ## Choosing a Dependency Manager
 
