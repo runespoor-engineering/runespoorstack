@@ -6,6 +6,29 @@ title: Tech Stack
 
 This document is used to track key technologies that are used in project development.
 
+## Why Do We Need a Tech Stack Document?
+
+A tech stack document serves several crucial purposes:
+
+1. **Onboarding and Knowledge Transfer**
+   - Helps new team members quickly understand the project's technical foundation
+   - Provides a clear reference for the tools and technologies in use
+   - Reduces the learning curve for new developers
+2. **Project Planning**
+   - Assists in estimating project complexity and requirements
+   - Helps identify potential technical constraints early
+   - Supports resource allocation and skill requirements planning
+3. **Maintenance and Support**
+   - Makes it easier to troubleshoot issues
+   - Helps in planning upgrades and migrations
+   - Ensures consistent development environments
+4. **Communication with Stakeholders**
+   - Provides transparency about technical decisions
+   - Helps non-technical stakeholders understand project architecture
+   - Supports technical documentation and reporting
+
+By maintaining a clear tech stack document, teams can ensure better collaboration, consistent development practices, and more efficient project management.
+
 ## Technologies Category
 
 <table>
@@ -48,7 +71,7 @@ Here you could see an example of the tech stack that is used in the Runespoorsta
   </tbody>
 </table>
 
-### Code Quality and Organization
+### Build Tools
 
 <table>
   <thead>
@@ -64,6 +87,25 @@ Here you could see an example of the tech stack that is used in the Runespoorsta
       <td>A scalable monorepo manager for the web.</td>
       <td>Key monorepository toolset, CI/CD driver.</td>
     </tr>
+     <tr>
+      <td><a href="https://github.com/egoist/tsup">Tsup</a></td>
+      <td>Zero-config bundler for TypeScript libraries.</td>
+      <td>Building and bundling the CLI application, generating both CommonJS and ES Modules outputs.</td>
+    </tr>
+  </tbody>
+</table>
+
+### Code Quality and Organization
+
+<table>
+  <thead>
+    <tr>
+      <th>Technology</th>
+      <th>Description</th>
+      <th>Purposes</th>
+    </tr>
+  </thead>
+  <tbody>
     <tr>
       <td><a href="https://eslint.org/">ESlint</a></td>
       <td>Static code analyzer.</td>
@@ -79,5 +121,41 @@ Here you could see an example of the tech stack that is used in the Runespoorsta
       <td>Typed programming language that builds on JavaScript.</td>
       <td>Everyone should find there own purpose.</td>
     </tr>
+    <tr>
+      <td><a href="https://www.npmjs.com/">Vitest</a></td>
+      <td>Next generation testing framework powered by Vite.</td>
+      <td>Key testing library for all the projects.</td>
+    </tr>
   </tbody>
 </table>
+
+### CLI Tools
+
+<table>
+  <thead>
+    <tr>
+      <th>Technology</th>
+      <th>Description</th>
+      <th>Purposes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="https://github.com/tj/commander.js">Commander</a></td>
+      <td>Complete solution for Node.js command-line interfaces.</td>
+      <td>Building CLI applications with command parsing, help generation, and command execution.</td>
+    </tr>
+    <tr>
+      <td><a href="https://github.com/SBoudrias/Inquirer.js">Inquirer.js</a></td>
+      <td>Collection of common interactive command line user interfaces.</td>
+      <td>Creating interactive prompts, user input handling, and command-line interfaces.</td>
+    </tr>
+    <tr>
+      <td><a href="https://github.com/npm/node-semver">Semver</a></td>
+      <td>Semantic version parser and comparator.</td>
+      <td>Managing semantic versioning, version comparison, and validation in the changelog manager.</td>
+    </tr>
+   
+  </tbody>
+</table>
+
