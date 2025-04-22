@@ -2,6 +2,11 @@ import { ERROR_MESSAGES } from '../../constants/error-messages';
 import { RgbaObject } from '../../types';
 
 export const validateRgbaObject = (rgbaObject: RgbaObject) => {
+  if (typeof rgbaObject !== 'object' || rgbaObject === null) {
+    throw new Error(
+      ERROR_MESSAGES.invalidColorType({ actualType: typeof rgbaObject, expectedType: 'object' })
+    );
+  }
   if (
     rgbaObject.r < 0 ||
     rgbaObject.r > 255 ||
