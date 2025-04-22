@@ -1,0 +1,10 @@
+{
+  "changes": [
+    {
+      "packageName": "@runespoorstack/color-utils",
+      "comment": "chore: use color types instead of strings",
+      "type": "patch"
+    }
+  ],
+  "packageName": "@runespoorstack/color-utils"
+}
