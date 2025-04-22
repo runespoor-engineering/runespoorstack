@@ -2,6 +2,20 @@
   "name": "@runespoorstack/color-utils",
   "entries": [
     {
+      "version": "0.1.1",
+      "tag": "@runespoorstack/color-utils_v0.1.1",
+      "date": "Tue, 22 Apr 2025 08:45:19 GMT",
+      "comments": {
+        "patch": [
+          {
+            "comment": "chore: use color types instead of strings",
+            "author": "BorysShulyak <borysshulyak@gmail.com>",
+            "commit": "eb3041df93bfd8b60a26dbf75fce7b2e15bc82bc"
+          }
+        ]
+      }
+    },
+    {
       "version": "0.1.0",
       "tag": "@runespoorstack/color-utils_v0.1.0",
       "date": "Tue, 22 Apr 2025 07:26:44 GMT",
