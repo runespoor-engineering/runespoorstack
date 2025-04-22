@@ -10,3 +10,9 @@ export type RgbaObject = {
   b: number;
   a: number;
 };
+
+export type RgbObject = {
+  r: number;
+  g: number;
+  b: number;
+};
