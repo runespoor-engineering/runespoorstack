@@ -1,13 +1,7 @@
+import { RgbaObject } from '../../types';
 import { validateHex } from '../../validation/validateHex/validateHex';
 
-interface RgbaObject {
-  r: number;
-  g: number;
-  b: number;
-  a: number;
-}
-
-export const hexToRgba = (hex: string): RgbaObject => {
+export const hexToRgbaObject = (hex: string): RgbaObject => {
   validateHex(hex);
 
   const hexWithoutHash = hex.startsWith('#') ? hex.slice(1) : hex;
