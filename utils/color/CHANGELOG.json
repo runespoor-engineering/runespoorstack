@@ -2,6 +2,20 @@
   "name": "@runespoorstack/color-utils",
   "entries": [
     {
+      "version": "0.2.0",
+      "tag": "@runespoorstack/color-utils_v0.2.0",
+      "date": "Tue, 22 Apr 2025 17:49:02 GMT",
+      "comments": {
+        "minor": [
+          {
+            "comment": "Add `rgbObjectToHex` utility for converting RGB colors to HEX, including validation.",
+            "author": "BorysShulyak <borysshulyak@gmail.com>",
+            "commit": "42675ef39361aebb8aa96fe3b4906756d14539a0"
+          }
+        ]
+      }
+    },
+    {
       "version": "0.1.1",
       "tag": "@runespoorstack/color-utils_v0.1.1",
       "date": "Tue, 22 Apr 2025 08:45:19 GMT",
