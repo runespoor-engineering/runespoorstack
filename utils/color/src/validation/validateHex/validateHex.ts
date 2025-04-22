@@ -1,7 +1,8 @@
 import { ERROR_MESSAGES } from '../../constants/error-messages';
 import { HEX_COLOR_REGEX } from '../../constants/regexp';
+import { HexColor } from '../../types';
 
-export const validateHex = (hex: string) => {
+export const validateHex = (hex: HexColor) => {
   if (typeof hex !== 'string') {
     throw new Error(
       ERROR_MESSAGES.invalidColorType({ actualType: typeof hex, expectedType: 'string' })

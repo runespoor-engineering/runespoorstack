@@ -1,4 +1,5 @@
 import { ERROR_MESSAGES } from '../../../constants/error-messages';
+import { HexColor } from '../../../types';
 import { hexToRgbaObject } from '../hexToRgbaObject';
 
 describe('hexToRgba', () => {
@@ -30,18 +31,19 @@ describe('hexToRgba', () => {
     expect.hasAssertions();
     expect(() => hexToRgbaObject('#xyz')).toThrow(ERROR_MESSAGES.invalidHex);
     expect(() => hexToRgbaObject('#12345')).toThrow(ERROR_MESSAGES.invalidHex);
+    // @ts-expect-error - This is a test for invalid input
     expect(() => hexToRgbaObject('not a hex')).toThrow(ERROR_MESSAGES.invalidHex);
   });
 
   it('should throw error for non-string inputs', () => {
     expect.hasAssertions();
-    expect(() => hexToRgbaObject(123 as unknown as string)).toThrow(
+    expect(() => hexToRgbaObject(123 as unknown as HexColor)).toThrow(
       ERROR_MESSAGES.invalidColorType({ actualType: 'number', expectedType: 'string' })
     );
-    expect(() => hexToRgbaObject(null as unknown as string)).toThrow(
+    expect(() => hexToRgbaObject(null as unknown as HexColor)).toThrow(
       ERROR_MESSAGES.invalidColorType({ actualType: 'object', expectedType: 'string' })
     );
-    expect(() => hexToRgbaObject(undefined as unknown as string)).toThrow(
+    expect(() => hexToRgbaObject(undefined as unknown as HexColor)).toThrow(
       ERROR_MESSAGES.invalidColorType({ actualType: 'undefined', expectedType: 'string' })
     );
   });

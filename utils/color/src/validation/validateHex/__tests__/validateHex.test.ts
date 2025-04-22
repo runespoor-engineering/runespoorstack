@@ -1,4 +1,5 @@
 import { ERROR_MESSAGES } from '../../../constants/error-messages';
+import { HexColor } from '../../../types';
 import { validateHex } from '../validateHex';
 
 describe('validateHex', () => {
@@ -33,19 +34,19 @@ describe('validateHex', () => {
 
   it('should throw error for non-string inputs', () => {
     expect.hasAssertions();
-    expect(() => validateHex(123 as unknown as string)).toThrow(
+    expect(() => validateHex(123 as unknown as HexColor)).toThrow(
       ERROR_MESSAGES.invalidColorType({ actualType: 'number', expectedType: 'string' })
     );
-    expect(() => validateHex(null as unknown as string)).toThrow(
+    expect(() => validateHex(null as unknown as HexColor)).toThrow(
       ERROR_MESSAGES.invalidColorType({ actualType: 'object', expectedType: 'string' })
     );
-    expect(() => validateHex(undefined as unknown as string)).toThrow(
+    expect(() => validateHex(undefined as unknown as HexColor)).toThrow(
       ERROR_MESSAGES.invalidColorType({ actualType: 'undefined', expectedType: 'string' })
     );
-    expect(() => validateHex({} as unknown as string)).toThrow(
+    expect(() => validateHex({} as unknown as HexColor)).toThrow(
       ERROR_MESSAGES.invalidColorType({ actualType: 'object', expectedType: 'string' })
     );
-    expect(() => validateHex([] as unknown as string)).toThrow(
+    expect(() => validateHex([] as unknown as HexColor)).toThrow(
       ERROR_MESSAGES.invalidColorType({ actualType: 'object', expectedType: 'string' })
     );
   });

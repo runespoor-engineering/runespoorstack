@@ -1,4 +1,4 @@
-import { RgbaObject } from '../../types';
+import { HexColor, RgbaObject } from '../../types';
 import { validateRgbaObject } from '../../validation/validateRgbaObject/validateRgbaObject';
 
 const rgbaComponentToHex = (rgbaComponent: number): string => {
@@ -6,7 +6,7 @@ const rgbaComponentToHex = (rgbaComponent: number): string => {
   return hex.length === 1 ? `0${hex}` : hex;
 };
 
-export const rgbaObjectToHex = (rgba: RgbaObject): string => {
+export const rgbaObjectToHex = (rgba: RgbaObject): HexColor => {
   validateRgbaObject(rgba);
 
   const rHex = rgbaComponentToHex(rgba.r);

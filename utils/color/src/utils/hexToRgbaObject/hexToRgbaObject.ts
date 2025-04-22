@@ -1,7 +1,7 @@
-import { RgbaObject } from '../../types';
+import { HexColor, RgbaObject } from '../../types';
 import { validateHex } from '../../validation/validateHex/validateHex';
 
-export const hexToRgbaObject = (hex: string): RgbaObject => {
+export const hexToRgbaObject = (hex: HexColor): RgbaObject => {
   validateHex(hex);
 
   const hexWithoutHash = hex.startsWith('#') ? hex.slice(1) : hex;
