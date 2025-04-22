@@ -1,0 +1,19 @@
+{
+  "name": "@runespoorstack/color-utils",
+  "entries": [
+    {
+      "version": "0.1.0",
+      "tag": "@runespoorstack/color-utils_v0.1.0",
+      "date": "Tue, 22 Apr 2025 07:26:44 GMT",
+      "comments": {
+        "minor": [
+          {
+            "comment": "Implement basic operation.",
+            "author": "BorysShulyak <borysshulyak@gmail.com>",
+            "commit": "21c4689209069481bd8a368e30a416c7c610ef10"
+          }
+        ]
+      }
+    }
+  ]
+}

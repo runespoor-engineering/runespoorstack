@@ -1,6 +1,6 @@
 {
   "name": "@runespoorstack/color-utils",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Everything you need to work with colors in JavaScript and TypeScript.",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
