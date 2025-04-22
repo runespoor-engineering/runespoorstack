@@ -382,7 +382,7 @@
       "packageName": "@runespoorstack/color-utils",
       "projectFolder": "utils/color",
       "tags": ["utils"],
-      "shouldPublish": false
+      "shouldPublish": true
     }
     // {
     //   /**
