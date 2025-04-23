@@ -1,11 +1,14 @@
 export * from './constants/regexp';
 export * from './types';
+export { alphaDecimalToPercentage } from './utils/alphaDecimalToPercentage/alphaDecimalToPercentage';
+export { alphaPercentageToDecimal } from './utils/alphaPercentageToDecimal/alphaPercentageToDecimal';
 export { extractRgbaObjectFromString } from './utils/extractRgbaObjectFromString/extractRgbaObjectFromString';
 export { hexToRgbaObject } from './utils/hexToRgbaObject/hexToRgbaObject';
 export { rgbaObjectToHex } from './utils/rgbaObjectToHex/rgbaObjectToHex';
 export { rgbaObjectToString } from './utils/rgbaObjectToString/rgbaObjectToString';
 export { rgbaStringToObject } from './utils/rgbaStringToObject/rgbaStringToObject';
 export { rgbObjectToHex } from './utils/rgbObjectToHex/rgbObjectToHex';
+export { validateAlpha } from './validation/validateAlpha/validateAlpha';
 export { validateHex } from './validation/validateHex/validateHex';
 export { validateRgbaObject } from './validation/validateRgbaObject/validateRgbaObject';
 export { validateRgbaString } from './validation/validateRgbaString/validateRgbaString';
