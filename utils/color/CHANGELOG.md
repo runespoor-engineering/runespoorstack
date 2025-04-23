@@ -1,6 +1,13 @@
 # Change Log - @runespoorstack/color-utils
 
-This log was last generated on Tue, 22 Apr 2025 17:49:02 GMT and should not be manually modified.
+This log was last generated on Wed, 23 Apr 2025 03:34:46 GMT and should not be manually modified.
+
+## 0.3.0
+Wed, 23 Apr 2025 03:34:46 GMT
+
+### Minor changes
+
+- Introduce new methods: `alphaDecimalToPercentage`, `alphaPercentageToDecimal`, `validateAlpha`.
 
 ## 0.2.0
 Tue, 22 Apr 2025 17:49:02 GMT
