@@ -2,6 +2,20 @@
   "name": "@runespoorstack/color-utils",
   "entries": [
     {
+      "version": "0.3.0",
+      "tag": "@runespoorstack/color-utils_v0.3.0",
+      "date": "Wed, 23 Apr 2025 03:34:46 GMT",
+      "comments": {
+        "minor": [
+          {
+            "comment": "Introduce new methods: `alphaDecimalToPercentage`, `alphaPercentageToDecimal`, `validateAlpha`.",
+            "author": "BorysShulyak <borysshulyak@gmail.com>",
+            "commit": "2f999cc66c7530e9ff4367b4d4a43f14722c0557"
+          }
+        ]
+      }
+    },
+    {
       "version": "0.2.0",
       "tag": "@runespoorstack/color-utils_v0.2.0",
       "date": "Tue, 22 Apr 2025 17:49:02 GMT",
