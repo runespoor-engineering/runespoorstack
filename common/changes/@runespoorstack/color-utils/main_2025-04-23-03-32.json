@@ -1,0 +1,10 @@
+{
+  "changes": [
+    {
+      "packageName": "@runespoorstack/color-utils",
+      "comment": "Introduce new methods: `alphaDecimalToPercentage`, `alphaPercentageToDecimal`, `validateAlpha`.",
+      "type": "minor"
+    }
+  ],
+  "packageName": "@runespoorstack/color-utils"
+}
