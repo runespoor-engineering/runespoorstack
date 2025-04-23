@@ -1,0 +1,10 @@
+{
+  "changes": [
+    {
+      "packageName": "@runespoorstack/color-utils",
+      "comment": "Introduce new `extractRgbObjectFromString`, `validateRgbString`, `rgbStringToObject` methods",
+      "type": "minor"
+    }
+  ],
+  "packageName": "@runespoorstack/color-utils"
+}
