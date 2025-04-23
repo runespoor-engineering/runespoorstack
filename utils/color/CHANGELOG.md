@@ -1,6 +1,13 @@
 # Change Log - @runespoorstack/color-utils
 
-This log was last generated on Wed, 23 Apr 2025 03:34:46 GMT and should not be manually modified.
+This log was last generated on Wed, 23 Apr 2025 05:17:19 GMT and should not be manually modified.
+
+## 0.4.0
+Wed, 23 Apr 2025 05:17:19 GMT
+
+### Minor changes
+
+- Introduce new `extractRgbObjectFromString`, `validateRgbString`, `rgbStringToObject` methods
 
 ## 0.3.0
 Wed, 23 Apr 2025 03:34:46 GMT
