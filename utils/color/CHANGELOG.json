@@ -2,6 +2,20 @@
   "name": "@runespoorstack/color-utils",
   "entries": [
     {
+      "version": "0.5.0",
+      "tag": "@runespoorstack/color-utils_v0.5.0",
+      "date": "Fri, 25 Apr 2025 14:25:53 GMT",
+      "comments": {
+        "minor": [
+          {
+            "comment": "Implement `validateHslaObject` method.",
+            "author": "BorysShulyak <borysshulyak@gmail.com>",
+            "commit": "b7fce27f629d3f73fc31bd66a2a754d17dd6c08f"
+          }
+        ]
+      }
+    },
+    {
       "version": "0.4.0",
       "tag": "@runespoorstack/color-utils_v0.4.0",
       "date": "Wed, 23 Apr 2025 05:17:19 GMT",
