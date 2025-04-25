@@ -1,0 +1,10 @@
+{
+  "changes": [
+    {
+      "packageName": "@runespoorstack/color-utils",
+      "comment": "Implement `validateHslaObject` method.",
+      "type": "minor"
+    }
+  ],
+  "packageName": "@runespoorstack/color-utils"
+}
