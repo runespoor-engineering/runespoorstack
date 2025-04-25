@@ -11,8 +11,13 @@ export type RgbaObject = {
   a: number;
 };
 
-export type RgbObject = {
-  r: number;
-  g: number;
-  b: number;
+export type RgbObject = Omit<RgbaObject, 'a'>;
+
+export type HslaObject = {
+  h: number;
+  s: number;
+  l: number;
+  a: number;
 };
+
+export type HslObject = Omit<HslaObject, 'a'>;

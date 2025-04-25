@@ -13,5 +13,8 @@ export const ERROR_MESSAGES = {
   invalidColorFormat: invalidFormat('color'),
   invalidRgbRange: `Error: RGB values must be between 0 and 255`,
   invalidAlphaRange: `Error: Alpha value must be between 0 and 1`,
+  invalidHueRange: `Error: Hue value must be between 0 and 360`,
+  invalidSaturationRange: `Error: Saturation value must be between 0 and 100`,
+  invalidLightnessRange: `Error: Lightness value must be between 0 and 100`,
   invalidHex: `Error: Invalid hex color code`
 };
