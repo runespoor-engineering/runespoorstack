@@ -2,6 +2,20 @@
   "name": "@runespoorstack/color-utils",
   "entries": [
     {
+      "version": "0.4.0",
+      "tag": "@runespoorstack/color-utils_v0.4.0",
+      "date": "Wed, 23 Apr 2025 05:17:19 GMT",
+      "comments": {
+        "minor": [
+          {
+            "comment": "Introduce new `extractRgbObjectFromString`, `validateRgbString`, `rgbStringToObject` methods",
+            "author": "BorysShulyak <borysshulyak@gmail.com>",
+            "commit": "7bf4e3319b2b77c8abc874fdf707a651db4f9d81"
+          }
+        ]
+      }
+    },
+    {
       "version": "0.3.0",
       "tag": "@runespoorstack/color-utils_v0.3.0",
       "date": "Wed, 23 Apr 2025 03:34:46 GMT",
