@@ -1,6 +1,13 @@
 # Change Log - @runespoorstack/color-utils
 
-This log was last generated on Wed, 23 Apr 2025 05:17:19 GMT and should not be manually modified.
+This log was last generated on Fri, 25 Apr 2025 14:25:53 GMT and should not be manually modified.
+
+## 0.5.0
+Fri, 25 Apr 2025 14:25:53 GMT
+
+### Minor changes
+
+- Implement `validateHslaObject` method.
 
 ## 0.4.0
 Wed, 23 Apr 2025 05:17:19 GMT
