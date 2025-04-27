@@ -1,0 +1,10 @@
+{
+  "changes": [
+    {
+      "packageName": "@runespoorstack/color-utils",
+      "comment": "Add `extractHslObjectFromString` function and corresponding tests for HSL string extraction",
+      "type": "minor"
+    }
+  ],
+  "packageName": "@runespoorstack/color-utils"
+}
