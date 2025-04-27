@@ -45,27 +45,14 @@ const sidebars = {
           type: 'category',
           label: 'Agile',
           items: [
-            {
-              type: 'category',
-              label: 'Basics',
-              items: [
-                'engineering-playbook/agile/basics/basics',
-                'engineering-playbook/agile/basics/agile-roles',
-                'engineering-playbook/agile/basics/agile-ceremonies-basics',
-                'engineering-playbook/agile/basics/agile-backlog-management',
-                'engineering-playbook/agile/basics/the-sprint',
-                'engineering-playbook/agile/basics/retrospectives'
-              ]
-            },
-            {
-              type: 'category',
-              label: 'Advanced',
-              items: [
-                'engineering-playbook/agile/advanced/scrum-rhythm',
-                'engineering-playbook/agile/advanced/definition-of-ready',
-                'engineering-playbook/agile/advanced/definition-of-done'
-              ]
-            }
+            'engineering-playbook/agile/basics',
+            'engineering-playbook/agile/agile-roles',
+            'engineering-playbook/agile/agile-ceremonies-basics',
+            'engineering-playbook/agile/agile-backlog-management',
+            'engineering-playbook/agile/the-sprint',
+            'engineering-playbook/agile/retrospectives',
+            'engineering-playbook/agile/definition-of-ready',
+            'engineering-playbook/agile/definition-of-done'
           ]
         },
         {
