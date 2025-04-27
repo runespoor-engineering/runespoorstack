@@ -3,6 +3,7 @@ export * from './types';
 export { alphaDecimalToPercentage } from './utils/alphaDecimalToPercentage/alphaDecimalToPercentage';
 export { alphaPercentageToDecimal } from './utils/alphaPercentageToDecimal/alphaPercentageToDecimal';
 export { extractHslaObjectFromString } from './utils/extractHslaObjectFromString/extractHslaObjectFromString';
+export { extractHslObjectFromString } from './utils/extractHslObjectFromString/extractHslObjectFromString';
 export { extractRgbaObjectFromString } from './utils/extractRgbaObjectFromString/extractRgbaObjectFromString';
 export { extractRgbObjectFromString } from './utils/extractRgbObjectFromString/extractRgbObjectFromString';
 export { hexToRgbaObject } from './utils/hexToRgbaObject/hexToRgbaObject';
