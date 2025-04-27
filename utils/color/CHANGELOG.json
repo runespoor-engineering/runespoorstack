@@ -2,6 +2,20 @@
   "name": "@runespoorstack/color-utils",
   "entries": [
     {
+      "version": "0.6.0",
+      "tag": "@runespoorstack/color-utils_v0.6.0",
+      "date": "Sat, 26 Apr 2025 06:59:43 GMT",
+      "comments": {
+        "minor": [
+          {
+            "comment": "Implement `extractHslaObjectFromString` method.",
+            "author": "BorysShulyak <borysshulyak@gmail.com>",
+            "commit": "5a26f34e32c3f2c6f13de3c2f6ef3bbbed2fb3c0"
+          }
+        ]
+      }
+    },
+    {
       "version": "0.5.0",
       "tag": "@runespoorstack/color-utils_v0.5.0",
       "date": "Fri, 25 Apr 2025 14:25:53 GMT",

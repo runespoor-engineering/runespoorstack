@@ -1,6 +1,13 @@
 # Change Log - @runespoorstack/color-utils
 
-This log was last generated on Fri, 25 Apr 2025 14:25:53 GMT and should not be manually modified.
+This log was last generated on Sat, 26 Apr 2025 06:59:43 GMT and should not be manually modified.
+
+## 0.6.0
+Sat, 26 Apr 2025 06:59:43 GMT
+
+### Minor changes
+
+- Implement `extractHslaObjectFromString` method.
 
 ## 0.5.0
 Fri, 25 Apr 2025 14:25:53 GMT
