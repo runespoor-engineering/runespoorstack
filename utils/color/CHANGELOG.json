@@ -2,6 +2,20 @@
   "name": "@runespoorstack/color-utils",
   "entries": [
     {
+      "version": "0.7.0",
+      "tag": "@runespoorstack/color-utils_v0.7.0",
+      "date": "Sun, 27 Apr 2025 06:47:20 GMT",
+      "comments": {
+        "minor": [
+          {
+            "comment": "Add `extractHslObjectFromString` function and corresponding tests for HSL string extraction",
+            "author": "BorysShulyak <borysshulyak@gmail.com>",
+            "commit": "b96a17ef1932b21c111123e4c7653dff87056155"
+          }
+        ]
+      }
+    },
+    {
       "version": "0.6.0",
       "tag": "@runespoorstack/color-utils_v0.6.0",
       "date": "Sat, 26 Apr 2025 06:59:43 GMT",
