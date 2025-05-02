@@ -20,18 +20,18 @@
     "lint:fix": "eslint . --ext .ts,.tsx,.js,.jsx,.cjs,.mjs --ignore-path ../../.gitignore --fix"
   },
   "dependencies": {
-    "@docusaurus/core": "3.6.3",
-    "@docusaurus/preset-classic": "3.6.3",
-    "@docusaurus/plugin-content-docs": "3.6.3",
+    "@docusaurus/core": "3.7.0",
+    "@docusaurus/preset-classic": "3.7.0",
+    "@docusaurus/plugin-content-docs": "3.7.0",
     "@mdx-js/react": "3.1.0",
     "clsx": "2.1.1",
-    "prism-react-renderer": "2.4.0",
+    "prism-react-renderer": "2.4.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "@algolia/client-search": "4.23.2",
     "search-insights": "2.17.3",
-    "@docusaurus/theme-mermaid": "3.6.3",
-    "acorn": "8.14.0"
+    "@docusaurus/theme-mermaid": "3.7.0",
+    "acorn": "8.14.1"
   },
   "devDependencies": {
     "@runespoorstack/eslint-config": "workspace:*",
@@ -58,7 +58,7 @@
     ]
   },
   "engines": {
-    "node": ">=18.0"
+    "node": ">=20.9.0"
   },
   "repository": {
     "type": "git",

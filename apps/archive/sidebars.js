@@ -64,7 +64,6 @@ const sidebars = {
             'engineering-playbook/processes/critical-chain',
             'engineering-playbook/processes/delayIn-managerial-decision-making',
             'engineering-playbook/processes/tech-interview',
-            'engineering-playbook/processes/onboarding',
             'engineering-playbook/processes/productivity-desctruction-meetings'
           ]
         },
