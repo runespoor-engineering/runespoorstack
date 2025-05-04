@@ -20,7 +20,6 @@ See the [CONTRIBUTING.md](https://github.com/runespoor-engineering/runespoorstac
 | Path | Description |
 |-----------|-------------|
 | apps/archive | A set of documents that may help you to increase overall efficiency for team members and the whole team in general, and to strive to be better engineers. |
-| bots/danger | The Runespoor set of PR linters using Danger.js |
 | feature-toggles/feature-toggles-imperative | Imperative feature toggles as code for JavaScript and TypeScript. |
 | eslint/eslint-config | Battle tested, ready for production set of Runespoor ESlint configs. |
 | cli/changelog | The Runespoor CLI for changelog management and semantic versioning. |
