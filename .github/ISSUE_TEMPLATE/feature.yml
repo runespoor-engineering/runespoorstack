@@ -1,7 +1,7 @@
 name: ✨ Feature Request
 description: Suggest an idea for this project.
 labels: ['type::feature', 'workflow::backlog validation']
-title: '[✨]'
+title: '[Feature Request]:'
 body:
   - type: textarea
     id: use_case
@@ -20,7 +20,6 @@ body:
         - eslint/eslint-config
         - cli/changelog
         - feature-toggles/feature-toggles-imperative
-        - bots/danger
         - new package
     validations:
       required: true
