@@ -9,7 +9,7 @@
 - [ ]  Reviewers are assigned.
 - [ ]  All the required labels are added. [Read more.](https://github.com/runespoor-engineering/runespoorstack/blob/main/documentation/LABELS.md)
 
-### High-level description of changes
+## High-level description of changes
 
 <!--
 Describe the purposes and results of your changes.
