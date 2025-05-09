@@ -9,21 +9,20 @@
 - [ ]  Reviewers are assigned.
 - [ ]  All the required labels are added. [Read more.](https://github.com/runespoor-engineering/runespoorstack/blob/main/documentation/LABELS.md)
 
-## Glossary
+### High-level description of changes
 
-- :white_check_mark: - covered with tests
-- :boom: - impacted
-- **CodeReview** process - `documentation/CODE_REVIEW.md`
-
-### Detailed description of changes
 <!--
-Detailed description of each module changes. Use the third title for module name and the bullet list for changes description.
+Describe the purposes and results of your changes.
 -->
+
 ## Related links
+
 <!--
 Links to related tickets, documentation, guides, etc. Use the bullet list.
 -->
+
 ## Result examples (optionally)
+
 <!--
 Screenshots for result. Use the collapsable images to make your description human-readable
 
@@ -31,6 +30,7 @@ Screenshots for result. Use the collapsable images to make your description huma
 
 </details>
 -->
+
 ## Impact Analysis
 
 ### The context of changes (optionally)
