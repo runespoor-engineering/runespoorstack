@@ -1,7 +1,7 @@
 name: 🐞 Bug Report
 description: Something does not work or is flaky! let us know!
 labels: ['type::bug', 'workflow::problem validation']
-title: '[🐞]'
+title: '[Bug]:'
 body:
   - type: markdown
     attributes:
@@ -17,7 +17,6 @@ body:
         - eslint/eslint-config
         - cli/changelog
         - feature-toggles/feature-toggles-imperative
-        - bots/danger
     validations:
       required: true
 
@@ -26,7 +25,7 @@ body:
     attributes:
       description: 'A clear and concise description of what you expected to happen instead. If you intend to submit a PR for this issue, tell us in the description. Thanks!'
       label: Describe the bug
-      placeholder: Actual Resul ... Expected Result...
+      placeholder: Actual Result ... Expected Result...
 
     validations:
       required: true

@@ -1,6 +1,6 @@
 name: 📖 Documentation Suggestion
 description: Suggestions on how we can improve the documentation.
-title: '[📖]'
+title: '[Docs]:'
 labels: ['type::maintenance', 'workflow::problem validation']
 body:
   - type: markdown
