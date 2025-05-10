@@ -2,6 +2,20 @@
   "name": "@runespoorstack/changelog-manager",
   "entries": [
     {
+      "version": "0.8.2",
+      "tag": "@runespoorstack/changelog-manager_v0.8.2",
+      "date": "Sat, 10 May 2025 08:24:41 GMT",
+      "comments": {
+        "patch": [
+          {
+            "comment": "`apply` command: remove extra indentations during `CHANGELOG.md` generation.",
+            "author": "BorysShulyak <borysshulyak@gmail.com>",
+            "commit": "1186e2ddf3ea2bd74f7ef89b3e81494449b741b9"
+          }
+        ]
+      }
+    },
+    {
       "version": "0.8.1",
       "tag": "@runespoorstack/changelog-manager_v0.8.1",
       "date": "Thu, 27 Mar 2025 20:50:53 GMT",
