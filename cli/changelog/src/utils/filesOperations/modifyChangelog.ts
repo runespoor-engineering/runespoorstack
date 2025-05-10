@@ -24,15 +24,15 @@ const modifyChangelogTextFile = ({
   const changelogFilePath = getChangelogTextFilePath();
 
   const changelogRecord = `
-  ## ${bumpedPackageVersion}
-  ${date.toString()}
+## ${bumpedPackageVersion}
+${date.toString()}
 
-  ### ${changesType.toUpperCase()}
+### ${changesType.toUpperCase()}
 
-  ${comment}
+${comment}
 
-  Author: **${author}**<br/>
-  ${issueLinks?.length ? `Issue Links: <br/>- ${issueLinks?.join('<br/>- ')}` : ''}
+Author: **${author}**<br/>
+${issueLinks?.length ? `Issue Links: <br/>- ${issueLinks?.join('<br/>- ')}` : ''}
   `;
 
   const existingContent = getChangelogTextData();
