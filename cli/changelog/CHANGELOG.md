@@ -1,6 +1,13 @@
 # Change Log - @runespoorstack/changelog-manager
 
-This log was last generated on Thu, 27 Mar 2025 20:50:53 GMT and should not be manually modified.
+This log was last generated on Sat, 10 May 2025 08:24:41 GMT and should not be manually modified.
+
+## 0.8.2
+Sat, 10 May 2025 08:24:41 GMT
+
+### Patches
+
+- `apply` command: remove extra indentations during `CHANGELOG.md` generation.
 
 ## 0.8.1
 Thu, 27 Mar 2025 20:50:53 GMT
