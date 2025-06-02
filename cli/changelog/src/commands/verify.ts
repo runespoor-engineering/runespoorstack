@@ -1,6 +1,6 @@
 import { execSync } from 'child_process';
 
-import { DEFAULT_GIT_REMOTE_NAME } from '../constants/common';
+import { DEFAULT_CHANGE_FILES_LOCATION, DEFAULT_GIT_REMOTE_NAME } from '../constants/common';
 import { ERRORS } from '../constants/errorMessages';
 import { CHANGE_FILE_NAME_REGEXP } from '../constants/regexp';
 import { SUCCESS } from '../constants/successMessages';
@@ -12,7 +12,9 @@ export const verify = async (options?: {
   sourceBranch?: string;
   targetBranch?: string;
   remoteName?: string;
+  location?: string;
 }) => {
+  const changeFilesLocation = options?.location || DEFAULT_CHANGE_FILES_LOCATION;
   const remote = options?.remoteName || DEFAULT_GIT_REMOTE_NAME;
   const sourceBranch =
     options?.sourceBranch || execSync(GIT_COMMANDS.currentBranchName()).toString().trim();
@@ -35,7 +37,8 @@ export const verify = async (options?: {
   const existingChangeFilePath = getExistingChangeFilePath({
     targetBranch,
     sourceBranch,
-    remoteName: options?.remoteName
+    remoteName: options?.remoteName,
+    changeFilesLocation
   });
   if (!existingChangeFilePath) {
     console.error(ERRORS.noChangeFiles(sourceBranch));

@@ -1,6 +1,3 @@
-export const CHANGE_FILES_FOLDER = 'changes';
-export const CHANGELOG_TEXT_FILE = 'CHANGELOG.md';
-export const CHANGELOG_JSON_FILE = 'CHANGELOG.json';
 export const PACKAGE_JSON_FILE = 'package.json';
 
 export enum ChangesTypes {

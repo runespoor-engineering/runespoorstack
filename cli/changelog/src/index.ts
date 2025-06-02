@@ -24,6 +24,7 @@ program
     'pattern to generate issue link (leave {{issueId}} placeholder in the correct link place)'
   )
   .option('-r, --remoteName <origin>', 'name of the git remote')
+  .option('-l, --location <changes>', 'path to the folder with saved change files')
   .action(change);
 
 program
@@ -35,6 +36,7 @@ program
     'name of the source branch (required in the CI)'
   )
   .option('-r, --remoteName <origin>', 'name of the git remote (required in the CI)')
+  .option('-l, --location <changes>', 'path to the folder with saved change files')
   .action(async (options) => {
     verify(options);
   });
@@ -47,6 +49,11 @@ program
     'name of the target branch (required in the CI)'
   )
   .option('-r, --remoteName <origin>', 'name of the git remote')
+  .option('-l, --location <changes>', 'path to the folder with saved change files')
+  .option(
+    '-c, --changelogFileLocation <CHANGELOG>',
+    'path to the changelog file (without extension)'
+  )
   .action(apply);
 
 program.parse();

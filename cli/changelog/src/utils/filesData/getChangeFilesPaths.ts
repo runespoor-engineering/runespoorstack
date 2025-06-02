@@ -4,8 +4,8 @@ import { getDateFromChangeFileName } from '../changeFileMeta/getDateFromChangeFi
 import { getChangesDirectoryPath } from '../paths/getChangesDirectoryPath';
 import { getDeepFilesFromDir } from './getDeepFilesFromDir';
 
-export const getChangeFilesPaths = () => {
-  const changeDirectoryPath = getChangesDirectoryPath();
+export const getChangeFilesPaths = (changeFilesLocation: string) => {
+  const changeDirectoryPath = getChangesDirectoryPath(changeFilesLocation);
   if (!fs.existsSync(changeDirectoryPath)) {
     fs.mkdirSync(changeDirectoryPath);
   }

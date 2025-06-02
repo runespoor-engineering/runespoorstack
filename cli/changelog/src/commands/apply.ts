@@ -1,7 +1,11 @@
 import { execSync } from 'node:child_process';
 import fs from 'node:fs';
 
-import { DEFAULT_GIT_REMOTE_NAME } from '../constants/common';
+import {
+  DEFAULT_CHANGE_FILES_LOCATION,
+  DEFAULT_CHANGELOG_FILE_LOCATION,
+  DEFAULT_GIT_REMOTE_NAME
+} from '../constants/common';
 import { ERRORS } from '../constants/errorMessages';
 import { getDateFromChangeFileName } from '../utils/changeFileMeta/getDateFromChangeFileName/getDateFromChangeFileName';
 import { getChangeFileData } from '../utils/filesData/getChangeFileData';
@@ -17,17 +21,23 @@ import { getChangelogTextFilePath } from '../utils/paths/getChangelogTextFilePat
 import { getPackageJsonFilePath } from '../utils/paths/getPackageJsonFilePath';
 import { bumpSemver } from '../utils/semver/bumpSemver';
 
-export const apply = async (options?: { targetBranch?: string; remoteName?: string }) => {
+export const apply = async (options?: {
+  targetBranch?: string;
+  remoteName?: string;
+  location?: string;
+  changelogFileLocation?: string;
+}) => {
+  const changeFilesLocation = options?.location || DEFAULT_CHANGE_FILES_LOCATION;
+  const changelogFileLocation = options?.changelogFileLocation || DEFAULT_CHANGELOG_FILE_LOCATION;
   const remote = options?.remoteName || DEFAULT_GIT_REMOTE_NAME;
-
   const targetBranch =
     options?.targetBranch || execSync(GIT_COMMANDS.defaultBranchName(remote)).toString().trim();
 
-  createChangelogTextFile();
-  createChangelogJsonFile();
+  createChangelogTextFile(changelogFileLocation);
+  createChangelogJsonFile(changelogFileLocation);
 
   const packageJsonData = getPackageJsonData();
-  const changeFilesPaths = getChangeFilesPaths();
+  const changeFilesPaths = getChangeFilesPaths(changeFilesLocation);
 
   let updatedPackageVersion = packageJsonData.version;
   changeFilesPaths.forEach((changeFilePath) => {
@@ -44,7 +54,8 @@ export const apply = async (options?: { targetBranch?: string; remoteName?: stri
       changesType: changeFileData.type,
       comment: changeFileData.comment,
       author: changeFileData.author,
-      issueLinks: changeFileData.issueLinks
+      issueLinks: changeFileData.issueLinks,
+      changelogFileLocation
     });
     updatedPackageVersion = bumpedPackageVersion;
     fs.unlinkSync(changeFilePath);
@@ -54,8 +65,8 @@ export const apply = async (options?: { targetBranch?: string; remoteName?: stri
   if (changeFilesPaths.length) {
     modifyPackageVersion(updatedPackageVersion);
     execSync(GIT_COMMANDS.add(getPackageJsonFilePath()));
-    execSync(GIT_COMMANDS.add(getChangelogTextFilePath()));
-    execSync(GIT_COMMANDS.add(getChangelogJsonFilePath()));
+    execSync(GIT_COMMANDS.add(getChangelogTextFilePath(changelogFileLocation)));
+    execSync(GIT_COMMANDS.add(getChangelogJsonFilePath(changelogFileLocation)));
     execSync(GIT_COMMANDS.commit(`chore(changelog): apply change file [ci skip]`));
     execSync(GIT_COMMANDS.push(remote, targetBranch));
   }

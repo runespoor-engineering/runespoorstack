@@ -10,15 +10,17 @@ import { getChangesDirectoryPath } from './getChangesDirectoryPath';
 export const getExistingChangeFilePath = ({
   sourceBranch,
   targetBranch,
-  remoteName
+  remoteName,
+  changeFilesLocation
 }: {
   sourceBranch: string;
   targetBranch: string;
   remoteName?: string;
+  changeFilesLocation: string;
 }): string | undefined => {
   const remote = remoteName || DEFAULT_GIT_REMOTE_NAME;
   const firstUniqueCommitDate = getFirstUniqueCommitDate(`${remote}/${targetBranch}`, sourceBranch);
-  const changeDirectoryPath = getChangesDirectoryPath();
+  const changeDirectoryPath = getChangesDirectoryPath(changeFilesLocation);
   if (!fs.existsSync(changeDirectoryPath)) return undefined;
 
   const changeFiles = getDeepFilesFromDir(changeDirectoryPath, /\.json$/);

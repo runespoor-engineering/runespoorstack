@@ -1,1 +1,3 @@
 export const DEFAULT_GIT_REMOTE_NAME = 'origin';
+export const DEFAULT_CHANGE_FILES_LOCATION = 'changes';
+export const DEFAULT_CHANGELOG_FILE_LOCATION = 'CHANGELOG';

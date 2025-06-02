@@ -43,6 +43,7 @@ Optional arguments:
   -t, --targetBranch <source-branch-name>      name of the target branch
   -i, --issueLinkPattern <issue-link-pattern>  pattern to generate issue link (leave {{issueId}} placeholder in the correct link place)
   -r, --remoteName <origin>                    name of the git remote
+  -l, --location <changes>                     path to the folder with saved change files
 ```
 `
 **Functionality**: 
@@ -53,7 +54,7 @@ Optional arguments:
 - If the issue link pattern is provided, should ask to enter the issue id. Message: `Enter comma separated issue ids (it will be used with the following link ...):`
 - Should create the **change file**.
   - File name should follow the convention: `<branch-name>_yyyy-mm-dd-hh-mm-ss-ms.json`.
-  - File should be located in the `<root>/changes` directory.
+  - File should be located in the `<root>/changes` directory by default or in the provided directory.
   - File should have the following specific structure (described below).
   - If there were no new commits comparing with the default branch (`main` or `master`) or the provided target one,
   should print the following message and exit with status code 0: `Info: No new commits found in the current branch. Please make sure you have committed your changes and your branch is ahead of origin/main`
@@ -100,6 +101,7 @@ Optional arguments:
   -s, --sourceBranch <source-branch-name>     name of the source branch (required in the CI)
   -t, --targetBranch <source-branch-name>     name of the target branch
   -r, --remoteName <origin>                   name of the git remote (required in the CI)
+  -l, --location <changes>                    path to the folder with saved change files
 ```
 
 **Functionality**:
@@ -135,6 +137,8 @@ Optional arguments:
   -h, --help                                  Show this help message and exit.
   -t, --targetBranch <source-branch-name>     name of the target branch(required in the CI)
   -r, --remoteName <origin>                   name of the git remote
+  -l, --location <changes>                    path to the folder with saved change files
+  -c, --changelogFileLocation <CHANGELOG>     path to the changelog file (without extension)
 ```
 
 **Functionality**: 
@@ -158,6 +162,7 @@ Optional arguments:
 - Should stage package.json and changelog files.
 - Should commit changes with message "chore(changelog): apply change file [ci skip]".
 - Should push changes to remote repository.
+- Should use the provided changelog file name or use the default one.
 
 **Additional info**:
 

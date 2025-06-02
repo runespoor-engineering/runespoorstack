@@ -5,7 +5,7 @@ import confirm from '@inquirer/confirm';
 import input from '@inquirer/input';
 import select from '@inquirer/select';
 
-import { DEFAULT_GIT_REMOTE_NAME } from '../constants/common';
+import { DEFAULT_CHANGE_FILES_LOCATION, DEFAULT_GIT_REMOTE_NAME } from '../constants/common';
 import { ERRORS } from '../constants/errorMessages';
 import { INFO } from '../constants/infoMessages';
 import { ChangeData, ChangesTypes, ChangesTypesDescriptions } from '../types/common';
@@ -20,7 +20,9 @@ export const change = async (options?: {
   targetBranch?: string;
   issueLinkPattern?: string;
   remoteName?: string;
+  location?: string;
 }) => {
+  const changeFilesLocation = options?.location || DEFAULT_CHANGE_FILES_LOCATION;
   const remote = options?.remoteName || DEFAULT_GIT_REMOTE_NAME;
   const sourceBranch = execSync(GIT_COMMANDS.currentBranchName()).toString().trim();
   const targetBranch =
@@ -39,7 +41,11 @@ export const change = async (options?: {
     process.exit(1);
   }
 
-  const existingChangeFilePath = getExistingChangeFilePath({ targetBranch, sourceBranch });
+  const existingChangeFilePath = getExistingChangeFilePath({
+    targetBranch,
+    sourceBranch,
+    changeFilesLocation
+  });
   let shouldRewriteChangeFile = false;
   if (existingChangeFilePath) {
     shouldRewriteChangeFile = await confirm({
@@ -94,7 +100,7 @@ export const change = async (options?: {
   };
 
   const changeFileName = generateChangeFileName();
-  createChangeFile(changeFileName, changeData);
+  createChangeFile(changeFileName, changeData, changeFilesLocation);
   if (shouldRewriteChangeFile) {
     fs.unlinkSync(existingChangeFilePath!);
   }

@@ -12,7 +12,8 @@ const modifyChangelogTextFile = ({
   changesType,
   comment,
   author,
-  issueLinks
+  issueLinks,
+  changelogFileLocation
 }: {
   bumpedPackageVersion: string;
   date: Date;
@@ -20,8 +21,9 @@ const modifyChangelogTextFile = ({
   comment: string;
   author: string;
   issueLinks?: string[];
+  changelogFileLocation: string;
 }) => {
-  const changelogFilePath = getChangelogTextFilePath();
+  const changelogFilePath = getChangelogTextFilePath(changelogFileLocation);
 
   const changelogRecord = `
 ## ${bumpedPackageVersion}
@@ -35,7 +37,7 @@ Author: **${author}**<br/>
 ${issueLinks?.length ? `Issue Links: <br/>- ${issueLinks?.join('<br/>- ')}` : ''}
   `;
 
-  const existingContent = getChangelogTextData();
+  const existingContent = getChangelogTextData(changelogFileLocation);
   fs.writeFileSync(changelogFilePath, changelogRecord + existingContent);
 };
 
@@ -45,7 +47,8 @@ const modifyChangelogJsonFile = ({
   changesType,
   comment,
   author,
-  issueLinks
+  issueLinks,
+  changelogFileLocation
 }: {
   bumpedPackageVersion: string;
   date: Date;
@@ -53,8 +56,9 @@ const modifyChangelogJsonFile = ({
   comment: string;
   author: string;
   issueLinks?: string[];
+  changelogFileLocation: string;
 }) => {
-  const changelogFilePath = getChangelogJsonFilePath();
+  const changelogFilePath = getChangelogJsonFilePath(changelogFileLocation);
 
   const changelogRecord: ChangelogRecord = {
     version: bumpedPackageVersion,
@@ -65,7 +69,7 @@ const modifyChangelogJsonFile = ({
     issueLinks
   };
 
-  const existingContent = getChangelogJsonData();
+  const existingContent = getChangelogJsonData(changelogFileLocation);
   if (existingContent) {
     fs.writeFileSync(changelogFilePath, JSON.stringify([changelogRecord, ...existingContent]));
   } else {
@@ -79,7 +83,8 @@ export const modifyChangelog = ({
   changesType,
   comment,
   author,
-  issueLinks
+  issueLinks,
+  changelogFileLocation
 }: {
   bumpedPackageVersion: string;
   date: Date;
@@ -87,7 +92,24 @@ export const modifyChangelog = ({
   comment: string;
   author: string;
   issueLinks?: string[];
+  changelogFileLocation: string;
 }) => {
-  modifyChangelogTextFile({ bumpedPackageVersion, date, changesType, comment, author, issueLinks });
-  modifyChangelogJsonFile({ bumpedPackageVersion, date, changesType, comment, author, issueLinks });
+  modifyChangelogTextFile({
+    bumpedPackageVersion,
+    date,
+    changesType,
+    comment,
+    author,
+    issueLinks,
+    changelogFileLocation
+  });
+  modifyChangelogJsonFile({
+    bumpedPackageVersion,
+    date,
+    changesType,
+    comment,
+    author,
+    issueLinks,
+    changelogFileLocation
+  });
 };

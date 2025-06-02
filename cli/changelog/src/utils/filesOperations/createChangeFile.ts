@@ -4,8 +4,12 @@ import { ChangeData } from '../../types/common';
 import { getChangeFilePath } from '../paths/getChangeFilePath';
 import { getChangesDirectoryPath } from '../paths/getChangesDirectoryPath';
 
-export const createChangeFile = (changeFileName: string, changeData: ChangeData) => {
-  const changeDirectoryPath = getChangesDirectoryPath();
+export const createChangeFile = (
+  changeFileName: string,
+  changeData: ChangeData,
+  changeFilesLocation: string
+) => {
+  const changeDirectoryPath = getChangesDirectoryPath(changeFilesLocation);
   if (!fs.existsSync(changeDirectoryPath)) {
     fs.mkdirSync(changeDirectoryPath);
   }
