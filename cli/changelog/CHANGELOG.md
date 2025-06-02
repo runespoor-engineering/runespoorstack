@@ -1,6 +1,13 @@
 # Change Log - @runespoorstack/changelog-manager
 
-This log was last generated on Sat, 10 May 2025 08:24:41 GMT and should not be manually modified.
+This log was last generated on Mon, 02 Jun 2025 14:50:29 GMT and should not be manually modified.
+
+## 0.9.0
+Mon, 02 Jun 2025 14:50:29 GMT
+
+### Minor changes
+
+- `<br/>- `cli/changelog`: add ability to keep multiple changelogs. `change`, `verify`, `apply` commands: add `location` option to provide location of change files. <br/>- `apply` command: add `changelogFileLocation` option to provide path to changelog path.
 
 ## 0.8.2
 Sat, 10 May 2025 08:24:41 GMT
