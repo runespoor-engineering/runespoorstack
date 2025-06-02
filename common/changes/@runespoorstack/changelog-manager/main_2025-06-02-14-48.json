@@ -1,0 +1,10 @@
+{
+  "changes": [
+    {
+      "packageName": "@runespoorstack/changelog-manager",
+      "comment": "`<br/>- `cli/changelog`: add ability to keep multiple changelogs. `change`, `verify`, `apply` commands: add `location` option to provide location of change files. <br/>- `apply` command: add `changelogFileLocation` option to provide path to changelog path.",
+      "type": "minor"
+    }
+  ],
+  "packageName": "@runespoorstack/changelog-manager"
+}
