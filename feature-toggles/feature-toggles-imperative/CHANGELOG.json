@@ -2,6 +2,18 @@
   "name": "@runespoorstack/feature-toggles-imperative",
   "entries": [
     {
+      "version": "0.0.10",
+      "tag": "@runespoorstack/feature-toggles-imperative_v0.0.10",
+      "date": "Thu, 05 Jun 2025 23:09:01 GMT",
+      "comments": {
+        "dependency": [
+          {
+            "comment": "Updating dependency \"@runespoorstack/eslint-config\" to `2.1.0`"
+          }
+        ]
+      }
+    },
+    {
       "version": "0.0.9",
       "tag": "@runespoorstack/feature-toggles-imperative_v0.0.9",
       "date": "Thu, 05 Jun 2025 22:55:18 GMT",

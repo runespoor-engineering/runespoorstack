@@ -2,6 +2,20 @@
   "name": "@runespoorstack/eslint-config",
   "entries": [
     {
+      "version": "2.1.0",
+      "tag": "@runespoorstack/eslint-config_v2.1.0",
+      "date": "Thu, 05 Jun 2025 23:09:01 GMT",
+      "comments": {
+        "minor": [
+          {
+            "comment": "`tailwind` mixin: update `eslint-plugin-tailwindcss` to version `3.18.0`, `eslint-plugin-import` to `2.31.0`, `eslint-plugin-simple-import-sort` to `12.1.1`, `eslint-plugin-react` to `7.37.5`, `eslint-plugin-jsx-a11y` to `6.10.2`, `eslint-plugin-jest` to `28.12.0`, `eslint-plugin-prettier` to `5.4.1`, `eslint-plugin-storybook` to `0.12.0`, `eslint-plugin-testing-library` to `7.4.0`, `eslint-plugin-vitest` to `1.2.1`, `eslint-plugin-prettier` to `5.4.1`, `eslint-plugin-jest` to `28.12.0`",
+            "author": "BorysShulyak <borysshulyak@gmail.com>",
+            "commit": "6e1a4874871c7bdd13060b714f95e3671ca7c247"
+          }
+        ]
+      }
+    },
+    {
       "version": "2.0.0",
       "tag": "@runespoorstack/eslint-config_v2.0.0",
       "date": "Thu, 05 Jun 2025 22:55:18 GMT",

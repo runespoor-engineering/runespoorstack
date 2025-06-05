@@ -2,6 +2,18 @@
   "name": "@runespoorstack/color-utils",
   "entries": [
     {
+      "version": "0.7.3",
+      "tag": "@runespoorstack/color-utils_v0.7.3",
+      "date": "Thu, 05 Jun 2025 23:09:01 GMT",
+      "comments": {
+        "dependency": [
+          {
+            "comment": "Updating dependency \"@runespoorstack/eslint-config\" to `2.1.0`"
+          }
+        ]
+      }
+    },
+    {
       "version": "0.7.2",
       "tag": "@runespoorstack/color-utils_v0.7.2",
       "date": "Thu, 05 Jun 2025 22:55:18 GMT",

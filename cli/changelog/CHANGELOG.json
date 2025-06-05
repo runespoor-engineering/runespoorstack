@@ -2,6 +2,18 @@
   "name": "@runespoorstack/changelog-manager",
   "entries": [
     {
+      "version": "0.9.3",
+      "tag": "@runespoorstack/changelog-manager_v0.9.3",
+      "date": "Thu, 05 Jun 2025 23:09:01 GMT",
+      "comments": {
+        "dependency": [
+          {
+            "comment": "Updating dependency \"@runespoorstack/eslint-config\" to `2.1.0`"
+          }
+        ]
+      }
+    },
+    {
       "version": "0.9.2",
       "tag": "@runespoorstack/changelog-manager_v0.9.2",
       "date": "Thu, 05 Jun 2025 22:55:18 GMT",

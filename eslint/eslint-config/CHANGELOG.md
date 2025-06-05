@@ -1,6 +1,13 @@
 # Change Log - @runespoorstack/eslint-config
 
-This log was last generated on Thu, 05 Jun 2025 22:55:18 GMT and should not be manually modified.
+This log was last generated on Thu, 05 Jun 2025 23:09:01 GMT and should not be manually modified.
+
+## 2.1.0
+Thu, 05 Jun 2025 23:09:01 GMT
+
+### Minor changes
+
+- `tailwind` mixin: update `eslint-plugin-tailwindcss` to version `3.18.0`, `eslint-plugin-import` to `2.31.0`, `eslint-plugin-simple-import-sort` to `12.1.1`, `eslint-plugin-react` to `7.37.5`, `eslint-plugin-jsx-a11y` to `6.10.2`, `eslint-plugin-jest` to `28.12.0`, `eslint-plugin-prettier` to `5.4.1`, `eslint-plugin-storybook` to `0.12.0`, `eslint-plugin-testing-library` to `7.4.0`, `eslint-plugin-vitest` to `1.2.1`, `eslint-plugin-prettier` to `5.4.1`, `eslint-plugin-jest` to `28.12.0`
 
 ## 2.0.0
 Thu, 05 Jun 2025 22:55:18 GMT
