@@ -2,6 +2,27 @@
   "name": "@runespoorstack/eslint-config",
   "entries": [
     {
+      "version": "2.0.0",
+      "tag": "@runespoorstack/eslint-config_v2.0.0",
+      "date": "Thu, 05 Jun 2025 22:55:18 GMT",
+      "comments": {
+        "major": [
+          {
+            "comment": "`vitest` mixin: migrate from vitest plugin to @vitest namespace and update related rules",
+            "author": "BorysShulyak <borysshulyak@gmail.com>",
+            "commit": "fbcc41070cea08e7c67b784ac3cb1777f2fd89c5"
+          }
+        ],
+        "minor": [
+          {
+            "comment": "`testing-library-react` mixin: update `eslint-plugin-testing-library` to version `7.4.0`",
+            "author": "BorysShulyak <borysshulyak@gmail.com>",
+            "commit": "fbcc41070cea08e7c67b784ac3cb1777f2fd89c5"
+          }
+        ]
+      }
+    },
+    {
       "version": "1.3.0",
       "tag": "@runespoorstack/eslint-config_v1.3.0",
       "date": "Thu, 05 Jun 2025 22:33:25 GMT",

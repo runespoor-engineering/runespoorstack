@@ -2,6 +2,25 @@
   "name": "@runespoorstack/color-utils",
   "entries": [
     {
+      "version": "0.7.2",
+      "tag": "@runespoorstack/color-utils_v0.7.2",
+      "date": "Thu, 05 Jun 2025 22:55:18 GMT",
+      "comments": {
+        "none": [
+          {
+            "comment": "`eslint`: fix errors",
+            "author": "BorysShulyak <borysshulyak@gmail.com>",
+            "commit": "f2907e3c70953be192122915b0489131bf932802"
+          }
+        ],
+        "dependency": [
+          {
+            "comment": "Updating dependency \"@runespoorstack/eslint-config\" to `2.0.0`"
+          }
+        ]
+      }
+    },
+    {
       "version": "0.7.1",
       "tag": "@runespoorstack/color-utils_v0.7.1",
       "date": "Thu, 05 Jun 2025 22:33:25 GMT",
