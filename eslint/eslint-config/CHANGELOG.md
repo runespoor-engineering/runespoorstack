@@ -1,6 +1,13 @@
 # Change Log - @runespoorstack/eslint-config
 
-This log was last generated on Wed, 26 Feb 2025 14:43:53 GMT and should not be manually modified.
+This log was last generated on Thu, 05 Jun 2025 22:33:25 GMT and should not be manually modified.
+
+## 1.3.0
+Thu, 05 Jun 2025 22:33:25 GMT
+
+### Minor changes
+
+- `deps`: update eslint-plugin-storybook to version 0.12.0
 
 ## 1.2.0
 Wed, 26 Feb 2025 14:43:53 GMT

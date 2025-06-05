@@ -1,6 +1,6 @@
 {
   "name": "@runespoorstack/feature-toggles-imperative",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "Imperative feature toggles as code for JavaScript and TypeScript.",
   "main": "dist/index.js",
   "module": "dist/index.mjs",

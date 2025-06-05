@@ -2,6 +2,20 @@
   "name": "@runespoorstack/eslint-config",
   "entries": [
     {
+      "version": "1.3.0",
+      "tag": "@runespoorstack/eslint-config_v1.3.0",
+      "date": "Thu, 05 Jun 2025 22:33:25 GMT",
+      "comments": {
+        "minor": [
+          {
+            "comment": "`deps`: update eslint-plugin-storybook to version 0.12.0",
+            "author": "BorysShulyak <borysshulyak@gmail.com>",
+            "commit": "32e765d6e71849ead5bd241c56c5c0dc27047604"
+          }
+        ]
+      }
+    },
+    {
       "version": "1.2.0",
       "tag": "@runespoorstack/eslint-config_v1.2.0",
       "date": "Wed, 26 Feb 2025 14:43:53 GMT",
