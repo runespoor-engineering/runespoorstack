@@ -1,0 +1,10 @@
+{
+  "changes": [
+    {
+      "packageName": "@runespoorstack/feature-toggles-imperative",
+      "comment": "`eslint`: fix errors",
+      "type": "none"
+    }
+  ],
+  "packageName": "@runespoorstack/feature-toggles-imperative"
+}

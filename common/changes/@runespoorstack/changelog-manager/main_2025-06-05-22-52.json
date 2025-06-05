@@ -1,0 +1,10 @@
+{
+  "changes": [
+    {
+      "packageName": "@runespoorstack/changelog-manager",
+      "comment": "`eslint`: fix errors",
+      "type": "none"
+    }
+  ],
+  "packageName": "@runespoorstack/changelog-manager"
+}
