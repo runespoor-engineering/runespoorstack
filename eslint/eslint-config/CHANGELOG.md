@@ -1,6 +1,17 @@
 # Change Log - @runespoorstack/eslint-config
 
-This log was last generated on Thu, 05 Jun 2025 22:33:25 GMT and should not be manually modified.
+This log was last generated on Thu, 05 Jun 2025 22:55:18 GMT and should not be manually modified.
+
+## 2.0.0
+Thu, 05 Jun 2025 22:55:18 GMT
+
+### Breaking changes
+
+- `vitest` mixin: migrate from vitest plugin to @vitest namespace and update related rules
+
+### Minor changes
+
+- `testing-library-react` mixin: update `eslint-plugin-testing-library` to version `7.4.0`
 
 ## 1.3.0
 Thu, 05 Jun 2025 22:33:25 GMT
