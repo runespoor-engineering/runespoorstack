@@ -24,6 +24,7 @@ describe('getDeepFilesFromDir', () => {
 
   it('should return matching files from a directory', () => {
     expect.hasAssertions();
+
     const mockFiles = ['file1.txt', 'file2.js', 'file3.ts'];
     const mockStats = { isDirectory: () => false };
 
@@ -42,6 +43,7 @@ describe('getDeepFilesFromDir', () => {
 
   it('should recursively search in subdirectories', () => {
     expect.hasAssertions();
+
     const mockFiles = ['file1.txt', 'subdir'];
     const mockSubdirFiles = ['file2.ts'];
 
@@ -70,6 +72,7 @@ describe('getDeepFilesFromDir', () => {
 
   it('should match files against multiple regex patterns', () => {
     expect.hasAssertions();
+
     const mockFiles = ['file1.js', 'file2.ts', 'file3.jsx'];
     const mockStats = { isDirectory: () => false };
 

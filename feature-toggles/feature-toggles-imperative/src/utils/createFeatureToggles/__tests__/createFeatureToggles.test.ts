@@ -25,6 +25,7 @@ describe('createFeatureToggles', () => {
 
   it('should validate all feature toggles and throw an error if any does not have `meta` object', () => {
     expect.hasAssertions();
+
     const mockInvalidFeatureToggles = {
       feature1: {
         meta: {
@@ -51,6 +52,7 @@ describe('createFeatureToggles', () => {
 
   it('should validate all feature toggles and throw an error if any does not have `meta.createdAt` value', () => {
     expect.hasAssertions();
+
     const mockInvalidFeatureToggles = {
       feature1: {
         meta: {
@@ -81,6 +83,7 @@ describe('createFeatureToggles', () => {
 
   it('should validate all feature toggles and throw an error if any does not have `meta.createdBy` value', () => {
     expect.hasAssertions();
+
     const mockInvalidFeatureToggles = {
       feature1: {
         meta: {
@@ -111,6 +114,7 @@ describe('createFeatureToggles', () => {
 
   it('should validate all feature toggles and throw an error if any does not have `enabled` object', () => {
     expect.hasAssertions();
+
     const mockInvalidFeatureToggles = {
       feature1: {
         meta: {
@@ -141,6 +145,7 @@ describe('createFeatureToggles', () => {
 
   it('should validate all feature toggles and throw an error if any has `enabled` object with an extra envs', () => {
     expect.hasAssertions();
+
     const mockInvalidFeatureToggles = {
       feature1: {
         meta: {
@@ -172,6 +177,7 @@ describe('createFeatureToggles', () => {
 
   it('should validate all feature toggles and throw an error if any does not have `enabled` object with all the envs', () => {
     expect.hasAssertions();
+
     const mockInvalidFeatureToggles = {
       feature1: {
         meta: {
@@ -203,6 +209,7 @@ describe('createFeatureToggles', () => {
 
   it('should validate all feature toggles and throw an error if any has `value` object with an extra envs', () => {
     expect.hasAssertions();
+
     const mockInvalidFeatureToggles = {
       feature1: {
         meta: {
@@ -235,6 +242,7 @@ describe('createFeatureToggles', () => {
 
   it('should validate all feature toggles and throw an error if any does not have `value` object with all the envs', () => {
     expect.hasAssertions();
+
     const mockInvalidFeatureToggles = {
       feature1: {
         meta: {
@@ -267,17 +275,20 @@ describe('createFeatureToggles', () => {
 
   it('should return an object with `getFeatureToggle` function', () => {
     expect.hasAssertions();
+
     const result = createFeatureToggles({
       featureToggles: mockFulfilledFeatureToggles,
       envs: mockEnvs,
       env: 'dev'
     });
+
     expect(result).toHaveProperty('getFeatureToggle');
     expect(typeof result.getFeatureToggle).toBe('function');
   });
 
   it('should return correct feature toggle for the provided environment by calling `getFeatureToggle` with the feature toggle key', () => {
     expect.hasAssertions();
+
     const { getFeatureToggle } = createFeatureToggles({
       featureToggles: mockFulfilledFeatureToggles,
       envs: mockEnvs,
@@ -308,11 +319,13 @@ describe('createFeatureToggles', () => {
 
   it('should return `null` if the feature toggle does not exist on calling `getFeatureToggle` with the feature toggle key', () => {
     expect.hasAssertions();
+
     const { getFeatureToggle } = createFeatureToggles({
       featureToggles: mockFulfilledFeatureToggles,
       envs: mockEnvs,
       env: 'dev'
     });
+
     expect(getFeatureToggle('feature3')).toBeNull();
   });
 });

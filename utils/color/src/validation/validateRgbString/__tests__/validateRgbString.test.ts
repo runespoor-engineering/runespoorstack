@@ -6,6 +6,7 @@ import { validateRgbString } from '../validateRgbString';
 describe('validateRgbString', () => {
   it('should not throw error for valid rgba string', () => {
     expect.hasAssertions();
+
     const validRgbaStrings: RgbColor[] = [
       'rgb(0, 0, 0)',
       'rgb(255, 255, 255)',
@@ -20,6 +21,7 @@ describe('validateRgbString', () => {
 
   it('should throw error for non-string input', () => {
     expect.hasAssertions();
+
     const invalidInputs = [null, undefined, 123, true, {}, [], () => {}];
 
     invalidInputs.forEach((input) => {
@@ -31,6 +33,7 @@ describe('validateRgbString', () => {
 
   it('should throw error for invalid RGB values', () => {
     expect.hasAssertions();
+
     const invalidRgbStrings: RgbColor[] = ['rgb(256, 0, 0)', 'rgb(0, 256, 0)', 'rgb(0, 0, 256)'];
 
     invalidRgbStrings.forEach((rgbaString) => {
@@ -40,6 +43,7 @@ describe('validateRgbString', () => {
 
   it('should throw error for malformed rgba strings', () => {
     expect.hasAssertions();
+
     const malformedStrings = [
       'rgb(0, 0, 0, 1, 1)',
       'rgb(0, 0)',

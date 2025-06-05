@@ -6,6 +6,7 @@ import { extractRgbaObjectFromString } from '../extractRgbaObjectFromString';
 describe('extractRgbaObjectFromString', () => {
   it('should correctly extract RGBA values from valid strings', () => {
     expect.hasAssertions();
+
     const testCases: Array<{ input: RgbaColor; expected: RgbaObject }> = [
       {
         input: 'rgba(0, 0, 0, 0)',
@@ -31,12 +32,14 @@ describe('extractRgbaObjectFromString', () => {
 
     testCases.forEach(({ input, expected }) => {
       const result = extractRgbaObjectFromString(input);
+
       expect(result).toStrictEqual(expected);
     });
   });
 
   it('should handle strings with spaces', () => {
     expect.hasAssertions();
+
     const testCases: Array<{ input: RgbaColor; expected: RgbaObject }> = [
       {
         input: 'rgba(0,  0,   0,   0)',
@@ -54,12 +57,14 @@ describe('extractRgbaObjectFromString', () => {
 
     testCases.forEach(({ input, expected }) => {
       const result = extractRgbaObjectFromString(input);
+
       expect(result).toStrictEqual(expected);
     });
   });
 
   it('should throw error for invalid format', () => {
     expect.hasAssertions();
+
     const invalidFormats = [
       'rgb(0, 0, 0)',
       'rgba(0, 0, 0)',
@@ -87,6 +92,7 @@ describe('extractRgbaObjectFromString', () => {
 
   it('should handle decimal alpha values correctly', () => {
     expect.hasAssertions();
+
     const testCases: Array<{ input: RgbaColor; expected: RgbaObject }> = [
       {
         input: 'rgba(0, 0, 0, 0.1)',
@@ -108,6 +114,7 @@ describe('extractRgbaObjectFromString', () => {
 
     testCases.forEach(({ input, expected }) => {
       const result = extractRgbaObjectFromString(input);
+
       expect(result).toStrictEqual(expected);
     });
   });

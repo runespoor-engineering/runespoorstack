@@ -58,6 +58,7 @@ describe('validateHslaObject', () => {
 
   it('should not throw error for valid HSLA object', () => {
     expect.assertions(3);
+
     const validHslaObjects = [
       { h: 0, s: 0, l: 0, a: 0 },
       { h: 360, s: 100, l: 100, a: 1 },

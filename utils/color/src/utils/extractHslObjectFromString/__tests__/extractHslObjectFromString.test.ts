@@ -5,6 +5,7 @@ import { extractHslObjectFromString } from '../extractHslObjectFromString';
 describe('extractHslObjectFromString', () => {
   it('should extract valid HSLA values from string', () => {
     expect.assertions(4);
+
     const testCases = [
       { input: 'hsl(180, 50%, 50%)', expected: { h: 180, s: 50, l: 50 } },
       { input: 'hsl(0, 0%, 0%)', expected: { h: 0, s: 0, l: 0 } },
@@ -19,6 +20,7 @@ describe('extractHslObjectFromString', () => {
 
   it('should handle spaces in the input string', () => {
     expect.assertions(1);
+
     const testCases = [{ input: 'hsl(180,   50%,   50%)', expected: { h: 180, s: 50, l: 50 } }];
 
     testCases.forEach(({ input, expected }) => {
@@ -28,6 +30,7 @@ describe('extractHslObjectFromString', () => {
 
   it('should throw error for invalid HSLA format', () => {
     expect.assertions(2);
+
     const invalidInputs = [
       'hsla(180, 50, 50)', // missing % signs
       'hsla(180, 50%, 50%, 0.5)' // alpha
@@ -42,6 +45,7 @@ describe('extractHslObjectFromString', () => {
 
   it('should throw error for non-string input', () => {
     expect.assertions(3);
+
     const invalidInputs = [null, undefined, 123];
 
     invalidInputs.forEach((input) => {

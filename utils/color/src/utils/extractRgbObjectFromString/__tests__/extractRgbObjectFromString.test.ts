@@ -6,6 +6,7 @@ import { extractRgbObjectFromString } from '../extractRgbObjectFromString';
 describe('extractRgbObjectFromString', () => {
   it('should correctly extract RGB values from valid strings', () => {
     expect.hasAssertions();
+
     const testCases: Array<{ input: RgbColor; expected: RgbObject }> = [
       {
         input: 'rgb(0, 0, 0)',
@@ -23,12 +24,14 @@ describe('extractRgbObjectFromString', () => {
 
     testCases.forEach(({ input, expected }) => {
       const result = extractRgbObjectFromString(input);
+
       expect(result).toStrictEqual(expected);
     });
   });
 
   it('should handle strings with spaces', () => {
     expect.hasAssertions();
+
     const testCases: Array<{ input: RgbColor; expected: RgbObject }> = [
       {
         input: 'rgb(0,  0,   0)',
@@ -46,12 +49,14 @@ describe('extractRgbObjectFromString', () => {
 
     testCases.forEach(({ input, expected }) => {
       const result = extractRgbObjectFromString(input);
+
       expect(result).toStrictEqual(expected);
     });
   });
 
   it('should throw error for invalid format', () => {
     expect.hasAssertions();
+
     const invalidFormats = [
       'rgb(0, 0, 0, 1)',
       'rgb(0, 0, 0, )',

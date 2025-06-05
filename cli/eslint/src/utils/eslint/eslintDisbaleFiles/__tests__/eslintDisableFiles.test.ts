@@ -22,6 +22,7 @@ describe('eslintDisableFiles', () => {
 
   it('should add eslint-disable to files that do not have it', async () => {
     expect.hasAssertions();
+
     const mockFiles = ['file1.ts', 'file2.ts'];
     const mockContent = 'export const test = true;';
     const expectedContent = `/* eslint-disable */\n\n${mockContent}`;
@@ -49,6 +50,7 @@ describe('eslintDisableFiles', () => {
 
   it('should skip files that already have eslint-disable', async () => {
     expect.hasAssertions();
+
     const mockFiles = ['file1.ts'];
     const mockContent = `/* eslint-disable */\nexport const test = true;`;
 
@@ -65,6 +67,7 @@ describe('eslintDisableFiles', () => {
 
   it('should handle read file errors', async () => {
     expect.hasAssertions();
+
     const mockFiles = ['file1.ts'];
     const mockError = new Error('Read error');
 
@@ -84,6 +87,7 @@ describe('eslintDisableFiles', () => {
 
   it('should handle write file errors', async () => {
     expect.hasAssertions();
+
     const mockFiles = ['file1.ts'];
     const mockContent = 'export const test = true;';
     const mockError = new Error('Write error');
@@ -111,6 +115,7 @@ describe('eslintDisableFiles', () => {
 
   it('should call onFileProcessed for each file processed', async () => {
     expect.hasAssertions();
+
     const mockFiles = ['file1.ts'];
     const mockOnFileProcessed = vi.fn();
 

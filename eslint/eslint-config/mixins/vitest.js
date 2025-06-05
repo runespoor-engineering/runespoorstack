@@ -70,7 +70,6 @@ module.exports = {
     '@vitest/padding-around-before-each-blocks': 'error',
     '@vitest/padding-around-describe-blocks': 'error',
     '@vitest/padding-around-expect-groups': 'error',
-    '@vitest/prefer-strict-boolean-matchers': 'error',
     '@vitest/prefer-vi-mocked': 'error'
   }
 };
