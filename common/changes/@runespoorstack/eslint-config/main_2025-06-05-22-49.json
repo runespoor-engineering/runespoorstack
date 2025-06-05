@@ -1,0 +1,10 @@
+{
+  "changes": [
+    {
+      "packageName": "@runespoorstack/eslint-config",
+      "comment": "`testing-library-react` mixin: update `eslint-plugin-testing-library` to version `7.4.0`",
+      "type": "minor"
+    }
+  ],
+  "packageName": "@runespoorstack/eslint-config"
+}
