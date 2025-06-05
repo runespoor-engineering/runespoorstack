@@ -1,6 +1,11 @@
 # Change Log - @runespoorstack/color-utils
 
-This log was last generated on Sun, 27 Apr 2025 06:47:20 GMT and should not be manually modified.
+This log was last generated on Thu, 05 Jun 2025 22:33:25 GMT and should not be manually modified.
+
+## 0.7.1
+Thu, 05 Jun 2025 22:33:25 GMT
+
+_Version update only_
 
 ## 0.7.0
 Sun, 27 Apr 2025 06:47:20 GMT
