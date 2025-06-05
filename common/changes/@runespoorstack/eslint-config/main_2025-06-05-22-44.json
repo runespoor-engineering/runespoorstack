@@ -1,0 +1,10 @@
+{
+  "changes": [
+    {
+      "packageName": "@runespoorstack/eslint-config",
+      "comment": "`vitest` mixin: migrate from vitest plugin to @vitest namespace and update related rules",
+      "type": "major"
+    }
+  ],
+  "packageName": "@runespoorstack/eslint-config"
+}
