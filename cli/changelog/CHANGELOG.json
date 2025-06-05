@@ -2,6 +2,20 @@
   "name": "@runespoorstack/changelog-manager",
   "entries": [
     {
+      "version": "0.9.0",
+      "tag": "@runespoorstack/changelog-manager_v0.9.0",
+      "date": "Mon, 02 Jun 2025 14:50:29 GMT",
+      "comments": {
+        "minor": [
+          {
+            "comment": "`<br/>- `cli/changelog`: add ability to keep multiple changelogs. `change`, `verify`, `apply` commands: add `location` option to provide location of change files. <br/>- `apply` command: add `changelogFileLocation` option to provide path to changelog path.",
+            "author": "BorysShulyak <borysshulyak@gmail.com>",
+            "commit": "d5c163abb5bd9b4cbb9c88fdb197d5a5baf3d341"
+          }
+        ]
+      }
+    },
+    {
       "version": "0.8.2",
       "tag": "@runespoorstack/changelog-manager_v0.8.2",
       "date": "Sat, 10 May 2025 08:24:41 GMT",
