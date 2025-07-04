@@ -1,0 +1,26 @@
+{
+  "name": "@runespoorstack/eslint-cli",
+  "entries": [
+    {
+      "version": "0.1.0",
+      "tag": "@runespoorstack/eslint-cli_v0.1.0",
+      "date": "Fri, 04 Jul 2025 13:24:08 GMT",
+      "comments": {
+        "minor": [
+          {
+            "comment": "Implement `disable`, `check`, `check-staged` commands",
+            "author": "BorysShulyak <borysshulyak@gmail.com>",
+            "commit": "ffbbc2a8af0ddfee1566d48850d63b0cf29e7a61"
+          }
+        ],
+        "none": [
+          {
+            "comment": "Fix linter.",
+            "author": "BorysShulyak <borysshulyak@gmail.com>",
+            "commit": "820dc8f201d0d6780e8abc20feefb9848eedd4b6"
+          }
+        ]
+      }
+    }
+  ]
+}
