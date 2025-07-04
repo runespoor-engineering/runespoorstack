@@ -358,7 +358,7 @@
       "packageName": "@runespoorstack/eslint-cli",
       "projectFolder": "cli/eslint",
       "tags": ["cli"],
-      "shouldPublish": false
+      "shouldPublish": true
     },
     {
       "packageName": "@runespoorstack/archive",
