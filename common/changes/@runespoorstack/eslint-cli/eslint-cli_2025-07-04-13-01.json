@@ -1,0 +1,10 @@
+{
+  "changes": [
+    {
+      "packageName": "@runespoorstack/eslint-cli",
+      "comment": "Implement `disable`, `check`, `check-staged` commands",
+      "type": "minor"
+    }
+  ],
+  "packageName": "@runespoorstack/eslint-cli"
+}
