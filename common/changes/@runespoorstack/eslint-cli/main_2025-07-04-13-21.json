@@ -1,0 +1,10 @@
+{
+  "changes": [
+    {
+      "packageName": "@runespoorstack/eslint-cli",
+      "comment": "Fix linter.",
+      "type": "none"
+    }
+  ],
+  "packageName": "@runespoorstack/eslint-cli"
+}
