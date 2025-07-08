@@ -355,12 +355,6 @@
       "shouldPublish": true
     },
     {
-      "packageName": "@runespoorstack/eslint-cli",
-      "projectFolder": "cli/eslint",
-      "tags": ["cli"],
-      "shouldPublish": true
-    },
-    {
       "packageName": "@runespoorstack/archive",
       "projectFolder": "apps/archive",
       "tags": ["apps"],
