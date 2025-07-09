@@ -331,7 +331,7 @@
     * separated by hyphens or slashes, where a word may contain lowercase ASCII letters, digits,
     * ".", and "@" characters.
     */
-  "allowedProjectTags": ["eslint", "utils", "apps", "feature-toggles", "cli"],
+  "allowedProjectTags": ["eslint", "utils", "apps", "feature-toggles"],
 
   /**
    * (Required) This is the inventory of projects to be managed by Rush.
@@ -346,12 +346,6 @@
       "packageName": "@runespoorstack/eslint-config",
       "projectFolder": "eslint/eslint-config",
       "tags": ["eslint"],
-      "shouldPublish": true
-    },
-    {
-      "packageName": "@runespoorstack/changelog-manager",
-      "projectFolder": "cli/changelog",
-      "tags": ["cli"],
       "shouldPublish": true
     },
     {
