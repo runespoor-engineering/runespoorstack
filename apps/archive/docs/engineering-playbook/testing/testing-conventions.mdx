@@ -27,7 +27,6 @@ title: Testing Conventions
 - Use custom `render`, `renderHook` that contains all the general Providers. 
   - If you need some specific Provider, you can add it in the test case.
   - If you are going to use some Provider in the test case and understand that it is a global/general Provider - add it to the custom methods.
-- Follow the [Integration Testing Coverage](/docs/engineering-playbook/testing/integration-testsing-coverage).
 - [Do not test the implementation details in Integration tests](https://kentcdodds.com/blog/testing-implementation-details).
 - [Do not use shallow rendering](https://kentcdodds.com/blog/why-i-never-use-shallow-rendering).
 - Test components in isolation. Each test case should render the component from zero.
