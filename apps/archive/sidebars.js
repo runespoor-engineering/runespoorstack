@@ -31,14 +31,13 @@ const sidebars = {
             'engineering-playbook/source-control/issues-to-keep-track-on',
             'engineering-playbook/source-control/repository-settings',
             'engineering-playbook/source-control/changelog',
-            'engineering-playbook/source-control/dependabot',
             'engineering-playbook/source-control/labels',
-            'engineering-playbook/source-control/changelog',
             'engineering-playbook/source-control/pull-request-template',
             'engineering-playbook/source-control/feature-issue-template',
             'engineering-playbook/source-control/docs-issue-template',
             'engineering-playbook/source-control/bug-issue-template',
-            'engineering-playbook/source-control/managing-dependencies'
+            'engineering-playbook/source-control/managing-dependencies',
+            'engineering-playbook/source-control/dependabot'
           ]
         },
         {
@@ -97,17 +96,11 @@ const sidebars = {
             'engineering-playbook/testing/test-desiderata',
             'engineering-playbook/testing/tdd',
             'engineering-playbook/testing/testing-conventions',
-            'engineering-playbook/testing/integration-testsing-coverage',
             'engineering-playbook/testing/impact-analyses',
             'engineering-playbook/testing/recommened-linters',
             'engineering-playbook/testing/adding-eslint-to-an-existing-project',
             'engineering-playbook/testing/eslint-over-conventions'
           ]
-        },
-        {
-          type: 'category',
-          label: 'Patterns and Refactoring',
-          items: ['engineering-playbook/patterns-and-refactoring/patterns-and-refactoring']
         },
         {
           type: 'category',
@@ -133,11 +126,6 @@ const sidebars = {
         },
         {
           type: 'category',
-          label: 'Authentication',
-          items: ['engineering-playbook/authentication/basic-authentication']
-        },
-        {
-          type: 'category',
           label: 'GraphQL',
           items: ['engineering-playbook/graphql/graphql-disadvantages']
         },
@@ -159,7 +147,6 @@ const sidebars = {
           label: 'Growth',
           items: [
             'engineering-playbook/growth/engineer-levels',
-            'engineering-playbook/growth/growth-in-depth-or-breadth',
             'engineering-playbook/growth/company-engineering-culture',
             'engineering-playbook/growth/engineer-salary-review'
           ]
