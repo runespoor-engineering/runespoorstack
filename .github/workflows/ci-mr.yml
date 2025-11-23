@@ -19,25 +19,24 @@ jobs:
       - name: Git set author email
         run: git config --global user.email "runespoorengineering@gmail.com"
 
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 8
+
       - name: Use Node.js/20.9.0
         uses: actions/setup-node@v4
         with:
           node-version: 20.9.0
 
-      - name: Rush Verify Change Logs
-        run: node common/scripts/install-run-rush.js change --verify
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
 
-      - name: Rush List
-        run: node common/scripts/install-run-rush.js list --version
+      - name: Lint
+        run: pnpm lint
 
-      - name: Rush Install
-        run: node common/scripts/install-run-rush.js install
+      - name: Test
+        run: pnpm test
 
-      - name: Rush Lint
-        run: node common/scripts/install-run-rush.js lint
-
-      - name: Rush Test
-        run: node common/scripts/install-run-rush.js test
-
-      - name: Rush rebuild
-        run: node common/scripts/install-run-rush.js rebuild --verbose
+      - name: Build
+        run: pnpm build

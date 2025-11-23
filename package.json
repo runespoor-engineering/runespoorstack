@@ -1,0 +1,90 @@
+{
+	"name": "@runespoorstack/archive",
+	"description": "A set of documents that may help you to increase overall efficiency for team members and the whole team in general, and to strive to be better engineers.",
+	"version": "0.0.0",
+	"private": true,
+	"scripts": {
+		"docusaurus": "docusaurus",
+		"start": "docusaurus start",
+		"build": "BROWSERSLIST_IGNORE_OLD_DATA=1 docusaurus build",
+		"swizzle": "docusaurus swizzle",
+		"deploy": "docusaurus deploy",
+		"clear": "docusaurus clear",
+		"serve": "docusaurus serve",
+		"write-translations": "docusaurus write-translations",
+		"write-heading-ids": "docusaurus write-heading-ids",
+		"test": "echo \"Info: no test specified\"",
+		"lint": "biome lint",
+		"lint:fix": "biome lint --write --unsafe",
+		"lint:ci": "biome ci --formatter-enabled=false --assist-enabled=false --enforce-assist=false",
+		"format": "biome format",
+		"format:fix": "biome format --write"
+	},
+	"dependencies": {
+		"@docusaurus/core": "3.7.0",
+		"@docusaurus/preset-classic": "3.7.0",
+		"@docusaurus/plugin-content-docs": "3.7.0",
+		"@mdx-js/react": "3.1.0",
+		"clsx": "2.1.1",
+		"prism-react-renderer": "2.4.1",
+		"react": "18.2.0",
+		"react-dom": "18.2.0",
+		"@algolia/client-search": "5.24.0",
+		"search-insights": "2.17.3",
+		"@docusaurus/theme-mermaid": "3.7.0",
+		"acorn": "8.14.1"
+	},
+	"devDependencies": {
+		"@docusaurus/module-type-aliases": "3.7.0",
+		"@docusaurus/types": "3.7.0",
+		"prettier": "3.2.5",
+		"@biomejs/biome": "2.1.1",
+		"typescript": "5.4.5",
+		"@types/react": "18.2.75"
+	},
+	"browserslist": {
+		"production": [
+			">0.5%",
+			"not dead",
+			"not op_mini all"
+		],
+		"development": [
+			"last 3 chrome version",
+			"last 3 firefox version",
+			"last 5 safari version"
+		]
+	},
+	"engines": {
+		"node": ">=20.9.0"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/runespoor-engineering/runespoorstack.git"
+	},
+	"keywords": [
+		"runespoor",
+		"engineering",
+		"playbook",
+		"archive",
+		"documentation",
+		"learn",
+		"articles"
+	],
+	"homepage": "https://github.com/runespoor-engineering/runespoorstack",
+	"bugs": {
+		"url": "https://github.com/runespoor-engineering/runespoorstack/issues"
+	},
+	"author": {
+		"name": "BorysShulyak",
+		"email": "borysshulyak@gmail.com",
+		"url": "https://github.com/BorysShulyak"
+	},
+	"maintainers": [
+		{
+			"name": "BorysShulyak",
+			"email": "borysshulyak@gmail.com",
+			"url": "https://github.com/BorysShulyak"
+		}
+	],
+	"license": "MIT"
+}
