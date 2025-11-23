@@ -353,12 +353,6 @@
       "projectFolder": "apps/archive",
       "tags": ["apps"],
       "shouldPublish": false
-    },
-    {
-      "packageName": "@runespoorstack/feature-toggles-imperative",
-      "projectFolder": "feature-toggles/feature-toggles-imperative",
-      "tags": ["feature-toggles"],
-      "shouldPublish": true
     }
     // {
     //   /**
