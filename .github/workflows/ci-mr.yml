@@ -13,12 +13,6 @@ jobs:
         with:
           fetch-depth: 2
 
-      - name: Git set author name
-        run: git config --global user.name "runespoorengineering"
-
-      - name: Git set author email
-        run: git config --global user.email "runespoorengineering@gmail.com"
-
       - name: Install pnpm
         uses: pnpm/action-setup@v4
         with:

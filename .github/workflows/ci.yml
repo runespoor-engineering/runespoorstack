@@ -19,12 +19,6 @@ jobs:
           fetch-depth: 2
           token: ${{ secrets.ACTIONS_PTA }}
 
-      - name: Git set author name
-        run: git config --global user.name "runespoorengineering"
-
-      - name: Git set author email
-        run: git config --global user.email "runespoorengineering@gmail.com"
-
       - name: Install pnpm
         uses: pnpm/action-setup@v4
         with:
@@ -33,11 +27,7 @@ jobs:
       - name: Use Node.js/20.9.0
         uses: actions/setup-node@v4
         with:
-          registry-url: ${{ secrets.NPM_REGISTRY_URL }}
-          always-auth: true
           node-version: 20.9.0
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: Install dependencies
         run: pnpm install
@@ -56,12 +46,6 @@ jobs:
         with:
           name: archive
           path: ${{ env.ARCHIVE_BUILD_PATH }}
-
-      - name: Publish to registry
-        if: github.event.repository.private == false
-        run: pnpm publish --registry ${{ secrets.NPM_REGISTRY_URL }} --no-git-checks
-        env:
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
   deploy-archive:
     needs: ci
