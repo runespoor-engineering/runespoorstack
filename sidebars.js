@@ -60,9 +60,10 @@ const sidebars = {
 					items: [
 						"engineering-playbook/processes/goals",
 						"engineering-playbook/processes/lead",
+            "engineering-playbook/processes/tech-interview",
+            "engineering-playbook/processes/onboarding",
 						"engineering-playbook/processes/critical-chain",
 						"engineering-playbook/processes/delayIn-managerial-decision-making",
-						"engineering-playbook/processes/tech-interview",
 						"engineering-playbook/processes/productivity-desctruction-meetings",
 					],
 				},
