@@ -84,20 +84,10 @@ const config = {
 						label: "Engineering Playbook",
 					},
 					{
-						href: "https://github.com/runespoor-engineering/runespoorstack/blob/main/apps/archive",
+						href: "https://github.com/runespoor-engineering/runespoorstack",
 						label: "GitHub",
 						position: "right",
-					},
-					{
-						href: "https://www.buymeacoffee.com/borisshulyak",
-						label: "Sponsor",
-						position: "right",
-					},
-					{
-						href: "https://substack.com/@runespoor",
-						label: "Subscribe",
-						position: "right",
-					},
+					}
 				],
 			},
 			footer: {
@@ -118,10 +108,6 @@ const config = {
 							{
 								label: "GitHub",
 								href: "https://github.com/BorysShulyak",
-							},
-							{
-								label: "Substack",
-								href: "https://substack.com/@runespoor",
 							},
 							{
 								label: "LinkedIn",
