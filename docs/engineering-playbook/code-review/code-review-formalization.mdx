@@ -2,9 +2,13 @@
 title: Code Review Formalization
 ---
 
-# Code Review Formalization
+# Code Review
 
-**MR checklist:**
+> Code review is a small, inexpensive daily investment that saves a huge amount of problems in the future. When a team stops "fighting over taste" and works according to unified standards, the project begins to develop faster.
+
+## MR Checklist
+
+Before submitting a merge request, ensure all items are completed:
 
 - ✅ Changes were structured by logical commits/MRs: one logical change - one commit/MR.
 - ✅ MR pipeline is green.
@@ -19,102 +23,240 @@ title: Code Review Formalization
 - ✅ All the labels are added (Type, Feature, Priority, Workflow)
 - ✅ The related documentation is updated.
 
-**Reviewers:**
+## Goals
+
+Code review serves three main goals:
+
+1. **Reduce the cost of errors** - The earlier an error is detected (the "Shift Left" principle), the cheaper it is to fix. An error that reaches production or the master branch immediately increases in cost.
+2. **Reduce the bus factor** - If only one person knows the code (the author), it will be extremely difficult to maintain it if they leave.
+3. **Account for human factors** - All developers, even the most experienced, can make mistakes.
+
+**What code review is NOT:**
+
+- Perfecting code
+- Humiliating colleagues
+- Imposing "correct" taste (it's important to distinguish architectural rules from taste preferences)
+
+## Reviewers
 
 - The MR **Author** should assign the **Reviewers**.
 - If someone is not assigned as a reviewer but wants to review the MR, they can assign themselves.
 
 **Required reviewers:**
+
 - 1 code owner
-- 2 developers
+- 1 engineer
 
 **Review deadlines:**
 
 - Priority: Emergency - right now
-- Priority: High/Critical - 30m
-- Priority: Medium - 1h
-- Priority: Low - 3h
+- Else - **next after the highest priority**
 
 **Merge deadlines -** 0.5 days
 
-**Review priority** - next after the highest priority
-
 ## Code Review Flow
 
-**Reviewer** 
+**First Block Others Principle**
 
-- Starting the review - tap on reaction on the MR (e.g. 👀) to let everyone know that you have started code review.
-- Approve changes? 
-  - Tap approve.
-  - If you are the last approver, set the `workflow::approved` label.
-- Don't agree with changes?
-  - Open MR discussions.
-  - If you are the last approver, set the `workflow::revoked` label.
-- In the discussion, the author notified about resolving? 
-  - Double check ⇒ Resolve or Write questions/suggestions.
+> **Code review should be a priority process.** Perform it first thing in the morning or before starting a new task.
 
-**Author**
+### Reviewer Responsibilities
 
-- The `workflow::revoked` label is set or reviewers wrote some comments?
-  - Answer the questions, ask your questions, or apply the suggestions.
-  - Notify the reviewers about fixes in the threads.
-  - Set the `workflow::review` label.
-- 3 approvals or the `workflow::approved` label is set?
-  - Merge MR.
+<table>
+  <thead>
+    <tr>
+      <th>Action</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Starting the review</td>
+      <td>Tap on reaction on the MR (e.g. 👀) to let everyone know that you have started code review.</td>
+    </tr>
+    <tr>
+      <td>Always run the code</td>
+      <td>
+        <strong>Check out the branch and test the changes locally.</strong> You cannot rely on the author or QA having already tested the code, as programmers and QA test different things. If additional steps are required to run the code, the author should provide clear instructions (e.g., in the MR description) on how to run and test it.
+      </td>
+    </tr>
+    <tr>
+      <td>Approve changes</td>
+      <td>
+        <ul>
+          <li>Tap approve.</li>
+          <li>If you are the last approver, set the <code>workflow::approved</code> label.</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td>Don't agree with changes</td>
+      <td>
+        <ul>
+          <li>Open MR discussions.</li>
+          <li>If you are the last approver, set the <code>workflow::revoked</code> label.</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td>Author notified about resolving</td>
+      <td>Double check ⇒ Resolve or Write questions/suggestions.</td>
+    </tr>
+  </tbody>
+</table>
+
+### Author Responsibilities
+
+<table>
+  <thead>
+    <tr>
+      <th>Condition</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>The <code>workflow::revoked</code> label is set or reviewers wrote some comments</td>
+      <td>
+        <ul>
+          <li>Answer the questions, ask your questions, or apply the suggestions.</li>
+          <li>Notify the reviewers about fixes in the threads.</li>
+          <li>Set the <code>workflow::review</code> label.</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td>3 approvals or the <code>workflow::approved</code> label is set</td>
+      <td>Merge MR.</td>
+    </tr>
+  </tbody>
+</table>
 
 ## Exceptions
 
-- Two people did not come to an agreement in the same discussion? - Ask the opinion of other code reviewers.
-- There is no time for resolving code review discussions. - Only if the **MR Priority is Emergency**, create a GitLab issue or Jira ticket with provided description for fixing the discussions and add ToDo in the code. After that, you can merge and fix the discussions in the future.
-- The priority of the issue is low? The changes are too minor? - Developer can make the QA check-up themselves.
+<table>
+  <thead>
+    <tr>
+      <th>Scenario</th>
+      <th>Resolution</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Two people did not come to an agreement in the same discussion</td>
+      <td>Ask the opinion of other code reviewers.</td>
+    </tr>
+    <tr>
+      <td>There is no time for resolving code review discussions</td>
+      <td>
+        Only if the <strong>MR Priority is Emergency</strong>, create a GitLab issue or Jira ticket with provided description for fixing the discussions and add ToDo in the code. After that, you can merge and fix the discussions in the future.
+      </td>
+    </tr>
+    <tr>
+      <td>The priority of the issue is low? The changes are too minor?</td>
+      <td>Developer can make the QA check-up themselves.</td>
+    </tr>
+    <tr>
+      <td><strong>Synchronous review</strong></td>
+      <td>If code review drags on (more than 3-4 rounds of comments), conduct a synchronous review (call) to go through the code together. Post a follow-up comment summarizing the discussion.</td>
+    </tr>
+  </tbody>
+</table>
+
+## Comment Structure
+
+When writing review comments, structure them to maximize value and speed:
+
+1. **Problem (or symptom)**: What's wrong.
+2. **Explanation**: Why this is a problem and what risks it carries.
+3. **Optional**: A suggested solution.
+
+### Comment Categories
+
+Comments should be divided into two categories:
+
+1. **Blocking review**: Means that merging is impossible until the issue is fixed or answered. Use only if the risks of the code entering the project are significant.
+
+2. **Non-blocking review**: Suggestions ("could be improved") or questions that do not prevent merging.
+   - Mark with `(non-blocking)` so the author knows they can optionally resolve within the merge request or follow-up at a later stage.
+
+## Common Pitfalls to Avoid
+
+**Typical failures in code review:**
+
+- **Review as a court**: When the reviewer tries to prove they are smarter.
+- **Review as perfectionism**: Requiring code to be rewritten for "beauty".
+- **Review as bureaucracy**: Blocking code without the ability to explain why, except for subjective "I don't like it".
+- **Taste wars (Holy wars)**: Arguments about coding style (tabs vs spaces).
+- **Review as a brake**: The review process lasting weeks or even days.
+
+**How to deal with pitfalls:**
+
+- **Tame your ego**: If code intuitively doesn't appeal to you, ask yourself: "Does it do its job?" and "Does it carry risks to the project?" If not, accept it.
+- **Style rules**: All important rules should be documented in the style guide. What is not documented cannot be a blocking factor for review, only a suggestion.
+- **Subjective disputes**: If you feel the reviewer is trying to prove their superiority, suggest working together to propose a solution (pair programming).
+- **Follow-up balance**: Avoid the idea of deferring minor fixes to "follow-up" as this leads to overhead and technical debt. Healthy balance: if something can be quickly fixed now, it's worth doing.
 
 ## Best practices
+
+### Areas to Check
+
+The reviewer should check places where there is a high probability of "shooting yourself in the foot". Recommended areas:
+
+- **Incorrect business logic** - Discrepancy between the task and implementation.
+- **Edge cases, race conditions, and concurrency** - For example, asynchronous requests.
+- **Error handling errors** - Missing or incorrect error handling.
+- **Data handling and privacy** - Security and privacy concerns.
+- **Places where code can "die" in six months** - Problems with scaling or premature optimization.
 
 ### Everyone
 
 - Be kind.
 - Accept that many programming decisions are opinions. Discuss tradeoffs, which you prefer, and reach a resolution quickly.
-- Ask questions; don’t make demands. (“What do you think about naming this `:user_id`?”)
-- Ask for clarification. (“I didn’t understand. Can you clarify?”)
-- Avoid selective ownership of code. (“mine”, “not mine”, “yours”)
-- Avoid using terms that could be seen as referring to personal traits. (“dumb”, “stupid”). Assume everyone is intelligent and well-meaning.
-- Be explicit. Remember people don’t always understand your intentions online.
-- Be humble. (“I’m not sure - let’s look it up.”)
-- Don’t use hyperbole. (“always”, “never”, “endlessly”, “nothing”)
+- Ask questions; don't make demands. ("What do you think about naming this `:user_id`?")
+- Ask for clarification. ("I didn't understand. Can you clarify?")
+- Avoid selective ownership of code. ("mine", "not mine", "yours")
+- Avoid using terms that could be seen as referring to personal traits. ("dumb", "stupid"). Assume everyone is intelligent and well-meaning.
+- Be explicit. Remember people don't always understand your intentions online.
+- Be humble. ("I'm not sure - let's look it up.")
+- Don't use hyperbole. ("always", "never", "endlessly", "nothing")
 - Be careful about the use of sarcasm. Everything we do is public; what seems like good-natured ribbing to you and a long-time colleague might come off as mean and unwelcoming to a person new to the project.
-- Consider one-on-one chats or video calls if there are too many “I didn’t understand” or “Alternative solution:” comments. Post a follow-up comment summarizing one-on-one discussion.
-- If you ask a question to a specific person, always start the comment by mentioning them; this ensures they see it if their notification level is set to “mentioned” and other people understand they don’t have to respond.
+- Consider one-on-one chats or video calls if there are too many "I didn't understand" or "Alternative solution:" comments. Post a follow-up comment summarizing one-on-one discussion.
+- If you ask a question to a specific person, always start the comment by mentioning them; this ensures they see it if their notification level is set to "mentioned" and other people understand they don't have to respond.
 
 ### Having your merge request reviewed
 
 Please keep in mind that code review is a process that can take multiple iterations, and reviewers may spot things later that they may not have seen the first time.
 
-- The first reviewer of your code is **you**. Before you perform that first push of your shiny new branch, read through the entire diff. Does it make sense? Did you include something unrelated to the overall purpose of the changes? Did you forget to remove any debugging code?
-- Be grateful for the reviewer’s suggestions. (“Good call. I’ll make that change.”)
-- Don’t take it personally. The review is of the code, not of you.
-- Explain why the code exists. (“It’s like that because of these reasons. Would it be more clear if I rename this class/file/method/variable?”)
+- The first reviewer of your code is **you**. Before you perform that first push of your shiny new branch, read through the entire diff. Does it make sense? Did you include something unrelated to the overall purpose of the changes? Did you forget to remove any debugging code?
+- Be grateful for the reviewer's suggestions. ("Good call. I'll make that change.")
+- Don't take it personally. The review is of the code, not of you.
+- Explain why the code exists. ("It's like that because of these reasons. Would it be more clear if I rename this class/file/method/variable?")
 - Extract unrelated changes and refactorings into future merge requests/issues.
-- Seek to understand the reviewer’s perspective.
+- Seek to understand the reviewer's perspective.
 - Try to respond to every comment.
-- The merge request author resolves only the threads they have fully addressed. If there’s an open reply, an open thread, a suggestion, a question, or anything else, the thread should be left to be resolved by the reviewer.
+- The merge request author resolves only the threads they have fully addressed. If there's an open reply, an open thread, a suggestion, a question, or anything else, the thread should be left to be resolved by the reviewer.
 - It should not be assumed that all feedback requires their recommended changes to be incorporated into the MR before it is merged. It is a judgment call by the MR author and the reviewer as to if this is required, or if a follow-up issue should be created to address the feedback in the future after the MR in question is merged.
 - Push commits based on earlier rounds of feedback as isolated commits to the branch. Do not squash until the branch is ready to merge. Reviewers should be able to read individual updates based on their earlier feedback.
-- Request a new review from the reviewer once you are ready for another round of review. If you do not have the ability to request a review, `@` mention the reviewer instead.
+- Request a new review from the reviewer once you are ready for another round of review.
+- **If review drags on** - Consider suggesting a synchronous review (call) to go through the code together. If you do not have the ability to request a review, `@` mention the reviewer instead.
 
 ### Reviewing a merge request
 
 Understand why the change is necessary (fixes a bug, improves the user experience, refactors the existing code). Then:
 
+- **Focus**: Good review focuses on whether the code solves the required task.
 - Try to be thorough in your reviews to reduce the number of iterations.
-- Communicate which ideas you feel strongly about and those you don’t.
+- Communicate which ideas you feel strongly about and those you don't.
 - Identify ways to simplify the code while still solving the problem.
-- Offer alternative implementations, but assume the author already considered them. (“What do you think about using a custom validator here?”)
-- Seek to understand the author’s perspective.
-- Check out the branch, and test the changes locally. You can decide how much manual testing you want to perform. Your testing might result in opportunities to add automated tests.
-- If you don’t understand a piece of code, *say so*. There’s a good chance someone else would be confused by it as well.
+- Offer alternative implementations, but assume the author already considered them. ("What do you think about using a custom validator here?")
+- Seek to understand the author's perspective.
+- **Always check out the branch and test the changes locally.** You can decide how much manual testing you want to perform. Your testing might result in opportunities to add automated tests.
+- **Praise is important** - Despite the bias toward criticism, praise in code review is valuable.
+- If you don't understand a piece of code, *say so*. There's a good chance someone else would be confused by it as well.
 - Ensure the author is clear on what is required from them to address/resolve the suggestion.
-    - Consider using the [Conventional Comment format](https://conventionalcomments.org/#format) to convey your intent.
-    - For non-mandatory suggestions, decorate with (non-blocking) so the author knows they can optionally resolve within the merge request or follow-up at a later stage.
-    - There’s a [Chrome/Firefox add-on](https://gitlab.com/conventionalcomments/conventional-comments-button) which you can use to apply [Conventional Comment](https://conventionalcomments.org/) prefixes.
-- After a round of line notes, it can be helpful to post a summary note such as “Looks good to me”, or “Just a couple things to address.”
+  - Consider using the [Conventional Comment format](https://conventionalcomments.org/#format) to convey your intent.
+  - For non-mandatory suggestions, decorate with `(non-blocking)` so the author knows they can optionally resolve within the merge request or follow-up at a later stage.
+  - There's a [Chrome/Firefox add-on](https://gitlab.com/conventionalcomments/conventional-comments-button) which you can use to apply [Conventional Comment](https://conventionalcomments.org/) prefixes.
+- After a round of line notes, it can be helpful to post a summary note such as "Looks good to me", or "Just a couple things to address."
 - Let the author know if changes are required following your review.
