@@ -1,0 +1,52 @@
+---
+title: Unused Code Detection
+---
+
+# Unused Code Detection
+
+Knip is a specialized utility designed to scan your project for redundant files, unnecessary packages, and dead exports that clutter your repository.
+
+## The Value Proposition
+
+Integrating Knip into your workflow ensures the codebase remains lean and efficient by flagging:
+
+- **Extraneous Dependencies:** Packages present in your configuration but absent from your logic. Removing these reduces `node_modules` size and optimizes build performance. Reference: [Unused Dependencies](https://knip.dev/typescript/unused-dependencies).
+- **Dead Exports:** Publicly accessible functions or variables that no one actually imports. Reference: [Unused Exports](https://knip.dev/typescript/unused-exports).
+- **Orphaned Files:** Source files that are no longer part of the application's execution tree.
+- **Extensive Error Detection:** For a deep dive into the specific problems Knip can catch, see the official [Issue Types](https://knip.dev/reference/issue-types).
+
+Knip also features broad compatibility with various modern frameworks through its ecosystem of [Plugins](https://knip.dev/reference/plugins).
+
+## Primary Capabilities
+
+- **Automated Remediation:** Use the auto-fix feature to instantly strip away dead code. Reference: [Auto-fix](https://knip.dev/features/auto-fix).
+- **Deep Project Scans:** Beyond simple checks, it provides a holistic view of project health. Reference: [Features](https://knip.dev/overview/features).
+- **Reporting:** Visual aids and logs help teams understand the scope of their technical debt. Reference: [Screenshots & Videos](https://knip.dev/overview/screenshots-videos).
+
+
+## Operational Guide
+
+### Local Environment
+
+Add knip commands to your package.json:
+
+```
+"scripts": {
+  "knip": "knip",
+  "knip:fix": "knip --fix"
+}
+```
+
+- `pnpm knip`: Performs a scan and lists all discovered issues.
+- `pnpm knip:fix`: Scans and automatically applies fixes to the source code where supported.
+
+### CI/CD Implementation
+
+To maintain a high standard of code hygiene without disrupting the developer experience, we utilize a two-pronged automation strategy:
+
+- **Manual Pipeline Verification**: We recommend including a manual job within the standard CI/CD pipeline.
+  - **Configuration:** This job should be set to **manual** mode.
+  - **Purpose:** This allows developers to sanity-check their feature branches for dead code on-demand before a final merge, without making the pipeline fail automatically on every minor push.
+- **Scheduled Audits & Slack Notifications**: To prevent technical debt from accumulating over time, we suggest setting up a **Scheduled Job** (e.g., a "Nightly Audit").
+  -  **Workflow:** This job runs `pnpm run knip` on the main branch at a set interval.
+  -  **Reporting:** Integrate this job with a **Slack incoming webhook**. If Knip identifies new unused exports or dependencies, an automated report is sent to the team's Slack channel. This provides visibility into the project's "weight" and prompts periodic cleanup tasks without manual oversight.

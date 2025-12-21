@@ -114,6 +114,7 @@ const sidebars = {
 						"engineering-playbook/CI-CD/release-log",
 						"engineering-playbook/CI-CD/cd-github-vs-gitlab",
 						"engineering-playbook/CI-CD/copy-paste-analyzing",
+            "engineering-playbook/CI-CD/unused-code-detection",
 					],
 				},
 				{
