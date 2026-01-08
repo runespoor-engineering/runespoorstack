@@ -1,0 +1,76 @@
+---
+title: Stop the Bleed, Then Heal
+---
+
+# Stop the Bleed, Then Heal: A Smarter Approach to Technical Debt
+
+We have all been there. You join a project, open a file, and see it: a chaotic mix of tabs and spaces, inconsistent naming, and TypeScript `any` types scattered like confetti. Your first instinct is noble: *"I'll fix this. I'll add ESLint, Prettier, and some strict rules today."*
+
+You run the linter for the first time. **1,452 errors found.** You spend the next three days manually fixing semi-colons and refactoring types. By the time you’re ready to merge, your branch is 400 commits behind `main`, you have 50 merge conflicts, and your teammates hate you because you’ve "touched" every single file, ruining their `git blame` history.
+
+There is a better way. We call it **Stop the Bleed, Then Heal.**
+
+## Phase 1: Stop the Bleed (Containment)
+
+The goal of this phase is to ensure that **no new errors** are introduced without forcing the team to fix years of technical debt overnight. You want to "freeze" the current state of messiness.
+
+### 1. Establish a Baseline
+
+Modern tools often have built-in suppression. For example, the Go linter or certain ESLint wrappers allow you to set a **"git commit as a start point."**
+
+* **The Baseline Concept:** You tell the tool, "Ignore every error that exists right now, but alert me if a *new* one is created."
+* **The Problem:** This often feels like magic and can be opaque. If you move code from one file to another, the linter might get confused about what is "new" vs. "old."
+
+### 2. The Mass-Disable Strategy
+
+If your tool doesn't support baselines, you can use a script to automatically add "disable" comments (like `/* eslint-disable */` or `// @ts-nocheck`) to the top of every existing file.
+
+> **Goal:** The CI/CD pipeline should pass immediately. You haven't fixed the debt, but you've stopped it from growing.
+
+## Phase 2: Then Heal (The Boy Scout Approach)
+
+Now that the "bleeding" has stopped, you begin the healing process using the **Boy Scout Rule**: *“Always leave the campground cleaner than you found it.”*
+
+### How it works:
+
+1. **Touch it, fix it:** If you open `UserComponent.ts` to add a feature, you are now responsible for that file.
+2. **Remove the Shield:** Delete the `/* eslint-disable */` line at the top.
+3. **Fix the Errors:** Address the styling, TS, or linting errors in *only* that file.
+4. **Incremental Progress:** Over time, the active parts of your codebase become clean, while "dead" code remains suppressed.
+
+## A Critique of Alternative Suppression Methods
+
+Some teams try to automate this differently. Here is why those common "shortcuts" often fail:
+
+### Approach A: Bulk Rule Suppression (Specific Rules)
+
+You can configure your linter to suppress specific rules project-wide until they are fixed.
+
+* **The Flaw:** Developers often forget to check if a file they are editing *would* have triggered those suppressed rules. The "healing" never happens because the errors are invisible at the file level.
+
+### Approach B: CI vs. Pre-commit Split
+
+Some use a "loose" linter on CI (with suppression) but a "strict" linter locally using tools like `lint-staged` on a git pre-commit hook.
+
+* **The Flaw:** Git hooks are easily skipped (e.g., `git commit --no-verify`). If the CI doesn't enforce the strict rules, "bleeding" code will inevitably leak into the main branch, defeating the whole purpose.
+
+## The Guardrail: Ensuring the Heal
+
+To make the **Stop the Bleed, Then Heal** method bulletproof, you need a **Guardrail** in your CI/CD pipeline.
+
+We recommend adding a check in your Merge Request (MR) or Commit pipeline that scans the **changed files**. If a developer modifies a file but leaves the `/* eslint-disable */` comment at the top, the build should fail.
+
+> **The Rule:** "If you touch the file's logic, you must remove the suppression and fix the linting/styling/TS errors."
+
+This ensures that the "Heal" phase actually happens and isn't just a "pinky promise" that gets ignored during a rush.
+
+## Summary of Principles
+
+| Feature | The "Big Bang" Way | Stop the Bleed / Boy Scout |
+| --- | --- | --- |
+| **Speed to Merge** | Weeks | Hours |
+| **Merge Conflicts** | High / Constant | Low |
+| **Git History** | Ruined (Mass Blame) | Preserved |
+| **Enforcement** | Manual/Painful | Automated via Guardrails |
+
+By following this approach, you transition from a "messy" project to a "clean" one without ever stopping the feature train or driving your teammates crazy.

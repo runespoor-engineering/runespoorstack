@@ -99,8 +99,6 @@ const sidebars = {
 						"engineering-playbook/testing/testing-conventions",
 						"engineering-playbook/testing/impact-analyses",
 						"engineering-playbook/testing/recommened-linters",
-						"engineering-playbook/testing/adding-eslint-to-an-existing-project",
-						"engineering-playbook/testing/eslint-over-conventions",
 					],
 				},
 				{
@@ -115,6 +113,13 @@ const sidebars = {
 						"engineering-playbook/CI-CD/cd-github-vs-gitlab",
 						"engineering-playbook/CI-CD/copy-paste-analyzing",
             "engineering-playbook/CI-CD/unused-code-detection",
+					],
+				},
+        {
+					type: "category",
+					label: "Tech Debt",
+					items: [
+						"engineering-playbook/tech-debt/stop-the-bleed-then-heal",
 					],
 				},
 				{
