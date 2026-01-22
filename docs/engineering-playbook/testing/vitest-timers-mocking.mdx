@@ -16,84 +16,63 @@ Fake timers allow you to control time in your tests, making them:
 
 ## The Problem: Setting Fake Timers Too Late
 
-### ❌ Incorrect Pattern
+Common mistakes when testing timers in Vitest:
+- Enabling fake timers too late
+- Using `waitFor` without understanding how it works
+- Not cleaning up fake timers after the test
 
-**Problem**: Enabling fake timers after async operations and `waitFor` calls have already started.
+This makes tests slow and flaky.
+
+### Incorrect Pattern 1: Too Late + Missing `shouldAdvanceTime`
 
 ```typescript
-it('should reset state after timeout', async () => {
-  expect.hasAssertions();
-
-  // Component renders with real timers
-  render(<NotificationComponent />);
-
-  // User interaction with real timers
-  await userEvent.click(screen.getByRole('button'));
-
-  // waitFor uses real timers for polling
-  await waitFor(() => {
-    expect(screen.getByText('Success')).toBeInTheDocument();
-  });
-
-  // ❌ TOO LATE: Fake timers enabled after async operations
-  vi.useFakeTimers({ shouldAdvanceTime: true });
-
-  act(() => {
-    vi.advanceTimersByTime(5000);
-  });
-
-  // ❌ PROBLEM: waitFor still uses real timers internally
-  // This causes ~1000ms+ delay even though state may already be correct
-  await waitFor(() => {
-    expect(screen.queryByText('Success')).not.toBeInTheDocument();
-  });
-
-  vi.useRealTimers();
-});
+render(<Component />);
+await userEvent.click(button);
+// Too late + shouldAdvanceTime not used
+vi.useFakeTimers();
+vi.advanceTimersByTime(5000);
+// Fails
+/* assertion */
 ```
 
-**Why This Fails**:
+### Incorrect Pattern 2: Too Late + `waitFor` Uses Real Timers
 
-1. `waitFor` from React Testing Library uses real timers internally for polling
-2. Even after advancing fake timers, `waitFor` continues polling with real time
-3. This causes unnecessary delays (often 1000ms+) and makes tests slow
-4. The test may pass, but it's inefficient and can be flaky
+```typescript
+render(<Component />);
+await userEvent.click(button);
+// Too late
+vi.useFakeTimers({ shouldAdvanceTime: true });
+vi.advanceTimersByTime(5000);
+// waitFor uses real timers internally → 1000ms+ delay
+await waitFor(() => { /* assertion */ });
+```
+
+**Note**: The test will pass, but will be slow. `waitFor` continues to use real timers for polling, even after `advanceTimersByTime`. Result: unnecessary 1000ms+ delays instead of instant checks.
 
 **Performance Impact**: Tests can take 10-15x longer than necessary (e.g., 87ms → 1300ms).
 
-### ✅ Correct Pattern
+### Incorrect Pattern 3: Missing Cleanup
+
+```typescript
+vi.useFakeTimers({ shouldAdvanceTime: true });
+render(<Component />);
+await userEvent.click(button);
+act(() => vi.advanceTimersByTime(5000));
+/* assertion */
+// Missing cleanup of fake timers
+```
+
+### Correct Pattern
 
 **Solution**: Enable fake timers **before** any component rendering or async operations.
 
 ```typescript
-it('should reset state after timeout', async () => {
-  expect.hasAssertions();
-
-  // ✅ Enable fake timers FIRST, before any rendering
-  vi.useFakeTimers({ shouldAdvanceTime: true });
-
-  render(<NotificationComponent />);
-
-  // Now all timers (including userEvent and waitFor) use fake timers
-  await userEvent.click(screen.getByRole('button'));
-
-  await waitFor(() => {
-    expect(screen.getByText('Success')).toBeInTheDocument();
-  });
-
-  // Advance fake timers - this works correctly now
-  act(() => {
-    vi.advanceTimersByTime(5000);
-  });
-
-  // waitFor now uses fake timers, so it's fast
-  await waitFor(() => {
-    expect(screen.queryByText('Success')).not.toBeInTheDocument();
-  });
-
-  // Clean up: restore real timers
-  vi.useRealTimers();
-});
+vi.useFakeTimers({ shouldAdvanceTime: true });
+render(<Component />);
+await userEvent.click(button);
+act(() => vi.advanceTimersByTime(5000));
+/* assertion */
+vi.useRealTimers(); // cleanup
 ```
 
 **Why This Works**:
@@ -115,20 +94,23 @@ Always enable fake timers **before**:
 - Any async operations that might use timers
 
 ```typescript
-it('should handle delayed state update', async () => {
-  expect.hasAssertions();
+// Enable at the start
+vi.useFakeTimers();
 
-  // ✅ Enable at the start
-  vi.useFakeTimers();
+// Then proceed with test setup
+render(<Component />);
+await userEvent.click(button);
 
-  // Then proceed with test setup
-  const scope = fork({ values: [[$myStore, initialValue]] });
-  render(<MyComponent />, {}, { effector: { scope } });
-
-  // ... rest of test
-
-  vi.useRealTimers();
+// Advance timers
+act(() => {
+  vi.advanceTimersByTime(5000);
 });
+
+// Assertions
+/* assertion */
+
+// Clean up
+vi.useRealTimers();
 ```
 
 ### 2. Use `shouldAdvanceTime: true` When Needed
@@ -139,10 +121,19 @@ Use `shouldAdvanceTime: true` when you need to advance timers that are already s
 // For setTimeout/setInterval that are already running
 vi.useFakeTimers({ shouldAdvanceTime: true });
 
+render(<Component />);
+await userEvent.click(button);
+
 // Advance time
 act(() => {
   vi.advanceTimersByTime(5000);
 });
+
+// Assertions
+/* assertion */
+
+// Clean up
+vi.useRealTimers();
 ```
 
 ### 3. Always Clean Up
@@ -150,14 +141,21 @@ act(() => {
 Always restore real timers at the end of your test to avoid affecting other tests:
 
 ```typescript
-it('should test timeout behavior', async () => {
-  vi.useFakeTimers();
+vi.useFakeTimers();
 
-  // ... test code ...
+render(<Component />);
+await userEvent.click(button);
 
-  // ✅ Always restore
-  vi.useRealTimers();
+// Advance timers
+act(() => {
+  vi.advanceTimersByTime(5000);
 });
+
+// Assertions
+/* assertion */
+
+// Always restore
+vi.useRealTimers();
 ```
 
 ### 4. Alternative: Skip `waitFor` After Advancing Timers
@@ -165,30 +163,23 @@ it('should test timeout behavior', async () => {
 If you've already advanced timers and the state update is synchronous, you can skip `waitFor`:
 
 ```typescript
-it('should reset after timeout', async () => {
-  expect.hasAssertions();
+vi.useFakeTimers({ shouldAdvanceTime: true });
 
-  vi.useFakeTimers({ shouldAdvanceTime: true });
+render(<Component />);
+await userEvent.click(button);
 
-  render(<Component />);
-  await userEvent.click(screen.getByRole('button'));
+await waitFor(() => { /* assertion */ });
 
-  await waitFor(() => {
-    expect(screen.getByText('Loading')).toBeInTheDocument();
-  });
-
-  // Advance timers
-  act(() => {
-    vi.advanceTimersByTime(5000);
-  });
-
-  // ✅ State should be updated synchronously after advancing timers
-  // No need for waitFor if the update is immediate
-  expect(screen.queryByText('Loading')).not.toBeInTheDocument();
-  expect(screen.getByText('Complete')).toBeInTheDocument();
-
-  vi.useRealTimers();
+// Advance timers
+act(() => {
+  vi.advanceTimersByTime(5000);
 });
+
+// State should be updated synchronously after advancing timers
+// No need for waitFor if the update is immediate
+/* assertion */
+
+vi.useRealTimers();
 ```
 
 **Note**: This only works if the state update is synchronous. If there are async operations triggered by the timeout, you still need `waitFor`.
@@ -208,86 +199,66 @@ useEffect(() => {
   }
 }, [isSuccess, resetState]);
 
-// ✅ Correct test
-it('should reset state after 5 seconds', async () => {
-  expect.hasAssertions();
+// Correct test
+vi.useFakeTimers({ shouldAdvanceTime: true });
 
-  vi.useFakeTimers({ shouldAdvanceTime: true });
+render(<Component />);
+await userEvent.click(button);
 
-  render(<Component />);
-  await userEvent.click(screen.getByRole('button'));
+await waitFor(() => { /* assertion */ });
 
-  await waitFor(() => {
-    expect(screen.getByText('Success')).toBeInTheDocument();
-  });
-
-  act(() => {
-    vi.advanceTimersByTime(5000);
-  });
-
-  await waitFor(() => {
-    expect(screen.queryByText('Success')).not.toBeInTheDocument();
-  });
-
-  vi.useRealTimers();
+act(() => {
+  vi.advanceTimersByTime(5000);
 });
+
+await waitFor(() => { /* assertion */ });
+
+vi.useRealTimers();
 ```
 
 ### Scenario 2: Testing Debounced Input
 
 ```typescript
-// ✅ Correct test
-it('should debounce search input', async () => {
-  expect.hasAssertions();
+// Correct test
+vi.useFakeTimers();
 
-  vi.useFakeTimers();
+render(<SearchInput />);
+const input = screen.getByRole('textbox');
 
-  render(<SearchInput />);
-  const input = screen.getByRole('textbox');
+await userEvent.type(input, 'test query');
 
-  await userEvent.type(input, 'test query');
+// Search should not trigger immediately
+/* assertion */
 
-  // Search should not trigger immediately
-  expect(screen.queryByText('Searching...')).not.toBeInTheDocument();
-
-  // Advance past debounce delay (e.g., 300ms)
-  act(() => {
-    vi.advanceTimersByTime(300);
-  });
-
-  await waitFor(() => {
-    expect(screen.getByText('Searching...')).toBeInTheDocument();
-  });
-
-  vi.useRealTimers();
+// Advance past debounce delay (e.g., 300ms)
+act(() => {
+  vi.advanceTimersByTime(300);
 });
+
+await waitFor(() => { /* assertion */ });
+
+vi.useRealTimers();
 ```
 
 ### Scenario 3: Testing Polling Behavior
 
 ```typescript
-// ✅ Correct test
-it('should poll for updates every 10 seconds', async () => {
-  expect.hasAssertions();
+// Correct test
+vi.useFakeTimers({ shouldAdvanceTime: true });
 
-  vi.useFakeTimers({ shouldAdvanceTime: true });
+render(<PollingComponent />);
 
-  render(<PollingComponent />);
+// Initial render
+/* assertion */
 
-  // Initial render
-  expect(screen.getByText('Data: initial')).toBeInTheDocument();
-
-  // Advance 10 seconds - should trigger poll
-  act(() => {
-    vi.advanceTimersByTime(10000);
-  });
-
-  await waitFor(() => {
-    expect(screen.getByText('Data: updated')).toBeInTheDocument();
-  });
-
-  vi.useRealTimers();
+// Advance 10 seconds - should trigger poll
+act(() => {
+  vi.advanceTimersByTime(10000);
 });
+
+await waitFor(() => { /* assertion */ });
+
+vi.useRealTimers();
 ```
 
 ## Troubleshooting
