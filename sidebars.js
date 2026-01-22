@@ -99,6 +99,7 @@ const sidebars = {
 						"engineering-playbook/testing/testing-conventions",
 						"engineering-playbook/testing/impact-analyses",
 						"engineering-playbook/testing/recommened-linters",
+            "engineering-playbook/testing/vitest-timers-mocking",
 					],
 				},
 				{
